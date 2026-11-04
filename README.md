@@ -2,6 +2,8 @@
 
 Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa de Donkey Kong Country para Windows, partindo do trabalho público do DKC1Recomp.
 
+**Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
+
 **Etapa atual: documentação e planejamento.** O código de referência e um pacote oficial para Windows estão disponíveis localmente. Ainda não geramos, compilamos ou executamos o jogo neste projeto.
 
 Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). Esta publicação inicial reúne documentação; os arquivos locais de jogo e os pacotes de referência permanecem fora do repositório.

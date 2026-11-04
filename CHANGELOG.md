@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-04 — Meta final de PT-BR e aplicativo Windows
+
+- Registrada a orientação do usuário: estabilizar e validar o port antes de traduzi-lo para PT-BR.
+- Definida a experiência desejada de abrir o executável e jogar, sem comandos ou seleção repetida de ROM no uso habitual.
+- Acrescentados marcos de tradução e empacotamento e critérios de campanha, localização, regressão e abertura direta.
+- Preparação única dos dados, instalador ou pacote portátil permanecem propostas técnicas; o formato final não foi escolhido.
+- Atualização documental, sem alterações no código do jogo, traduções aplicadas ou novos testes funcionais.
+
 ## 2026-11-04 — Criação do repositório público
 
 ### Realizado

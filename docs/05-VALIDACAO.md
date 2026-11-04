@@ -41,3 +41,18 @@ Título com sintoma observável; ROM/build; cenário; passos; comportamento espe
 ## Leitura correta dos resultados
 
 Integridade do ZIP verifica o download. Compilação bem-sucedida verifica a produção do binário. Testes de modelos verificam contratos específicos. Execução headless verifica os estados que ela mede. A inspeção da janela e do áudio verifica a experiência visível. São evidências complementares, com limites diferentes.
+
+## Validação da meta final
+
+Estes critérios propostos dão forma verificável à meta de PT-BR e abertura direta, acordada após a documentação inicial:
+
+| ID | Verificação | Aceitação proposta |
+| --- | --- | --- |
+| V14 | Campanha e estabilidade da base | Percurso completo registrado, com chefes, bônus, transições, mortes, áudio e saves; sem defeitos críticos conhecidos na cobertura aceita |
+| V15 | Cobertura da tradução | Inventário de textos e telas conferido contra a versão PT-BR, com exceções explicitadas |
+| V16 | Qualidade linguística e visual | Revisão em contexto, acentos corretos, texto legível e sem cortes ou estouros de caixas |
+| V17 | Regressão da tradução | Rotas, progressão, áudio e persistência continuam corretos após a localização |
+| V18 | Abertura direta | Após a preparação inicial definida, abrir o executável inicia o jogo sem terminal ou nova seleção de ROM |
+| V19 | Pacote de aplicativo | Testar em ambiente Windows sem ferramentas de desenvolvimento, incluindo caminho com espaços/acentos, saves e preferências entre sessões |
+
+Todos estão pendentes. A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.

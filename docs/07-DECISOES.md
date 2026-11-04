@@ -63,3 +63,11 @@ O clone está em `3eb9a10…`, enquanto o pacote v0.0.17 declara `559bab6…`. F
 **Estado:** permissão de uso recebida; nenhuma adoção nova concluída.
 
 O usuário disponibilizou seis repositórios como possíveis auxiliares. Eles entram no catálogo de referências, com função e aplicação propostas. Instalação ou dependência de build será registrada separadamente quando ocorrer.
+
+## D009 — PT-BR e experiência de aplicativo após estabilização
+
+**Estado:** aceita. **Origem:** usuário definiu a tradução para PT-BR e a abertura pelo executável como meta posterior ao port funcionando corretamente.
+
+Primeiro validar amplamente a base; depois localizar o jogo e preparar a experiência de aplicativo Windows. O uso habitual deve ser abrir o executável e jogar, sem terminal ou escolha repetida de ROM.
+
+**Consequência:** entram no roteiro tradução, revisão de fontes e telas, regressão e empacotamento. O formato de instalação e uma eventual importação única dos dados são propostas técnicas, ainda sem escolha definitiva. Nenhuma tradução ou alteração de runtime foi implementada nesta atualização.

@@ -36,4 +36,20 @@ Suporte à ROM v1.2, mudanças de gameplay, widescreen próprio, aumento de taxa
 
 O usuário define objetivos e prioridades; o assistente prepara documentação, investigações e alterações dentro desse escopo. Não há prazo, equipe ampliada ou calendário de reuniões definido. As novas propostas permanecem explicitamente identificadas até serem adotadas.
 
-O pedido mais recente define a prioridade: concluir e revisar a documentação antes de avançar com código, ferramentas adicionais e GitHub público.
+A documentação inicial e a criação do repositório público foram realizadas. A próxima etapa técnica é preparar a base reproduzível; as metas finais acordadas estão descritas a seguir.
+
+## Meta final acordada — PT-BR e abertura direta
+
+Após estabilizar e validar o port, a meta definida pelo usuário é traduzir o jogo para português brasileiro e entregá-lo com a experiência de um aplicativo comum de Windows: abrir o executável e jogar.
+
+A ordem de trabalho é: port funcional, validação ampla, tradução e empacotamento final. A fase de tradução depende da aceitação da base estável. A expressão “funcionando perfeitamente” será acompanhada de evidências: campanha, transições, controles, áudio e persistência avaliados, sem defeitos críticos conhecidos nos cenários cobertos; não é uma garantia de ausência absoluta de bugs.
+
+### Tradução
+
+Inventariar textos e telas; definir glossário e tom em PT-BR; verificar fonte e acentos; traduzir os textos acessíveis ao jogador e revisar sua exibição no jogo. Confirmar o inventário antes de definir sua cobertura como completa. Tradução de textos em gráficos pode exigir trabalho separado. A técnica de localização ainda será escolhida após conhecer a base estável.
+
+### Experiência de aplicativo
+
+A abertura habitual deve iniciar o jogo sem terminal, comandos, compilação ou escolha repetida de ROM. Saves e preferências devem persistir, e os arquivos necessários devem acompanhar a instalação ou a versão portátil. O usuário não exigiu um único arquivo físico: o executável pode ter dados e bibliotecas de suporte, desde que a abertura continue simples.
+
+Como proposta técnica, a instalação ou primeira preparação poderá importar os dados da ROM local uma única vez. O formato final — instalador, pacote portátil, dados embutidos ou arquivo de dados separado — permanece em aberto. A preparação e o pacote local devem manter a separação entre o código publicado e os dados do jogo.

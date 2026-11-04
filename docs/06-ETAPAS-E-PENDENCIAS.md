@@ -12,6 +12,8 @@ Plano inicial de 2026-11-04, sem datas de entrega assumidas. Os marcos abaixo or
 | M3 — Primeira sessão jogável | Boot até fase, interação e saída | Cenários iniciais aceitos com evidências |
 | M4 — Persistência e cobertura | Saves e variedade de cenas | Matriz executada com limites explícitos |
 | M5 — Publicação | Repositório e instruções utilizáveis | Arquivos de publicação conferidos, créditos e reprodução claros |
+| M6 — Tradução PT-BR | Jogo localizado após a aceitação da base estável | Inventário, revisão em contexto e regressão da tradução concluídos |
+| M7 — Aplicativo Windows | Abrir o executável e jogar | Pacote testado sem ferramentas de desenvolvimento, com saves persistentes e sem configuração repetida |
 
 O usuário priorizou M0 e, após a preparação dos documentos, solicitou expressamente a criação do GitHub público. O repositório foi criado para a publicação inicial da documentação; os marcos de compilação e validação permanecem pendentes.
 
@@ -30,6 +32,8 @@ O usuário priorizou M0 e, após a preparação dos documentos, solicitou expres
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
+
+A meta posterior acordada é PT-BR e abertura direta. A publicação inicial de documentação não conclui os marcos de estabilidade do jogo. Antes de M6, executar a campanha e aceitar a cobertura ampliada; depois revisar a tradução e testar o pacote final. A técnica de tradução e o formato de distribuição ainda serão definidos.
 
 ## Riscos técnicos atuais
 
