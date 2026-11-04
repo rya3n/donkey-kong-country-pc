@@ -16,7 +16,7 @@ Donkey Kong Country e seus elementos pertencem aos respectivos titulares. Este �
 
 ## Política proposta para o repositório
 
-Publicar nossa documentação e, quando existirem, scripts e alterações próprias com sua procedência. Referenciar o upstream por URL e revisão; definir depois se será um submódulo, fork ou clone independente documentado. O diretório atual `upstream/` contém um repositório Git próprio, que não deve ser incorporado acidentalmente como se fosse código original nosso.
+Publicar nossa documentação e, quando existirem, scripts e alterações próprias com sua procedência. Para a preparação inicial foi adotado um clone independente documentado, controlado por URL e revisões em config/upstream.lock.json. O diretório upstream/ contém um repositório Git próprio e permanece ignorado, preservando a procedência dos autores.
 
 Manter fora da publicação ROMs, gráficos e áudio extraídos, fontes geradas da ROM, saves privados, estados, capturas do jogo, arquivos de download e binários baixados. Para uma futura distribuição de binários, realizar uma revisão específica de conteúdo e avisos; a autorização para um repositório público não significa que um pacote já tenha sido preparado.
 

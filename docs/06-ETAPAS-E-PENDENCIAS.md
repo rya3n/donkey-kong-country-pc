@@ -21,15 +21,18 @@ O usuário priorizou M0 e, após a preparação dos documentos, solicitou expres
 
 | ID | Ação | Estado | Dependência e resultado esperado |
 | --- | --- | --- | --- |
-| P01 | Revisar a documentação inicial | Em revisão | Concordar com escopo e roteiro, mantendo dúvidas registradas |
-| P02 | Disponibilizar ROM USA v1.0 | Bloqueia build | Arquivo local com tamanho e hash suportados |
-| P03 | Selecionar revisão de código/engine | Aberta | Escolher clone atual ou revisão do pacote; registrar o par |
-| P04 | Confirmar ambiente C/CMake | Aberta | Localizar ambiente existente ou preparar as ferramentas necessárias |
-| P05 | Repetir suíte com logs completos | Depende de P04 | Resultados arquivados e erros classificados |
+| P01 | Revisar a documentação inicial | Concluída para início técnico | Onze páginas do Notion revisadas; estado atual, bloqueio e roteiro atualizados |
+| P02 | Disponibilizar ROM USA v1.0 | Bloqueada: arquivo indisponível | Usuário confirmou a ausência; validar tamanho e hash quando o arquivo estiver disponível |
+| P03 | Selecionar revisão de código/engine | Concluída | v0.0.17 e os três commits conferidos contra config/upstream.lock.json |
+| P04 | Confirmar ambiente C/CMake | Concluída a verificação básica | MSVC/CMake/Ninja no E:, SDK funcional e programa mínimo compilado e executado |
+| P05 | Repetir suíte com logs completos | Executada; portabilidade pendente | 303 testes, 2 erros por cc/flags de sanitizers e 10 skips; log integral preservado |
 | P06 | Gerar fontes e compilar | Depende de P02–P04 | Binário próprio identificado |
 | P07 | Validar a primeira sessão | Depende de P06 | Resultados V04–V09 do plano de validação |
 | P08 | Validar persistência | Depende de P07 | Save de jogo e save state avaliados separadamente |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
+| P10 | Validar campanha e estabilidade | Após o build e os testes iniciais | Cobertura V14 aceita antes de iniciar a tradução |
+| P11 | Inventariar, traduzir e revisar PT-BR | Depende de P10 | Cobertura de textos, fonte, acentos e regressão V15–V17 |
+| P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 

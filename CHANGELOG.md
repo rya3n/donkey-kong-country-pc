@@ -2,6 +2,27 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-04 — Revisão final do Notion e início técnico
+
+### Revisado e iniciado
+
+- Lidas as 11 páginas do projeto no Notion, sem truncamento; atualizados o estado atual e o roteiro para iniciar a preparação técnica.
+- Acrescentadas pendências explícitas de campanha completa, tradução PT-BR e aplicativo Windows, mantendo suas dependências.
+- Confirmado pelo usuário que a ROM USA v1.0 ainda não está disponível; geração e gameplay continuam aguardando essa entrada.
+- Fixada a base limpa na tag v0.0.17 e inicializadas as revisões correspondentes dos submódulos.
+- Criados config/upstream.lock.json e scripts/check_project.py para repetir a verificação dos commits, da ROM e das ferramentas sem alterar os arquivos de jogo.
+- Registrada a orientação de instalar novas ferramentas no E:. A instância de BuildTools iniciada no C: foi removida pelo desinstalador oficial com saída 0; a reinstalação foi direcionada ao E:.
+
+### Validação realizada
+
+- O verificador confirmou os três commits e identificou a ROM v1.2 como não suportada, retornando código 1 pelos pré-requisitos pendentes.
+- Sintaxe do script e estrutura JSON do lock conferidas; nenhuma geração do jogo foi iniciada.
+- Instalação no E: concluída com saída 0 e sem reinicialização exigida; a antiga pasta principal do BuildTools no C: foi removida.
+- MSVC, CMake 3.31.6-msvc6 e Ninja 1.12.1 conferidos no E:. Programa mínimo com o SDK compilado e executado com sucesso.
+- SDK 10.0.26100.0 e instalador compartilhado da Microsoft permaneceram no C: e não foram apagados manualmente.
+- Suíte pública: 303 testes, 2 erros e 10 skips. Os erros dependem de cc e flags GCC/Clang/sanitizers; a suíte não foi declarada aprovada.
+- O pré-flight final confirmou commits e ferramentas, retornando saída 1 somente pela ausência da ROM USA v1.0. Logs completos em evidence/2026-11-04/environment/.
+
 ## 2026-11-04 — Meta final de PT-BR e aplicativo Windows
 
 - Registrada a orientação do usuário: estabilizar e validar o port antes de traduzi-lo para PT-BR.

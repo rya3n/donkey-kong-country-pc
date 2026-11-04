@@ -14,7 +14,7 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | --- | --- | --- | --- |
 | V01 | Verificar ROM suportada | Tamanho e SHA-256 exatos | Pendente: ROM ausente |
 | V02 | Gerar e compilar | Comandos terminam com sucesso e executável é identificado | Pendente: ambiente e base |
-| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | Pendente: repetir com compilador |
+| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | Suíte pública: 303 testes, 2 erros, 10 skips; CTest do jogo aguarda ROM/build |
 | V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Não executado |
 | V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Não executado |
 | V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Não executado |

@@ -52,11 +52,11 @@ Validar inicialmente o framebuffer de 256×224 e registrar a proporção de exib
 
 ## D007 — Fixar código e engine antes da compilação
 
-**Estado:** proposta técnica; revisão específica ainda em aberto.
+**Estado:** decisão técnica implementada na preparação autorizada pelo usuário.
 
-O clone está em `3eb9a10…`, enquanto o pacote v0.0.17 declara `559bab6…`. Fixar um conjunto antes de compilar e comparar.
+O clone inicial estava em `3eb9a10…`, enquanto o pacote v0.0.17 declara `559bab6…`. Foi escolhida e aplicada a v0.0.17 para alinhar fonte e pacote de referência, com engine `75223f3…` e recomp-net `6d848d6…`. Os hashes completos ficam em `config/upstream.lock.json`.
 
-**Consequência:** não atribuir à base local um resultado obtido em outra revisão. O clone não foi atualizado ou modificado durante a documentação.
+**Consequência:** o primeiro build deve partir desse conjunto. O verificador scripts/check_project.py detecta divergências das revisões. A mudança de checkout não representa geração de código do jogo nem validação de gameplay.
 
 ## D008 — Avaliar ferramentas pela necessidade
 
@@ -71,3 +71,9 @@ O usuário disponibilizou seis repositórios como possíveis auxiliares. Eles en
 Primeiro validar amplamente a base; depois localizar o jogo e preparar a experiência de aplicativo Windows. O uso habitual deve ser abrir o executável e jogar, sem terminal ou escolha repetida de ROM.
 
 **Consequência:** entram no roteiro tradução, revisão de fontes e telas, regressão e empacotamento. O formato de instalação e uma eventual importação única dos dados são propostas técnicas, ainda sem escolha definitiva. Nenhuma tradução ou alteração de runtime foi implementada nesta atualização.
+
+## D010 — Instalar ferramentas no disco E:
+
+**Estado:** aceita. **Origem:** usuário orientou novas instalações no E: e autorizou corrigir a instalação iniciada no C:.
+
+Usar E:\Ferramentas como destino principal. Para BuildTools, remover a instância recém-criada no C: pelo desinstalador oficial e reinstalar no E:, preservando programas preexistentes. Conferir separadamente componentes compartilhados cujo instalador imponha outro destino; não apagar manualmente componentes registrados do Windows.

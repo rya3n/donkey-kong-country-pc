@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: documentação e planejamento.** O código de referência e um pacote oficial para Windows estão disponíveis localmente. Ainda não geramos, compilamos ou executamos o jogo neste projeto.
+**Etapa atual: preparação do ambiente de desenvolvimento.** O código de referência está fixado e a documentação foi revisada para iniciar o trabalho técnico. Ainda não geramos, compilamos ou executamos o jogo neste projeto.
 
 Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). Esta publicação inicial reúne documentação; os arquivos locais de jogo e os pacotes de referência permanecem fora do repositório.
 
@@ -27,8 +27,8 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 
 - Decidimos usar a ROM americana v1.0 como primeira base compatível.
 - O único arquivo de jogo encontrado na pasta é a revisão v1.2; seu checksum interno confere, mas ela não é a entrada suportada pela base escolhida.
-- O código local está no commit `3eb9a10c49cb210df2bd63addafe2a78cf9f4e22`; o pacote Windows v0.0.17 declara outro commit. As duas referências estão identificadas no diagnóstico.
-- Não encontramos compilador C nem CMake no PATH da sessão examinada.
+- A base de desenvolvimento está fixada na v0.0.17, commit `559bab62596a97e91f389b39cdeb6cda981ab7c9`, com engine e submódulos identificados em `config/upstream.lock.json`.
+- MSVC, CMake e Ninja foram instalados e verificados em E:\Ferramentas. O SDK do Windows e o instalador compartilhado da Microsoft permanecem no C:.
 - A documentação inicial foi preparada antes da criação deste repositório. A implementação do port permanece pendente.
 
 ## Organização dos arquivos
@@ -47,6 +47,8 @@ Os documentos em Markdown são a referência técnica versionável. A área excl
 
 Os links de navegação do Notion privado ficam no arquivo local `.project-local.md`, excluído da publicação. O conteúdo técnico público pode ser consultado pelos documentos deste repositório.
 
-**Próximo passo:** revisar esta documentação. Depois, confirmar a ROM suportada e escolher uma revisão de código reproduzível antes de compilar.
+**Próxima entrada necessária:** ROM USA v1.0, ainda não disponível. A preparação do compilador no E: e o teste mínimo com o SDK foram concluídos. A suíte pública executou 303 testes e terminou com 2 erros e 10 ignorados; as limitações de portabilidade desses testes estão registradas no diagnóstico.
+
+Para repetir a checagem local, execute `python scripts/check_project.py` ou use `--json` para obter um relatório estruturado. O verificador retorna código 1 quando há pré-requisitos pendentes e não altera a ROM, o código ou o sistema.
 
 Base consultada: [DKC1Recomp](https://github.com/elliotttate/DKC1Recomp). Os avanços relatados pelos autores são evidências externas e não equivalem a resultados obtidos aqui.

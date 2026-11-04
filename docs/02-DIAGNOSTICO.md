@@ -28,7 +28,7 @@ O `upstream/scripts/generate_snesrecomp.py` exige, para o jogo original, USA v1.
 
 O hash da ROM local é diferente. Renomear o arquivo ou alterar apenas a verificação não converte uma revisão em outra. A ROM v1.0 ainda não foi encontrada na pasta examinada.
 
-## E03 — Código local e pacote distribuído
+## E03 — Código local e pacote distribuído na inspeção inicial
 
 | Referência | Identidade |
 | --- | --- |
@@ -44,9 +44,9 @@ O hash da ROM local é diferente. Renomear o arquivo ou alterar apenas a verific
 
 O ZIP foi conferido contra o digest obtido na API oficial do GitHub. Na revisão documental, os 20 arquivos listados em `BUILDINFO.json` conferiram em tamanho e SHA-256, sem divergências. O manifesto e o ZIP vieram da mesma distribuição; isso não constitui uma auditoria independente do executável.
 
-**Conclusão para a reprodução:** o clone atual não é o código identificado pelo pacote v0.0.17. Antes de comparar binários ou atribuir recursos ao nosso build, precisamos escolher e fixar um par código/engine. Nenhum checkout foi alterado nesta etapa documental.
+**Conclusão da inspeção inicial:** o clone então disponível não era o código identificado pelo pacote v0.0.17. Essa divergência foi posteriormente resolvida na preparação técnica descrita em E07. O registro acima preserva a identidade usada nos testes iniciais.
 
-## E04 — Ferramentas observadas
+## E04 — Ferramentas observadas na inspeção inicial
 
 | Ferramenta | Resultado da consulta |
 | --- | --- |
@@ -76,3 +76,17 @@ Na observação inicial, não houve geração de fontes a partir da ROM, compila
 Atualização na mesma data: o repositório público foi criado como [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc) usando a autenticação existente do Git e a API do GitHub. A publicação inicial contém documentação; o estado funcional do jogo permanece sem validação local.
 
 As notas de release do pacote relatam recursos e testes dos mantenedores. Eles devem ser tratados como resultados externos, separados dos nossos.
+
+## E07 — Início técnico após a revisão do Notion
+
+As 11 páginas do projeto foram lidas pela conexão sem truncamento. Foram identificadas pendências de estado atual, ações futuras de PT-BR/empacotamento e escolha da revisão de código. O usuário confirmou que ainda não dispõe da ROM USA v1.0; a geração permanece bloqueada por essa entrada.
+
+O clone limpo foi fixado na tag v0.0.17, commit `559bab62596a97e91f389b39cdeb6cda981ab7c9`; os submódulos foram inicializados em `75223f35b16e4c904cea78453b9cd1fcefbcd7f2` e `6d848d6f9a7269d511e6e97d943c2ef0774779b0`. O primeiro resultado de `python scripts/check_project.py --json` confirmou as três revisões e rejeitou a ROM v1.2 disponível, com saída 1 por pré-requisitos pendentes. A ausência de ROM não foi contornada.
+
+Após a orientação de instalar no E:, a instância de BuildTools recém-criada no C: foi removida pelo desinstalador oficial, com código de saída 0. A reinstalação em `E:\Ferramentas\VisualStudio\2022\BuildTools` terminou com saída 0, instalação completa e sem reinicialização exigida. A antiga pasta principal no C: deixou de existir. O SDK do Windows e o instalador compartilhado da Microsoft permaneceram no C:, apesar dos destinos de cache/compartilhados solicitados no E:; não foram movidos ou apagados manualmente.
+
+Ferramentas verificadas: BuildTools 17.14.44, toolset MSVC 14.44.35207, CMake 3.31.6-msvc6 e Ninja 1.12.1, com compilador/CMake/Ninja no E:. Um programa mínimo usando windows.h e QueryPerformanceFrequency compilou, vinculou e executou com sucesso, imprimindo MSVC_WINDOWS_SDK_OK. O SDK usado é 10.0.26100.0.
+
+A suíte pública da v0.0.17 executou 303 testes em 11,540 segundos e terminou com FAILED (errors=2, skipped=10). Os dois erros são test_hd_material_cache e setUpClass de test_hd_preload, que chamam cc e usam flags GCC/Clang e sanitizers indisponíveis nesse ambiente MSVC. Não foram alterados nem ignorados para produzir uma aprovação artificial. Os dez skips permanecem registrados no log integral; a suíte não é considerada aprovada.
+
+O verificador final confirmou os três commits e detectou as três ferramentas no E:. Sua única pendência de pré-requisitos é a ROM USA v1.0, com saída 1 esperada. Logs completos locais: evidence/2026-11-04/environment/toolchain.log, public-tests.log e preflight.json. Essas evidências ficam fora da publicação, conforme .gitignore. Nenhum teste de boot ou gameplay foi executado.
