@@ -27,7 +27,7 @@ O usuário priorizou M0 e, após a preparação dos documentos, solicitou expres
 | P06 | Gerar fontes e compilar | Depende de P02–P04 | Binário próprio identificado |
 | P07 | Validar a primeira sessão | Depende de P06 | Resultados V04–V09 do plano de validação |
 | P08 | Validar persistência | Depende de P07 | Save de jogo e save state avaliados separadamente |
-| P09 | Criar repositório público | Criado; publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; conferir arquivos e visibilidade após o envio |
+| P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 

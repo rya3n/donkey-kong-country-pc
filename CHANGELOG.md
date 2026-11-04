@@ -7,10 +7,16 @@ As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recent
 ### Realizado
 
 - Criado o repositório público [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc), conforme pedido expresso do usuário.
-- Preparado o conjunto inicial com README, log, nove documentos técnicos e .gitignore.
+- Publicado o conjunto inicial com README, log, nove documentos técnicos e .gitignore.
 - Adicionadas exclusões para ROMs, saves, arquivos gerados, builds, downloads, runtime e clone independente do upstream.
 - Movidos os links do Notion privado do README para .project-local.md, mantido somente no computador.
 - Mantidos os créditos e a identificação do DKC1Recomp como base de referência.
+
+### Verificado
+
+- Primeiro commit enviado para main: 2b6e933c149225e40ecb614b104749ce581af150.
+- A API do GitHub confirmou visibilidade pública e retornou a árvore completa com os 12 arquivos selecionados, sem arquivos adicionais.
+- A conferência prévia não encontrou padrões de credenciais, links privados do Notion ou caminhos pessoais nos arquivos selecionados; git diff --cached --check passou.
 
 ### Estado técnico
 

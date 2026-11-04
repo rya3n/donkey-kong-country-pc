@@ -33,6 +33,6 @@ Nenhuma licença foi escolhida para o nosso material novo nesta etapa. Não subs
 
 ## Publicação inicial
 
-Em 2026-11-04 foi criado o repositório público [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). O conjunto inicial selecionado contém README, CHANGELOG, os nove documentos em docs/ e .gitignore. O clone de referência permanece independente e não integra essa publicação.
+Em 2026-11-04 foi criado o repositório público [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). O conjunto inicial publicado contém README, CHANGELOG, os nove documentos em docs/ e .gitignore; sua visibilidade e os 12 arquivos foram conferidos pela API. O clone de referência permanece independente e não integra essa publicação.
 
 Os links do Notion privado foram preservados apenas em .project-local.md, ignorado pelo Git. Os documentos técnicos públicos não dependem do acesso a essas páginas para serem compreendidos. Nenhuma versão jogável própria é anunciada nesta publicação.
