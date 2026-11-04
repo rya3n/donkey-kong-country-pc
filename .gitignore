@@ -1,0 +1,48 @@
+# Local game inputs and extracted/generated content
+*.smc
+*.sfc
+*.srm
+*.state
+*.state.*
+*.szst*
+*.pcm
+*.ppm
+*.rom
+generated/
+**/generated/
+captures/
+artifacts/
+evidence/
+
+# Independent upstream checkout and downloaded reference packages
+/upstream/
+/downloads/
+/runtime/
+
+# Build products and local caches
+build/
+build-*/
+**/build/
+**/build-*/
+*.exe
+*.dll
+*.obj
+*.lib
+*.pdb
+*.zip
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# Local configuration, credentials and private workspace navigation
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+/.project-local.md
+/.publish-*.json
+/.publish-*.py
+.DS_Store
+Thumbs.db

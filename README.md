@@ -1,0 +1,50 @@
+# Donkey Kong Country — Port para PC
+
+Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa de Donkey Kong Country para Windows, partindo do trabalho público do DKC1Recomp.
+
+**Etapa atual: documentação e planejamento.** O código de referência e um pacote oficial para Windows estão disponíveis localmente. Ainda não geramos, compilamos ou executamos o jogo neste projeto.
+
+Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). Esta publicação inicial reúne documentação; os arquivos locais de jogo e os pacotes de referência permanecem fora do repositório.
+
+## Comece por aqui
+
+| Documento | O que você encontra |
+| --- | --- |
+| [Visão e escopo](docs/01-VISAO-E-ESCOPO.md) | Objetivo, requisitos e limites da primeira versão |
+| [Diagnóstico e evidências](docs/02-DIAGNOSTICO.md) | Arquivos, hashes, ferramentas e verificações realizadas |
+| [Arquitetura](docs/03-ARQUITETURA.md) | Caminho da ROM até o executável e papel de cada componente |
+| [Ambiente e reprodução](docs/04-AMBIENTE-E-REPRODUCAO.md) | Pré-requisitos e roteiro proposto de compilação |
+| [Plano de validação](docs/05-VALIDACAO.md) | Como comprovar que o port funciona |
+| [Etapas e pendências](docs/06-ETAPAS-E-PENDENCIAS.md) | Sequência do trabalho, dependências e critérios de conclusão |
+| [Registro de decisões](docs/07-DECISOES.md) | O que foi decidido e o que permanece como proposta |
+| [Créditos e publicação](docs/08-CREDITOS-E-PUBLICACAO.md) | Procedência do código e organização do futuro repositório |
+| [Ferramentas e referências](docs/09-FERRAMENTAS-E-REFERENCIAS.md) | Repositórios sugeridos e possível uso no projeto |
+| [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
+
+## Situação em uma leitura
+
+- Decidimos usar a ROM americana v1.0 como primeira base compatível.
+- O único arquivo de jogo encontrado na pasta é a revisão v1.2; seu checksum interno confere, mas ela não é a entrada suportada pela base escolhida.
+- O código local está no commit `3eb9a10c49cb210df2bd63addafe2a78cf9f4e22`; o pacote Windows v0.0.17 declara outro commit. As duas referências estão identificadas no diagnóstico.
+- Não encontramos compilador C nem CMake no PATH da sessão examinada.
+- A documentação inicial foi preparada antes da criação deste repositório. A implementação do port permanece pendente.
+
+## Organização dos arquivos
+
+```text
+README.md                  entrada da documentação
+CHANGELOG.md               log de atualizações
+docs/                      documentos do nosso projeto
+upstream/                  clone independente do DKC1Recomp
+downloads/                 arquivo ZIP oficial baixado
+runtime/                   pacote oficial extraído, sem validação de gameplay local
+*.smc / *.sfc              arquivos locais do usuário; fora da publicação
+```
+
+Os documentos em Markdown são a referência técnica versionável. A área exclusiva do projeto no Notion funciona como índice e cópia de consulta desta edição; a atualização entre os dois lugares é manual e deve ser registrada no log. Este projeto não tem relação de sincronização automática com o repositório dos autores do DKC1Recomp.
+
+Os links de navegação do Notion privado ficam no arquivo local `.project-local.md`, excluído da publicação. O conteúdo técnico público pode ser consultado pelos documentos deste repositório.
+
+**Próximo passo:** revisar esta documentação. Depois, confirmar a ROM suportada e escolher uma revisão de código reproduzível antes de compilar.
+
+Base consultada: [DKC1Recomp](https://github.com/elliotttate/DKC1Recomp). Os avanços relatados pelos autores são evidências externas e não equivalem a resultados obtidos aqui.
