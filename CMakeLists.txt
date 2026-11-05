@@ -43,6 +43,7 @@ endif()
 set(REV1_SOURCES ${ENGINE_SOURCES} ${GENERATED_SOURCES}
     upstream/runner/headless_host.c upstream/runner/input_playback.c runner/usa_rev1.c)
 add_executable(dkc_rev1_headless ${REV1_SOURCES})
+target_compile_definitions(dkc_rev1_headless PRIVATE SNESRECOMP_TIER2_TEST=1)
 if(WIN32)
     add_executable(dkc_rev1_desktop WIN32 ${REV1_SOURCES} runner/desktop_win32.c)
     target_compile_definitions(dkc_rev1_desktop PRIVATE DKC_REV1_DESKTOP=1 UNICODE _UNICODE)

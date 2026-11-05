@@ -17,6 +17,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "usa_rev1.h"
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#endif
 
 enum { WIDTH = 256, HEIGHT = 224, FRAME_MASTER_CLOCKS = 1364 * 262 };
 static uint32_t s_reset_pc, s_nmi_pc, s_resume_pc;
@@ -168,6 +172,22 @@ int main(int argc, char **argv) {
     int loaded = Rev1Open(file);
     if (file) fclose(file);
     if (!loaded) { fprintf(stderr, "Expected the exact USA Rev 1 ROM.\n"); return 2; }
+    /* Seed diagnostic lookup pressure only; ROM targets do not read/write guest state. */
+    const char *seed_path = getenv("DKC_REV1_COVERAGE_SEED");
+    if (seed_path) {
+        FILE *seed = fopen(seed_path, "r");
+        unsigned site, target, mx, kind;
+        if (!seed) { Rev1Close(); return 2; }
+        while (fscanf(seed, "%x %x %u %u", &site, &target, &mx, &kind) == 4) {
+            if (site > 0xffffff || target > 0xffffff || mx > 3 || kind > 4 ||
+                (target >> 16) == 0x7e || (target >> 16) == 0x7f) {
+                fclose(seed); Rev1Close(); return 2;
+            }
+            Tier2CoverageTestRecord(site, target, (uint8_t)mx, (uint8_t)kind, 1);
+        }
+        if (!feof(seed)) { fclose(seed); Rev1Close(); return 2; }
+        fclose(seed);
+    }
     Dkc1InputPlayback playback = {0};
     char input_error[192];
     if (argc == 5 && !Dkc1InputPlaybackLoad(argv[4], &playback, input_error, sizeof input_error)) {
@@ -179,13 +199,51 @@ int main(int argc, char **argv) {
     int audio_active_frames = 0;
     uint8_t audio_chain[32] = {0};
     uint8_t audio_hash_input[32 + sizeof audio];
+    FILE *timing = NULL;
+    const char *timing_path = getenv("DKC_REV1_TIMING_FILE");
+    const char *entrance_arg = getenv("DKC_REV1_TEST_ENTRANCE");
+    unsigned long diagnostic_entrance = 0;
+    if (entrance_arg) {
+        diagnostic_entrance = strtoul(entrance_arg, &end, 16);
+        if (*end || diagnostic_entrance > 0xff) { Rev1Close(); return 2; }
+    }
+#ifdef _WIN32
+    LARGE_INTEGER frequency, begin, finish;
+    QueryPerformanceFrequency(&frequency);
+    if (timing_path) {
+        timing = fopen(timing_path, "w");
+        if (!timing) { Rev1Close(); return 5; }
+        fprintf(timing, "frame,work_ms,entrance,raw0032\n");
+    }
+#else
+    (void)timing_path;
+#endif
     for (long frame = 0; frame < frames; frame++) {
+        /* Diagnostic only: redirect a fresh map entry before cartridge loading.
+         * No release/player path calls this; verify the resulting scene separately.
+         */
+        if (entrance_arg && frame == 4202) {
+            g_ram[0x3e] = (uint8_t)diagnostic_entrance;
+            g_ram[0x3f] = (uint8_t)(diagnostic_entrance >> 8);
+        }
+#ifdef _WIN32
+        if (timing) QueryPerformanceCounter(&begin);
+#endif
         int samples;
         if (!Rev1Step(Dkc1InputPlaybackFrame(&playback, (size_t)frame), audio, &samples)) {
             Rev1Close();
             Dkc1InputPlaybackFree(&playback);
             return 4;
         }
+#ifdef _WIN32
+        if (timing) {
+            QueryPerformanceCounter(&finish);
+            fprintf(timing, "%ld,%.6f,%u,%u\n", frame,
+                (double)(finish.QuadPart - begin.QuadPart) * 1000.0 / frequency.QuadPart,
+                g_ram[0x3e] | ((unsigned)g_ram[0x3f] << 8),
+                g_ram[0x32] | ((unsigned)g_ram[0x33] << 8));
+        }
+#endif
         memcpy(audio_hash_input, audio_chain, sizeof audio_chain);
         memcpy(audio_hash_input + sizeof audio_chain, audio, (size_t)samples * 4);
         sha256_compute(audio_hash_input, sizeof audio_chain + (size_t)samples * 4, audio_chain);
@@ -213,6 +271,7 @@ int main(int argc, char **argv) {
            g_dispatch_table_count, audio_active_frames);
     Rev1Close();
     Dkc1InputPlaybackFree(&playback);
+    if (timing) fclose(timing);
     return 0;
 }
 #endif

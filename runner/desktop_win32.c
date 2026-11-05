@@ -7,6 +7,9 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <wchar.h>
+#include <stdlib.h>
+#include "common_rtl.h"
+#include "sha256.h"
 #include "usa_rev1.h"
 
 enum { AUDIO_SLOTS = 8, PATH_CAP = 32768 };
@@ -15,8 +18,46 @@ static HWND s_window;
 static int s_running = 1, s_active, s_ready;
 static uint32_t s_keys;
 static HWAVEOUT s_device;
+static HANDLE s_audio_event;
 static struct { WAVEHDR header; int16_t pcm[2048]; } s_audio[AUDIO_SLOTS];
 static wchar_t s_exe_dir[PATH_CAP], s_project_dir[PATH_CAP];
+static unsigned long s_bench_frames;
+static int s_start_cave;
+static FILE *s_pacing;
+static HANDLE s_frame_timer;
+static int s_timer_period;
+static int s_high_resolution;
+
+static void OpenFrameClock(void) {
+    s_frame_timer = CreateWaitableTimerExW(NULL, NULL,
+        CREATE_WAITABLE_TIMER_HIGH_RESOLUTION, TIMER_MODIFY_STATE | SYNCHRONIZE);
+    s_high_resolution = s_frame_timer != NULL;
+    if (!s_frame_timer) {
+        s_frame_timer = CreateWaitableTimerExW(NULL, NULL, 0,
+            TIMER_MODIFY_STATE | SYNCHRONIZE);
+        s_timer_period = timeBeginPeriod(1) == TIMERR_NOERROR;
+    }
+    fprintf(stderr, "frame_clock=%s target_hz=60.0988\n",
+        s_high_resolution ? "high-resolution-waitable" : "timer-fallback");
+}
+
+static void CloseFrameClock(void) {
+    if (s_frame_timer) { CancelWaitableTimer(s_frame_timer); CloseHandle(s_frame_timer); s_frame_timer = NULL; }
+    if (s_timer_period) { timeEndPeriod(1); s_timer_period = 0; }
+}
+
+static void WaitForFrame(double remaining_ms) {
+    LARGE_INTEGER due;
+    due.QuadPart = -(LONGLONG)(remaining_ms * 10000.0);
+    if (due.QuadPart == 0) due.QuadPart = -1;
+    if (s_frame_timer && SetWaitableTimerEx(s_frame_timer, &due, 0, NULL, NULL, NULL, 0)) {
+        /* Input wakes the message pump; only the QPC deadline allows a guest frame. */
+        MsgWaitForMultipleObjectsEx(1, &s_frame_timer, INFINITE, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
+    } else {
+        DWORD wait_ms = (DWORD)(remaining_ms > 16 ? 16 : remaining_ms);
+        MsgWaitForMultipleObjectsEx(0, NULL, wait_ms ? wait_ms : 1, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
+    }
+}
 
 static uint32_t KeyMask(WPARAM key) {
     switch (key) {
@@ -134,13 +175,15 @@ static int LoadRom(void) {
 }
 
 static void CloseAudio(void) {
-    if (!s_device) return;
-    waveOutReset(s_device);
-    for (int i = 0; i < AUDIO_SLOTS; i++)
-        if (s_audio[i].header.dwFlags & WHDR_PREPARED)
-            waveOutUnprepareHeader(s_device, &s_audio[i].header, sizeof(WAVEHDR));
-    waveOutClose(s_device);
-    s_device = NULL;
+    if (s_device) {
+        waveOutReset(s_device);
+        for (int i = 0; i < AUDIO_SLOTS; i++)
+            if (s_audio[i].header.dwFlags & WHDR_PREPARED)
+                waveOutUnprepareHeader(s_device, &s_audio[i].header, sizeof(WAVEHDR));
+        waveOutClose(s_device);
+        s_device = NULL;
+    }
+    if (s_audio_event) { CloseHandle(s_audio_event); s_audio_event = NULL; }
 }
 
 static int OpenAudio(void) {
@@ -151,8 +194,11 @@ static int OpenAudio(void) {
     format.wBitsPerSample = 16;
     format.nBlockAlign = 4;
     format.nAvgBytesPerSec = 32040 * 4;
-    if (waveOutOpen(&s_device, WAVE_MAPPER, &format, 0, 0, CALLBACK_NULL) != MMSYSERR_NOERROR) {
+    s_audio_event = CreateEventW(NULL, FALSE, FALSE, NULL);
+    if (!s_audio_event) return 0;
+    if (waveOutOpen(&s_device, WAVE_MAPPER, &format, (DWORD_PTR)s_audio_event, 0, CALLBACK_EVENT) != MMSYSERR_NOERROR) {
         s_device = NULL;
+        CloseAudio();
         return 0;
     }
     for (int i = 0; i < AUDIO_SLOTS; i++) {
@@ -185,6 +231,14 @@ static int PrepareJungle(void) {
     while (fscanf(file, "%x %lu", &mask, &repeat) == 2) {
         if (!repeat || repeat > 4800 || frames + repeat > 4800) { fclose(file); return 0; }
         while (repeat--) {
+            const char *entrance = s_start_cave ? "EA" : getenv("DKC_REV1_TEST_ENTRANCE");
+            if ((s_start_cave || s_bench_frames) && entrance && frames == 4202) {
+                char *end;
+                unsigned long value = strtoul(entrance, &end, 16);
+                if (*end || value > 255) { fclose(file); return 0; }
+                g_ram[0x3e] = (uint8_t)value;
+                g_ram[0x3f] = 0;
+            }
             if (!Rev1Step(mask, audio, &samples)) { fclose(file); return 0; }
             if (++frames % 30 == 0) {
                 PumpMessages();
@@ -199,6 +253,7 @@ static int PrepareJungle(void) {
 
 int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, int show) {
     (void)previous;
+    s_start_cave = wcscmp(command_line, L"--caverna") == 0;
     SetProcessDPIAware();
     DWORD path_length = GetModuleFileNameW(NULL, s_exe_dir, PATH_CAP);
     if (!path_length || path_length >= PATH_CAP) return 2;
@@ -209,6 +264,12 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     SetCurrentDirectoryW(s_exe_dir);
     FILE *log_stream = NULL;
     _wfreopen_s(&log_stream, L"DKC-Rev1-teste.log", L"w", stderr);
+    const char *bench = getenv("DKC_REV1_BENCH_FRAMES");
+    if (bench) {
+        char *end;
+        s_bench_frames = strtoul(bench, &end, 10);
+        if (*end || !s_bench_frames || s_bench_frames > 20000) return 2;
+    }
     WNDCLASSW window_class = {0};
     window_class.lpfnWndProc = WindowProc;
     window_class.hInstance = instance;
@@ -225,8 +286,9 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     ShowWindow(s_window, show);
     UpdateWindow(s_window);
     if (!LoadRom()) { DestroyWindow(s_window); return 2; }
-    if (wcscmp(command_line, L"--jungle") == 0) {
-        SetWindowTextW(s_window, L"Preparando Jungle Hijinxs - aguarde alguns segundos");
+    if (wcscmp(command_line, L"--jungle") == 0 || s_start_cave) {
+        SetWindowTextW(s_window, s_start_cave ? L"Preparando Reptile Rumble - aguarde alguns segundos" :
+            L"Preparando Jungle Hijinxs - aguarde alguns segundos");
         if (!PrepareJungle()) {
             if (s_running) MessageBoxW(s_window, L"Nao foi possivel preparar a fase. Consulte DKC-Rev1-teste.log.", s_title, MB_OK | MB_ICONERROR);
             Rev1Close();
@@ -239,12 +301,21 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     if (!OpenAudio())
         MessageBoxW(s_window, L"A saida de audio nao abriu. Voce pode testar a imagem e os controles sem som.", s_title, MB_OK | MB_ICONWARNING);
     fprintf(stderr, "desktop_ready=1 audio_device=%d\n", s_device != NULL);
+    OpenFrameClock();
     fflush(stderr);
     LARGE_INTEGER frequency, now;
     QueryPerformanceFrequency(&frequency);
     QueryPerformanceCounter(&now);
     const double frame_ticks = (double)frequency.QuadPart / 60.0988;
     double next_frame = (double)now.QuadPart;
+    double previous_present = 0, previous_finish = next_frame;
+    unsigned long overruns = 0;
+    const char *pacing_path = getenv("DKC1_PACING_LOG");
+    if (pacing_path) {
+        s_pacing = fopen(pacing_path, "w");
+        if (!s_pacing) { CloseFrameClock(); CloseAudio(); Rev1Close(); DestroyWindow(s_window); return 5; }
+        fprintf(s_pacing, "{\"schema\":\"dkc1.pacing.v1\",\"refresh_hz\":60.0988,\"host\":\"rev1-win32\"}\n");
+    }
     int16_t discarded_audio[2048];
     int exit_code = 0;
     unsigned long frames = 0;
@@ -252,23 +323,26 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         PumpMessages();
         if (!s_running) break;
         QueryPerformanceCounter(&now);
-        if (!s_active || IsIconic(s_window)) {
+        if (!s_bench_frames && (!s_active || IsIconic(s_window))) {
             next_frame = (double)now.QuadPart;
+            previous_present = 0;
+            previous_finish = next_frame;
             MsgWaitForMultipleObjectsEx(0, NULL, 30, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
             continue;
         }
         double remaining = (next_frame - (double)now.QuadPart) * 1000.0 / (double)frequency.QuadPart;
         if (remaining > 0) {
-            DWORD wait_ms = (DWORD)(remaining > 16 ? 16 : remaining);
-            MsgWaitForMultipleObjectsEx(0, NULL, wait_ms ? wait_ms : 1, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
+            WaitForFrame(remaining);
             continue;
         }
         int slot = s_device ? FreeAudioSlot() : 0;
         if (slot < 0) {
-            MsgWaitForMultipleObjectsEx(0, NULL, 2, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
+            MsgWaitForMultipleObjectsEx(1, &s_audio_event, 100, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
             continue;
         }
         int samples;
+        LARGE_INTEGER work_begin, cpu_finish, present_finish;
+        QueryPerformanceCounter(&work_begin);
         int16_t *pcm = s_device ? s_audio[slot].pcm : discarded_audio;
         if (!Rev1Step(s_keys, pcm, &samples)) {
             CloseAudio();
@@ -276,6 +350,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
             exit_code = 4;
             break;
         }
+        QueryPerformanceCounter(&cpu_finish);
         if (s_device) {
             WAVEHDR *header = &s_audio[slot].header;
             header->dwBufferLength = (DWORD)samples * 4;
@@ -285,11 +360,41 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
             }
         }
         RedrawWindow(s_window, NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
+        QueryPerformanceCounter(&present_finish);
+        if (s_pacing) {
+            const double tick_ms = 1000.0 / (double)frequency.QuadPart;
+            double late = (work_begin.QuadPart - next_frame) * tick_ms;
+            if (present_finish.QuadPart > next_frame + frame_ticks) overruns++;
+            fprintf(s_pacing, "{\"frame\":%lu,\"work_ms\":%.6f,\"wait_ms\":%.6f,\"late_ms\":%.6f,"
+                "\"present_interval_ms\":%.6f,\"overruns\":%lu,\"core_ms\":%.6f,\"gdi_audio_submit_ms\":%.6f}\n",
+                frames, (present_finish.QuadPart - work_begin.QuadPart) * tick_ms,
+                (work_begin.QuadPart - previous_finish) * tick_ms, late > 0 ? late : 0,
+                previous_present ? (present_finish.QuadPart - previous_present) * tick_ms : 0,
+                overruns, (cpu_finish.QuadPart - work_begin.QuadPart) * tick_ms,
+                (present_finish.QuadPart - cpu_finish.QuadPart) * tick_ms);
+        }
+        previous_present = (double)present_finish.QuadPart;
+        previous_finish = previous_present;
         next_frame += frame_ticks;
-        if ((double)now.QuadPart - next_frame > frame_ticks * 4) next_frame = (double)now.QuadPart;
+        /* An OS/audio stall must not be repaid by a burst of fast guest frames. */
+        if (next_frame <= (double)present_finish.QuadPart)
+            next_frame = (double)present_finish.QuadPart + frame_ticks;
         if (++frames % 600 == 0) { fprintf(stderr, "interactive_frames=%lu\n", frames); fflush(stderr); }
+        if (s_bench_frames && frames >= s_bench_frames) break;
     }
     CloseAudio();
+    CloseFrameClock();
+    if (s_bench_frames) {
+        uint8_t frame_hash[32], ram_hash[32];
+        sha256_compute(Rev1Pixels(), 256 * 224 * 4, frame_hash);
+        sha256_compute(g_ram, sizeof g_ram, ram_hash);
+        fprintf(stderr, "benchmark_frame_sha256=");
+        for (int i = 0; i < 32; i++) fprintf(stderr, "%02x", frame_hash[i]);
+        fprintf(stderr, "\nbenchmark_wram_sha256=");
+        for (int i = 0; i < 32; i++) fprintf(stderr, "%02x", ram_hash[i]);
+        fprintf(stderr, "\n");
+    }
+    if (s_pacing) fclose(s_pacing);
     Rev1Close();
     if (IsWindow(s_window)) DestroyWindow(s_window);
     fprintf(stderr, "desktop_exit=%d frames=%lu\n", exit_code, frames);

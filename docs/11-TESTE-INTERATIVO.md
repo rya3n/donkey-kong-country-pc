@@ -2,6 +2,8 @@
 
 Protótipo experimental USA Rev 1, preparado em 2026-11-04 para o primeiro teste do usuário. Os dados da ROM permanecem locais. Ainda usa recompilação e interpretação de apoio, sem validação da campanha ou persistência.
 
+Retorno do primeiro teste: o usuário aprovou a experiência inicial e relatou perda de fluidez após a chuva. A correção de cadência e os testes posteriores estão em [Verificação de fluidez](12-FLUIDEZ.md). O registro abaixo preserva os limites da preparação inicial.
+
 ## Abrir e jogar
 
 Depois da compilação com `./scripts/build_rev1.ps1`, abrir `Jogar DKC - Teste.cmd` na raiz do projeto. Ele inicia `build/usa-rev1/DKC-Rev1-Teste.exe --jungle`. A preparação percorre a receita de 4.800 quadros desde boot limpo, em alguns segundos, e entrega o controle na entrada de Jungle Hijinxs. Não usa um save state nem modifica a ROM.

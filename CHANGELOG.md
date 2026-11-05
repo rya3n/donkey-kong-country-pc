@@ -2,6 +2,16 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-04 — Correção de cadência e varredura das entradas
+
+- Usuário relatou boa fluidez nas primeiras fases e engasgos após a chuva, na primeira caverna; pediu conferir as seguintes sem acelerar o jogo.
+- Reproduzida cadência irregular na janela. Implementados waitable timer de alta resolução, retomada sem rajada de compensação e evento de conclusão da fila de áudio.
+- Mantidos alvo de 60,0988 Hz, clocks do cartucho, áudio, física e 39 variantes AOT.
+- Em dois testes de 900 quadros na caverna, p95 de intervalo caiu de 30,796 para 17,417 ms; conclusões após o prazo passaram de 175 para zero, com a mesma cadência média.
+- Executadas e inspecionadas 40 entradas principais e de chefes; 12.000 amostras de cálculo abaixo de 16,639 ms. Nove cenas receberam recaptura antecipada para não confundir retorno ao mapa com a sala testada.
+- Três regressões de boot idênticas; framebuffer e WRAM da janela coincidiram com o runner. Caverna com 1.803 registros de diagnóstico acumulados preservou o relatório completo.
+- Adicionados scripts/profile_rev1_levels.py, docs/12-FLUIDEZ.md e CSV de medidas. A varredura cobre trechos iniciais, sem declarar campanha ou fases inteiras validadas.
+
 ## 2026-11-04 — Versão com janela para o primeiro teste
 
 - A pedido do usuário, criado host Windows com apresentação GDI em 4:3, teclado e saída de áudio WinMM, sem instalar dependências.

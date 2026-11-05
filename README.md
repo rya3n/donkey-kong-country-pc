@@ -8,6 +8,8 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 Para testar após compilar, abra **Jogar DKC - Teste.cmd**. Controles: setas, Z para pular, X para correr/rolar, C para trocar, Enter para Start e Esc para fechar. Detalhes e limites em [Teste interativo](docs/11-TESTE-INTERATIVO.md).
 
+Após o primeiro teste do usuário, corrigimos a cadência da janela preservando 60,0988 Hz e verificamos trechos iniciais de 40 entradas de fases e chefes. Resultados e cobertura em [Verificação de fluidez](docs/12-FLUIDEZ.md).
+
 Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). Publicamos documentação, configuração e integração próprias; os arquivos de jogo, fontes derivadas da ROM e binários permanecem locais.
 
 ## Comece por aqui
@@ -25,6 +27,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Ferramentas e referências](docs/09-FERRAMENTAS-E-REFERENCIAS.md) | Repositórios sugeridos e possível uso no projeto |
 | [Protótipo USA Rev 1](docs/10-USA-REV1-BRINGUP.md) | Comandos atuais, resultados e limites do primeiro executável |
 | [Teste interativo](docs/11-TESTE-INTERATIVO.md) | Como abrir a janela e testar com teclado |
+| [Verificação de fluidez](docs/12-FLUIDEZ.md) | Correção de cadência, comparação e matriz de entradas |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura
