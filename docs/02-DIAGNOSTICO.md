@@ -2,6 +2,8 @@
 
 Observações locais de 2026-11-04. Hashes identificam arquivos; não provam correção funcional.
 
+**Situação atual:** o registro E08 e o relatório [Protótipo USA Rev 1](10-USA-REV1-BRINGUP.md) substituem o bloqueio de entrada descrito nos registros históricos E01–E07.
+
 ## E01 — ROM disponível
 
 | Campo | Valor observado |
@@ -90,3 +92,11 @@ Ferramentas verificadas: BuildTools 17.14.44, toolset MSVC 14.44.35207, CMake 3.
 A suíte pública da v0.0.17 executou 303 testes em 11,540 segundos e terminou com FAILED (errors=2, skipped=10). Os dois erros são test_hd_material_cache e setUpClass de test_hd_preload, que chamam cc e usam flags GCC/Clang e sanitizers indisponíveis nesse ambiente MSVC. Não foram alterados nem ignorados para produzir uma aprovação artificial. Os dez skips permanecem registrados no log integral; a suíte não é considerada aprovada.
 
 O verificador final confirmou os três commits e detectou as três ferramentas no E:. Sua única pendência de pré-requisitos é a ROM USA v1.0, com saída 1 esperada. Logs completos locais: evidence/2026-11-04/environment/toolchain.log, public-tests.log e preflight.json. Essas evidências ficam fora da publicação, conforme .gitignore. Nenhum teste de boot ou gameplay foi executado.
+
+## E08 — Primeiro protótipo USA Rev 1
+
+O usuário forneceu Donkey Kong Country (USA) (Rev 1).sfc e pediu trabalhar com essa revisão desde o início. Confirmados 4.194.304 bytes, byte de revisão 1 e checksum 0xD17C. SHA-256: df2644d435330192a13768cc1f79c5aa3084a64217a5250c6dd4ffdbe2175be4. Trata-se da USA v1.1; a v1.0 continua ausente, mas deixou de ser pré-requisito do nosso alvo experimental.
+
+Criados perfil, configuração pelos vetores da ROM, gerador e host próprios sem janela, sobre o framework fixado. A geração padrão emitiu 39 variantes AOT; o restante usa interpretação de apoio. Executável compilado com MSVC e imagens inspecionadas desde o boot até a entrada em Jungle Hijinxs. Três testes de 600 quadros foram idênticos; a receita de 4.800 quadros foi repetida. A v1.2 foi rejeitada pelo verificador e pelo executável antes da execução.
+
+A tentativa de ampliar para 55 variantes divergiu em memória e áudio, apesar de imagem final igual. Ela foi retirada da base padrão, e a causa permanece aberta. Comandos, hashes, cobertura e limites estão no relatório Rev 1. Logs locais: evidence/2026-11-04/usa-rev1/. Nenhuma sessão interativa, save ou campanha foi validada. O resultado anterior da suíte pública não foi alterado.

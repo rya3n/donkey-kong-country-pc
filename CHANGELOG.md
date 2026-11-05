@@ -2,6 +2,18 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-04 — Primeiro protótipo com a USA Rev 1 disponível
+
+- Pedido do usuário de começar com a ROM existente registrado em D011, substituindo D002. A entrada ativa é USA v1.1 (Rev 1), com tamanho e SHA-256 exatos; não houve conversão para v1.0.
+- Criados perfil de ROM, configuração própria de vetores, geração privada, host sem janela, alvo CMake, script de build e receita de botões até Jungle Hijinxs.
+- Reutilizados gerador/runtime fixados e adaptadores genéricos do DKC1Recomp, sem alterar seu perfil v1.0. Aviso MIT do host preservado; nenhuma ferramenta nova instalada.
+- Geração padrão: 39 variantes AOT, 29 entradas distintas de dispatch e interpretação de apoio. Compilação Windows x64 concluída com MSVC, CMake e Ninja no E:.
+- Três replays independentes de 600 quadros produziram os mesmos hashes de framebuffer, WRAM, VRAM e cadeia de áudio. Imagens do boot e da abertura foram inspecionadas; entrada automatizada na primeira fase aos 4.800 quadros repetida em novo processo.
+- A entrada Rev 1 passou no verificador; a v1.2 foi rejeitada pelo verificador e pelo host antes de executar.
+- Candidata com 55 variantes divergiu da base em WRAM e áudio. Foi retirada da configuração padrão; investigação permanece aberta, sem causa atribuída.
+- Acrescentado docs/10-USA-REV1-BRINGUP.md com comandos, identidades, hashes e limites. Documentação e área exclusiva no Notion atualizadas para o novo escopo.
+- Ainda sem sessão interativa, reprodução audível validada, persistência ou cobertura de campanha. Tradução PT-BR e experiência de aplicativo continuam após estabilização.
+
 ## 2026-11-04 — Revisão final do Notion e início técnico
 
 ### Revisado e iniciado

@@ -1,10 +1,10 @@
 # Ambiente e reprodução
 
-Estado: preparação técnica iniciada; roteiro de build ainda não validado de ponta a ponta. Não houve geração ou compilação do jogo.
+Estado atual: protótipo USA Rev 1 gerado, compilado e executado sem janela. O roteiro ativo e validado está em [Protótipo USA Rev 1](10-USA-REV1-BRINGUP.md): `python scripts/generate_rev1.py --rom CAMINHO` e `./scripts/build_rev1.ps1`. As instruções v1.0 abaixo preservam o caminho original do upstream, que não aceita a Rev 1.
 
 ## Pré-requisitos
 
-ROM USA v1.0 com o SHA-256 do diagnóstico; Windows x64; Python 3; Git; compilador MSVC com ferramentas C++ de desktop e SDK do Windows; CMake; Ninja. As ferramentas foram preparadas e verificadas; a ROM USA v1.0 permanece ausente. O resultado da suíte pública ainda contém limitações de portabilidade, registradas no diagnóstico.
+Para o alvo atual: ROM USA Rev 1 com o SHA-256 de config/roms/usa-rev1.json; Windows x64; Python 3.11 ou superior; Git; MSVC x64 e SDK do Windows; CMake; Ninja. As ferramentas e a entrada estão disponíveis. O caminho histórico abaixo exige v1.0, que permanece ausente. O resultado anterior da suíte pública contém limitações de portabilidade registradas no diagnóstico.
 
 As exigências de versão devem ser conferidas na revisão escolhida. O CMake do clone atual declara mínimo 3.20; o guia Windows desse clone cita Visual Studio 2022. A versão do pacote distribuído tem suas próprias notas de compatibilidade.
 
@@ -76,7 +76,7 @@ Reservar uma pasta local por execução, por exemplo `evidence/AAAA-MM-DD/execuc
 
 Executar `python scripts/check_project.py` na raiz do nosso projeto. A opção `--rom CAMINHO` permite conferir um arquivo específico; sem ela, o verificador examina apenas arquivos .smc/.sfc na raiz. O resultado compara os três commits com o lock, calcula o hash da ROM e procura o ambiente MSVC/CMake/Ninja. Ferramenta detectada não equivale a compilação validada.
 
-O usuário confirmou que ainda não dispõe da ROM USA v1.0. Esse é um bloqueio de entrada, registrado separadamente da preparação do compilador.
+O usuário confirmou que não dispõe da v1.0 e depois decidiu trabalhar com a Rev 1 disponível. O verificador agora consulta active_rom_profile no lock; seu resultado atual aceita a Rev 1 e não declara compatibilidade funcional do jogo.
 
 ## Local das instalações
 

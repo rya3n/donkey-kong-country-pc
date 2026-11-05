@@ -1,11 +1,11 @@
 # Arquitetura inicial
 
-Estado: descrição da base examinada e proposta de integração; implementação própria ainda não iniciada.
+Estado: integração experimental Rev 1 iniciada. A seção de componentes do upstream descreve a referência; o alvo próprio atual está detalhado em [Protótipo USA Rev 1](10-USA-REV1-BRINGUP.md).
 
 ## Como o port é produzido
 
 ```text
-ROM USA v1.0 + metadados de funções e fluxos de controle
+ROM USA v1.1 (Rev 1) + configuração própria de entradas
                         |
                         v
             gerador do snesrecomp
@@ -24,7 +24,7 @@ ROM USA v1.0 + metadados de funções e fluxos de controle
 
 A recompilação estática traduz trechos identificados do programa do SNES em código que o compilador do PC consegue processar. O runtime fornece os serviços necessários para reproduzir o comportamento do hardware e conectar imagem, áudio e controles ao sistema operacional.
 
-Um aplicativo nativo ainda pode usar modelos de PPU, áudio e outros componentes do SNES. Por isso, “nativo” não significa que todos os subsistemas foram reescritos como lógica independente de PC. O projeto de terceiros declara geração estática de todo o código do jogo; essa cobertura não foi reproduzida localmente.
+Um aplicativo nativo ainda pode usar modelos de PPU, áudio e outros componentes do SNES. O alvo próprio atual é híbrido: 39 variantes AOT e interpretação de caminhos ainda não compilados. Sua execução não comprova recompilação integral nem equivalência com hardware. A configuração v1.0 do upstream permanece separada e sem alterações.
 
 ## Componentes da base local
 

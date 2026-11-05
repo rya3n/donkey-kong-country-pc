@@ -18,6 +18,9 @@ evidence/
 /upstream/
 /downloads/
 /runtime/
+/research/
+/experimental/
+/recomp/usa-rev1/funcs.h
 
 # Build products and local caches
 build/

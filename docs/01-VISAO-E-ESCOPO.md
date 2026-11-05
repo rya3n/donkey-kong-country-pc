@@ -6,7 +6,7 @@ Edição inicial: 2026-11-04. Estado: objetivo acordado, requisitos técnicos in
 
 Conseguir jogar Donkey Kong Country de SNES em um aplicativo nativo de Windows e construir uma base de trabalho que possamos compreender, modificar e reproduzir. A recompilação e a engenharia reversa são meios aceitos pelo usuário para chegar a esse resultado.
 
-O caminho inicial escolhido usa o DKC1Recomp e uma ROM USA v1.0 fornecida localmente. Nosso trabalho começa pela organização, reprodução e validação dessa base. Os créditos e o histórico de terceiros permanecem identificados.
+O caminho atual usa a ROM USA v1.1 (Rev 1) disponível, com configuração e integração próprias sobre o framework snesrecomp fixado. O usuário substituiu a espera pela v1.0 pelo pedido de começar com a ROM existente (D011). Os créditos e o histórico de terceiros permanecem identificados.
 
 ## Primeira entrega jogável proposta
 
@@ -20,11 +20,11 @@ O caminho inicial escolhido usa o DKC1Recomp e uma ROM USA v1.0 fornecida localm
 | R06 | Compilar localmente a revisão escolhida | Comandos completos, log e hash do executável resultante |
 | R07 | Manter documentação reproduzível | Outra sessão consegue seguir o roteiro sem informações ocultas |
 
-Estes são critérios propostos para orientar a implementação; ainda não foram executados. Passar a primeira fase constitui uma demonstração inicial, não validação do jogo completo.
+Estes são critérios para orientar a implementação. Já existe compilação e entrada automatizada na primeira fase, conforme o relatório Rev 1; a sessão interativa e os demais critérios permanecem pendentes. Passar a primeira fase também não seria validação do jogo completo.
 
 ## Escopo inicial
 
-Windows x64, jogo original, ROM USA v1.0, código e engine fixados em revisões identificáveis. O primeiro diagnóstico deve estabelecer uma imagem nativa de referência de 256×224, com configuração gráfica registrada. Resolução do framebuffer e proporção de exibição são parâmetros diferentes; ambos entram no relatório.
+Windows x64, jogo original, ROM USA v1.1 (Rev 1), código e engine fixados em revisões identificáveis. O protótipo usa framebuffer de 256×224, sem widescreen; a proporção de apresentação em janela ainda será implementada e registrada. Resolução do framebuffer e proporção de exibição são parâmetros diferentes.
 
 Controle por teclado é parte da verificação inicial. Controle físico será testado quando houver dispositivo disponível, sem presumir um modelo específico.
 
@@ -36,7 +36,7 @@ Suporte à ROM v1.2, mudanças de gameplay, widescreen próprio, aumento de taxa
 
 O usuário define objetivos e prioridades; o assistente prepara documentação, investigações e alterações dentro desse escopo. Não há prazo, equipe ampliada ou calendário de reuniões definido. As novas propostas permanecem explicitamente identificadas até serem adotadas.
 
-A documentação inicial e a criação do repositório público foram realizadas. A próxima etapa técnica é preparar a base reproduzível; as metas finais acordadas estão descritas a seguir.
+A documentação e o primeiro protótipo reproduzível foram preparados. Os próximos passos são investigar a ampliação de cobertura e preparar a sessão interativa; as metas finais acordadas estão descritas a seguir.
 
 ## Meta final acordada — PT-BR e abertura direta
 

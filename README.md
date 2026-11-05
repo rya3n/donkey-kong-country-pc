@@ -4,9 +4,9 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: preparação do ambiente de desenvolvimento.** O código de referência está fixado e a documentação foi revisada para iniciar o trabalho técnico. Ainda não geramos, compilamos ou executamos o jogo neste projeto.
+**Etapa atual: protótipo experimental para USA v1.1 (Rev 1).** Geramos código C, compilamos um executável Windows e chegamos a Jungle Hijinxs em execução automatizada, sem janela. O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
 
-Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). Esta publicação inicial reúne documentação; os arquivos locais de jogo e os pacotes de referência permanecem fora do repositório.
+Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). Publicamos documentação, configuração e integração próprias; os arquivos de jogo, fontes derivadas da ROM e binários permanecem locais.
 
 ## Comece por aqui
 
@@ -21,15 +21,16 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Registro de decisões](docs/07-DECISOES.md) | O que foi decidido e o que permanece como proposta |
 | [Créditos e publicação](docs/08-CREDITOS-E-PUBLICACAO.md) | Procedência do código e organização do futuro repositório |
 | [Ferramentas e referências](docs/09-FERRAMENTAS-E-REFERENCIAS.md) | Repositórios sugeridos e possível uso no projeto |
+| [Protótipo USA Rev 1](docs/10-USA-REV1-BRINGUP.md) | Comandos atuais, resultados e limites do primeiro executável |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura
 
-- Decidimos usar a ROM americana v1.0 como primeira base compatível.
-- O único arquivo de jogo encontrado na pasta é a revisão v1.2; seu checksum interno confere, mas ela não é a entrada suportada pela base escolhida.
+- A decisão atual é trabalhar com a ROM USA Rev 1 disponível (v1.1), substituindo a espera pela v1.0. A v1.2 também está na pasta e é rejeitada pelo novo perfil.
+- A configuração Rev 1 começa pelos vetores da própria ROM, sem importar os endereços e adaptações de gameplay da v1.0.
 - A base de desenvolvimento está fixada na v0.0.17, commit `559bab62596a97e91f389b39cdeb6cda981ab7c9`, com engine e submódulos identificados em `config/upstream.lock.json`.
 - MSVC, CMake e Ninja foram instalados e verificados em E:\Ferramentas. O SDK do Windows e o instalador compartilhado da Microsoft permanecem no C:.
-- A documentação inicial foi preparada antes da criação deste repositório. A implementação do port permanece pendente.
+- O protótipo sem janela compila e aceita entradas gravadas. Três replays de 600 quadros foram idênticos; a entrada na primeira fase foi repetida. Janela, áudio audível, controles ao vivo, saves e campanha ainda precisam de implementação ou validação.
 
 ## Organização dos arquivos
 
@@ -37,6 +38,12 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 README.md                  entrada da documentação
 CHANGELOG.md               log de atualizações
 docs/                      documentos do nosso projeto
+config/roms/               identidade da entrada experimental
+recomp/usa-rev1/            configuração nova de recompilação
+runner/                    integração própria com o runtime
+recipes/usa-rev1/           sequência reproduzível de botões
+experimental/              fontes derivadas privadas; ignoradas
+build/                     executáveis locais; ignorados
 upstream/                  clone independente do DKC1Recomp
 downloads/                 arquivo ZIP oficial baixado
 runtime/                   pacote oficial extraído, sem validação de gameplay local
@@ -47,7 +54,7 @@ Os documentos em Markdown são a referência técnica versionável. A área excl
 
 Os links de navegação do Notion privado ficam no arquivo local `.project-local.md`, excluído da publicação. O conteúdo técnico público pode ser consultado pelos documentos deste repositório.
 
-**Próxima entrada necessária:** ROM USA v1.0, ainda não disponível. A preparação do compilador no E: e o teste mínimo com o SDK foram concluídos. A suíte pública executou 303 testes e terminou com 2 erros e 10 ignorados; as limitações de portabilidade desses testes estão registradas no diagnóstico.
+**Próximas tarefas:** investigar a divergência de memória/áudio encontrada ao ampliar a recompilação e preparar uma janela com controles ao vivo. O roteiro ativo está em [Protótipo USA Rev 1](docs/10-USA-REV1-BRINGUP.md). A suíte pública anterior executou 303 testes, com 2 erros e 10 ignorados; esse resultado permanece registrado, sem declaração de aprovação.
 
 Para repetir a checagem local, execute `python scripts/check_project.py` ou use `--json` para obter um relatório estruturado. O verificador retorna código 1 quando há pré-requisitos pendentes e não altera a ROM, o código ou o sistema.
 

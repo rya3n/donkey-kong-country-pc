@@ -12,7 +12,7 @@ O objetivo é conseguir um port de Donkey Kong Country para PC. Recompilação e
 
 ## D002 — Usar USA v1.0 primeiro
 
-**Estado:** aceita. **Origem:** escolha explícita do usuário na pergunta sobre a revisão da ROM.
+**Estado:** substituída por D011. **Origem:** escolha inicial explícita do usuário na pergunta sobre a revisão da ROM.
 
 Usar a revisão suportada para buscar primeiro uma sessão jogável. A alternativa era investigar e adaptar a v1.2 disponível, com mais incerteza antes do primeiro resultado.
 
@@ -77,3 +77,11 @@ Primeiro validar amplamente a base; depois localizar o jogo e preparar a experi�
 **Estado:** aceita. **Origem:** usuário orientou novas instalações no E: e autorizou corrigir a instalação iniciada no C:.
 
 Usar E:\Ferramentas como destino principal. Para BuildTools, remover a instância recém-criada no C: pelo desinstalador oficial e reinstalar no E:, preservando programas preexistentes. Conferir separadamente componentes compartilhados cujo instalador imponha outro destino; não apagar manualmente componentes registrados do Windows.
+
+## D011 — Começar com a USA Rev 1 disponível
+
+**Estado:** aceita quanto à revisão; integração técnica experimental. **Origem:** usuário pediu “vamo fazer com a que temos do 0”, após informar a ausência da USA v1.0.
+
+Usar a USA v1.1 (Rev 1) identificada pelo hash de config/roms/usa-rev1.json. Ela substitui a v1.0 como entrada do nosso alvo. Começar uma configuração própria pelos vetores da ROM e uma integração mínima, reutilizando o gerador/runtime genérico fixado; o projeto não reescreve do zero todo o hardware do SNES.
+
+**Consequência:** não alterar o verificador ou os metadados v1.0 do upstream para fingir compatibilidade. Fontes C derivadas e perfis de execução permanecem locais. O primeiro alvo é sem janela, 256×224 e híbrido, com interpretador de apoio. Ampliar AOT exige comparação de imagem, memória e áudio; a primeira tentativa de 55 variantes divergiu e foi retirada da base padrão de 39 variantes. Janela, controles ao vivo, persistência e campanha seguem pendentes.

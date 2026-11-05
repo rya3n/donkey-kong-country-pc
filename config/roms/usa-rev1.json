@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "usa-rev1",
+  "description": "Donkey Kong Country USA v1.1 (Rev 1), headerless",
+  "bytes": 4194304,
+  "sha256": "df2644d435330192a13768cc1f79c5aa3084a64217a5250c6dd4ffdbe2175be4",
+  "header_revision": 1,
+  "mapping": "HiROM",
+  "status": "experimental; game compatibility not validated",
+  "config_directory": "recomp/usa-rev1",
+  "generated_directory": "experimental/usa-rev1/generated"
+}

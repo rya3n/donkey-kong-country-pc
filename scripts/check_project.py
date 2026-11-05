@@ -70,6 +70,9 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", help="Print machine-readable results")
     args = parser.parse_args()
     lock = json.loads((ROOT / "config/upstream.lock.json").read_text(encoding="utf-8"))
+    profile_id = lock.get("active_rom_profile")
+    rom_spec = (json.loads((ROOT / "config/roms" / f"{profile_id}.json").read_text(encoding="utf-8"))
+                if profile_id else lock["rom"])
     directories = {
         "upstream": (ROOT / "upstream", lock["commit"]),
         "engine": (ROOT / "upstream/snesrecomp", lock["engine_commit"]),
@@ -89,22 +92,25 @@ def main() -> int:
             with path.open("rb") as stream:
                 digest = hashlib.file_digest(stream, "sha256").hexdigest()
         except OSError as error:
-            roms.append({"name": path.name, "supported": False, "error": str(error)})
+            roms.append({"name": path.name, "accepted_input": False, "error": str(error)})
             continue
         roms.append({"name": path.name, "bytes": size, "sha256": digest,
-                     "supported": size == lock["rom"]["bytes"] and digest == lock["rom"]["sha256"]})
+                     "accepted_input": size == rom_spec["bytes"] and digest == rom_spec["sha256"]})
     toolchain = find_toolchain()
     blockers = []
     if not all(item["matches"] for item in sources.values()):
         blockers.append("Revisoes locais diferentes do lock ou clone ausente.")
-    if not any(item["supported"] for item in roms):
-        blockers.append("ROM USA v1.0 suportada ainda nao disponivel.")
+    if not any(item["accepted_input"] for item in roms):
+        blockers.append("ROM correspondente ao perfil ativo ainda nao disponivel.")
     if not (toolchain.get("compiler") or toolchain.get("cl")):
         blockers.append("Compilador MSVC x64 nao encontrado.")
     for name in ("cmake", "ninja"):
         if not toolchain.get(name):
             blockers.append(f"Ferramenta {name} nao encontrada.")
-    report = {"source_tag": lock["tag"], "sources": sources, "roms": roms,
+    report = {"source_tag": lock["tag"], "rom_profile": profile_id or "upstream-stock",
+              "rom_profile_status": rom_spec.get("status", "upstream stock"),
+              "game_compatibility_validated": False,
+              "sources": sources, "roms": roms,
               "toolchain": toolchain, "blockers": blockers,
               "preflight_passed": not blockers,
               "note": "Deteccao de ferramentas; nao substitui compilacao, testes ou gameplay."}
@@ -114,7 +120,8 @@ def main() -> int:
         print(f"Base: {lock['tag']}")
         for name, source in sources.items():
             print(f"  {name}: {'OK' if source['matches'] else 'PENDENTE'}")
-        print(f"  ROM suportada: {'OK' if any(r['supported'] for r in roms) else 'PENDENTE'}")
+        print(f"  Perfil de entrada: {profile_id or 'upstream-stock'}")
+        print(f"  ROM do perfil: {'OK' if any(r['accepted_input'] for r in roms) else 'PENDENTE'}")
         print(f"  MSVC: {toolchain.get('compiler') or toolchain.get('cl') or 'PENDENTE'}")
         print(f"  CMake: {toolchain.get('cmake') or 'PENDENTE'}")
         print(f"  Ninja: {toolchain.get('ninja') or 'PENDENTE'}")
