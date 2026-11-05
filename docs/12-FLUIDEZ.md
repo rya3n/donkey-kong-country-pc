@@ -2,6 +2,10 @@
 
 Registro de 2026-11-04, após o primeiro teste do usuário. Relato: primeiras fases fluidas, com perda de fluidez em trechos posteriores à chuva, começando pela primeira caverna. Foi solicitada a verificação das fases seguintes, preservando a velocidade original.
 
+## Retorno após a correção
+
+O usuário confirmou que o jogo agora está funcionando perfeitamente em seu teste. O ajuste de fluidez foi aceito, e o código de 6b2b5b9 permanece como base de trabalho. A cobertura exata dos trechos jogados não foi informada; campanha completa e persistência continuam com seus próprios critérios de validação. Nenhuma alteração adicional de velocidade ou código foi necessária para esse aceite.
+
 ## Correção aplicada
 
 O host já usava 60,0988 quadros de simulação por segundo, aproximadamente o ritmo NTSC. Esse alvo foi mantido. Não houve aumento de FPS, geração de quadros, mudança de física, clocks do cartucho ou taxa de áudio de 32.040 Hz.

@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-04 — Fluidez confirmada pelo usuário
+
+- Após disponibilizar a correção de cadência, o usuário confirmou que o jogo agora está funcionando perfeitamente em seu teste.
+- Registrado o aceite do ajuste de fluidez e mantida a versão 6b2b5b9 como base de trabalho, sem novas alterações no executável.
+- Campanha completa, persistência e demais critérios de validação permanecem nas etapas próprias; esse retorno não informa uma cobertura de campanha.
+
 ## 2026-11-04 — Correção de cadência e varredura das entradas
 
 - Usuário relatou boa fluidez nas primeiras fases e engasgos após a chuva, na primeira caverna; pediu conferir as seguintes sem acelerar o jogo.
