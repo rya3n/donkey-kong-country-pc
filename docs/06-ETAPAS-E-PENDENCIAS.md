@@ -34,7 +34,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P11 | Inventariar, traduzir e revisar PT-BR | Depende de P10 | Cobertura de textos, fonte, acentos e regressão V15–V17 |
 | P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |
-| P14 | Implementar host interativo Rev 1 | Próxima etapa de apresentação | Janela, proporção, teclado e áudio audível usando a integração própria sem hooks v1.0 |
+| P14 | Implementar host interativo Rev 1 | Implementado; teste do usuário pendente | Janela 4:3, teclado, saída WinMM e abertura direta na fase; qualidade audiovisual e ações ao vivo ainda não verificadas |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 

@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-04 — Versão com janela para o primeiro teste
+
+- A pedido do usuário, criado host Windows com apresentação GDI em 4:3, teclado e saída de áudio WinMM, sem instalar dependências.
+- Compartilhada a rotina de execução/áudio com o runner automatizado. Regressões de 600 e 4.800 quadros repetiram todos os campos dos relatórios da base anterior.
+- Acrescentada abertura por Jogar DKC - Teste.cmd e opção --jungle, que reproduz os botões até a fase e entrega o controle ao jogador.
+- Processo iniciado e janela de controle exposta após a preparação. Captura automática falhou com FrameArrived timed out e window capture timed out; avaliação visual, sonora e de gameplay ao vivo permanece com o usuário.
+- Criado docs/11-TESTE-INTERATIVO.md com controles e limites. Sem saves, controle físico ou tela cheia; candidata de 55 variantes permanece desativada.
+
 ## 2026-11-04 — Primeiro protótipo com a USA Rev 1 disponível
 
 - Pedido do usuário de começar com a ROM existente registrado em D011, substituindo D002. A entrada ativa é USA v1.1 (Rev 1), com tamanho e SHA-256 exatos; não houve conversão para v1.0.

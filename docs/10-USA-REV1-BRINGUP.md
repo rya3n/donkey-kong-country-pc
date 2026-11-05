@@ -2,6 +2,8 @@
 
 Registro de 2026-11-04. Este é o primeiro alvo próprio para a ROM USA v1.1 (Rev 1), compilado para Windows x64. Ele executa sem janela e usa código recompilado junto com o interpretador de apoio do snesrecomp. Não é uma versão pronta para jogar.
 
+Atualização posterior: foi acrescentado um host com janela, teclado e saída de áudio, compartilhando o mesmo núcleo. Ver [Teste interativo](11-TESTE-INTERATIVO.md). O relatório abaixo preserva o marco automatizado original.
+
 ## Entrada e procedência
 
 - ROM local: `Donkey Kong Country (USA) (Rev 1).sfc`, 4.194.304 bytes, sem cabeçalho adicional.

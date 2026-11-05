@@ -40,18 +40,28 @@ file(GLOB GENERATED_SOURCES CONFIGURE_DEPENDS
 if(NOT GENERATED_SOURCES)
     message(FATAL_ERROR "Generate the private USA Rev 1 sources first")
 endif()
-add_executable(dkc_rev1_headless
-    ${ENGINE_SOURCES} ${GENERATED_SOURCES}
+set(REV1_SOURCES ${ENGINE_SOURCES} ${GENERATED_SOURCES}
     upstream/runner/headless_host.c upstream/runner/input_playback.c runner/usa_rev1.c)
-target_include_directories(dkc_rev1_headless PRIVATE
-    recomp/usa-rev1 upstream/runner ${SNESRECOMP_RUNNER_INCLUDE_DIRS})
-target_compile_definitions(dkc_rev1_headless PRIVATE
-    SNESRECOMP_TRACE=0 SNESRECOMP_REVERSE_DEBUG=0
-    SNESRECOMP_EXTERNAL_RAM_ROUTINE_GUARDS=1
-    SYSTEM_VOLUME_MIXER_AVAILABLE=0)
-if(MSVC)
-    target_compile_options(dkc_rev1_headless PRIVATE /W3)
-    target_compile_definitions(dkc_rev1_headless PRIVATE _CRT_SECURE_NO_WARNINGS)
-    target_link_libraries(dkc_rev1_headless PRIVATE ws2_32 user32 advapi32)
+add_executable(dkc_rev1_headless ${REV1_SOURCES})
+if(WIN32)
+    add_executable(dkc_rev1_desktop WIN32 ${REV1_SOURCES} runner/desktop_win32.c)
+    target_compile_definitions(dkc_rev1_desktop PRIVATE DKC_REV1_DESKTOP=1 UNICODE _UNICODE)
+    target_link_libraries(dkc_rev1_desktop PRIVATE gdi32 winmm comdlg32)
+    set_target_properties(dkc_rev1_desktop PROPERTIES OUTPUT_NAME "DKC-Rev1-Teste")
 endif()
-target_link_libraries(dkc_rev1_headless PRIVATE ${SNESRECOMP_RUNNER_LIBRARIES})
+foreach(TARGET IN ITEMS dkc_rev1_headless dkc_rev1_desktop)
+    if(NOT TARGET ${TARGET})
+        continue()
+    endif()
+    target_include_directories(${TARGET} PRIVATE
+        recomp/usa-rev1 upstream/runner ${SNESRECOMP_RUNNER_INCLUDE_DIRS})
+    target_compile_definitions(${TARGET} PRIVATE
+        SNESRECOMP_TRACE=0 SNESRECOMP_REVERSE_DEBUG=0
+        SNESRECOMP_EXTERNAL_RAM_ROUTINE_GUARDS=1 SYSTEM_VOLUME_MIXER_AVAILABLE=0)
+    if(MSVC)
+        target_compile_options(${TARGET} PRIVATE /W3 /utf-8)
+        target_compile_definitions(${TARGET} PRIVATE _CRT_SECURE_NO_WARNINGS)
+        target_link_libraries(${TARGET} PRIVATE ws2_32 user32 advapi32)
+    endif()
+    target_link_libraries(${TARGET} PRIVATE ${SNESRECOMP_RUNNER_LIBRARIES})
+endforeach()

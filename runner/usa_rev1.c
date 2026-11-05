@@ -16,12 +16,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "usa_rev1.h"
 
 enum { WIDTH = 256, HEIGHT = 224, FRAME_MASTER_CLOCKS = 1364 * 262 };
 static uint32_t s_reset_pc, s_nmi_pc, s_resume_pc;
 static uint64_t s_next_frame;
 static int s_initialized, s_run_result = 1;
 static uint8_t s_pixels[WIDTH * HEIGHT * 4];
+static uint8_t *s_rom;
+static double s_audio_fraction;
 
 static void HashHex(const void *data, size_t size, char output[65]) {
     uint8_t hash[32];
@@ -30,18 +33,15 @@ static void HashHex(const void *data, size_t size, char output[65]) {
     output[64] = 0;
 }
 
-static uint8_t *ReadRom(const char *path) {
+static uint8_t *ReadRomStream(FILE *file) {
     const char *expected = "df2644d435330192a13768cc1f79c5aa3084a64217a5250c6dd4ffdbe2175be4";
-    FILE *file = fopen(path, "rb");
     if (!file) return NULL;
     if (fseek(file, 0, SEEK_END) || ftell(file) != 4194304L || fseek(file, 0, SEEK_SET)) {
-        fclose(file);
         return NULL;
     }
     uint8_t *rom = malloc(4194304);
-    if (!rom) { fclose(file); return NULL; }
+    if (!rom) return NULL;
     const size_t count = fread(rom, 1, 4194304, file);
-    fclose(file);
     char digest[65];
     if (count != 4194304) { free(rom); return NULL; }
     HashHex(rom, count, digest);
@@ -109,6 +109,39 @@ static const RtlGameInfo s_game = {
 void RunOneFrameOfGame_Internal(void) { RunFrame(); }
 void ResetSpritesFunc(int first) { (void)first; }
 
+int Rev1Open(FILE *file) {
+    if (s_rom) return 0;
+    s_rom = ReadRomStream(file);
+    if (!s_rom) return 0;
+    RtlRegisterGame(&s_game);
+    if (!SnesInit(s_rom, 4194304)) { free(s_rom); s_rom = NULL; return 0; }
+    PpuBeginDrawing(g_ppu, s_pixels, WIDTH * 4, kPpuRenderFlags_NewRenderer);
+    RtlSetAudioOutputRate(32040);
+    s_audio_fraction = 0;
+    return 1;
+}
+
+const uint8_t *Rev1Pixels(void) { return s_pixels; }
+
+int Rev1Step(uint32_t inputs, int16_t audio[2048], int *samples) {
+    if (!s_rom) return 0;
+    RtlRunFrame(inputs);
+    if (g_fail || g_watchdog_tripped || !s_run_result) {
+        fprintf(stderr, "execution stopped pc=%06x result=%d\n", s_resume_pc, s_run_result);
+        return 0;
+    }
+    DrawFrame();
+    s_audio_fraction += 32040.0 / 60.0988;
+    *samples = (int)s_audio_fraction;
+    s_audio_fraction -= *samples;
+    memset(audio, 0, 2048 * sizeof *audio);
+    RtlRenderAudio(audio, *samples, 2);
+    return 1;
+}
+
+void Rev1Close(void) { free(s_rom); s_rom = NULL; }
+
+#ifndef DKC_REV1_DESKTOP
 static int WriteFrame(const char *prefix) {
     char path[1024];
     if (snprintf(path, sizeof path, "%s.ppm", prefix) >= (int)sizeof path) return 0;
@@ -131,38 +164,28 @@ int main(int argc, char **argv) {
     char *end;
     long frames = strtol(argv[2], &end, 10);
     if (*end || frames < 1 || frames > 20000) return 2;
-    uint8_t *rom = ReadRom(argv[1]);
-    if (!rom) { fprintf(stderr, "Expected the exact USA Rev 1 ROM.\n"); return 2; }
+    FILE *file = fopen(argv[1], "rb");
+    int loaded = Rev1Open(file);
+    if (file) fclose(file);
+    if (!loaded) { fprintf(stderr, "Expected the exact USA Rev 1 ROM.\n"); return 2; }
     Dkc1InputPlayback playback = {0};
     char input_error[192];
     if (argc == 5 && !Dkc1InputPlaybackLoad(argv[4], &playback, input_error, sizeof input_error)) {
         fprintf(stderr, "input: %s\n", input_error);
-        free(rom);
+        Rev1Close();
         return 2;
     }
-    RtlRegisterGame(&s_game);
-    if (!SnesInit(rom, 4194304)) { free(rom); return 3; }
-    PpuBeginDrawing(g_ppu, s_pixels, WIDTH * 4, kPpuRenderFlags_NewRenderer);
-    RtlSetAudioOutputRate(32040);
     int16_t audio[1024 * 2];
     int audio_active_frames = 0;
     uint8_t audio_chain[32] = {0};
     uint8_t audio_hash_input[32 + sizeof audio];
-    double sample_fraction = 0;
     for (long frame = 0; frame < frames; frame++) {
-        RtlRunFrame(Dkc1InputPlaybackFrame(&playback, (size_t)frame));
-        if (g_fail || g_watchdog_tripped || !s_run_result) {
-            fprintf(stderr, "execution stopped frame=%ld pc=%06x result=%d\n",
-                    frame, s_resume_pc, s_run_result);
-            free(rom);
+        int samples;
+        if (!Rev1Step(Dkc1InputPlaybackFrame(&playback, (size_t)frame), audio, &samples)) {
+            Rev1Close();
+            Dkc1InputPlaybackFree(&playback);
             return 4;
         }
-        DrawFrame();
-        sample_fraction += 32040.0 / 60.0988;
-        int samples = (int)sample_fraction;
-        sample_fraction -= samples;
-        memset(audio, 0, sizeof audio);
-        RtlRenderAudio(audio, samples, 2);
         memcpy(audio_hash_input, audio_chain, sizeof audio_chain);
         memcpy(audio_hash_input + sizeof audio_chain, audio, (size_t)samples * 4);
         sha256_compute(audio_hash_input, sizeof audio_chain + (size_t)samples * 4, audio_chain);
@@ -182,13 +205,14 @@ int main(int argc, char **argv) {
     HashHex(g_ppu->vram, sizeof g_ppu->vram, vram_hash);
     for (int i = 0; i < 32; i++) sprintf(audio_hash + i * 2, "%02x", audio_chain[i]);
     audio_hash[64] = 0;
-    if (!WriteFrame(argv[3])) { free(rom); return 5; }
+    if (!WriteFrame(argv[3])) { Rev1Close(); Dkc1InputPlaybackFree(&playback); return 5; }
     printf("{\"frames\":%ld,\"frame_sha256\":\"%s\",\"wram_sha256\":\"%s\","
            "\"vram_sha256\":\"%s\",\"audio_chain_sha256\":\"%s\","
            "\"interpreted_steps\":%llu,\"dispatch_entries\":%u,\"audio_active_frames\":%d}\n",
            frames, frame_hash, wram_hash, vram_hash, audio_hash, interp_bridge_steps_total(),
            g_dispatch_table_count, audio_active_frames);
-    free(rom);
+    Rev1Close();
     Dkc1InputPlaybackFree(&playback);
     return 0;
 }
+#endif
