@@ -2,6 +2,8 @@
 
 Atualização de 2026-11-06 do build PT-BR separado. As duas mensagens de apresentação e de instrução de salvamento da Candy foram traduzidas. O nome Candy Kong, a placa Candy's Save Point e as ações do jogo permanecem originais. A tradução completa continua pendente.
 
+Atualização posterior: as seis mensagens de revisita também foram integradas, somando as oito falas em inglês identificadas. O relato abaixo preserva a entrega inicial; redação e testes ampliados em [Oito falas da Candy](18-CANDY-FALAS-COMPLETAS.md).
+
 ## Testar
 
 - **Testar falas da Candy.cmd:** prévia que percorre o boot de diagnóstico e entra diretamente na Candy. Não carrega nem grava saves pessoais em disco. Aguarde o ciclo de apresentação e instrução para ver as duas mensagens.

@@ -124,6 +124,25 @@ int Rev1Open(FILE *file) {
 #ifdef DKC_REV1_PTBR_PILOT
     if (!Rev1ApplyPtbrMenuPilot(s_rom, 4194304)) { free(s_rom); s_rom = NULL; return 0; }
 #endif
+#ifndef DKC_REV1_DESKTOP
+    /* Headless QA only: exercise each existing message through the real renderer.
+     * Both baseline and translated runs select the same address. No disk ROM or
+     * desktop/player lookup table is changed by this diagnostic.
+     */
+    const char *qa_message = getenv("DKC_REV1_QA_CANDY_MESSAGE");
+    if (qa_message) {
+        char *end;
+        unsigned long address = strtoul(qa_message, &end, 16);
+        const unsigned allowed[] = {0x315b,0x3189,0x31d1,0x31f7,0x321d,0x324e,0x3293,0x32e3};
+        int valid = 0;
+        for (size_t i=0;i<sizeof allowed/sizeof allowed[0];i++) if(address==allowed[i]) valid=1;
+        if (*end || !valid) { free(s_rom); s_rom = NULL; return 0; }
+        for (unsigned offset=0x3c0354;offset<0x3c0358;offset+=2) {
+            s_rom[offset]=(uint8_t)address; s_rom[offset+1]=(uint8_t)(address>>8);
+        }
+        fprintf(stderr,"qa_candy_message=%04lx headless_only=1\n",address);
+    }
+#endif
     RtlRegisterGame(&s_game);
     if (!SnesInit(s_rom, 4194304)) { free(s_rom); s_rom = NULL; return 0; }
     PpuBeginDrawing(g_ppu, s_pixels, WIDTH * 4, kPpuRenderFlags_NewRenderer);

@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-06 — Oito falas identificadas da Candy em PT-BR
+
+- Traduzidas as seis mensagens de revisita, somando oito falas identificadas. Mantidos Candy Kong, Honey Kong, placa do local, tom e sentido das instruções.
+- Preservados tamanhos, linhas, terminadores e ponteiros. Preenchimento lateral conserva a paridade das novas linhas; adicionado é em código ausente dos blocos ingleses identificados.
+- Vinte e seis testes Python passaram. As oito falas foram comparadas individualmente no renderizador e inspecionadas em capturas; áudio igual, mudanças visuais só no texto e WRAM integralmente igual nas seis novas mensagens.
+- Regressão de menus/entrada da fase e um par Candy/reinício passaram. O diagnóstico para escolher cada mensagem existe somente no runner sem janela; não altera o sorteio no aplicativo.
+- Criados galeria privada de leitura e docs/18-CANDY-FALAS-COMPLETAS.md; Notion atualizado. ROM, executável habitual e saves pessoais preservados. Revisão humana, campanha e tradução integral continuam pendentes.
+
 ## 2026-11-06 — Primeiras falas da Candy em PT-BR
 
 - Integradas apresentação e instrução de salvamento no build PT-BR separado, preservando Candy Kong, a placa do local, ponteiros e tamanhos de 46/72 bytes.

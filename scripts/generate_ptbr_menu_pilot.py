@@ -1,6 +1,6 @@
 """Generate private Rev 1 menu graphics for a separate experimental build.
 
-Identified graphics/tilemaps and two Candy messages change in a memory copy.
+Identified graphics/tilemaps and Candy messages change in a memory copy.
 The input ROM and generated CPU translation units remain untouched.
 """
 from __future__ import annotations
@@ -134,7 +134,7 @@ def main() -> int:
     header_text="\n".join(header)
     if not header_path.exists() or header_path.read_text(encoding="utf-8")!=header_text:
         header_path.write_text(header_text,encoding="utf-8")
-    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics and Candy's two opening messages",
+    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics and all eight identified Candy messages",
               "screens":summary,"candy":candy_summary,"patchset_sha256":patchset,
               "regions":[{"offset":f"0x{offset:06X}","bytes":len(data),"after_sha256":hashlib.sha256(data).hexdigest()}
                          for offset,data in changes],"source_rom_written":False}

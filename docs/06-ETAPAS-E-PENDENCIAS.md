@@ -31,7 +31,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P08 | Validar persistência | SRAM aprovada no cenário coberto | Três saves da Candy e reinícios passaram; ampliar progresso real; save states fora desta entrega |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
 | P10 | Validar campanha e estabilidade | Roteiro preparado; cobertura pendente | Registrar campanha e saves com progresso real; aceitar V14 antes de promover a versão traduzida |
-| P11 | Inventariar, traduzir e revisar PT-BR | Menus e duas falas no piloto; tradução ampla pendente | Glossário, fonte parcial e revisão em contexto; concluir V15–V17 sem dar P10 por concluída |
+| P11 | Inventariar, traduzir e revisar PT-BR | Menus e oito falas da Candy no piloto; tradução ampla pendente | Glossário, fonte parcial e revisão em contexto; concluir V15–V17 sem dar P10 por concluída |
 | P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |
 | P14 | Implementar host interativo Rev 1 | Implementado; primeiro teste realizado | Usuário testou as primeiras fases e relatou perda de fluidez na caverna; bateria completa de ações ainda pendente |
@@ -40,6 +40,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P17 | Adaptar imagem e tela cheia ao monitor | Funcionamento confirmado pelo usuário | Aceite após e46f8f1; não estende a cobertura a todos os monitores ou computadores |
 | P18 | Localizar menus/fontes e criar piloto PT-BR | Implementado; aceite humano pendente | Build e saves isolados; cinco rótulos, Ã/Ç, comparação de menus/gameplay e save/reinício passaram |
 | P19 | Integrar primeiras falas da Candy | Implementado; aceite humano pendente | Nome e instrução preservados, á/ê/ó, layout e memória conferidos; prévia sem saves disponível |
+| P20 | Completar falas identificadas da Candy | Implementado; revisão humana pendente | Oito mensagens, Honey Kong preservado, é, galeria e comparação individual aprovadas no QA |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 
