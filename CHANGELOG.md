@@ -2,6 +2,15 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-05 — Correção da apresentação da janela
+
+- Usuário confirmou os saves e relatou piscadas pretas rápidas na abertura e em todas as fases.
+- Removida a limpeza preta direta na janela. Fundo e imagem agora são compostos em memória e apresentados juntos; preservados 4:3, transições reais e alvo de 60,0988 Hz.
+- Testes GDI passaram: destino isolado durante composição, equivalência RGB em seis tamanhos, carregamento, preto real e 500 redimensionamentos sem vazamento de objetos.
+- Sete testes de IO e três pares Candy/reinício passaram novamente. Framebuffer e WRAM da janela coincidiram com o runner na sequência de 5.400 quadros. Saves pessoais e backup permaneceram idênticos.
+- Smoke de agendamento de 600 quadros com janela oculta: média 16,638 ms, p95 17,945 ms e zero overruns após aquecimento. Não constitui medição visual do monitor.
+- Adicionado docs/14-APRESENTACAO.md e atualizada a cópia no Notion. Aguardando teste humano para confirmar o desaparecimento das piscadas; sem nova instalação.
+
 ## 2026-11-05 — Saves da Candy persistentes
 
 - Integrado o módulo MIT desktop_sram da base fixada, com adaptador Rev 1, tamanho de SRAM conferido, backup no início da sessão e um único processo gravador por perfil.

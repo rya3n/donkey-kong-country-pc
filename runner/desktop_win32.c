@@ -12,6 +12,7 @@
 #include "sha256.h"
 #include "usa_rev1.h"
 #include "usa_rev1_saves.h"
+#include "gdi_present.h"
 
 enum { AUDIO_SLOTS = 8, PATH_CAP = 32768 };
 static const wchar_t *s_title = L"Donkey Kong Country - Rev 1 experimental";
@@ -29,6 +30,8 @@ static HANDLE s_frame_timer;
 static int s_timer_period;
 static int s_high_resolution;
 static int s_save_paused, s_core_failed;
+static Rev1GdiSurface s_present_surface;
+static int s_paint_error_reported;
 static const wchar_t *s_controls_title = L"DKC Rev 1 - Setas: mover | Z: pular | X: correr/rolar | C: trocar | Enter: Start | Esc: sair";
 
 static int FlushSaveWithRetry(int force) {
@@ -127,26 +130,15 @@ static uint32_t KeyMask(WPARAM key) {
 static void Paint(HWND window, HDC dc) {
     RECT client;
     GetClientRect(window, &client);
-    FillRect(dc, &client, (HBRUSH)GetStockObject(BLACK_BRUSH));
-    if (!s_ready) {
-        SetTextColor(dc, RGB(255, 255, 255));
-        SetBkMode(dc, TRANSPARENT);
-        DrawTextW(dc, L"Preparando o jogo...", -1, &client, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-        return;
+    if (client.right <= 0 || client.bottom <= 0) return;
+    if (!Rev1GdiCompose(&s_present_surface, dc, client.right, client.bottom,
+                        s_ready ? Rev1Pixels() : NULL) ||
+        !Rev1GdiPresent(&s_present_surface, dc)) {
+        if (!s_paint_error_reported) fprintf(stderr, "[present] unable to compose/present complete frame\n");
+        s_paint_error_reported = 1;
+    } else {
+        s_paint_error_reported = 0;
     }
-    int width = client.right, height = width * 3 / 4;
-    if (height > client.bottom) { height = client.bottom; width = height * 4 / 3; }
-    if (width <= 0 || height <= 0) return;
-    BITMAPINFO info = {0};
-    info.bmiHeader.biSize = sizeof info.bmiHeader;
-    info.bmiHeader.biWidth = 256;
-    info.bmiHeader.biHeight = -224;
-    info.bmiHeader.biPlanes = 1;
-    info.bmiHeader.biBitCount = 32;
-    info.bmiHeader.biCompression = BI_RGB;
-    SetStretchBltMode(dc, COLORONCOLOR);
-    StretchDIBits(dc, (client.right - width) / 2, (client.bottom - height) / 2,
-        width, height, 0, 0, 256, 224, Rev1Pixels(), &info, DIB_RGB_COLORS, SRCCOPY);
 }
 
 static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM lp) {
@@ -175,7 +167,9 @@ static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM 
     case WM_CLOSE:
         if (FlushSaveWithRetry(1)) DestroyWindow(window);
         return 0;
-    case WM_DESTROY: s_running = 0; PostQuitMessage(0); return 0;
+    case WM_DESTROY:
+        Rev1GdiFree(&s_present_surface);
+        s_running = 0; PostQuitMessage(0); return 0;
     }
     return DefWindowProcW(window, message, wp, lp);
 }
@@ -329,7 +323,8 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     window_class.hInstance = instance;
     window_class.lpszClassName = L"DkcRev1ExperimentalWindow";
     window_class.hCursor = LoadCursor(NULL, IDC_ARROW);
-    window_class.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+    /* WM_PAINT supplies one complete image; no separate background erase. */
+    window_class.hbrBackground = NULL;
     if (!RegisterClassW(&window_class)) return 2;
     RECT size = {0, 0, 768, 576};
     AdjustWindowRect(&size, WS_OVERLAPPEDWINDOW, FALSE);

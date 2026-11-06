@@ -8,7 +8,9 @@ Retorno do primeiro teste: o usuário aprovou a experiência inicial e relatou p
 
 ## Abrir e jogar
 
-Depois da compilação com `./scripts/build_rev1.ps1`, abrir `Jogar DKC - Teste.cmd` na raiz do projeto. Ele inicia `build/usa-rev1/DKC-Rev1-Teste.exe --jungle`. A preparação percorre a receita de 4.800 quadros desde boot limpo, em alguns segundos, e entrega o controle na entrada de Jungle Hijinxs. Não usa um save state nem modifica a ROM.
+Depois da compilação com `./scripts/build_rev1.ps1`, abrir `Jogar DKC.cmd` ou `Jogar DKC - Teste.cmd` na raiz do projeto. Ambos iniciam pelo menu normal com saves persistentes. A apresentação foi atualizada para compor o quadro fora da tela; ver [Apresentação da janela](14-APRESENTACAO.md) e confirmar visualmente se as piscadas desapareceram.
+
+Para o diagnóstico sem saves pessoais, executar o aplicativo com `--jungle` ou usar `Testar caverna.cmd`. A preparação percorre a receita de 4.800 quadros desde boot limpo e entrega o controle na entrada da fase. Não usa um save state nem modifica a ROM.
 
 Abrir DKC-Rev1-Teste.exe sem argumentos inicia pelo boot normal. O programa procura o arquivo Donkey Kong Country (USA) (Rev 1).sfc junto ao executável e nos dois diretórios acima, conferindo o hash exato. Se não o encontrar, oferece o seletor de arquivo. Manter o executável em build/usa-rev1 e a receita em recipes/usa-rev1 para usar --jungle.
 
