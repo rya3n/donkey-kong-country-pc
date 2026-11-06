@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: imagem adaptável para USA v1.1 (Rev 1).** O usuário confirmou a fluidez, os saves e o fim das piscadas pretas. A imagem agora preenche a janela por padrão; F6 alterna com a proporção original 4:3 e F11 ativa a tela cheia no monitor atual. Testes gráficos e de restauração da janela passaram; o novo modo aguarda teste humano. O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
+**Etapa atual: ampliar a validação da campanha para USA v1.1 (Rev 1).** O usuário confirmou a fluidez, os saves, o fim das piscadas e os novos modos de tela. F6 alterna preencher/4:3 e F11 ativa tela cheia no monitor atual. A próxima etapa é registrar progressão, chefes e saves com progresso real antes de iniciar PT-BR; roteiro em [Plano de validação](docs/05-VALIDACAO.md). O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 

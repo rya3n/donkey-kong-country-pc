@@ -50,6 +50,8 @@ Verificações desta extensão: build Release passou; comparação RGB em oito t
 
 Os testes usam janelas ocultas e destinos GDI em memória. A inspeção visual dos novos modos e sua validação em outros computadores permanecem pendentes; não foram simulados monitores desconectados ou configurações de DPI diferentes.
 
+Retorno posterior de 2026-11-05: o usuário confirmou que a versão com os novos modos está funcionando perfeitamente. P17 aceita no teste relatado; outros computadores e configurações de monitor continuam sem cobertura declarada. A próxima etapa é a validação da campanha e de saves com progresso real.
+
 ## Referências da implementação
 
 [CreateDIBSection — Microsoft](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createdibsection) documenta o bitmap em memória e a sincronização GDI. [BitBlt — Microsoft](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-bitblt) documenta a cópia de um bloco entre contextos de desenho. A implementação própria fica no host Rev 1; a engine upstream permanece intacta.

@@ -2,6 +2,13 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-05 — Modos de tela aprovados e próxima etapa
+
+- Usuário confirmou o funcionamento da versão e46f8f1 após a inclusão de preencher/4:3 e tela cheia adaptável. P17 aceita no teste relatado.
+- Próxima etapa organizada: campanha e saves com progresso real, incluindo transições, mortes, bônus, chefes e carregamento após reabrir, antes de PT-BR.
+- Roteiro acrescentado ao plano de validação e referência atualizada no README, pendências e Notion. Nenhuma nova execução funcional ou alteração no executável nesta atualização documental.
+- O aceite não informa campanha completa nem comprova funcionamento em todos os monitores ou computadores.
+
 ## 2026-11-05 — Imagem adaptável e piscadas resolvidas
 
 - Usuário confirmou que a tela parou de piscar após a correção anterior.

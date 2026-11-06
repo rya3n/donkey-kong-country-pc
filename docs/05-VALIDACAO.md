@@ -34,6 +34,22 @@ Depois da primeira entrega, incluir caverna, chuva e cordas, fase vertical, águ
 
 Para widescreen, observar separadamente imagem central, margens, streaming, ativação de objetos e regras de gameplay. As exigências completas de promoção do upstream incluem determinismo, entradas limpas, comparação central e matriz de layouts; seguir o `upstream/AGENTS.md` antes de alterar esse código.
 
+## Próxima execução: campanha e progresso real
+
+Roteiro preparado em 2026-11-05 após o aceite dos modos de tela. Esta lista organiza o próximo teste; não registra resultados já obtidos. Usar a versão e46f8f1 como referência inicial e identificar qualquer correção posterior. Jogar pelo menu normal, sem os atalhos de entrada diagnóstica.
+
+| Passo | O que registrar | Estado |
+| --- | --- | --- |
+| Ações e retorno | Movimento, troca de personagem, barris, morte, retorno e continuação | A registrar |
+| Progressão | Nome de cada fase concluída, saída, mapa, bônus e entrada seguinte | A registrar |
+| Variedade e chefes | Água, chuva, cavernas, cordas, canhões, chefes e transições entre mundos | A registrar |
+| Saves com progresso real | Progresso mostrado no menu, salvar na Candy, fechar normalmente, reabrir e conferir o mesmo arquivo | A registrar |
+| Final da campanha | Chefe final, encerramento/créditos e estado recuperado após reabrir | A registrar |
+
+Para cada sessão, anotar versão, fases percorridas, modo de tela e defeitos observados. Testar a persistência em momentos diferentes da progressão; identificar e proteger a cópia do save antes de qualquer teste de migração ou falha. Não substituir o progresso pessoal por fixtures de QA. Percurso principal, bônus e eventuais caminhos não percorridos devem ter sua cobertura indicada separadamente.
+
+Corrigir e repetir qualquer cenário com defeito crítico antes de aceitar V14. Depois do aceite, iniciar o inventário de textos para PT-BR. Suporte a controle físico, save states e pacote final continuam em seus próprios marcos.
+
 ## Como registrar defeitos
 
 Título com sintoma observável; ROM/build; cenário; passos; comportamento esperado e observado; primeiro frame conhecido; artefatos; reprodução após entrada limpa; hipótese separada de causa comprovada. Um defeito só pode ser chamado de corrigido após repetir o caso e verificar os cenários relacionados.
