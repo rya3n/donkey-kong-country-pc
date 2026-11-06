@@ -2,6 +2,15 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-05 — Primeiro piloto PT-BR dos menus
+
+- Localizados gráficos/tilemaps da seleção de jogo e jogadores e confirmado o ponteiro da fonte Rev 1. Fonte, dados e regiões são conferidos contra a ROM exata, sem assumir os offsets v1.0.
+- Criado build separado e launcher Testar DKC - PT-BR.cmd, com cinco rótulos traduzidos e glifos Ã/Ç. Os desenhos dos Kongs e todas as regiões do inventário de nomes/falas ficaram preservados.
+- As alterações são aplicadas em cinco regiões de dados da cópia em memória; ROM do disco, código do cartucho, AOT e executável habitual permanecem intactos. O piloto tem perfil de save próprio.
+- Doze testes Python passaram. Nos quadros 1.700/2.300, estado e áudio coincidiram, com diferenças visuais apenas nas regiões previstas. No quadro 4.800, a imagem da fase também coincidiu.
+- Um par Candy/reinício passou no build final entre aplicativo, runner e disco, em perfis de QA. Capturas finais inspecionadas; tipografia e leitura ao vivo aguardam o usuário.
+- Adicionado docs/16-PILOTO-PT-BR.md e atualizado o Notion. Os 12 rascunhos de falas ainda não estão no jogo; demais textos, outros acentos, campanha e PT-BR completo continuam pendentes.
+
 ## 2026-11-05 — Preparação PT-BR com nomes preservados
 
 - Usuário autorizou começar a tradução com cuidado para preservar nomes importantes e contexto; política registrada em D012 e localization/pt-BR/policy.json.

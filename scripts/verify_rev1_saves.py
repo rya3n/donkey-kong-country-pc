@@ -1,4 +1,4 @@
-"""Three Candy saves and cold restarts, isolated from personal progress."""
+"""Candy saves and cold restarts, isolated from personal progress."""
 from __future__ import annotations
 import argparse
 import hashlib
@@ -14,16 +14,20 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--rom", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--build-dir", type=Path, default=ROOT / "build/usa-rev1")
+    parser.add_argument("--desktop-name", default="DKC-Rev1-Teste.exe")
+    parser.add_argument("--repeats", type=int, choices=range(1, 11), default=3)
     args = parser.parse_args()
     rom = args.rom.resolve(strict=True)
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
     reports = []
-    desktop = ROOT / "build/usa-rev1/DKC-Rev1-Teste.exe"
+    build_dir = args.build_dir.resolve(strict=True)
+    desktop = build_dir / args.desktop_name
     startup = subprocess.STARTUPINFO()
     startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
     startup.wShowWindow = subprocess.SW_HIDE
-    for repeat in range(1, 4):
+    for repeat in range(1, args.repeats + 1):
         repeat_dir = out / str(repeat)
         repeat_dir.mkdir()
         users = {kind: repeat_dir / (kind + "-user") for kind in ("headless", "desktop")}
@@ -48,7 +52,7 @@ def main() -> int:
                 if leg == "save":
                     env["DKC_REV1_TEST_ENTRANCE"] = "FA"
                 if kind == "headless":
-                    run = subprocess.run([str(ROOT / "build/usa-rev1/dkc_rev1_headless.exe"), str(rom),
+                    run = subprocess.run([str(build_dir / "dkc_rev1_headless.exe"), str(rom),
                                           "4801", str(evidence / "frame"), str(recipe)],
                                          env=env, capture_output=True, timeout=90)
                     (evidence / "stdout.log").write_bytes(run.stdout)
@@ -92,7 +96,7 @@ def main() -> int:
             print(f"repeat={repeat} leg={leg}: desktop/headless/disk match", flush=True)
     assert len({report["sram_sha256"] for report in reports}) == 1
     (out / "results.json").write_text(json.dumps(reports, indent=2), encoding="utf-8")
-    print("Candy save and cold restart passed three times; no snapshots used.")
+    print(f"Candy save and cold restart passed {args.repeats} time(s); no snapshots used.")
     return 0
 
 if __name__ == "__main__":

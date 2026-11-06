@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "rom_profile": "usa-rev1",
+  "scope": "file selection and player-mode selection only; experimental",
+  "glyph_source": {"offset": "0x3887B2", "format": "4bpp 8x8 tiles, ASCII 0x21..0x5F; pilot scales height to 16 pixels"},
+  "file_select": {
+    "tilemap": "0x31C2C7", "tilemap_size": "0x5C0", "tilemap_screen_y": 3,
+    "graphics": "0x31C987", "graphics_size": "0x20E0",
+    "reusable_tiles": [132, 159],
+    "labels": [
+      {"id": "file_select_title", "text": "SELEÇÃO DE JOGO", "x": 9, "y": 0, "palette": 7, "clear_x": 4, "clear_width": 24},
+      {"id": "erase_game", "text": "APAGAR JOGO", "x": 4, "y": 20, "palette": 6, "clear_x": 4, "clear_width": 11}
+    ]
+  },
+  "player_select": {
+    "tilemap": "0x2F86BE", "tilemap_size": "0x700", "tilemap_screen_y": 0,
+    "graphics": "0x2F8DBE", "graphics_size": "0x24E0",
+    "clear_text_from_x": 12,
+    "original_glow_tilemap": "0x2FB29E", "original_glow_tilemap_size": "0x600",
+    "labels": [
+      {"id": "one_player", "text": "1 JOGADOR", "x": 13, "y": 3, "palette": 7},
+      {"id": "two_player_contest", "text": "2 JOGADORES\nCOMPETIÇÃO", "x": 13, "y": 12, "palette": 6},
+      {"id": "two_player_team", "text": "2 JOGADORES\nEQUIPE", "x": 13, "y": 22, "palette": 6}
+    ]
+  }
+}

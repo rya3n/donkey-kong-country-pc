@@ -14,6 +14,7 @@ if (-not $env:VSCMD_VER) { throw 'Visual Studio developer environment was not lo
 $buildDirectory = Join-Path $projectRoot 'build/usa-rev1'
 & $toolchain.cmake -S $projectRoot -B $buildDirectory -G Ninja `
     -DCMAKE_BUILD_TYPE=Release -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
+    -DDKC_BUILD_PTBR_PILOT=OFF `
     "-DCMAKE_MAKE_PROGRAM=$($toolchain.ninja)"
 if ($LASTEXITCODE -ne 0) { throw 'CMake configuration failed.' }
 & $toolchain.cmake --build $buildDirectory --parallel 6

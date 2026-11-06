@@ -17,6 +17,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "usa_rev1.h"
+#ifdef DKC_REV1_PTBR_PILOT
+#include "ptbr_pilot.h"
+#endif
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
@@ -118,6 +121,9 @@ int Rev1Open(FILE *file) {
     if (s_rom) return 0;
     s_rom = ReadRomStream(file);
     if (!s_rom) return 0;
+#ifdef DKC_REV1_PTBR_PILOT
+    if (!Rev1ApplyPtbrMenuPilot(s_rom, 4194304)) { free(s_rom); s_rom = NULL; return 0; }
+#endif
     RtlRegisterGame(&s_game);
     if (!SnesInit(s_rom, 4194304)) { free(s_rom); s_rom = NULL; return 0; }
     PpuBeginDrawing(g_ppu, s_pixels, WIDTH * 4, kPpuRenderFlags_NewRenderer);

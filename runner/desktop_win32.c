@@ -17,6 +17,13 @@
 
 enum { AUDIO_SLOTS = 8, PATH_CAP = 32768 };
 static const wchar_t *s_title = L"Donkey Kong Country - Rev 1 experimental";
+#ifdef DKC_REV1_PTBR_PILOT
+#define REV1_USER_DATA L"data\\usa-rev1-ptbr-pilot"
+#define REV1_WINDOW_PREFIX L"DKC PT-BR piloto"
+#else
+#define REV1_USER_DATA L"data\\usa-rev1"
+#define REV1_WINDOW_PREFIX L"DKC"
+#endif
 static HWND s_window;
 static int s_running = 1, s_active, s_ready;
 static uint32_t s_keys;
@@ -39,8 +46,8 @@ static Rev1WindowMode s_window_mode;
 static void UpdateControlsTitle(void) {
     if (s_save_paused) return;
     SetWindowTextW(s_window, s_scale_mode == REV1_SCALE_FILL
-        ? L"DKC - Preencher | F6: proporcao 4:3 | F11: tela cheia | Enter: Start | Esc: sair"
-        : L"DKC - Proporcao 4:3 | F6: preencher | F11: tela cheia | Enter: Start | Esc: sair");
+        ? REV1_WINDOW_PREFIX L" - Preencher | F6: proporcao 4:3 | F11: tela cheia | Enter: Start | Esc: sair"
+        : REV1_WINDOW_PREFIX L" - Proporcao 4:3 | F6: preencher | F11: tela cheia | Enter: Start | Esc: sair");
 }
 
 static int FlushSaveWithRetry(int force) {
@@ -68,7 +75,7 @@ static int OpenSaveStorage(void) {
     wchar_t path[PATH_CAP];
     const wchar_t *override = _wgetenv(L"DKC_REV1_SAVE_DIR");
     if (!override) {
-        const wchar_t *suffixes[] = {L"data", L"data\\usa-rev1"};
+        const wchar_t *suffixes[] = {L"data", REV1_USER_DATA};
         for (int i = 0; i < 2; i++) {
             if (_snwprintf_s(path, PATH_CAP, _TRUNCATE, L"%s\\%s", s_project_dir, suffixes[i]) < 0)
                 return 0;

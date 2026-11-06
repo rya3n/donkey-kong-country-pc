@@ -2,6 +2,8 @@
 
 Iniciada em 2026-11-05 por autorização do usuário, com a orientação de preservar nomes importantes e o contexto do jogo. Esta etapa produz inventário, glossário e rascunhos. A campanha completa permanece pendente; o executável jogável não recebeu alterações de texto.
 
+Atualização posterior: os menus foram localizados e um build experimental separado recebeu cinco rótulos gráficos em PT-BR. O executável habitual e os 12 rascunhos de falas permanecem como antes. Ver [Piloto dos menus](16-PILOTO-PT-BR.md). O relatório abaixo registra a extração inicial.
+
 ## Regra editorial
 
 - Manter nomes próprios de personagens, inimigos, animais, lugares, fases, marcas e pessoas dos créditos. Preservar grafia, identidade e pontuação; não substituir por uma tradução literal.
