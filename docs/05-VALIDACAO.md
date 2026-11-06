@@ -1,6 +1,6 @@
 # Plano de validação
 
-Estado: validação inicial do protótipo Rev 1 sem janela, detalhada em [Protótipo USA Rev 1](10-USA-REV1-BRINGUP.md). Resultados automatizados não substituem uma sessão interativa ou comparação com referência independente.
+Estado: protótipo Rev 1 com teste humano de fluidez e validação de persistência em processos novos, detalhada em [Salvamento de progresso](13-SAVES.md). Resultados automatizados não substituem a cobertura de campanha ou comparação com referência independente.
 
 ## Identidade mínima de uma execução
 
@@ -15,14 +15,14 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | V01 | Verificar ROM do perfil | Tamanho e SHA-256 exatos | Rev 1 aceita; v1.2 rejeitada no verificador e no host |
 | V02 | Gerar e compilar | Comandos terminam com sucesso e executável é identificado | Protótipo Rev 1 compilado com MSVC; identidade no relatório |
 | V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | Suíte pública: 303 testes, 2 erros, 10 skips; CTest do jogo aguarda ROM/build |
-| V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Parcial: sequência automatizada chegou ao mapa e à fase; janela pendente |
-| V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Parcial: captura da entrada na fase; interação humana pendente |
+| V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Executado em janela; usuário confirmou a fluidez após a correção |
+| V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Entrada reproduzida e sessão humana realizada; cobertura ampliada em V14 |
 | V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Não executado |
 | V07 | Morte e retorno | Ciclo completo sem travamento e com estado coerente | Não executado |
 | V08 | Concluir fase e voltar ao mapa | Saída, transição e progressão corretas | Não executado |
 | V09 | Áudio e apresentação | Trecho identificado sem cortes persistentes ou defeitos visíveis | Não executado |
-| V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Não executado |
-| V11 | Save state, se incluído no marco | Comparar continuação após load com execução contínua | Não executado |
+| V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Três repetições passaram no cenário Candy 00:00 / 00%; ampliar cobertura de progresso real |
+| V11 | Save state, se incluído no marco | Comparar continuação após load com execução contínua | Não implementado; não faz parte da entrega de SRAM |
 | V12 | Controle físico | Ações e reconexão no dispositivo disponível | Não executado |
 | V13 | Repetição determinística | Três replays com mesma entrada e hashes dos estados comparados iguais | Três execuções de 600 quadros idênticas; entrada na fase repetida; cobertura restrita |
 

@@ -4,9 +4,11 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: primeiro teste interativo para USA v1.1 (Rev 1).** O protótipo automatizado chegou a Jungle Hijinxs e agora há um host Windows com janela, teclado e saída de áudio para avaliação do usuário. O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
+**Etapa atual: progresso salvo entre execuções para USA v1.1 (Rev 1).** O usuário confirmou a fluidez após a correção de cadência. O host agora preserva os saves da Candy em disco, com três testes de gravação e reinício concluídos. O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
 
-Para testar após compilar, abra **Jogar DKC - Teste.cmd**. Controles: setas, Z para pular, X para correr/rolar, C para trocar, Enter para Start e Esc para fechar. Detalhes e limites em [Teste interativo](docs/11-TESTE-INTERATIVO.md).
+Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
+
+Controles: setas, Z para pular, X para correr/rolar, C para trocar, Enter para Start e Esc para fechar. Detalhes em [Teste interativo](docs/11-TESTE-INTERATIVO.md).
 
 Após o primeiro teste do usuário, corrigimos a cadência da janela preservando 60,0988 Hz e verificamos trechos iniciais de 40 entradas de fases e chefes. Resultados e cobertura em [Verificação de fluidez](docs/12-FLUIDEZ.md).
 
@@ -28,6 +30,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Protótipo USA Rev 1](docs/10-USA-REV1-BRINGUP.md) | Comandos atuais, resultados e limites do primeiro executável |
 | [Teste interativo](docs/11-TESTE-INTERATIVO.md) | Como abrir a janela e testar com teclado |
 | [Verificação de fluidez](docs/12-FLUIDEZ.md) | Correção de cadência, comparação e matriz de entradas |
+| [Salvamento de progresso](docs/13-SAVES.md) | Saves da Candy, backup e testes entre processos |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura
@@ -36,7 +39,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 - A configuração Rev 1 começa pelos vetores da própria ROM, sem importar os endereços e adaptações de gameplay da v1.0.
 - A base de desenvolvimento está fixada na v0.0.17, commit `559bab62596a97e91f389b39cdeb6cda981ab7c9`, com engine e submódulos identificados em `config/upstream.lock.json`.
 - MSVC, CMake e Ninja foram instalados e verificados em E:\Ferramentas. O SDK do Windows e o instalador compartilhado da Microsoft permanecem no C:.
-- O núcleo aceita entradas gravadas e passou pelas regressões de 600 e 4.800 quadros. A janela com teclado e saída de áudio está pronta para avaliação; qualidade audiovisual, gameplay ao vivo, saves e campanha continuam sem validação.
+- O usuário confirmou a fluidez e os saves da Candy passaram por três reinícios em processos novos. Campanha completa, save states e cobertura ampliada continuam pendentes.
 
 ## Organização dos arquivos
 
@@ -50,6 +53,7 @@ runner/                    integração própria com o runtime
 recipes/usa-rev1/           sequência reproduzível de botões
 experimental/              fontes derivadas privadas; ignoradas
 build/                     executáveis locais; ignorados
+data/usa-rev1/saves/        progresso pessoal e backup; ignorados
 upstream/                  clone independente do DKC1Recomp
 downloads/                 arquivo ZIP oficial baixado
 runtime/                   pacote oficial extraído, sem validação de gameplay local
@@ -60,7 +64,7 @@ Os documentos em Markdown são a referência técnica versionável. A área excl
 
 Os links de navegação do Notion privado ficam no arquivo local `.project-local.md`, excluído da publicação. O conteúdo técnico público pode ser consultado pelos documentos deste repositório.
 
-**Próximas tarefas:** acompanhar o primeiro teste interativo e investigar a divergência de memória/áudio encontrada ao ampliar a recompilação. O roteiro está em [Teste interativo](docs/11-TESTE-INTERATIVO.md) e [Protótipo USA Rev 1](docs/10-USA-REV1-BRINGUP.md). A suíte pública anterior executou 303 testes, com 2 erros e 10 ignorados; esse resultado permanece registrado, sem declaração de aprovação.
+**Próximas tarefas:** ampliar o teste de campanha e de saves com progresso real e investigar a divergência de memória/áudio encontrada ao ampliar a recompilação. O roteiro atual de persistência está em [Salvamento de progresso](docs/13-SAVES.md). A suíte pública anterior executou 303 testes, com 2 erros e 10 ignorados; esse resultado permanece registrado, sem declaração de aprovação.
 
 Para repetir a checagem local, execute `python scripts/check_project.py` ou use `--json` para obter um relatório estruturado. O verificador retorna código 1 quando há pré-requisitos pendentes e não altera a ROM, o código ou o sistema.
 

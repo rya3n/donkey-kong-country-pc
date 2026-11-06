@@ -26,6 +26,8 @@ Nenhuma licença foi escolhida para o nosso material novo nesta etapa. Não subs
 
 O novo alvo referencia headless_host.c e input_playback.c do clone DKC1Recomp e adapta seu agendamento de quadros e HDMA em runner/usa_rev1.c. O aviso MIT dos autores está preservado em third_party/DKC1Recomp-LICENSE.txt. O runtime é consumido do submódulo fixado, com suas licenças e avisos próprios; o aviso MIT do host não relicencia a engine.
 
+Na etapa de persistência, também foi integrado desktop_sram.c do mesmo clone MIT, sem modificar sua fonte. O fixture de Candy de upstream/docs/INGAME_SAVES.md orientou o novo teste da Rev 1. A camada própria acrescenta diretório por perfil, backup e reserva do gravador; saves e capturas de QA permanecem locais.
+
 A nova configuração começa pelos vetores da ROM Rev 1. Nenhum trecho do disassembly GPL consultado foi copiado para esses arquivos; sua consulta como referência permanece creditada. Fontes C derivadas da ROM, funcs.h gerado, perfis privados, imagens e executáveis ficam ignorados. O repositório publica apenas o host, configuração, receita de botões, scripts e documentação selecionados.
 
 ## Conferência antes da publicação

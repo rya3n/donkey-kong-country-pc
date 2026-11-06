@@ -2,6 +2,16 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-05 — Saves da Candy persistentes
+
+- Integrado o módulo MIT desktop_sram da base fixada, com adaptador Rev 1, tamanho de SRAM conferido, backup no início da sessão e um único processo gravador por perfil.
+- Dados pessoais em data/usa-rev1/saves/ no E:, fora de build/. Falhas detectadas preservam o arquivo anterior e pausam a janela para retry; o fechamento normal tenta concluir a escrita.
+- Jogar DKC.cmd e o launcher antigo agora iniciam pelo menu normal, permitindo escolher o arquivo salvo. Atalhos de entrada direta permanecem separados dos saves pessoais.
+- Três repetições de salvar na Candy e carregar em processos novos passaram, comparando aplicativo, runner e disco. Nenhum snapshot foi usado; o cenário de QA usa o primeiro arquivo a 00:00 / 00% e entrada controlada na Candy.
+- Sete testes de arquivos passaram, incluindo falha de escrita/backup, tamanhos incorretos, exclusão de outro gravador e diretório Unicode.
+- Replay de boot preservado; smoke de agendamento com SRAM ativa manteve 60,0988 Hz. Nenhuma ferramenta nova instalada e nenhum dado de QA copiado para o perfil pessoal.
+- Adicionado docs/13-SAVES.md com instruções e limites. Save states, campanha completa e PT-BR permanecem nas etapas posteriores.
+
 ## 2026-11-04 — Fluidez confirmada pelo usuário
 
 - Após disponibilizar a correção de cadência, o usuário confirmou que o jogo agora está funcionando perfeitamente em seu teste.

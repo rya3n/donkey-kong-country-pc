@@ -2,6 +2,8 @@
 
 Protótipo experimental USA Rev 1, preparado em 2026-11-04 para o primeiro teste do usuário. Os dados da ROM permanecem locais. Ainda usa recompilação e interpretação de apoio, sem validação da campanha ou persistência.
 
+Atualização de 2026-11-05: a persistência da Candy foi implementada e validada no cenário de QA. Para jogar com progresso pessoal, usar Jogar DKC.cmd ou o launcher antigo, agora pelo menu normal. Ver [Salvamento de progresso](13-SAVES.md). As instruções abaixo preservam a preparação inicial sem saves e o modo de entrada direta continua disponível apenas como teste isolado.
+
 Retorno do primeiro teste: o usuário aprovou a experiência inicial e relatou perda de fluidez após a chuva. A correção de cadência e os testes posteriores estão em [Verificação de fluidez](12-FLUIDEZ.md). O registro abaixo preserva os limites da preparação inicial.
 
 ## Abrir e jogar

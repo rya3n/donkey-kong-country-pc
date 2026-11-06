@@ -2,6 +2,8 @@
 *.smc
 *.sfc
 *.srm
+*.srm.*
+/data/
 *.state
 *.state.*
 *.szst*

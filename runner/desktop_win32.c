@@ -11,6 +11,7 @@
 #include "common_rtl.h"
 #include "sha256.h"
 #include "usa_rev1.h"
+#include "usa_rev1_saves.h"
 
 enum { AUDIO_SLOTS = 8, PATH_CAP = 32768 };
 static const wchar_t *s_title = L"Donkey Kong Country - Rev 1 experimental";
@@ -27,6 +28,52 @@ static FILE *s_pacing;
 static HANDLE s_frame_timer;
 static int s_timer_period;
 static int s_high_resolution;
+static int s_save_paused, s_core_failed;
+static const wchar_t *s_controls_title = L"DKC Rev 1 - Setas: mover | Z: pular | X: correr/rolar | C: trocar | Enter: Start | Esc: sair";
+
+static int FlushSaveWithRetry(int force) {
+    if (s_core_failed) return 1;
+    char error[512], message[768];
+    while (!Rev1SavesFlush(force, error, sizeof error)) {
+        s_save_paused = 1;
+        s_keys = 0;
+        if (s_device) waveOutReset(s_device);
+        snprintf(message, sizeof message,
+            "Nao foi possivel gravar o progresso. O arquivo anterior foi preservado.\n\n%s\n\n"
+            "Tentar novamente repete a gravacao. Cancelar deixa o jogo pausado; F5 tenta salvar e continuar.", error);
+        if (MessageBoxA(s_window, message, "Falha ao salvar", MB_RETRYCANCEL | MB_ICONERROR) != IDRETRY) {
+            SetWindowTextW(s_window, L"Salvamento pendente - F5: tentar novamente | Esc: salvar e sair");
+            return 0;
+        }
+        force = 1;
+    }
+    if (s_save_paused) SetWindowTextW(s_window, s_controls_title);
+    s_save_paused = 0;
+    return 1;
+}
+
+static int OpenSaveStorage(void) {
+    wchar_t path[PATH_CAP];
+    const wchar_t *override = _wgetenv(L"DKC_REV1_SAVE_DIR");
+    if (!override) {
+        const wchar_t *suffixes[] = {L"data", L"data\\usa-rev1"};
+        for (int i = 0; i < 2; i++) {
+            if (_snwprintf_s(path, PATH_CAP, _TRUNCATE, L"%s\\%s", s_project_dir, suffixes[i]) < 0)
+                return 0;
+            if (!CreateDirectoryW(path, NULL) && GetLastError() != ERROR_ALREADY_EXISTS) {
+                MessageBoxW(s_window, L"Nao foi possivel criar a pasta de dados do jogo no projeto.", s_title, MB_OK | MB_ICONERROR);
+                return 0;
+            }
+        }
+        override = path;
+    }
+    char error[512];
+    if (!Rev1SavesOpen(override, error, sizeof error)) {
+        MessageBoxA(s_window, error, "Nao foi possivel abrir os saves", MB_OK | MB_ICONERROR);
+        return 0;
+    }
+    return 1;
+}
 
 static void OpenFrameClock(void) {
     s_frame_timer = CreateWaitableTimerExW(NULL, NULL,
@@ -113,7 +160,8 @@ static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM 
     }
     case WM_ERASEBKGND: return 1;
     case WM_KEYDOWN:
-        if (wp == VK_ESCAPE) { DestroyWindow(window); return 0; }
+        if (wp == VK_ESCAPE) { SendMessageW(window, WM_CLOSE, 0, 0); return 0; }
+        if (wp == VK_F5 && s_save_paused) { FlushSaveWithRetry(1); return 0; }
         s_keys |= KeyMask(wp);
         return 0;
     case WM_KEYUP: s_keys &= ~KeyMask(wp); return 0;
@@ -124,6 +172,9 @@ static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM 
         return 0;
     case WM_SETFOCUS: s_active = 1; return 0;
     case WM_SIZE: InvalidateRect(window, NULL, FALSE); return 0;
+    case WM_CLOSE:
+        if (FlushSaveWithRetry(1)) DestroyWindow(window);
+        return 0;
     case WM_DESTROY: s_running = 0; PostQuitMessage(0); return 0;
     }
     return DefWindowProcW(window, message, wp, lp);
@@ -152,6 +203,8 @@ static int TryRom(const wchar_t *path) {
 }
 
 static int LoadRom(void) {
+    const wchar_t *qa_rom = s_bench_frames ? _wgetenv(L"DKC_REV1_TEST_ROM") : NULL;
+    if (qa_rom) return TryRom(qa_rom);
     wchar_t directory[PATH_CAP], path[PATH_CAP];
     wcscpy_s(directory, PATH_CAP, s_exe_dir);
     for (int level = 0; level < 3; level++) {
@@ -222,7 +275,8 @@ static int PrepareJungle(void) {
     wchar_t path[PATH_CAP];
     if (_snwprintf_s(path, PATH_CAP, _TRUNCATE, L"%s\\recipes\\usa-rev1\\boot-to-jungle.inputs", s_project_dir) < 0)
         return 0;
-    FILE *file = _wfopen(path, L"rb");
+    const wchar_t *qa_input = s_bench_frames ? _wgetenv(L"DKC_REV1_PREPARE_INPUT") : NULL;
+    FILE *file = _wfopen(qa_input ? qa_input : path, L"rb");
     if (!file) return 0;
     unsigned int mask;
     unsigned long repeat, frames = 0;
@@ -286,6 +340,13 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     ShowWindow(s_window, show);
     UpdateWindow(s_window);
     if (!LoadRom()) { DestroyWindow(s_window); return 2; }
+    /* Diagnostic entry shortcuts never load or replace personal cartridge saves.
+     * An explicit QA directory allows isolated automated persistence tests.
+     */
+    int shortcut = wcscmp(command_line, L"--jungle") == 0 || s_start_cave;
+    if ((_wgetenv(L"DKC_REV1_SAVE_DIR") || (!shortcut && !s_bench_frames)) && !OpenSaveStorage()) {
+        Rev1Close(); DestroyWindow(s_window); return 6;
+    }
     if (wcscmp(command_line, L"--jungle") == 0 || s_start_cave) {
         SetWindowTextW(s_window, s_start_cave ? L"Preparando Reptile Rumble - aguarde alguns segundos" :
             L"Preparando Jungle Hijinxs - aguarde alguns segundos");
@@ -297,7 +358,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         }
     }
     s_ready = 1;
-    SetWindowTextW(s_window, L"DKC Rev 1 - Setas: mover | Z: pular | X: correr/rolar | C: trocar | Enter: Start | Esc: sair");
+    SetWindowTextW(s_window, s_controls_title);
     if (!OpenAudio())
         MessageBoxW(s_window, L"A saida de audio nao abriu. Voce pode testar a imagem e os controles sem som.", s_title, MB_OK | MB_ICONWARNING);
     fprintf(stderr, "desktop_ready=1 audio_device=%d\n", s_device != NULL);
@@ -323,7 +384,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         PumpMessages();
         if (!s_running) break;
         QueryPerformanceCounter(&now);
-        if (!s_bench_frames && (!s_active || IsIconic(s_window))) {
+        if (s_save_paused || (!s_bench_frames && (!s_active || IsIconic(s_window)))) {
             next_frame = (double)now.QuadPart;
             previous_present = 0;
             previous_finish = next_frame;
@@ -344,13 +405,15 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         LARGE_INTEGER work_begin, cpu_finish, present_finish;
         QueryPerformanceCounter(&work_begin);
         int16_t *pcm = s_device ? s_audio[slot].pcm : discarded_audio;
-        if (!Rev1Step(s_keys, pcm, &samples)) {
+        if (!Rev1Step(s_bench_frames ? 0 : s_keys, pcm, &samples)) {
+            s_core_failed = 1;
             CloseAudio();
             MessageBoxW(s_window, L"A execucao experimental parou. Consulte DKC-Rev1-teste.log.", s_title, MB_OK | MB_ICONERROR);
             exit_code = 4;
             break;
         }
         QueryPerformanceCounter(&cpu_finish);
+        if (!Rev1SavesFlush(0, (char[512]){0}, 512) && !FlushSaveWithRetry(1)) continue;
         if (s_device) {
             WAVEHDR *header = &s_audio[slot].header;
             header->dwBufferLength = (DWORD)samples * 4;
@@ -380,7 +443,8 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         if (next_frame <= (double)present_finish.QuadPart)
             next_frame = (double)present_finish.QuadPart + frame_ticks;
         if (++frames % 600 == 0) { fprintf(stderr, "interactive_frames=%lu\n", frames); fflush(stderr); }
-        if (s_bench_frames && frames >= s_bench_frames) break;
+        if (s_bench_frames && frames >= s_bench_frames)
+            SendMessageW(s_window, WM_CLOSE, 0, 0);
     }
     CloseAudio();
     CloseFrameClock();
@@ -393,6 +457,12 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         fprintf(stderr, "\nbenchmark_wram_sha256=");
         for (int i = 0; i < 32; i++) fprintf(stderr, "%02x", ram_hash[i]);
         fprintf(stderr, "\n");
+        uint8_t sram_hash[32];
+        sha256_compute(g_sram, (size_t)g_sram_size, sram_hash);
+        fprintf(stderr, "benchmark_sram_sha256=");
+        for (int i = 0; i < 32; i++) fprintf(stderr, "%02x", sram_hash[i]);
+        fprintf(stderr, "\nbenchmark_entrance=%u saves_enabled=%d\n",
+            g_ram[0x3e] | ((unsigned)g_ram[0x3f] << 8), Rev1SavesEnabled());
     }
     if (s_pacing) fclose(s_pacing);
     Rev1Close();

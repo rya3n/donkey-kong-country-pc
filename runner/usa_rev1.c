@@ -20,6 +20,7 @@
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include "usa_rev1_saves.h"
 #endif
 
 enum { WIDTH = 256, HEIGHT = 224, FRAME_MASTER_CLOCKS = 1364 * 262 };
@@ -143,7 +144,12 @@ int Rev1Step(uint32_t inputs, int16_t audio[2048], int *samples) {
     return 1;
 }
 
-void Rev1Close(void) { free(s_rom); s_rom = NULL; }
+void Rev1Close(void) {
+#ifdef _WIN32
+    Rev1SavesClose();
+#endif
+    free(s_rom); s_rom = NULL;
+}
 
 #ifndef DKC_REV1_DESKTOP
 static int WriteFrame(const char *prefix) {
@@ -189,12 +195,24 @@ int main(int argc, char **argv) {
         fclose(seed);
     }
     Dkc1InputPlayback playback = {0};
-    char input_error[192];
+    char input_error[192] = {0};
     if (argc == 5 && !Dkc1InputPlaybackLoad(argv[4], &playback, input_error, sizeof input_error)) {
         fprintf(stderr, "input: %s\n", input_error);
         Rev1Close();
         return 2;
     }
+#ifdef _WIN32
+    char absolute_output[32768];
+    const wchar_t *save_directory = _wgetenv(L"DKC_REV1_SAVE_DIR");
+    if (save_directory) {
+        if (!_fullpath(absolute_output, argv[3], sizeof absolute_output) ||
+            !Rev1SavesOpen(save_directory, input_error, sizeof input_error)) {
+            fprintf(stderr, "saves: %s\n", input_error);
+            Rev1Close(); Dkc1InputPlaybackFree(&playback); return 2;
+        }
+        argv[3] = absolute_output;
+    }
+#endif
     int16_t audio[1024 * 2];
     int audio_active_frames = 0;
     uint8_t audio_chain[32] = {0};
@@ -236,6 +254,12 @@ int main(int argc, char **argv) {
             return 4;
         }
 #ifdef _WIN32
+        if (!Rev1SavesFlush(0, input_error, sizeof input_error)) {
+            fprintf(stderr, "saves: %s\n", input_error);
+            Rev1Close(); Dkc1InputPlaybackFree(&playback); return 6;
+        }
+#endif
+#ifdef _WIN32
         if (timing) {
             QueryPerformanceCounter(&finish);
             fprintf(timing, "%ld,%.6f,%u,%u\n", frame,
@@ -258,6 +282,12 @@ int main(int argc, char **argv) {
         }
     }
     char frame_hash[65], wram_hash[65], vram_hash[65], audio_hash[65];
+#ifdef _WIN32
+    if (!Rev1SavesFlush(1, input_error, sizeof input_error)) {
+        fprintf(stderr, "saves: %s\n", input_error);
+        Rev1Close(); Dkc1InputPlaybackFree(&playback); return 6;
+    }
+#endif
     HashHex(s_pixels, sizeof s_pixels, frame_hash);
     HashHex(g_ram, sizeof g_ram, wram_hash);
     HashHex(g_ppu->vram, sizeof g_ppu->vram, vram_hash);
@@ -266,9 +296,18 @@ int main(int argc, char **argv) {
     if (!WriteFrame(argv[3])) { Rev1Close(); Dkc1InputPlaybackFree(&playback); return 5; }
     printf("{\"frames\":%ld,\"frame_sha256\":\"%s\",\"wram_sha256\":\"%s\","
            "\"vram_sha256\":\"%s\",\"audio_chain_sha256\":\"%s\","
-           "\"interpreted_steps\":%llu,\"dispatch_entries\":%u,\"audio_active_frames\":%d}\n",
+           "\"interpreted_steps\":%llu,\"dispatch_entries\":%u,\"audio_active_frames\":%d",
            frames, frame_hash, wram_hash, vram_hash, audio_hash, interp_bridge_steps_total(),
            g_dispatch_table_count, audio_active_frames);
+#ifdef _WIN32
+    if (Rev1SavesEnabled()) {
+        char sram_hash[65];
+        HashHex(g_sram, (size_t)g_sram_size, sram_hash);
+        printf(",\"sram_sha256\":\"%s\",\"sram_size\":%d,\"entrance\":%u,\"save_enabled\":true",
+            sram_hash, g_sram_size, g_ram[0x3e] | ((unsigned)g_ram[0x3f] << 8));
+    }
+#endif
+    printf("}\n");
     Rev1Close();
     Dkc1InputPlaybackFree(&playback);
     if (timing) fclose(timing);

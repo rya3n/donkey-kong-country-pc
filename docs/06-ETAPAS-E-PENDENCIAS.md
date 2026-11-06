@@ -27,8 +27,8 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P04 | Confirmar ambiente C/CMake | Concluída a verificação básica | MSVC/CMake/Ninja no E:, SDK funcional e programa mínimo compilado e executado |
 | P05 | Repetir suíte com logs completos | Executada; portabilidade pendente | 303 testes, 2 erros por cc/flags de sanitizers e 10 skips; log integral preservado |
 | P06 | Gerar fontes e compilar | Concluída para protótipo sem janela | 39 variantes AOT e interpretador de apoio; MSVC/CMake/Ninja, comandos e hashes registrados |
-| P07 | Validar a primeira sessão | Em andamento | Boot e entrada automatizada na fase; janela e interação ao vivo pendentes em V04–V09 |
-| P08 | Validar persistência | Depende de P07 | Save de jogo e save state avaliados separadamente |
+| P07 | Validar a primeira sessão | Sessão humana realizada; cobertura parcial | Boot, entrada na fase e fluidez confirmados; ampliar as ações e cenas de V06–V09 |
+| P08 | Validar persistência | SRAM aprovada no cenário coberto | Três saves da Candy e reinícios passaram; ampliar progresso real; save states fora desta entrega |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
 | P10 | Validar campanha e estabilidade | Após o build e os testes iniciais | Cobertura V14 aceita antes de iniciar a tradução |
 | P11 | Inventariar, traduzir e revisar PT-BR | Depende de P10 | Cobertura de textos, fonte, acentos e regressão V15–V17 |
