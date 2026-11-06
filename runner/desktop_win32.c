@@ -33,6 +33,7 @@ static struct { WAVEHDR header; int16_t pcm[2048]; } s_audio[AUDIO_SLOTS];
 static wchar_t s_exe_dir[PATH_CAP], s_project_dir[PATH_CAP];
 static unsigned long s_bench_frames;
 static int s_start_cave;
+static int s_start_candy;
 static FILE *s_pacing;
 static HANDLE s_frame_timer;
 static int s_timer_period;
@@ -320,8 +321,8 @@ static int PrepareJungle(void) {
     while (fscanf(file, "%x %lu", &mask, &repeat) == 2) {
         if (!repeat || repeat > 4800 || frames + repeat > 4800) { fclose(file); return 0; }
         while (repeat--) {
-            const char *entrance = s_start_cave ? "EA" : getenv("DKC_REV1_TEST_ENTRANCE");
-            if ((s_start_cave || s_bench_frames) && entrance && frames == 4202) {
+            const char *entrance = s_start_candy ? "FA" : s_start_cave ? "EA" : getenv("DKC_REV1_TEST_ENTRANCE");
+            if ((s_start_candy || s_start_cave || s_bench_frames) && entrance && frames == 4202) {
                 char *end;
                 unsigned long value = strtoul(entrance, &end, 16);
                 if (*end || value > 255) { fclose(file); return 0; }
@@ -343,6 +344,7 @@ static int PrepareJungle(void) {
 int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, int show) {
     (void)previous;
     s_start_cave = wcscmp(command_line, L"--caverna") == 0;
+    s_start_candy = wcscmp(command_line, L"--candy") == 0;
     SetProcessDPIAware();
     DWORD path_length = GetModuleFileNameW(NULL, s_exe_dir, PATH_CAP);
     if (!path_length || path_length >= PATH_CAP) return 2;
@@ -379,12 +381,13 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     /* Diagnostic entry shortcuts never load or replace personal cartridge saves.
      * An explicit QA directory allows isolated automated persistence tests.
      */
-    int shortcut = wcscmp(command_line, L"--jungle") == 0 || s_start_cave;
+    int shortcut = wcscmp(command_line, L"--jungle") == 0 || s_start_cave || s_start_candy;
     if ((_wgetenv(L"DKC_REV1_SAVE_DIR") || (!shortcut && !s_bench_frames)) && !OpenSaveStorage()) {
         Rev1Close(); DestroyWindow(s_window); return 6;
     }
-    if (wcscmp(command_line, L"--jungle") == 0 || s_start_cave) {
-        SetWindowTextW(s_window, s_start_cave ? L"Preparando Reptile Rumble - aguarde alguns segundos" :
+    if (shortcut) {
+        SetWindowTextW(s_window, s_start_candy ? L"Preparando as falas da Candy - aguarde alguns segundos" :
+            s_start_cave ? L"Preparando Reptile Rumble - aguarde alguns segundos" :
             L"Preparando Jungle Hijinxs - aguarde alguns segundos");
         if (!PrepareJungle()) {
             if (s_running) MessageBoxW(s_window, L"Nao foi possivel preparar a fase. Consulte DKC-Rev1-teste.log.", s_title, MB_OK | MB_ICONERROR);

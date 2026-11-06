@@ -1,6 +1,6 @@
 """Generate private Rev 1 menu graphics for a separate experimental build.
 
-Only five identified graphics/tilemap regions are changed in a memory copy.
+Identified graphics/tilemaps and two Candy messages change in a memory copy.
 The input ROM and generated CPU translation units remain untouched.
 """
 from __future__ import annotations
@@ -10,6 +10,7 @@ import hashlib
 import json
 from pathlib import Path
 import struct
+from generate_ptbr_candy_pilot import make_candy_patch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -110,9 +111,15 @@ def main() -> int:
         parser.error("Expected the exact clean USA Rev 1 ROM")
     config = json.loads((ROOT/"localization/pt-BR/menu-pilot.json").read_text(encoding="utf-8"))
     changes, summary = make_patch(rom, config)
+    candy_config=json.loads((ROOT/"localization/pt-BR/candy-pilot.json").read_text(encoding="utf-8"))
+    candy_changes,candy_summary=make_candy_patch(rom,candy_config)
+    changes.extend(candy_changes)
+    patchset=hashlib.sha256(b"".join(struct.pack("<II",offset,len(data))+data for offset,data in changes)).hexdigest()
     out = ROOT/"experimental/usa-rev1/pt-BR/menu-pilot"
     out.mkdir(parents=True, exist_ok=True)
     header = ["/* Private derived graphics. Generated locally; never publish. */",
+              f'#define PTBR_PATCHSET_ID "{patchset}"',
+              f'#define PTBR_CANDY_MESSAGE_COUNT {candy_summary["messages"]}',
               "typedef struct PtbrMenuPatch { unsigned offset, size; const unsigned char *bytes; const char *before; } PtbrMenuPatch;"]
     for i, (offset,data) in enumerate(changes):
         header.append(f"static const unsigned char s_ptbr_data_{i}[] = {{")
@@ -123,8 +130,12 @@ def main() -> int:
         before=hashlib.sha256(rom[offset:offset+len(data)]).hexdigest()
         header.append(f'{{{offset},{len(data)},s_ptbr_data_{i},"{before}"}},')
     header.append("};\n")
-    (out/"ptbr_menu_data.h").write_text("\n".join(header),encoding="utf-8")
-    manifest={"rom_sha256":profile["sha256"],"scope":config["scope"],"screens":summary,
+    header_path=out/"ptbr_menu_data.h"
+    header_text="\n".join(header)
+    if not header_path.exists() or header_path.read_text(encoding="utf-8")!=header_text:
+        header_path.write_text(header_text,encoding="utf-8")
+    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics and Candy's two opening messages",
+              "screens":summary,"candy":candy_summary,"patchset_sha256":patchset,
               "regions":[{"offset":f"0x{offset:06X}","bytes":len(data),"after_sha256":hashlib.sha256(data).hexdigest()}
                          for offset,data in changes],"source_rom_written":False}
     (out/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")

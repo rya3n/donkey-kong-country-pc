@@ -300,6 +300,14 @@ int main(int argc, char **argv) {
     for (int i = 0; i < 32; i++) sprintf(audio_hash + i * 2, "%02x", audio_chain[i]);
     audio_hash[64] = 0;
     if (!WriteFrame(argv[3])) { Rev1Close(); Dkc1InputPlaybackFree(&playback); return 5; }
+    const char *wram_dump = getenv("DKC_REV1_WRAM_DUMP");
+    if (wram_dump) {
+        FILE *dump = fopen(wram_dump, "wb");
+        if (!dump) { Rev1Close(); Dkc1InputPlaybackFree(&playback); return 5; }
+        int dump_ok = fwrite(g_ram, 1, sizeof g_ram, dump) == sizeof g_ram;
+        if (fclose(dump)) dump_ok = 0;
+        if (!dump_ok) { Rev1Close(); Dkc1InputPlaybackFree(&playback); return 5; }
+    }
     printf("{\"frames\":%ld,\"frame_sha256\":\"%s\",\"wram_sha256\":\"%s\","
            "\"vram_sha256\":\"%s\",\"audio_chain_sha256\":\"%s\","
            "\"interpreted_steps\":%llu,\"dispatch_entries\":%u,\"audio_active_frames\":%d",

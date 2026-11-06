@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import subprocess
 from generate_ptbr_menu_pilot import make_patch
+from generate_ptbr_candy_pilot import make_candy_patch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -33,12 +34,18 @@ def main() -> int:
     original_rom=args.rom.read_bytes()
     config=json.loads((ROOT/"localization/pt-BR/menu-pilot.json").read_text(encoding="utf-8"))
     patches,_=make_patch(original_rom,config)
+    candy_config=json.loads((ROOT/"localization/pt-BR/candy-pilot.json").read_text(encoding="utf-8"))
+    candy_patches,_=make_candy_patch(original_rom,candy_config)
+    patches+=candy_patches
+    translated_bytes={i for msg in candy_config["messages"]
+                      for i in range(int(msg["offset"],16),int(msg["offset"],16)+msg["bytes"])}
     patched_rom=bytearray(original_rom)
     for offset,data in patches: patched_rom[offset:offset+len(data)]=data
     regions=json.loads((ROOT/"localization/pt-BR/regions.json").read_text(encoding="utf-8"))["regions"]
     for region in regions:
         start,end=int(region["start"],16),int(region["end"],16)
-        if original_rom[start:end]!=patched_rom[start:end]: raise AssertionError("Protected text region changed")
+        if any(original_rom[i]!=patched_rom[i] for i in range(start,end) if i not in translated_bytes):
+            raise AssertionError("Untranslated text region changed")
     # Every original tile referenced by the Kongs' side must retain its bytes.
     import struct
     mode=config["player_select"]
@@ -51,7 +58,8 @@ def main() -> int:
         start=gfx+tile*32
         if original_rom[start:start+32]!=patched_rom[start:start+32]:
             raise AssertionError("Kong graphics changed")
-    print("Protected text regions and Kong graphics match the original",flush=True)
+    print("Protected names, untranslated text and Kong graphics match the original",flush=True)
+    manifest=json.loads((ROOT/"experimental/usa-rev1/pt-BR/menu-pilot/manifest.json").read_text())
     reports=[]
     for frames,rois in ((1700,[(32,23,224,42),(32,183,120,202)]),
                         (2300,[(80,0,256,224)]),(4800,[])):
@@ -67,6 +75,8 @@ def main() -> int:
             (run_dir/"stdout.log").write_bytes(run.stdout)
             (run_dir/"stderr.log").write_bytes(run.stderr)
             if run.returncode: raise RuntimeError(f"{kind} exited {run.returncode}")
+            if kind=="pilot" and manifest["patchset_sha256"].encode() not in run.stderr:
+                raise AssertionError("Pilot binary contains stale generated data")
             runs[kind]=json.loads(run.stdout)
         keys=("wram_sha256","audio_chain_sha256","interpreted_steps","dispatch_entries","audio_active_frames")
         for key in keys:
@@ -85,7 +95,7 @@ def main() -> int:
         reports.append({"frames":frames,"guest_state_and_audio_match":True,"changed_pixels":differences,
                         "outside_text_regions_match":True,"frame_sha256":runs["pilot"]["frame_sha256"]})
         print(f"frames={frames}: state/audio match, changed_pixels={differences}, outside text regions match",flush=True)
-    (out/"results.json").write_text(json.dumps({"protected_text_and_kong_graphics_match":True,
+    (out/"results.json").write_text(json.dumps({"protected_names_untranslated_text_and_kong_graphics_match":True,
                                                "checkpoints":reports},indent=2)+"\n",encoding="utf-8")
     return 0
 

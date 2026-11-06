@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param()
+param([switch]$HeadlessOnly)
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
@@ -17,5 +17,9 @@ $buildDirectory = Join-Path $projectRoot 'build/usa-rev1'
     -DDKC_BUILD_PTBR_PILOT=OFF `
     "-DCMAKE_MAKE_PROGRAM=$($toolchain.ninja)"
 if ($LASTEXITCODE -ne 0) { throw 'CMake configuration failed.' }
-& $toolchain.cmake --build $buildDirectory --parallel 6
+if ($HeadlessOnly) {
+    & $toolchain.cmake --build $buildDirectory --parallel 6 --target dkc_rev1_headless
+} else {
+    & $toolchain.cmake --build $buildDirectory --parallel 6
+}
 if ($LASTEXITCODE -ne 0) { throw 'Native build failed.' }

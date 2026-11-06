@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: primeiro piloto PT-BR dos menus para USA v1.1 (Rev 1).** O build separado traduz cinco rótulos gráficos, preserva os nomes e mantém o executável habitual. Abrir **Testar DKC - PT-BR.cmd** para avaliar; ele usa saves próprios. Detalhes e testes em [Piloto dos menus](docs/16-PILOTO-PT-BR.md). O inventário inicial de 346 registros e 12 rascunhos de falas continua em [Preparação PT-BR](docs/15-PT-BR.md). A campanha completa permanece sem validação.
+**Etapa atual: menus e primeiras falas da Candy em PT-BR para USA v1.1 (Rev 1).** O build separado traduz cinco rótulos e duas falas, preservando nomes e o executável habitual. Abrir **Testar falas da Candy.cmd** para uma prévia sem saves, ou **Testar DKC - PT-BR.cmd** para jogar com progresso próprio. Detalhes em [Falas da Candy](docs/17-CANDY-PT-BR.md) e [Piloto dos menus](docs/16-PILOTO-PT-BR.md). Campanha e tradução completa permanecem sem validação.
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 
@@ -34,6 +34,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Apresentação da janela](docs/14-APRESENTACAO.md) | Correção de piscadas confirmada, preencher/4:3 e tela cheia adaptável |
 | [Preparação PT-BR](docs/15-PT-BR.md) | Glossário, preservação dos nomes, inventário parcial e rascunhos |
 | [Piloto PT-BR dos menus](docs/16-PILOTO-PT-BR.md) | Build separado, cinco rótulos gráficos, acentos e regressão |
+| [Primeiras falas da Candy](docs/17-CANDY-PT-BR.md) | Apresentação, instruções de salvamento, fonte de diálogo e prévia isolada |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura

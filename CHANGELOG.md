@@ -2,6 +2,15 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-06 — Primeiras falas da Candy em PT-BR
+
+- Integradas apresentação e instrução de salvamento no build PT-BR separado, preservando Candy Kong, a placa do local, ponteiros e tamanhos de 46/72 bytes.
+- Fonte de diálogo Rev 1 localizada e glifos á/ê/ó adicionados em três códigos ausentes dos blocos ingleses identificados. Outros idiomas e acentos ainda precisam de revisão.
+- Capturas nativas conferidas: alterações visuais somente na faixa das falas. WRAM idêntica fora das palavras de alinhamento do texto; áudio idêntico. O caminho de centralização executa 19 instruções adicionais, sem mudar o relógio do jogo.
+- Vinte testes Python passaram. Regressão de menus e entrada da fase aprovada; um par Candy/reinício passou entre aplicativo, runner e disco em perfis QA.
+- Criado Testar falas da Candy.cmd para prévia direta sem saves. Abertura normal do piloto continua com seu perfil próprio; ROM, executável habitual e saves pessoais preservados.
+- Adicionado docs/17-CANDY-PT-BR.md e atualizado o Notion. Duas falas do lote inicial estão no piloto e dez continuam em rascunho; aceite humano, campanha e tradução completa seguem pendentes.
+
 ## 2026-11-05 — Primeiro piloto PT-BR dos menus
 
 - Localizados gráficos/tilemaps da seleção de jogo e jogadores e confirmado o ponteiro da fonte Rev 1. Fonte, dados e regiões são conferidos contra a ROM exata, sem assumir os offsets v1.0.

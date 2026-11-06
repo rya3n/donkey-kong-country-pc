@@ -20,5 +20,7 @@ int Rev1ApplyPtbrMenuPilot(uint8_t *rom, size_t size) {
     }
     fprintf(stderr, "ptbr_menu_pilot=1 data_regions=%zu source_rom_unchanged=1\n",
             sizeof s_ptbr_patches / sizeof s_ptbr_patches[0]);
+    fprintf(stderr, "ptbr_candy_messages=%d ptbr_patchset_sha256=%s\n",
+            PTBR_CANDY_MESSAGE_COUNT, PTBR_PATCHSET_ID);
     return 1;
 }

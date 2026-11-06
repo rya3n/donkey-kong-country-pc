@@ -4,6 +4,8 @@ Iniciada em 2026-11-05 por autorização do usuário, com a orientação de pres
 
 Atualização posterior: os menus foram localizados e um build experimental separado recebeu cinco rótulos gráficos em PT-BR. O executável habitual e os 12 rascunhos de falas permanecem como antes. Ver [Piloto dos menus](16-PILOTO-PT-BR.md). O relatório abaixo registra a extração inicial.
 
+Em 2026-11-06, duas falas da Candy receberam redação revista e foram integradas ao piloto, sem aceite humano ainda. As outras dez permanecem fora do runtime. Ver [Falas da Candy](17-CANDY-PT-BR.md).
+
 ## Regra editorial
 
 - Manter nomes próprios de personagens, inimigos, animais, lugares, fases, marcas e pessoas dos créditos. Preservar grafia, identidade e pontuação; não substituir por uma tradução literal.

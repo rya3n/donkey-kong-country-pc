@@ -2,6 +2,8 @@
 
 Entrega experimental de 2026-11-05, separada da versão habitual. Traduz cinco rótulos gráficos das telas de seleção de jogo e de jogadores. A tradução completa, as falas e a campanha continuam pendentes.
 
+Atualização de 2026-11-06: o mesmo build separado também recebeu duas falas da Candy. O relatório abaixo preserva a entrega inicial dos menus; a nova fonte, os acentos e os testes de diálogo estão em [Falas da Candy](17-CANDY-PT-BR.md).
+
 ## Abrir o piloto
 
 Executar **Testar DKC - PT-BR.cmd** na raiz do projeto. O atalho abre build/ptbr-pilot/DKC-Rev1-PTBR-Piloto.exe pelo boot normal. Se precisar compilar, usar scripts/build_ptbr_pilot.ps1; o script gera os gráficos privados a partir da ROM Rev 1 conferida e usa outra pasta de build.
