@@ -2,7 +2,7 @@
   "schema_version": 1,
   "locale": "pt-BR",
   "rom_profile": "usa-rev1",
-  "status": "inventory and editorial drafts; not applied to the game",
+  "status": "partial pilot: menus and selected English dialogue; full localization pending",
   "rules": {
     "proper_names": "preserve original spelling, punctuation and identity",
     "area_names": "preserve the complete original name",
@@ -17,7 +17,9 @@
     "Funky Kong", "Candy Kong", "Donkey", "Diddy", "Cranky", "Funky", "Candy",
     "Kremlings", "King K. Rool", "King K.Rool", "K. Rool", "K.Rool",
     "Rambi", "Expresso", "Enguarde", "Winky", "Squawks", "DK", "KONG", "TNT",
-    "Nintendo", "Rare"
+    "Nintendo", "Rare", "Croctopus",
+    "Jungle Hijinxs", "Ropey Rampage", "Barrel Cannon Canyon",
+    "Reptile Rumble", "Coral Capers"
   ],
   "generic_terms": {
     "save": "salvar",

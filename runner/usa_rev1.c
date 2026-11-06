@@ -159,12 +159,13 @@ int Rev1Open(FILE *file) {
     if (qa_cranky_message) {
         char *end;
         unsigned long address = strtoul(qa_cranky_message, &end, 16);
-        const unsigned allowed[] = {0x07a4,0x0935,0x0990,0x09bd,0x09e8,0x0a14};
+        const unsigned allowed[] = {0x07a4,0x0935,0x0990,0x09bd,0x09e8,0x0a14,
+                                    0x0f35,0x0f72,0x0fb8,0x0ffc,0x102e};
         int valid = 0;
         for (size_t i=0;i<sizeof allowed/sizeof allowed[0];i++) if(address==allowed[i]) valid=1;
         if (*end || !valid) { free(s_rom); s_rom = NULL; return 0; }
         /* The fresh EE QA entry reaches the English farewell group at frame
-         * 4350. Select a known greeting there for isolated renderer inspection.
+         * 4350. Select a known greeting or hint for isolated renderer inspection.
          * This does not reproduce its normal timing or an absent Kong.
          */
         for (unsigned offset=0x3c0144;offset<0x3c0164;offset+=2) {

@@ -24,5 +24,6 @@ int Rev1ApplyPtbrMenuPilot(uint8_t *rom, size_t size) {
             PTBR_CANDY_MESSAGE_COUNT, PTBR_PATCHSET_ID);
     fprintf(stderr, "ptbr_funky_messages=%d\n", PTBR_FUNKY_MESSAGE_COUNT);
     fprintf(stderr, "ptbr_cranky_messages=%d\n", PTBR_CRANKY_MESSAGE_COUNT);
+    fprintf(stderr, "ptbr_cranky_tips=%d\n", PTBR_CRANKY_TIP_COUNT);
     return 1;
 }

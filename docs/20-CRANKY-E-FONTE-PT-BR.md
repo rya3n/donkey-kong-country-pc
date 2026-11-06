@@ -8,7 +8,7 @@ O gerador anterior removia uma linha do corpo do e ao reservar espaço para o ci
 
 A correção é compartilhada por Funky, Candy e Cranky. Nenhuma palavra foi trocada e os demais glifos permanecem iguais. Um teste de regressão confere todas as linhas do corpo; a mesma igualdade foi verificada com a fonte da ROM real em font-body-check.json.
 
-Galeria atualizada do Funky: evidence/2026-11-06/pt-BR/cranky/funky-corrected/preview.html. Ela substitui a prévia anterior para revisar o ê. O retorno do usuário sobre a aparência corrigida continua pendente.
+Galeria atualizada do Funky: evidence/2026-11-06/pt-BR/cranky/funky-corrected/preview.html. Ela substitui a prévia anterior para revisar o ê. Em 2026-11-06, o usuário confirmou satisfação com esta entrega e autorizou avançar para as dicas. Esse aceite em relato não amplia a cobertura da campanha ou das condições normais das saudações.
 
 ## Seis saudações do Cranky
 
@@ -40,7 +40,7 @@ A galeria privada evidence/2026-11-06/pt-BR/cranky/verified-all/preview.html mos
 
 O diagnóstico DKC_REV1_QA_CRANKY_MESSAGE existe somente no runner sem janela. Ele seleciona um dos seis endereços conhecidos na tabela inglesa de despedidas em 0x3C0144–0x3C0164, alcançada pela entrada EE no quadro 4.350 do roteiro de QA. Original e piloto recebem a mesma seleção. Isso permite inspecionar o renderizador sem alterar o arquivo da ROM ou a sequência do aplicativo. Uma tentativa inicial na tabela de saudações não selecionou o texto nesse checkpoint; somente verified-all/ reúne a execução final.
 
-Revisão humana das novas prévias, condições normais de cada saudação, dicas restantes e campanha completa continuam pendentes.
+As condições normais de cada saudação, as dicas restantes e a campanha completa continuam pendentes.
 
 ## Reprodução
 
@@ -59,4 +59,4 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em evidence/2026-11-06/pt-BR/cranky/: verified-all/, funky-corrected/, candy-regression/, menu-gameplay/, saves/, font-body-check.json, unit-tests.log e logs de build. Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio do piloto. O jogo habitual continua em **Jogar DKC.cmd**.
 
-Próxima etapa: revisar a aparência corrigida do ê e as seis saudações; depois, ampliar o lote do Cranky com dicas verificadas em contexto.
+Etapa seguinte implementada: [Dicas do Cranky para Kongo Jungle](21-DICAS-KONGO-JUNGLE-PT-BR.md). As cinco novas prévias aguardam revisão própria.

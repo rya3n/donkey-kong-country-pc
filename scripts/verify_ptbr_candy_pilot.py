@@ -34,7 +34,7 @@ def main() -> int:
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--rom",required=True,type=Path)
     parser.add_argument("--out",required=True,type=Path)
-    parser.add_argument("--character",choices=("candy","funky","cranky"),default="candy")
+    parser.add_argument("--character",choices=("candy","funky","cranky","cranky-tips"),default="candy")
     parser.add_argument("--all-messages",action="store_true",help="Select each original address in headless QA only")
     parser.add_argument("--message",action="append",default=[],help="Filter --all-messages by hexadecimal low-word address")
     args=parser.parse_args()
@@ -44,12 +44,13 @@ def main() -> int:
     out.mkdir(parents=True,exist_ok=False)
     manifest=json.loads((ROOT/"experimental/usa-rev1/pt-BR/menu-pilot/manifest.json").read_text())
     character=args.character
-    speaker={"candy":"da Candy","funky":"do Funky","cranky":"do Cranky"}[character]
+    qa_character="cranky" if character=="cranky-tips" else character
+    speaker={"candy":"da Candy","funky":"do Funky","cranky":"do Cranky"}[qa_character]
     config=json.loads((ROOT/f"localization/pt-BR/{character}-pilot.json").read_text(encoding="utf-8"))
     natural_frames=(4350,4500,4650) if character=="candy" else (4350,4650,4950,5250)
     cases=[(4350,int(msg["offset"],16)&0xffff) for msg in config["messages"]] if args.all_messages else [(f,None) for f in natural_frames]
-    if character=="cranky" and not args.all_messages:
-        parser.error("The Cranky first batch requires --all-messages; other greetings are still English")
+    if qa_character=="cranky" and not args.all_messages:
+        parser.error("The partial Cranky translation requires --all-messages")
     if args.message:
         selected={int(s,16) for s in args.message}
         if not args.all_messages or selected-{message for _,message in cases}:
@@ -62,15 +63,15 @@ def main() -> int:
         for kind,build in (("baseline","usa-rev1"),("pilot","ptbr-pilot")):
             folder=out/f"{case}-{kind}";folder.mkdir()
             env={k:v for k,v in os.environ.items() if not k.startswith("DKC_REV1_") and k!="DKC1_PACING_LOG"}
-            env.update(DKC_REV1_TEST_ENTRANCE={"candy":"FA","funky":"F4","cranky":"EE"}[character],DKC_REV1_WRAM_DUMP=str(folder/"wram.bin"),
+            env.update(DKC_REV1_TEST_ENTRANCE={"candy":"FA","funky":"F4","cranky":"EE"}[qa_character],DKC_REV1_WRAM_DUMP=str(folder/"wram.bin"),
                        SNESRECOMP_TIER2_DIR=str(folder),SNESRECOMP_TIER2_MANIFEST=str(folder/"tier2.json"))
-            if message is not None: env[f"DKC_REV1_QA_{character.upper()}_MESSAGE"]=f"{message:04x}"
+            if message is not None: env[f"DKC_REV1_QA_{qa_character.upper()}_MESSAGE"]=f"{message:04x}"
             run=subprocess.run([str(ROOT/f"build/{build}/dkc_rev1_headless.exe"),str(args.rom.resolve()),
                                 str(frames),str(folder/"frame"),str(ROOT/"recipes/usa-rev1/boot-to-jungle.inputs")],
                                env=env,capture_output=True,timeout=120)
             (folder/"stdout.log").write_bytes(run.stdout);(folder/"stderr.log").write_bytes(run.stderr)
             if run.returncode: raise RuntimeError(f"{kind} exited {run.returncode}")
-            if message is not None and f"qa_{character}_message={message:04x} headless_only=1".encode() not in run.stderr:
+            if message is not None and f"qa_{qa_character}_message={message:04x} headless_only=1".encode() not in run.stderr:
                 raise AssertionError("Requested QA message was not selected")
             if kind=="pilot" and manifest["patchset_sha256"].encode() not in run.stderr:
                 raise AssertionError("Pilot binary does not match the generated patchset")
@@ -114,10 +115,14 @@ def main() -> int:
             (out/f"{message:04x}.png").write_bytes(image)
             encoded=base64.b64encode(image).decode()
             text="<br>".join(html.escape(line.strip()) for line in texts[message])
-            cards.append(f'<article><h2>Mensagem {number}</h2><img alt="Fala {speaker} no jogo" src="data:image/png;base64,{encoded}"><p>{text}</p></article>')
+            stage=next(m.get("stage") for m in config["messages"] if int(m["offset"],16)&0xffff==message)
+            title=html.escape(stage) if stage else f"Mensagem {number}"
+            cards.append(f'<article><h2>{title}</h2><img alt="Fala {speaker} no jogo" src="data:image/png;base64,{encoded}"><p>{text}</p></article>')
         page='<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Falas '+speaker+' — prévia</title><style>body{background:#111b16;color:#e9f3eb;font:17px system-ui;max-width:1180px;margin:auto;padding:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px}article{background:#1d3025;border-radius:12px;padding:16px}h2{font-size:18px}img{width:100%;image-rendering:pixelated}p{line-height:1.6}</style><h1>Falas '+speaker+' — prévia de leitura</h1><p>Capturas nativas do piloto. O teste seleciona cada mensagem individualmente; não representa uma campanha completa nem altera seus saves.</p><main>'+"".join(cards)+'</main></html>'
         if character=="cranky":
             page=page.replace("<main>","<p>Nas duas primeiras saudações, o texto pergunta pelo parceiro ausente. Esta seleção técnica confere apenas a leitura: a ausência do personagem e o momento normal da fala não são reproduzidos na cena.</p><main>",1)
+        elif character=="cranky-tips":
+            page=page.replace("<main>","<p>Cinco dicas de Kongo Jungle. As capturas mostram o texto selecionado no cenário do Cranky; não demonstram a execução dos segredos nas fases.</p><main>",1)
         (out/"preview.html").write_text(page,encoding="utf-8")
     return 0
 

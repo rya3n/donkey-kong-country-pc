@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: menus, oito falas da Candy, quatro do Funky e seis saudações do Cranky em PT-BR para USA v1.1 (Rev 1).** Corrigida a altura do ê apontada pelo usuário no Funky, preservando o corpo original do e. As novas prévias aguardam revisão; o aceite anterior da Candy está registrado. Nomes e instruções continuam preservados. Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio. Redação, fonte e testes em [Primeiro lote do Cranky e correção do ê](docs/20-CRANKY-E-FONTE-PT-BR.md). Campanha e tradução completa permanecem sem validação.
+**Etapa atual: menus, oito falas da Candy, quatro do Funky, seis saudações e cinco dicas do Cranky em PT-BR para USA v1.1 (Rev 1).** As novas dicas cobrem Kongo Jungle, preservando os nomes das fases, Winky e Croctopus. Fonte e traduções anteriores mantidas. Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio. Redação, contexto e verificações em [Dicas de Kongo Jungle](docs/21-DICAS-KONGO-JUNGLE-PT-BR.md). As cinco prévias aguardam revisão; campanha, coleta dos segredos e tradução completa continuam pendentes.
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 
@@ -38,6 +38,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Oito falas da Candy](docs/18-CANDY-FALAS-COMPLETAS.md) | Mensagens de revisita, Honey Kong preservado e galeria de revisão |
 | [Falas do Funky Kong](docs/19-FUNKY-PT-BR.md) | Quatro mensagens, Jumbo Barrel, restrição de transporte e prévias |
 | [Primeiro lote do Cranky e fonte](docs/20-CRANKY-E-FONTE-PT-BR.md) | Seis saudações e correção da altura do ê na fonte compartilhada |
+| [Dicas de Kongo Jungle](docs/21-DICAS-KONGO-JUNGLE-PT-BR.md) | Cinco dicas de fases, nomes preservados e revisão das pistas |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura

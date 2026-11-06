@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-06 — Cinco dicas de Kongo Jungle em PT-BR
+
+- Integradas cinco dicas do Cranky para Jungle Hijinxs, Ropey Rampage, Barrel Cannon Canyon, Reptile Rumble e Coral Capers. Preservados Winky, Croctopus e as pistas físicas de cada texto.
+- Conferidos os ponteiros Rev 1, tamanhos, linhas, paridades e associação de cada registro à fase. Acrescentadas cinco regiões; as 27 anteriores e a fonte permanecem byte a byte iguais.
+- Quarenta e três testes passaram. Cinco dicas com áudio e WRAM inteira iguais ao original, diferenças visuais apenas no diálogo e capturas legíveis, sem cortes. Regressão de menus/entrada da fase e de duas saudações anteriores aprovada; um ciclo Candy/reinício coincidiu entre aplicativo, runner e disco com saves de QA isolados.
+- Criados galeria privada, catálogo draft-06 e relatório 21. Registrado o aceite em relato da entrega anterior; as novas dicas aguardam revisão e coleta dos segredos em gameplay.
+- ROM, executável habitual e saves pessoais preservados. Nenhuma nova instalação.
+
 ## 2026-11-06 — Correção do ê e primeiro lote do Cranky
 
 - Corrigido o ê menor relatado pelo usuário na segunda fala do Funky. Preservadas todas as seis linhas do corpo original do e; acento colocado nas margens superiores, sem mudar o tamanho da célula.

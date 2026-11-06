@@ -18,3 +18,22 @@ def make_cranky_patch(rom: bytes, config: dict, font_config: dict) -> tuple[list
     info["uses_shared_dialogue_glyphs"]=True
     info["complete_cranky_translation"]=False
     return changes,info
+
+
+def make_cranky_tips_patch(rom: bytes, config: dict, font_config: dict) -> tuple[list[tuple[int,bytes]],dict]:
+    # First eight entries of the exact Rev 1 English Kongo Jungle hint table.
+    if rom[0x3c0184:0x3c0194]!=bytes.fromhex("35 0f 72 0f b8 0f fc 0f 2e 10 35 0f b8 0f 2e 10"):
+        raise ValueError("Cranky Kongo Jungle hint pointer guard failed")
+    expected={0x3c0f35:(61,"Jungle Hijinxs"),0x3c0f72:(70,"Ropey Rampage"),
+              0x3c0fb8:(68,"Barrel Cannon Canyon"),0x3c0ffc:(50,"Reptile Rumble"),
+              0x3c102e:(70,"Coral Capers")}
+    actual=[(int(m["offset"],16),m["bytes"],m["stage"]) for m in config["messages"]]
+    if len(actual)!=5 or set(actual)!={(offset,*spec) for offset,spec in expected.items()}:
+        raise ValueError("Cranky hint ranges and stage contexts must match the five identified records")
+    merged={key:font_config[key] for key in ("font_offset","font_first_code","accent_slots")}
+    merged["messages"]=config["messages"]
+    changes,info=make_dialogue_patch(rom,merged,include_glyphs=False)
+    info["uses_shared_dialogue_glyphs"]=True
+    info["stages"]=[m["stage"] for m in config["messages"]]
+    info["complete_cranky_translation"]=False
+    return changes,info
