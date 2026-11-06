@@ -58,4 +58,4 @@ Para repetir somente um caso, acrescentar --message 321d a --all-messages. Usar 
 
 Evidências finais privadas: evidence/2026-11-06/pt-BR/candy-complete/verified-all/, verified-menu-gameplay/, verified-saves/, unit-tests.log e build.log. O catálogo privado draft-03 permanece como registro histórico dos rascunhos; o aceite posterior das oito falas da Candy está registrado neste documento. Os seis rascunhos de Funky/Cranky ainda estão fora do runtime.
 
-Próxima etapa: preparar as falas do Funky Kong, mantendo os nomes, incluindo Jumbo Barrel, e verificando instruções de transporte, tom e contexto.
+Etapa seguinte implementada: [Falas do Funky Kong](19-FUNKY-PT-BR.md), mantendo os nomes, incluindo Jumbo Barrel, e as instruções de transporte. As quatro prévias do Funky aguardam revisão humana.

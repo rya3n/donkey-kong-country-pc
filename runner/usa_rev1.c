@@ -142,6 +142,19 @@ int Rev1Open(FILE *file) {
         }
         fprintf(stderr,"qa_candy_message=%04lx headless_only=1\n",address);
     }
+    const char *qa_funky_message = getenv("DKC_REV1_QA_FUNKY_MESSAGE");
+    if (qa_funky_message) {
+        char *end;
+        unsigned long address = strtoul(qa_funky_message, &end, 16);
+        const unsigned allowed[] = {0x3074,0x3096,0x30d9,0x3125};
+        int valid = 0;
+        for (size_t i=0;i<sizeof allowed/sizeof allowed[0];i++) if(address==allowed[i]) valid=1;
+        if (*end || !valid) { free(s_rom); s_rom = NULL; return 0; }
+        for (unsigned offset=0x3c036c;offset<0x3c0374;offset+=2) {
+            s_rom[offset]=(uint8_t)address; s_rom[offset+1]=(uint8_t)(address>>8);
+        }
+        fprintf(stderr,"qa_funky_message=%04lx headless_only=1\n",address);
+    }
 #endif
     RtlRegisterGame(&s_game);
     if (!SnesInit(s_rom, 4194304)) { free(s_rom); s_rom = NULL; return 0; }

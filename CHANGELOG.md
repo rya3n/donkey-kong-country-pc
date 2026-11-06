@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-06 — Quatro falas do Funky em PT-BR
+
+- Integradas as quatro mensagens inglesas identificadas do Funky no piloto separado. Preservados Funky Kong, Jumbo Barrel, tom descontraído e a restrição de transporte a lugares já visitados.
+- Mantidos ponteiros, tamanhos, linhas, terminadores e paridades. Reutilizada a fonte da Candy sem novos glifos; composição das regiões rejeita sobreposições.
+- Trinta e dois testes passaram. Comparação individual das quatro falas: áudio e WRAM inteira iguais ao original, com diferenças visuais apenas no diálogo. Capturas legíveis e sem cortes.
+- Regressão da Candy, menus e entrada da fase passou; um ciclo Candy/reinício coincidiu entre aplicativo, runner e disco, em perfis de QA isolados.
+- Criados galeria privada, catálogo draft-04 e docs/19-FUNKY-PT-BR.md. ROM, executável habitual e saves pessoais preservados; revisão humana do Funky e campanha continuam pendentes.
+
 ## 2026-11-06 — Prévias da Candy aprovadas pelo usuário
 
 - O usuário leu as oito prévias e aprovou todas. Registrado o aceite da redação e da leitura nas capturas em P19/P20 e no relatório da Candy.

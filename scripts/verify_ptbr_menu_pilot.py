@@ -10,6 +10,7 @@ from pathlib import Path
 import subprocess
 from generate_ptbr_menu_pilot import make_patch
 from generate_ptbr_candy_pilot import make_candy_patch
+from generate_ptbr_funky_pilot import make_funky_patch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,7 +38,10 @@ def main() -> int:
     candy_config=json.loads((ROOT/"localization/pt-BR/candy-pilot.json").read_text(encoding="utf-8"))
     candy_patches,_=make_candy_patch(original_rom,candy_config)
     patches+=candy_patches
-    translated_bytes={i for msg in candy_config["messages"]
+    funky_config=json.loads((ROOT/"localization/pt-BR/funky-pilot.json").read_text(encoding="utf-8"))
+    funky_patches,_=make_funky_patch(original_rom,funky_config,candy_config)
+    patches+=funky_patches
+    translated_bytes={i for msg in candy_config["messages"]+funky_config["messages"]
                       for i in range(int(msg["offset"],16),int(msg["offset"],16)+msg["bytes"])}
     patched_rom=bytearray(original_rom)
     for offset,data in patches: patched_rom[offset:offset+len(data)]=data

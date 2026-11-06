@@ -22,5 +22,6 @@ int Rev1ApplyPtbrMenuPilot(uint8_t *rom, size_t size) {
             sizeof s_ptbr_patches / sizeof s_ptbr_patches[0]);
     fprintf(stderr, "ptbr_candy_messages=%d ptbr_patchset_sha256=%s\n",
             PTBR_CANDY_MESSAGE_COUNT, PTBR_PATCHSET_ID);
+    fprintf(stderr, "ptbr_funky_messages=%d\n", PTBR_FUNKY_MESSAGE_COUNT);
     return 1;
 }

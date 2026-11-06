@@ -66,14 +66,10 @@ def fitted_lines(message: dict, original_lengths: list[int] | None=None) -> list
     return [" "*(pad//2)+line+" "*(pad-pad//2) for line,pad in zip(lines,padding)]
 
 
-def make_candy_patch(rom: bytes, config: dict) -> tuple[list[tuple[int,bytes]],dict]:
-    # Font DMA and first-visit text pointers independently observed in Rev 1.
+def make_dialogue_patch(rom: bytes, config: dict, *, include_glyphs: bool=True) -> tuple[list[tuple[int,bytes]],dict]:
+    # Shared Rev 1 English dialogue font; callers guard their own message tables.
     if rom[0xee62:0xee6f]!=bytes.fromhex("a2 e9 00 a9 dc d6 a0 00 06 22 ad 99 b9"):
         raise ValueError("Rev 1 dialogue-font pointer guard failed")
-    if rom[0x3c0354:0x3c0358]!=bytes.fromhex("5b 31 89 31"):
-        raise ValueError("Candy message pointer guard failed")
-    if rom[0x3c0344:0x3c0354]!=bytes.fromhex("d1 31 f7 31 1d 32 4e 32 93 32 e3 32 d1 31 f7 31"):
-        raise ValueError("Candy revisit pointer guard failed")
     regions=json.loads((ROOT/"localization/pt-BR/regions.json").read_text(encoding="utf-8"))["regions"]
     slots={item["code"] for item in config["accent_slots"].values()}
     if len(slots)!=len(config["accent_slots"]) or any(not 0x20<=x<=0x7e for x in slots):
@@ -90,6 +86,8 @@ def make_candy_patch(rom: bytes, config: dict) -> tuple[list[tuple[int,bytes]],d
         if not source or source[-1]!=0 or 0 in source[:-1]:
             raise ValueError("Message boundary guard failed")
         original=" ".join(decode_lines(source[:-1]))
+        if len(message["lines"])!=len(decode_lines(source[:-1])):
+            raise ValueError("Original line count must be preserved")
         target=" ".join(line.strip() for line in message["lines"])
         for term in protected["protected_terms"]+protected["context_review_terms"]:
             count=occurrences(original,term)
@@ -98,11 +96,9 @@ def make_candy_patch(rom: bytes, config: dict) -> tuple[list[tuple[int,bytes]],d
         encoded=encode_message(fitted_lines(message,list(map(len,decode_lines(source[:-1])))),config["accent_slots"],message["max_line"])
         if len(encoded)!=size:
             raise ValueError(f"{message['id']}: keep the original {size}-byte message size, got {len(encoded)}")
-        if len(message["lines"])!=len(decode_lines(source[:-1])):
-            raise ValueError("Original line count must be preserved")
         changes.append((offset,encoded))
     font=int(config["font_offset"],16)
-    for char,item in config["accent_slots"].items():
+    for char,item in (config["accent_slots"].items() if include_glyphs else []):
         base=font+(ord(item["base"])-config["font_first_code"])*16
         pixels=decode_tile(rom[base:base+16])
         if any(pixels[0]):
@@ -117,6 +113,14 @@ def make_candy_patch(rom: bytes, config: dict) -> tuple[list[tuple[int,bytes]],d
             if x+1<8 and pixels[y][x+1]==0: pixels[y][x+1]=2
         destination=font+(item["code"]-config["font_first_code"])*16
         changes.append((destination,encode_tile(pixels)))
-    return changes,{"messages":len(config["messages"]),"accented_glyphs":len(config["accent_slots"]),
+    return changes,{"messages":len(config["messages"]),"accented_glyphs":len(config["accent_slots"]) if include_glyphs else 0,
                     "message_sizes_and_line_counts_preserved":True,"text_pointers_changed":False,
                     "english_only_font_slots":True}
+
+
+def make_candy_patch(rom: bytes, config: dict) -> tuple[list[tuple[int,bytes]],dict]:
+    if rom[0x3c0354:0x3c0358]!=bytes.fromhex("5b 31 89 31"):
+        raise ValueError("Candy message pointer guard failed")
+    if rom[0x3c0344:0x3c0354]!=bytes.fromhex("d1 31 f7 31 1d 32 4e 32 93 32 e3 32 d1 31 f7 31"):
+        raise ValueError("Candy revisit pointer guard failed")
+    return make_dialogue_patch(rom,config)

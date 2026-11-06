@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "rom_profile": "usa-rev1",
+  "scope": "Four identified Funky messages in English mode; names and travel restriction preserved",
+  "messages": [
+    {
+      "id": "dialogue_en.3c3074", "offset": "0x3C3074", "bytes": 34, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Opa, galera!", "Sou o Funky Kong!"]
+    },
+    {
+      "id": "dialogue_en.3c3096", "offset": "0x3C3096", "bytes": 67, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Meu irado Jumbo Barrel", "leva vocês voando a", "qualquer ponto da ilha!"]
+    },
+    {
+      "id": "dialogue_en.3c30d9", "offset": "0x3C30D9", "bytes": 76, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Só que, infelizmente,", "ele só leva vocês a locais", "que já visitaram..."]
+    },
+    {
+      "id": "dialogue_en.3c3125", "offset": "0x3C3125", "bytes": 54, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["o que é uma baita chatice,", "pode crer!"]
+    }
+  ]
+}
