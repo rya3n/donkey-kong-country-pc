@@ -13,6 +13,7 @@
 #include "usa_rev1.h"
 #include "usa_rev1_saves.h"
 #include "gdi_present.h"
+#include "window_mode.h"
 
 enum { AUDIO_SLOTS = 8, PATH_CAP = 32768 };
 static const wchar_t *s_title = L"Donkey Kong Country - Rev 1 experimental";
@@ -32,7 +33,15 @@ static int s_high_resolution;
 static int s_save_paused, s_core_failed;
 static Rev1GdiSurface s_present_surface;
 static int s_paint_error_reported;
-static const wchar_t *s_controls_title = L"DKC Rev 1 - Setas: mover | Z: pular | X: correr/rolar | C: trocar | Enter: Start | Esc: sair";
+static Rev1ScaleMode s_scale_mode = REV1_SCALE_FILL;
+static Rev1WindowMode s_window_mode;
+
+static void UpdateControlsTitle(void) {
+    if (s_save_paused) return;
+    SetWindowTextW(s_window, s_scale_mode == REV1_SCALE_FILL
+        ? L"DKC - Preencher | F6: proporcao 4:3 | F11: tela cheia | Enter: Start | Esc: sair"
+        : L"DKC - Proporcao 4:3 | F6: preencher | F11: tela cheia | Enter: Start | Esc: sair");
+}
 
 static int FlushSaveWithRetry(int force) {
     if (s_core_failed) return 1;
@@ -50,8 +59,8 @@ static int FlushSaveWithRetry(int force) {
         }
         force = 1;
     }
-    if (s_save_paused) SetWindowTextW(s_window, s_controls_title);
     s_save_paused = 0;
+    UpdateControlsTitle();
     return 1;
 }
 
@@ -132,7 +141,7 @@ static void Paint(HWND window, HDC dc) {
     GetClientRect(window, &client);
     if (client.right <= 0 || client.bottom <= 0) return;
     if (!Rev1GdiCompose(&s_present_surface, dc, client.right, client.bottom,
-                        s_ready ? Rev1Pixels() : NULL) ||
+                        s_ready ? Rev1Pixels() : NULL, s_scale_mode) ||
         !Rev1GdiPresent(&s_present_surface, dc)) {
         if (!s_paint_error_reported) fprintf(stderr, "[present] unable to compose/present complete frame\n");
         s_paint_error_reported = 1;
@@ -154,6 +163,17 @@ static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM 
     case WM_KEYDOWN:
         if (wp == VK_ESCAPE) { SendMessageW(window, WM_CLOSE, 0, 0); return 0; }
         if (wp == VK_F5 && s_save_paused) { FlushSaveWithRetry(1); return 0; }
+        if (wp == VK_F6 || wp == VK_F11) {
+            if (lp & ((LPARAM)1 << 30)) return 0;
+            if (wp == VK_F6) {
+                s_scale_mode = s_scale_mode == REV1_SCALE_FILL ? REV1_SCALE_4_3 : REV1_SCALE_FILL;
+            } else if (!Rev1WindowFullscreen(window, &s_window_mode, !s_window_mode.fullscreen)) {
+                fprintf(stderr, "[window] unable to switch fullscreen\n");
+            }
+            UpdateControlsTitle();
+            InvalidateRect(window, NULL, FALSE);
+            return 0;
+        }
         s_keys |= KeyMask(wp);
         return 0;
     case WM_KEYUP: s_keys &= ~KeyMask(wp); return 0;
@@ -164,6 +184,20 @@ static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM 
         return 0;
     case WM_SETFOCUS: s_active = 1; return 0;
     case WM_SIZE: InvalidateRect(window, NULL, FALSE); return 0;
+    case WM_DISPLAYCHANGE:
+        Rev1GdiFree(&s_present_surface);
+        if (s_window_mode.fullscreen && !Rev1WindowFullscreen(window, &s_window_mode, 1))
+            fprintf(stderr, "[window] unable to fit updated monitor\n");
+        InvalidateRect(window, NULL, FALSE);
+        return 0;
+    case WM_WINDOWPOSCHANGED:
+        if (s_window_mode.fullscreen && !IsIconic(window) &&
+            MonitorFromWindow(window, MONITOR_DEFAULTTONEAREST) != s_window_mode.monitor) {
+            Rev1GdiFree(&s_present_surface);
+            if (!Rev1WindowFullscreen(window, &s_window_mode, 1))
+                fprintf(stderr, "[window] unable to fit new monitor\n");
+        }
+        break;
     case WM_CLOSE:
         if (FlushSaveWithRetry(1)) DestroyWindow(window);
         return 0;
@@ -353,7 +387,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         }
     }
     s_ready = 1;
-    SetWindowTextW(s_window, s_controls_title);
+    UpdateControlsTitle();
     if (!OpenAudio())
         MessageBoxW(s_window, L"A saida de audio nao abriu. Voce pode testar a imagem e os controles sem som.", s_title, MB_OK | MB_ICONWARNING);
     fprintf(stderr, "desktop_ready=1 audio_device=%d\n", s_device != NULL);

@@ -4,11 +4,11 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: correção da apresentação para USA v1.1 (Rev 1).** O usuário confirmou a fluidez e os saves, mas relatou piscadas pretas em todas as cenas. O host agora compõe cada imagem fora da tela antes de apresentá-la; testes gráficos e de persistência passaram. A confirmação visual está pendente. O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
+**Etapa atual: imagem adaptável para USA v1.1 (Rev 1).** O usuário confirmou a fluidez, os saves e o fim das piscadas pretas. A imagem agora preenche a janela por padrão; F6 alterna com a proporção original 4:3 e F11 ativa a tela cheia no monitor atual. Testes gráficos e de restauração da janela passaram; o novo modo aguarda teste humano. O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 
-Controles: setas, Z para pular, X para correr/rolar, C para trocar, Enter para Start e Esc para fechar. Detalhes em [Teste interativo](docs/11-TESTE-INTERATIVO.md).
+Controles: setas, Z para pular, X para correr/rolar, C para trocar, Enter para Start e Esc para fechar. F6 alterna preencher/4:3; F11 alterna janela/tela cheia. Preencher mantém toda a imagem, esticando-a conforme o formato da janela ou monitor. Detalhes em [Teste interativo](docs/11-TESTE-INTERATIVO.md).
 
 Após o primeiro teste do usuário, corrigimos a cadência da janela preservando 60,0988 Hz e verificamos trechos iniciais de 40 entradas de fases e chefes. Resultados e cobertura em [Verificação de fluidez](docs/12-FLUIDEZ.md).
 
@@ -31,7 +31,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Teste interativo](docs/11-TESTE-INTERATIVO.md) | Como abrir a janela e testar com teclado |
 | [Verificação de fluidez](docs/12-FLUIDEZ.md) | Correção de cadência, comparação e matriz de entradas |
 | [Salvamento de progresso](docs/13-SAVES.md) | Saves da Candy, backup e testes entre processos |
-| [Apresentação da janela](docs/14-APRESENTACAO.md) | Remoção da limpeza preta intermediária, testes e confirmação visual pendente |
+| [Apresentação da janela](docs/14-APRESENTACAO.md) | Correção de piscadas confirmada, preencher/4:3 e tela cheia adaptável |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura

@@ -39,7 +39,7 @@ static int EnsureSurface(Rev1GdiSurface *surface, HDC reference, int width, int 
 }
 
 int Rev1GdiCompose(Rev1GdiSurface *surface, HDC reference, int width, int height,
-                   const uint8_t *pixels) {
+                   const uint8_t *pixels, Rev1ScaleMode mode) {
     if (!EnsureSurface(surface, reference, width, height)) return 0;
     surface->complete = 0;
     RECT area = {0, 0, width, height};
@@ -50,8 +50,11 @@ int Rev1GdiCompose(Rev1GdiSurface *surface, HDC reference, int width, int height
         DrawTextW(surface->dc, L"Preparando o jogo...", -1, &area,
                   DT_CENTER | DT_VCENTER | DT_SINGLELINE);
     } else {
-        int draw_width = width, draw_height = width * 3 / 4;
-        if (draw_height > height) { draw_height = height; draw_width = height * 4 / 3; }
+        int draw_width = width, draw_height = height;
+        if (mode == REV1_SCALE_4_3) {
+            draw_height = width * 3 / 4;
+            if (draw_height > height) { draw_height = height; draw_width = height * 4 / 3; }
+        }
         if (draw_width > 0 && draw_height > 0) {
             BITMAPINFO info = {0};
             info.bmiHeader.biSize = sizeof info.bmiHeader;

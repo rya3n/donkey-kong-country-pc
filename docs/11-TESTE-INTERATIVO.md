@@ -8,7 +8,7 @@ Retorno do primeiro teste: o usuário aprovou a experiência inicial e relatou p
 
 ## Abrir e jogar
 
-Depois da compilação com `./scripts/build_rev1.ps1`, abrir `Jogar DKC.cmd` ou `Jogar DKC - Teste.cmd` na raiz do projeto. Ambos iniciam pelo menu normal com saves persistentes. A apresentação foi atualizada para compor o quadro fora da tela; ver [Apresentação da janela](14-APRESENTACAO.md) e confirmar visualmente se as piscadas desapareceram.
+Depois da compilação com `./scripts/build_rev1.ps1`, abrir `Jogar DKC.cmd` ou `Jogar DKC - Teste.cmd` na raiz do projeto. Ambos iniciam pelo menu normal com saves persistentes. O usuário confirmou o fim das piscadas após a composição fora da tela. Os novos modos de imagem estão em [Apresentação da janela](14-APRESENTACAO.md).
 
 Para o diagnóstico sem saves pessoais, executar o aplicativo com `--jungle` ou usar `Testar caverna.cmd`. A preparação percorre a receita de 4.800 quadros desde boot limpo e entrega o controle na entrada da fase. Não usa um save state nem modifica a ROM.
 
@@ -24,9 +24,11 @@ Abrir DKC-Rev1-Teste.exe sem argumentos inicia pelo boot normal. O programa proc
 | Enter | Start: iniciar/pausar |
 | Shift | Select |
 | A / S | L / R |
+| F6 | Alternar preencher / proporção original 4:3 |
+| F11 | Entrar ou sair da tela cheia no monitor atual |
 | Esc | Fechar o teste |
 
-Clicar na janela para dar foco ao teclado. O jogo pausa ao perder o foco ou ser minimizado e limpa as teclas mantidas. A apresentação usa framebuffer 256×224 em área 4:3, com bordas pretas ao redimensionar.
+Clicar na janela para dar foco ao teclado. O jogo pausa ao perder o foco ou ser minimizado e limpa as teclas mantidas. Por padrão, o framebuffer 256×224 preenche toda a área da janela, esticando a imagem conforme sua proporção. F6 restaura 4:3, com bordas quando necessário. F11 usa o monitor em que a janela estiver; ao sair, restaura a posição e o tamanho anteriores. O modo escolhido vale para a sessão atual.
 
 ## Implementação e resultado
 
@@ -38,6 +40,6 @@ O processo interativo foi iniciado com --jungle e expôs a janela de controle ap
 
 ## Limites
 
-Não há gravação de progresso em disco, save states, suporte a controle físico ou tela cheia neste host mínimo. A saída de áudio foi implementada, mas sua qualidade não foi confirmada por escuta. Se o dispositivo não abrir, o programa avisa e permite continuar sem som. Falhas de execução encerram o trecho com mensagem, sem ignorar watchdog ou erros da engine.
+O host atual oferece saves da Candy e tela cheia, adicionados após o primeiro teste descrito acima. Save states e suporte a controle físico continuam pendentes. A saída de áudio foi implementada, mas sua qualidade não foi confirmada por escuta automatizada. Se o dispositivo não abrir, o programa avisa e permite continuar sem som. Falhas de execução encerram o trecho com mensagem, sem ignorar watchdog ou erros da engine.
 
 O log DKC-Rev1-teste.log fica junto ao executável e é refeito a cada abertura. Fechar o jogo antes de consultá-lo; a abertura atual do log pode bloquear leitura simultânea. Evidências locais da compilação e regressão estão em evidence/2026-11-04/usa-rev1/. A divergência da candidata de 55 variantes continua aberta; esta versão mantém a configuração padrão de 39.

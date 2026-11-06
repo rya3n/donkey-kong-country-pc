@@ -36,7 +36,8 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |
 | P14 | Implementar host interativo Rev 1 | Implementado; primeiro teste realizado | Usuário testou as primeiras fases e relatou perda de fluidez na caverna; bateria completa de ações ainda pendente |
 | P15 | Corrigir fluidez sem acelerar a simulação | Correção medida e confirmada pelo usuário | Ajuste aceito no teste humano; 40 entradas amostradas, sem validação de campanha completa |
-| P16 | Corrigir piscadas pretas em todas as cenas | Composição fora da tela implementada; teste humano pendente | Testes gráficos, persistência e cadência passaram; confirmar ausência de piscadas no monitor |
+| P16 | Corrigir piscadas pretas em todas as cenas | Correção confirmada pelo usuário | Usuário informou que a tela parou de piscar após 7043b6d |
+| P17 | Adaptar imagem e tela cheia ao monitor | Implementado; teste humano pendente | Preencher por padrão, F6 para 4:3 e F11 para tela cheia; testes gráficos e restauração passaram |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 

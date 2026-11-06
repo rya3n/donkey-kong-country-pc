@@ -2,6 +2,15 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-05 — Imagem adaptável e piscadas resolvidas
+
+- Usuário confirmou que a tela parou de piscar após a correção anterior.
+- Modo preencher como padrão: usa toda a área da janela sem cortar o framebuffer. Em formatos diferentes de 4:3, a imagem fica esticada. F6 alterna com a proporção original.
+- F11 alterna tela cheia sem moldura, consultando o monitor atual e suas dimensões. Ao sair, restaura a janela; mudanças de monitor/resolução reajustam a apresentação. Nenhuma mudança na resolução do sistema ou velocidade do jogo.
+- Testes gráficos em oito tamanhos passaram, incluindo widescreen, ultrawide, retrato e 1×1; mantidos isolamento fora da tela, preto real e verificação de recursos GDI.
+- Teste nativo com janelas ocultas passou por 20 ciclos de tela cheia/reajuste/restauração em cada monitor conectado. Boot de 600 quadros no aplicativo preservou os hashes de imagem e WRAM da referência.
+- Guias, pendências e Notion atualizados. Teste visual dos novos modos e cobertura em outros computadores permanecem pendentes. Nenhuma instalação nova ou acesso aos saves pessoais nesta rodada.
+
 ## 2026-11-05 — Correção da apresentação da janela
 
 - Usuário confirmou os saves e relatou piscadas pretas rápidas na abertura e em todas as fases.
