@@ -68,6 +68,20 @@ class CandyPilotTests(unittest.TestCase):
         pixels=[[(x+y)%4 for x in range(8)] for y in range(8)]
         self.assertEqual(candy.decode_tile(candy.encode_tile(pixels)),pixels)
 
+    def test_circumflex_e_retains_every_native_body_row(self):
+        rom=bytearray(self.rom)
+        base=int(self.config["font_offset"],16)+(ord("e")-32)*16
+        pixels=[[0]*8,[0,0,2,2,2,2,0,0],
+                [0,2,1,1,1,1,2,0],[2,1,1,2,2,1,1,2],
+                [2,1,1,1,1,1,2,0],[2,1,1,2,2,2,2,0],
+                [0,2,1,1,1,1,1,2],[0,0,2,2,2,2,2,0]]
+        rom[base:base+16]=candy.encode_tile(pixels)
+        patches,_=candy.make_candy_patch(bytes(rom),self.config)
+        result=candy.decode_tile(dict(patches)[0x29da9c])
+        self.assertEqual(result[2:],pixels[2:])
+        self.assertEqual(result[0][3],1)
+        self.assertEqual((result[1][2],result[1][4]),(1,1))
+
     def test_padding_only_adds_balanced_spaces(self):
         message=dict(lines=["Hello","World!"],bytes=30,max_line=29,balanced_padding=True)
         fitted=candy.fitted_lines(message)

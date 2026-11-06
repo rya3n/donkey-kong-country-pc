@@ -155,6 +155,23 @@ int Rev1Open(FILE *file) {
         }
         fprintf(stderr,"qa_funky_message=%04lx headless_only=1\n",address);
     }
+    const char *qa_cranky_message = getenv("DKC_REV1_QA_CRANKY_MESSAGE");
+    if (qa_cranky_message) {
+        char *end;
+        unsigned long address = strtoul(qa_cranky_message, &end, 16);
+        const unsigned allowed[] = {0x07a4,0x0935,0x0990,0x09bd,0x09e8,0x0a14};
+        int valid = 0;
+        for (size_t i=0;i<sizeof allowed/sizeof allowed[0];i++) if(address==allowed[i]) valid=1;
+        if (*end || !valid) { free(s_rom); s_rom = NULL; return 0; }
+        /* The fresh EE QA entry reaches the English farewell group at frame
+         * 4350. Select a known greeting there for isolated renderer inspection.
+         * This does not reproduce its normal timing or an absent Kong.
+         */
+        for (unsigned offset=0x3c0144;offset<0x3c0164;offset+=2) {
+            s_rom[offset]=(uint8_t)address; s_rom[offset+1]=(uint8_t)(address>>8);
+        }
+        fprintf(stderr,"qa_cranky_message=%04lx headless_only=1\n",address);
+    }
 #endif
     RtlRegisterGame(&s_game);
     if (!SnesInit(s_rom, 4194304)) { free(s_rom); s_rom = NULL; return 0; }

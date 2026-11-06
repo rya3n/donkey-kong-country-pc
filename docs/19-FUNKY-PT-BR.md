@@ -1,5 +1,7 @@
 # Falas do Funky Kong em PT-BR
 
+Revisão posterior de 2026-11-06: o usuário apontou que o ê de vocês na segunda mensagem ficou menor. O corpo da letra foi corrigido na fonte compartilhada; usar a nova galeria indicada em [Primeiro lote do Cranky e correção do ê](20-CRANKY-E-FONTE-PT-BR.md). A galeria anterior permanece como evidência histórica.
+
 Entrega de 2026-11-06 no piloto separado para USA v1.1 (Rev 1). Integradas as quatro mensagens inglesas identificadas na tabela do Funky Kong. Mantidos Funky Kong, Jumbo Barrel e os desenhos das placas. O texto conserva o tom descontraído e a limitação de transporte a lugares já visitados.
 
 ## Conferir a tradução

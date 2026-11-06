@@ -31,7 +31,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P08 | Validar persistência | SRAM aprovada no cenário coberto | Três saves da Candy e reinícios passaram; ampliar progresso real; save states fora desta entrega |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
 | P10 | Validar campanha e estabilidade | Roteiro preparado; cobertura pendente | Registrar campanha e saves com progresso real; aceitar V14 antes de promover a versão traduzida |
-| P11 | Inventariar, traduzir e revisar PT-BR | Menus, oito falas da Candy e quatro do Funky no piloto; tradução ampla pendente | Glossário, fonte parcial e revisão em contexto; concluir V15–V17 sem dar P10 por concluída |
+| P11 | Inventariar, traduzir e revisar PT-BR | Menus, oito falas da Candy, quatro do Funky e seis do Cranky no piloto; tradução ampla pendente | Glossário, fonte parcial e revisão em contexto; concluir V15–V17 sem dar P10 por concluída |
 | P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |
 | P14 | Implementar host interativo Rev 1 | Implementado; primeiro teste realizado | Usuário testou as primeiras fases e relatou perda de fluidez na caverna; bateria completa de ações ainda pendente |
@@ -41,7 +41,8 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P18 | Localizar menus/fontes e criar piloto PT-BR | Implementado; aceite humano pendente | Build e saves isolados; cinco rótulos, Ã/Ç, comparação de menus/gameplay e save/reinício passaram |
 | P19 | Integrar primeiras falas da Candy | Implementado; prévias aprovadas pelo usuário | Apresentação e instrução incluídas no aceite das oito capturas em 2026-11-06 |
 | P20 | Completar falas identificadas da Candy | Concluído no escopo das oito falas e prévias | Redação e leitura aprovadas pelo usuário em 2026-11-06; QA anterior preservado; campanha continua em P10 |
-| P21 | Integrar falas identificadas do Funky | Implementado; revisão humana pendente | Quatro mensagens, Jumbo Barrel e restrição a locais já visitados preservados; capturas, comparação individual e regressão passaram |
+| P21 | Integrar falas identificadas do Funky | Implementado; ê corrigido, revisão humana pendente | Quatro mensagens e restrição do Jumbo Barrel preservadas; fonte corrigida após relato do usuário e capturas comparadas novamente |
+| P22 | Integrar primeiro lote do Cranky e corrigir ê | Implementado; novas prévias em revisão | Seis saudações, Donks preservado e corpo original do ê restaurado na fonte compartilhada; conferir relatório 20 |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 

@@ -12,6 +12,7 @@ from pathlib import Path
 import struct
 from generate_ptbr_candy_pilot import make_candy_patch
 from generate_ptbr_funky_pilot import make_funky_patch
+from generate_ptbr_cranky_pilot import make_cranky_patch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -118,6 +119,9 @@ def main() -> int:
     funky_config=json.loads((ROOT/"localization/pt-BR/funky-pilot.json").read_text(encoding="utf-8"))
     funky_changes,funky_summary=make_funky_patch(rom,funky_config,candy_config)
     changes.extend(funky_changes)
+    cranky_config=json.loads((ROOT/"localization/pt-BR/cranky-pilot.json").read_text(encoding="utf-8"))
+    cranky_changes,cranky_summary=make_cranky_patch(rom,cranky_config,candy_config)
+    changes.extend(cranky_changes)
     occupied=set()
     for offset,data in changes:
         addresses=set(range(offset,offset+len(data)))
@@ -130,6 +134,7 @@ def main() -> int:
               f'#define PTBR_PATCHSET_ID "{patchset}"',
               f'#define PTBR_CANDY_MESSAGE_COUNT {candy_summary["messages"]}',
               f'#define PTBR_FUNKY_MESSAGE_COUNT {funky_summary["messages"]}',
+              f'#define PTBR_CRANKY_MESSAGE_COUNT {cranky_summary["messages"]}',
               "typedef struct PtbrMenuPatch { unsigned offset, size; const unsigned char *bytes; const char *before; } PtbrMenuPatch;"]
     for i, (offset,data) in enumerate(changes):
         header.append(f"static const unsigned char s_ptbr_data_{i}[] = {{")
@@ -144,8 +149,8 @@ def main() -> int:
     header_text="\n".join(header)
     if not header_path.exists() or header_path.read_text(encoding="utf-8")!=header_text:
         header_path.write_text(header_text,encoding="utf-8")
-    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics, eight Candy and four Funky messages",
-              "screens":summary,"candy":candy_summary,"funky":funky_summary,"patchset_sha256":patchset,
+    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics, eight Candy, four Funky and six Cranky messages",
+              "screens":summary,"candy":candy_summary,"funky":funky_summary,"cranky":cranky_summary,"patchset_sha256":patchset,
               "regions":[{"offset":f"0x{offset:06X}","bytes":len(data),"after_sha256":hashlib.sha256(data).hexdigest()}
                          for offset,data in changes],"source_rom_written":False}
     (out/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")

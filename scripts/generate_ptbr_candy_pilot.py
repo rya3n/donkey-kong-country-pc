@@ -103,8 +103,14 @@ def make_dialogue_patch(rom: bytes, config: dict, *, include_glyphs: bool=True) 
         pixels=decode_tile(rom[base:base+16])
         if any(pixels[0]):
             raise ValueError("Glyph top margin changed")
-        # Drop one repeated stem row, keeping crossbar, baseline and outline.
-        pixels=[[0]*8,[0]*8]+[pixels[y][:] for y in (1,2,3,4,6,7)]
+        if item.get("preserve_body"):
+            # The e's lower-left row is not a repeated stem. Keep every body
+            # row at its native height; place the mark in the two top margins.
+            if any(value not in (0,2) for value in pixels[1]):
+                raise ValueError("Glyph has no outline-only margin for its accent")
+            pixels=[[0]*8,[0]*8]+[row[:] for row in pixels[2:]]
+        else:
+            pixels=[[0]*8,[0]*8]+[pixels[y][:] for y in (1,2,3,4,6,7)]
         points=((4,0),(3,1)) if item["mark"]=="acute" else ((3,0),(2,1),(4,1))
         if item["mark"] not in ("acute","circumflex"):
             raise ValueError("Unsupported accent mark")

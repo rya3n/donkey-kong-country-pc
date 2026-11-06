@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "rom_profile": "usa-rev1",
+  "scope": "First batch: six Cranky greetings in English mode; names preserved",
+  "messages": [
+    {
+      "id": "dialogue_en.3c07a4", "offset": "0x3C07A4", "bytes": 28, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Ei, Donkey! Cadê o Diddy?"]
+    },
+    {
+      "id": "dialogue_en.3c0935", "offset": "0x3C0935", "bytes": 27, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Ei, Diddy! Cadê o Donks?"]
+    },
+    {
+      "id": "dialogue_en.3c0990", "offset": "0x3C0990", "bytes": 45, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Ora, ora! Que surpresa", "ver você aqui hoje!"]
+    },
+    {
+      "id": "dialogue_en.3c09bd", "offset": "0x3C09BD", "bytes": 43, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Até que você foi bem", "chegando até aqui..."]
+    },
+    {
+      "id": "dialogue_en.3c09e8", "offset": "0x3C09E8", "bytes": 44, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Me achou, foi?!", "O que você quer?!"]
+    },
+    {
+      "id": "dialogue_en.3c0a14", "offset": "0x3C0A14", "bytes": 57, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Quem disse que estou aqui?", "Foi o", "Funky Kong irritante?"]
+    }
+  ]
+}

@@ -6,7 +6,7 @@
   "font_first_code": 32,
   "accent_slots": {
     "á": {"code": 91, "base": "a", "mark": "acute"},
-    "ê": {"code": 92, "base": "e", "mark": "circumflex"},
+    "ê": {"code": 92, "base": "e", "mark": "circumflex", "preserve_body": true},
     "ó": {"code": 93, "base": "o", "mark": "acute"},
     "é": {"code": 94, "base": "e", "mark": "acute"}
   },

@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-06 — Correção do ê e primeiro lote do Cranky
+
+- Corrigido o ê menor relatado pelo usuário na segunda fala do Funky. Preservadas todas as seis linhas do corpo original do e; acento colocado nas margens superiores, sem mudar o tamanho da célula.
+- Integradas seis saudações do Cranky ao piloto, mantendo Donkey, Diddy, Donks e Funky Kong, tamanhos, linhas, terminadores, paridades e seleção original no aplicativo.
+- Trinta e oito testes passaram. As seis saudações do Cranky mantiveram áudio e WRAM inteira iguais ao original, com diferenças visuais somente no diálogo. Funky/Candy, menus e entrada da fase passaram na regressão; um ciclo Candy/reinício coincidiu entre aplicativo, runner e disco em perfis de QA.
+- Criadas prévias atualizadas do Funky e do primeiro lote do Cranky, catálogo privado draft-05 e relatório 20. Revisão humana pendente; demais textos do Cranky e campanha continuam abertos.
+- ROM, executável habitual e saves pessoais preservados; sem novas instalações.
+
 ## 2026-11-06 — Quatro falas do Funky em PT-BR
 
 - Integradas as quatro mensagens inglesas identificadas do Funky no piloto separado. Preservados Funky Kong, Jumbo Barrel, tom descontraído e a restrição de transporte a lugares já visitados.
