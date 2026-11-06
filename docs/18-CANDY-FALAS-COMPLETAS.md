@@ -41,7 +41,7 @@ Adicionado o glifo **é**, além de **á**, **ê** e **ó**, na fonte de diálog
 
 Para selecionar cada caso, o runner sem janela aceita DKC_REV1_QA_CANDY_MESSAGE com um dos oito endereços conhecidos. O diagnóstico muda somente a tabela da cópia de teste antes de inicializar a execução; a mesma seleção é feita no original e no piloto. Essa opção não existe no executável com janela e não altera o sorteio ou a escolha das falas do jogador. No build normal do piloto, todos os ponteiros originais permanecem intactos.
 
-O aceite humano da redação e da leitura ao vivo continua pendente. Outros idiomas, acentos não utilizados aqui, cobertura de campanha e tradução completa não foram aprovados por estes testes.
+Em 2026-11-06, o usuário confirmou que leu as oito prévias e que todas estavam ótimas. Redação e leitura nas capturas aprovadas; a confirmação não representa um teste adicional de leitura ao vivo ou de campanha. Outros idiomas, acentos não utilizados aqui e tradução completa continuam em etapas próprias.
 
 ## Reprodução
 
@@ -56,6 +56,6 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Para repetir somente um caso, acrescentar --message 321d a --all-messages. Usar uma pasta de saída nova e fechar o piloto antes de recompilar ou executar o teste de saves.
 
-Evidências finais privadas: evidence/2026-11-06/pt-BR/candy-complete/verified-all/, verified-menu-gameplay/, verified-saves/, unit-tests.log e build.log. O catálogo privado draft-03 reúne oito falas da Candy no piloto e seis rascunhos de Funky/Cranky ainda fora do runtime. Status editorial continua em rascunho até o aceite humano.
+Evidências finais privadas: evidence/2026-11-06/pt-BR/candy-complete/verified-all/, verified-menu-gameplay/, verified-saves/, unit-tests.log e build.log. O catálogo privado draft-03 permanece como registro histórico dos rascunhos; o aceite posterior das oito falas da Candy está registrado neste documento. Os seis rascunhos de Funky/Cranky ainda estão fora do runtime.
 
-Próxima etapa: revisar as falas com o usuário e preparar as falas do Funky Kong, mantendo os nomes e verificando instruções de transporte, tom e contexto.
+Próxima etapa: preparar as falas do Funky Kong, mantendo os nomes, incluindo Jumbo Barrel, e verificando instruções de transporte, tom e contexto.

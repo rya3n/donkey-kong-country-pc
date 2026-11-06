@@ -39,8 +39,8 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P16 | Corrigir piscadas pretas em todas as cenas | Correção confirmada pelo usuário | Usuário informou que a tela parou de piscar após 7043b6d |
 | P17 | Adaptar imagem e tela cheia ao monitor | Funcionamento confirmado pelo usuário | Aceite após e46f8f1; não estende a cobertura a todos os monitores ou computadores |
 | P18 | Localizar menus/fontes e criar piloto PT-BR | Implementado; aceite humano pendente | Build e saves isolados; cinco rótulos, Ã/Ç, comparação de menus/gameplay e save/reinício passaram |
-| P19 | Integrar primeiras falas da Candy | Implementado; aceite humano pendente | Nome e instrução preservados, á/ê/ó, layout e memória conferidos; prévia sem saves disponível |
-| P20 | Completar falas identificadas da Candy | Implementado; revisão humana pendente | Oito mensagens, Honey Kong preservado, é, galeria e comparação individual aprovadas no QA |
+| P19 | Integrar primeiras falas da Candy | Implementado; prévias aprovadas pelo usuário | Apresentação e instrução incluídas no aceite das oito capturas em 2026-11-06 |
+| P20 | Completar falas identificadas da Candy | Concluído no escopo das oito falas e prévias | Redação e leitura aprovadas pelo usuário em 2026-11-06; QA anterior preservado; campanha continua em P10 |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 

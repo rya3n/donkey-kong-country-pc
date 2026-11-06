@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-06 — Prévias da Candy aprovadas pelo usuário
+
+- O usuário leu as oito prévias e aprovou todas. Registrado o aceite da redação e da leitura nas capturas em P19/P20 e no relatório da Candy.
+- Próximo bloco: falas do Funky Kong, preservando nomes, Jumbo Barrel e instruções de transporte.
+- Atualização documental, sem alterações no jogo ou novos testes. Leitura ao vivo, campanha e demais textos não foram validados por esse aceite.
+
 ## 2026-11-06 — Oito falas identificadas da Candy em PT-BR
 
 - Traduzidas as seis mensagens de revisita, somando oito falas identificadas. Mantidos Candy Kong, Honey Kong, placa do local, tom e sentido das instruções.
