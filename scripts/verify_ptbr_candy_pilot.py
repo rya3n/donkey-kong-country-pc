@@ -37,6 +37,7 @@ def main() -> int:
     parser.add_argument("--character",choices=("candy","funky","cranky","cranky-tips"),default="candy")
     parser.add_argument("--all-messages",action="store_true",help="Select each original address in headless QA only")
     parser.add_argument("--message",action="append",default=[],help="Filter --all-messages by hexadecimal low-word address")
+    parser.add_argument("--world",choices=("kongo-jungle","monkey-mines"),help="Filter the Cranky hint gallery by world")
     args=parser.parse_args()
     out=args.out.resolve()
     if not out.is_relative_to(ROOT/"evidence"):
@@ -47,6 +48,10 @@ def main() -> int:
     qa_character="cranky" if character=="cranky-tips" else character
     speaker={"candy":"da Candy","funky":"do Funky","cranky":"do Cranky"}[qa_character]
     config=json.loads((ROOT/f"localization/pt-BR/{character}-pilot.json").read_text(encoding="utf-8"))
+    if args.world:
+        if character!="cranky-tips" or not args.all_messages:
+            parser.error("--world requires --character cranky-tips --all-messages")
+        config["messages"]=[m for m in config["messages"] if m["world"]==args.world]
     natural_frames=(4350,4500,4650) if character=="candy" else (4350,4650,4950,5250)
     cases=[(4350,int(msg["offset"],16)&0xffff) for msg in config["messages"]] if args.all_messages else [(f,None) for f in natural_frames]
     if qa_character=="cranky" and not args.all_messages:
@@ -105,7 +110,7 @@ def main() -> int:
                 "changed_pixels":len(changed_pixels),"outside_dialogue_pixels_match":True}
         results.append(result)
         print(json.dumps(result),flush=True)
-    (out/"results.json").write_text(json.dumps({"character":character,"qa_message_selection":args.all_messages,"patchset_sha256":manifest["patchset_sha256"],
+    (out/"results.json").write_text(json.dumps({"character":character,"world":args.world,"qa_message_selection":args.all_messages,"patchset_sha256":manifest["patchset_sha256"],
                                                "checkpoints":results},indent=2)+"\n",encoding="utf-8")
     if args.all_messages:
         cards=[]
@@ -120,9 +125,10 @@ def main() -> int:
             cards.append(f'<article><h2>{title}</h2><img alt="Fala {speaker} no jogo" src="data:image/png;base64,{encoded}"><p>{text}</p></article>')
         page='<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Falas '+speaker+' — prévia</title><style>body{background:#111b16;color:#e9f3eb;font:17px system-ui;max-width:1180px;margin:auto;padding:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px}article{background:#1d3025;border-radius:12px;padding:16px}h2{font-size:18px}img{width:100%;image-rendering:pixelated}p{line-height:1.6}</style><h1>Falas '+speaker+' — prévia de leitura</h1><p>Capturas nativas do piloto. O teste seleciona cada mensagem individualmente; não representa uma campanha completa nem altera seus saves.</p><main>'+"".join(cards)+'</main></html>'
         if character=="cranky":
-            page=page.replace("<main>","<p>Nas duas primeiras saudações, o texto pergunta pelo parceiro ausente. Esta seleção técnica confere apenas a leitura: a ausência do personagem e o momento normal da fala não são reproduzidos na cena.</p><main>",1)
+            page=page.replace("<main>","<p>Algumas saudações perguntam pelo parceiro ausente. Esta seleção técnica confere apenas a leitura: a ausência do personagem e o momento normal da fala não são reproduzidos na cena.</p><main>",1)
         elif character=="cranky-tips":
-            page=page.replace("<main>","<p>Cinco dicas de Kongo Jungle. As capturas mostram o texto selecionado no cenário do Cranky; não demonstram a execução dos segredos nas fases.</p><main>",1)
+            world_title={"kongo-jungle":"Kongo Jungle","monkey-mines":"Monkey Mines",None:"Kongo Jungle e Monkey Mines"}[args.world]
+            page=page.replace("<main>",f"<p>Dicas de {world_title}. As capturas mostram o texto selecionado no cenário do Cranky; não demonstram a execução dos segredos nas fases.</p><main>",1)
         (out/"preview.html").write_text(page,encoding="utf-8")
     return 0
 

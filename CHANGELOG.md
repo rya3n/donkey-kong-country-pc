@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-06 — Quatro dicas de Monkey Mines em PT-BR
+
+- Integradas dicas de Bouncy Bonanza, Stop & Go Station, Mine Cart Carnage e Millstone Mayhem. Nomes completos preservados; pneus, rinoceronte dourado, bananas e salto antecipado mantidos nas pistas.
+- Acrescentadas quatro regiões de dados; as 32 anteriores e a fonte mantêm os mesmos bytes. Novos metadados e filtro de mundo separam as galerias de Kongo Jungle e Monkey Mines, sem alterar a seleção no aplicativo.
+- Quarenta e cinco testes passaram. Quatro dicas com áudio e WRAM inteira iguais ao original, mudanças visuais só no texto e capturas legíveis, sem cortes. Regressão de Kongo Jungle, menus/entrada da fase e um ciclo Candy/reinício passou em QA isolado.
+- Criados galeria privada, catálogo draft-07 e relatório 22, com registro das escolhas de contexto e dos limites de cobertura. Revisão humana e coleta dos segredos continuam pendentes.
+- ROM, executável habitual e saves pessoais preservados; nenhuma nova instalação.
+
 ## 2026-11-06 — Cinco dicas de Kongo Jungle em PT-BR
 
 - Integradas cinco dicas do Cranky para Jungle Hijinxs, Ropey Rampage, Barrel Cannon Canyon, Reptile Rumble e Coral Capers. Preservados Winky, Croctopus e as pistas físicas de cada texto.

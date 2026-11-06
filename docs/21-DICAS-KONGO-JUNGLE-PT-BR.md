@@ -55,7 +55,7 @@ Fechar os processos de QA antes de recompilar.
 ./scripts/build_rev1.ps1 -HeadlessOnly
 ./scripts/build_ptbr_pilot.ps1
 python -m unittest discover -s tests -p 'test_ptbr*.py' -v
-python scripts/verify_ptbr_candy_pilot.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' --out evidence/cranky-hints-check --character cranky-tips --all-messages
+python scripts/verify_ptbr_candy_pilot.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' --out evidence/cranky-hints-check --character cranky-tips --world kongo-jungle --all-messages
 python scripts/verify_ptbr_candy_pilot.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' --out evidence/cranky-greeting-check --character cranky --all-messages --message 07a4 --message 0a14
 python scripts/verify_ptbr_menu_pilot.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' --out evidence/cranky-hints-gameplay
 python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' --out evidence/cranky-hints-save --build-dir build/ptbr-pilot --desktop-name DKC-Rev1-PTBR-Piloto.exe --repeats 1
@@ -63,4 +63,4 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em evidence/2026-11-06/pt-BR/cranky-tips/: verified-all/, greeting-regression/, menu-gameplay/, saves/, prior-patches-check.json, editorial-review.json, unit-tests.log e logs de build. Nenhuma captura, catálogo extraído, ROM, dump, save ou binário é publicado no GitHub.
 
-Próxima etapa: revisão das cinco prévias e ampliação das dicas para Monkey Mines, preservando as pistas de cada fase. Campanha e coleta dos segredos continuam na matriz de validação.
+Etapa seguinte implementada: [Dicas de Monkey Mines](22-DICAS-MONKEY-MINES-PT-BR.md). O filtro --world kongo-jungle permite repetir somente este lote com o verificador atual. As cinco prévias de Kongo Jungle continuam com revisão humana pendente; campanha e coleta dos segredos permanecem na matriz de validação.

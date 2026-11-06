@@ -1,32 +1,52 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "Five Kongo Jungle stage hints; original names and clues preserved",
+  "scope": "Nine Kongo Jungle and Monkey Mines hints; original names and clues preserved",
   "messages": [
     {
-      "id": "dialogue_en.3c0f35", "stage": "Jungle Hijinxs",
+      "id": "dialogue_en.3c0f35", "world": "kongo-jungle", "stage": "Jungle Hijinxs",
       "offset": "0x3C0F35", "bytes": 61, "max_line": 29, "balanced_padding": true,
       "lines": ["Em Jungle Hijinxs,", "fique nas copas para", "ganhar vidas extras."]
     },
     {
-      "id": "dialogue_en.3c0f72", "stage": "Ropey Rampage",
+      "id": "dialogue_en.3c0f72", "world": "kongo-jungle", "stage": "Ropey Rampage",
       "offset": "0x3C0F72", "bytes": 70, "max_line": 29, "balanced_padding": true,
       "lines": ["A farra de Ropey Rampage", "fica entre uma pedra", "e algo bem duro!"]
     },
     {
-      "id": "dialogue_en.3c0fb8", "stage": "Barrel Cannon Canyon",
+      "id": "dialogue_en.3c0fb8", "world": "kongo-jungle", "stage": "Barrel Cannon Canyon",
       "offset": "0x3C0FB8", "bytes": 68, "max_line": 29, "balanced_padding": true,
       "lines": ["Um salto de fé basta", "para achar Winky em", "Barrel Cannon Canyon."]
     },
     {
-      "id": "dialogue_en.3c0ffc", "stage": "Reptile Rumble",
+      "id": "dialogue_en.3c0ffc", "world": "kongo-jungle", "stage": "Reptile Rumble",
       "offset": "0x3C0FFC", "bytes": 50, "max_line": 29, "balanced_padding": true,
       "lines": ["Há bananas no fosso de cobras", "de Reptile Rumble!"]
     },
     {
-      "id": "dialogue_en.3c102e", "stage": "Coral Capers",
+      "id": "dialogue_en.3c102e", "world": "kongo-jungle", "stage": "Coral Capers",
       "offset": "0x3C102E", "bytes": 70, "max_line": 29, "balanced_padding": true,
       "lines": ["O astuto Croctopus guarda", "seu tesouro num canto", "de Coral Capers."]
+    },
+    {
+      "id": "dialogue_en.3c1074", "world": "monkey-mines", "stage": "Bouncy Bonanza",
+      "offset": "0x3C1074", "bytes": 50, "max_line": 29, "balanced_padding": true,
+      "lines": ["Use o pneu:", "rinoceronte dourado", "em Bouncy Bonanza."]
+    },
+    {
+      "id": "dialogue_en.3c10a6", "world": "monkey-mines", "stage": "Stop & Go Station",
+      "offset": "0x3C10A6", "bytes": 51, "max_line": 29, "balanced_padding": true,
+      "lines": ["As bananas de", "Stop & Go Station", "mostram o caminho!"]
+    },
+    {
+      "id": "dialogue_en.3c10d9", "world": "monkey-mines", "stage": "Mine Cart Carnage",
+      "offset": "0x3C10D9", "bytes": 60, "max_line": 29, "balanced_padding": true,
+      "lines": ["Evite Mine Cart Carnage", "e pule cedo para", "ganhar a vida extra."]
+    },
+    {
+      "id": "dialogue_en.3c1115", "world": "monkey-mines", "stage": "Millstone Mayhem",
+      "offset": "0x3C1115", "bytes": 70, "max_line": 29, "balanced_padding": true,
+      "lines": ["Role um pneu para seguir", "pelo caminho certo", "em Millstone Mayhem!"]
     }
   ]
 }
