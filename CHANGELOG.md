@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-05 — Preparação PT-BR com nomes preservados
+
+- Usuário autorizou começar a tradução com cuidado para preservar nomes importantes e contexto; política registrada em D012 e localization/pt-BR/policy.json.
+- Leitor próprio, sem escrita na ROM, identificou quatro regiões da Rev 1 e extraiu 346 registros privados: 50 rótulos de mapa, 47 de elenco, 32 de créditos e 217 falas. Inventário parcial; menus e textos gráficos ainda não localizados.
+- Preparados 12 rascunhos privados de Cranky, Funky e Candy. Os rótulos do mapa permanecem originais; fonte, acentos, layout e sentido em tela ainda exigem revisão.
+- Verificador de nomes/identidade passou no catálogo e seis testes sintéticos passaram. Hashes da ROM e do executável preservados; sem acesso aos saves nem instalação nova.
+- Adicionado docs/15-PT-BR.md e atualizada a área exclusiva do Notion. Campanha continua pendente; o executável jogável não recebeu tradução nesta etapa.
+
 ## 2026-11-05 — Modos de tela aprovados e próxima etapa
 
 - Usuário confirmou o funcionamento da versão e46f8f1 após a inclusão de preencher/4:3 e tela cheia adaptável. P17 aceita no teste relatado.

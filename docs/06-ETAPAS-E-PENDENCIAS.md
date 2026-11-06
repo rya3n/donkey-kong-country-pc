@@ -30,8 +30,8 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P07 | Validar a primeira sessão | Sessão humana realizada; cobertura parcial | Boot, entrada na fase e fluidez confirmados; ampliar as ações e cenas de V06–V09 |
 | P08 | Validar persistência | SRAM aprovada no cenário coberto | Três saves da Candy e reinícios passaram; ampliar progresso real; save states fora desta entrega |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
-| P10 | Validar campanha e estabilidade | Próxima etapa; roteiro preparado | Registrar campanha e saves com progresso real; aceitar V14 antes de iniciar a tradução |
-| P11 | Inventariar, traduzir e revisar PT-BR | Depende de P10 | Cobertura de textos, fonte, acentos e regressão V15–V17 |
+| P10 | Validar campanha e estabilidade | Roteiro preparado; cobertura pendente | Registrar campanha e saves com progresso real; aceitar V14 antes de promover a versão traduzida |
+| P11 | Inventariar, traduzir e revisar PT-BR | Preparação iniciada por autorização; integração pendente | 346 registros iniciais e 12 rascunhos; preservar nomes/contexto, verificar fontes e concluir V15–V17 sem dar P10 por concluída |
 | P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |
 | P14 | Implementar host interativo Rev 1 | Implementado; primeiro teste realizado | Usuário testou as primeiras fases e relatou perda de fluidez na caverna; bateria completa de ações ainda pendente |

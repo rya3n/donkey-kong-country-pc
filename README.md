@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: ampliar a validação da campanha para USA v1.1 (Rev 1).** O usuário confirmou a fluidez, os saves, o fim das piscadas e os novos modos de tela. F6 alterna preencher/4:3 e F11 ativa tela cheia no monitor atual. A próxima etapa é registrar progressão, chefes e saves com progresso real antes de iniciar PT-BR; roteiro em [Plano de validação](docs/05-VALIDACAO.md). O protótipo combina trechos recompilados e interpretador de apoio; a compatibilidade do jogo completo permanece sem validação.
+**Etapa atual: preparação PT-BR e ampliação da validação para USA v1.1 (Rev 1).** O usuário confirmou a fluidez, os saves e os modos de tela e autorizou iniciar a tradução preservando nomes e contexto. O inventário inicial reúne 346 registros e 12 rascunhos privados; o executável jogável continua sem alterações de texto. Detalhes em [Preparação PT-BR](docs/15-PT-BR.md). A campanha completa permanece sem validação; roteiro em [Plano de validação](docs/05-VALIDACAO.md).
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 
@@ -32,6 +32,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Verificação de fluidez](docs/12-FLUIDEZ.md) | Correção de cadência, comparação e matriz de entradas |
 | [Salvamento de progresso](docs/13-SAVES.md) | Saves da Candy, backup e testes entre processos |
 | [Apresentação da janela](docs/14-APRESENTACAO.md) | Correção de piscadas confirmada, preencher/4:3 e tela cheia adaptável |
+| [Preparação PT-BR](docs/15-PT-BR.md) | Glossário, preservação dos nomes, inventário parcial e rascunhos |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura

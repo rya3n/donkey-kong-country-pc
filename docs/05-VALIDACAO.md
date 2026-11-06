@@ -48,7 +48,7 @@ Roteiro preparado em 2026-11-05 após o aceite dos modos de tela. Esta lista org
 
 Para cada sessão, anotar versão, fases percorridas, modo de tela e defeitos observados. Testar a persistência em momentos diferentes da progressão; identificar e proteger a cópia do save antes de qualquer teste de migração ou falha. Não substituir o progresso pessoal por fixtures de QA. Percurso principal, bônus e eventuais caminhos não percorridos devem ter sua cobertura indicada separadamente.
 
-Corrigir e repetir qualquer cenário com defeito crítico antes de aceitar V14. Depois do aceite, iniciar o inventário de textos para PT-BR. Suporte a controle físico, save states e pacote final continuam em seus próprios marcos.
+Corrigir e repetir qualquer cenário com defeito crítico antes de aceitar V14. Por autorização posterior, o inventário e os rascunhos PT-BR já começaram em paralelo; ver [Preparação PT-BR](15-PT-BR.md). Isso não aceita V14 nem promove a tradução ao executável. Suporte a controle físico, save states e pacote final continuam em seus próprios marcos.
 
 ## Como registrar defeitos
 

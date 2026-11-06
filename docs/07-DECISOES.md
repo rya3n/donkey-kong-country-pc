@@ -85,3 +85,11 @@ Usar E:\Ferramentas como destino principal. Para BuildTools, remover a instânci
 Usar a USA v1.1 (Rev 1) identificada pelo hash de config/roms/usa-rev1.json. Ela substitui a v1.0 como entrada do nosso alvo. Começar uma configuração própria pelos vetores da ROM e uma integração mínima, reutilizando o gerador/runtime genérico fixado; o projeto não reescreve do zero todo o hardware do SNES.
 
 **Consequência:** não alterar o verificador ou os metadados v1.0 do upstream para fingir compatibilidade. Fontes C derivadas e perfis de execução permanecem locais. O primeiro alvo é sem janela, 256×224 e híbrido, com interpretador de apoio. Ampliar AOT exige comparação de imagem, memória e áudio; a primeira tentativa de 55 variantes divergiu e foi retirada da base padrão de 39 variantes. Janela, controles ao vivo, persistência e campanha seguem pendentes.
+
+## D012 — Iniciar preparação PT-BR preservando nomes e contexto
+
+**Estado:** aceita em 2026-11-05. **Origem:** após aprovar os modos de tela, o usuário autorizou começar e pediu cuidado para não mudar nomes importantes nem o contexto.
+
+Iniciar inventário, glossário e rascunhos editoriais. Preservar nomes próprios, rótulos completos de fases/lugares, referências de gameplay e personalidade dos personagens. Apelidos e termos ambíguos permanecem originais até revisão em contexto.
+
+**Consequência:** a preparação de P11 pode avançar enquanto a cobertura de campanha P10 permanece aberta. Não declarar campanha aceita ou tradução integrada por esse início editorial. Dados extraídos e catálogos traduzidos ficam privados; o jogo só receberá textos após definir fonte, layout, integração e regressão. A meta final de estabilidade, PT-BR e aplicativo de D009 permanece vigente.

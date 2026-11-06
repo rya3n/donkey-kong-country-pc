@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "locale": "pt-BR",
+  "rom_profile": "usa-rev1",
+  "status": "inventory and editorial drafts; not applied to the game",
+  "rules": {
+    "proper_names": "preserve original spelling, punctuation and identity",
+    "area_names": "preserve the complete original name",
+    "staff_names_and_brands": "preserve",
+    "dialogue": "translate meaning, speaker personality and gameplay instructions; review in context",
+    "ambiguous_terms": "keep original pending contextual review",
+    "accents": "write correct PT-BR; glyph support must be verified before integration",
+    "publication": "keep extracted text and translated game catalogs local"
+  },
+  "protected_terms": [
+    "Donkey Kong Country", "Donkey Kong", "Diddy Kong", "Cranky Kong",
+    "Funky Kong", "Candy Kong", "Donkey", "Diddy", "Cranky", "Funky", "Candy",
+    "Kremlings", "King K. Rool", "King K.Rool", "K. Rool", "K.Rool",
+    "Rambi", "Expresso", "Enguarde", "Winky", "Squawks", "DK", "KONG", "TNT",
+    "Nintendo", "Rare"
+  ],
+  "generic_terms": {
+    "save": "salvar",
+    "save point": "ponto de salvamento",
+    "save barrel": "barril de salvamento",
+    "lives": "vidas",
+    "bonus room": "sala de bônus",
+    "level": "fase",
+    "jump": "pular"
+  },
+  "context_review_terms": ["Jumbo Barrel", "Donks", "Honey Kong", "Kredits", "Red Team", "Yellow Team"],
+  "notes": "Generic translations never override complete protected names such as a map location. Preserve character nicknames and jokes until contextual review."
+}

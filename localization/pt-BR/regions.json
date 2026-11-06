@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "rom_profile": "usa-rev1",
+  "coverage": "initial confirmed text regions, not a complete game inventory",
+  "regions": [
+    {"id": "map_names_en", "start": "0x38A50B", "end": "0x38A7EA", "format": "high_bit_lines", "policy": "preserve_names"},
+    {"id": "cast_en", "start": "0x01DFD5", "end": "0x01E1BC", "format": "high_bit_lines", "policy": "review_names_and_headings"},
+    {"id": "credits_en", "start": "0x01EFFC", "end": "0x01F405", "format": "nul_messages", "policy": "review_roles_preserve_people_and_jokes"},
+    {"id": "dialogue_en", "start": "0x3C03C8", "end": "0x3C35CA", "format": "nul_messages", "policy": "translate_in_context"}
+  ]
+}
