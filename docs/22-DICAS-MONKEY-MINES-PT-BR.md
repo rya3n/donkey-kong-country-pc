@@ -62,4 +62,4 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em evidence/2026-11-06/pt-BR/monkey-mines/: verified-all/, kongo-regression/, menu-gameplay/, saves/, prior-patches-check.json, kongo-previous-build-check.json, editorial-review.json, unit-tests.log e logs de build. Os dados extraídos, capturas, dumps, saves e binários permanecem fora do GitHub público.
 
-Próxima etapa: revisar estas quatro prévias e identificar o grupo de dicas de Vine Valley na Rev 1 antes de traduzi-lo. A ordem dos grupos de ponteiros não deve ser confundida com a ordem da campanha.
+Etapa seguinte implementada: [Dicas de Vine Valley](23-DICAS-VINE-VALLEY-PT-BR.md). O filtro `--world monkey-mines` permite repetir somente este lote com o verificador atual. As quatro prévias de Monkey Mines continuam com revisão humana pendente; campanha e coleta dos segredos permanecem na matriz de validação.

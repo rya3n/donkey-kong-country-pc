@@ -153,7 +153,7 @@ def main() -> int:
     header_text="\n".join(header)
     if not header_path.exists() or header_path.read_text(encoding="utf-8")!=header_text:
         header_path.write_text(header_text,encoding="utf-8")
-    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics, eight Candy, four Funky, six Cranky greetings and nine hints from Kongo Jungle/Monkey Mines",
+    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics, eight Candy, four Funky, six Cranky greetings and twelve hints from Kongo Jungle/Monkey Mines/Vine Valley",
               "screens":summary,"candy":candy_summary,"funky":funky_summary,"cranky":cranky_summary,
               "cranky_tips":tips_summary,"patchset_sha256":patchset,
               "regions":[{"offset":f"0x{offset:06X}","bytes":len(data),"after_sha256":hashlib.sha256(data).hexdigest()}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "Nine Kongo Jungle and Monkey Mines hints; original names and clues preserved",
+  "scope": "Twelve Kongo Jungle, Monkey Mines and Vine Valley hints; original names and clues preserved",
   "messages": [
     {
       "id": "dialogue_en.3c0f35", "world": "kongo-jungle", "stage": "Jungle Hijinxs",
@@ -47,6 +47,21 @@
       "id": "dialogue_en.3c1115", "world": "monkey-mines", "stage": "Millstone Mayhem",
       "offset": "0x3C1115", "bytes": 70, "max_line": 29, "balanced_padding": true,
       "lines": ["Role um pneu para seguir", "pelo caminho certo", "em Millstone Mayhem!"]
+    },
+    {
+      "id": "dialogue_en.3c1565", "world": "vine-valley", "stage": "Orang-utan Gang",
+      "offset": "0x3C1565", "bytes": 78, "max_line": 30, "balanced_padding": true,
+      "lines": ["Em Orang-utan Gang, siga o", "barril final abaixo para", "um barril de risadas!"]
+    },
+    {
+      "id": "dialogue_en.3c15b3", "world": "vine-valley", "stage": "Tree Top Town",
+      "offset": "0x3C15B3", "bytes": 60, "max_line": 29, "balanced_padding": true,
+      "lines": ["Uma só banana", "basta para abrir", "o segredo de Tree Top Town."]
+    },
+    {
+      "id": "dialogue_en.3c15ef", "world": "vine-valley", "stage": "Temple Tempest",
+      "offset": "0x3C15EF", "bytes": 69, "max_line": 29, "balanced_padding": true,
+      "lines": ["Caia dentro com as bananas", "e se prepare pra festa", "em Temple Tempest!"]
     }
   ]
 }

@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-07 — Três dicas de Vine Valley em PT-BR
+
+- Identificado o grupo de Vine Valley na tabela inglesa da Rev 1 em `0x3C01D4–0x3C01E4` (sexto grupo de ponteiros, separado de Gorilla Glacier, Kremkroc Industries Inc. e Chimp Caverns). Integradas as três dicas de Orang-utan Gang, Tree Top Town e Temple Tempest com nomes completos e pistas preservados.
+- Acrescentadas três regiões de dados; as 36 regiões anteriores e a fonte compartilhada mantêm os mesmos bytes (`a230a43e…`). O piloto passa a aplicar 39 regiões em memória.
+- Quarenta e seis testes passaram. As três dicas mantiveram áudio e WRAM inteira iguais ao original (delta de passos interpretados zero em todas), com mudanças visuais só na faixa do diálogo e capturas legíveis, sem cortes. Regressão das dicas anteriores de Kongo Jungle e Monkey Mines, menus/entrada da fase e ciclo Candy/reinício aprovados em QA isolado.
+- Criados galeria privada, catálogo `draft-08` (30 rascunhos) e relatório 23. Revisão humana e coleta dos segredos continuam pendentes.
+- ROM, executável habitual e saves pessoais preservados; nenhuma nova instalação.
+
 ## 2026-11-06 — Quatro dicas de Monkey Mines em PT-BR
 
 - Integradas dicas de Bouncy Bonanza, Stop & Go Station, Mine Cart Carnage e Millstone Mayhem. Nomes completos preservados; pneus, rinoceronte dourado, bananas e salto antecipado mantidos nas pistas.

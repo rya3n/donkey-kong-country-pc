@@ -21,21 +21,25 @@ def make_cranky_patch(rom: bytes, config: dict, font_config: dict) -> tuple[list
 
 
 def make_cranky_tips_patch(rom: bytes, config: dict, font_config: dict) -> tuple[list[tuple[int,bytes]],dict]:
-    # First two eight-entry groups of the exact Rev 1 English hint table.
+    # Identified eight-entry groups of the exact Rev 1 English hint table.
     if rom[0x3c0184:0x3c0194]!=bytes.fromhex("35 0f 72 0f b8 0f fc 0f 2e 10 35 0f b8 0f 2e 10"):
         raise ValueError("Cranky Kongo Jungle hint pointer guard failed")
     if rom[0x3c0194:0x3c01a4]!=bytes.fromhex("74 10 a6 10 d9 10 15 11 74 10 a6 10 d9 10 15 11"):
         raise ValueError("Cranky Monkey Mines hint pointer guard failed")
+    if rom[0x3c01d4:0x3c01e4]!=bytes.fromhex("65 15 b3 15 ef 15 65 15 b3 15 ef 15 65 15 b3 15"):
+        raise ValueError("Cranky Vine Valley hint pointer guard failed")
     expected={0x3c0f35:(61,"Jungle Hijinxs"),0x3c0f72:(70,"Ropey Rampage"),
               0x3c0fb8:(68,"Barrel Cannon Canyon"),0x3c0ffc:(50,"Reptile Rumble"),
               0x3c102e:(70,"Coral Capers"),0x3c1074:(50,"Bouncy Bonanza"),
               0x3c10a6:(51,"Stop & Go Station"),0x3c10d9:(60,"Mine Cart Carnage"),
-              0x3c1115:(70,"Millstone Mayhem")}
+              0x3c1115:(70,"Millstone Mayhem"),0x3c1565:(78,"Orang-utan Gang"),
+              0x3c15b3:(60,"Tree Top Town"),0x3c15ef:(69,"Temple Tempest")}
     actual=[(int(m["offset"],16),m["bytes"],m["stage"]) for m in config["messages"]]
-    if len(actual)!=9 or set(actual)!={(offset,*spec) for offset,spec in expected.items()}:
-        raise ValueError("Cranky hint ranges and stage contexts must match the nine identified records")
+    if len(actual)!=12 or set(actual)!={(offset,*spec) for offset,spec in expected.items()}:
+        raise ValueError("Cranky hint ranges and stage contexts must match the twelve identified records")
     for m in config["messages"]:
-        expected_world="kongo-jungle" if int(m["offset"],16)<0x3c1074 else "monkey-mines"
+        offset=int(m["offset"],16)
+        expected_world="kongo-jungle" if offset<0x3c1074 else ("monkey-mines" if offset<0x3c1565 else "vine-valley")
         if m.get("world")!=expected_world:
             raise ValueError("Cranky hint world context does not match its record")
     merged={key:font_config[key] for key in ("font_offset","font_first_code","accent_slots")}

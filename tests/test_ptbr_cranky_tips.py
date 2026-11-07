@@ -16,24 +16,26 @@ class CrankyTipsTests(unittest.TestCase):
         self.font=json.loads((ROOT/"localization/pt-BR/candy-pilot.json").read_text(encoding="utf-8"))
         self.widths={0x3c0f35:[18,22,20],0x3c0f72:[23,21,25],0x3c0fb8:[22,25,20],
                      0x3c0ffc:[27,22],0x3c102e:[28,25,16],0x3c1074:[19,12,18],
-                     0x3c10a6:[14,17,19],0x3c10d9:[23,14,22],0x3c1115:[24,25,20]}
+                     0x3c10a6:[14,17,19],0x3c10d9:[23,14,22],0x3c1115:[24,25,20],
+                     0x3c1565:[30,28,19],0x3c15b3:[15,19,25],0x3c15ef:[28,22,18]}
         rom=bytearray(4194304)
         rom[0xee62:0xee6f]=bytes.fromhex("a2 e9 00 a9 dc d6 a0 00 06 22 ad 99 b9")
         rom[0x3c0184:0x3c0194]=bytes.fromhex("35 0f 72 0f b8 0f fc 0f 2e 10 35 0f b8 0f 2e 10")
         rom[0x3c0194:0x3c01a4]=bytes.fromhex("74 10 a6 10 d9 10 15 11 74 10 a6 10 d9 10 15 11")
-        stage_lines=[0,1,2,1,2,2,1,0,2]
+        rom[0x3c01d4:0x3c01e4]=bytes.fromhex("65 15 b3 15 ef 15 65 15 b3 15 ef 15 65 15 b3 15")
+        stage_lines=[0,1,2,1,2,2,1,0,2,0,2,2]
         for i,m in enumerate(self.config["messages"]):
             offset=int(m["offset"],16);widths=self.widths[offset]
             lines=["X"*n for n in widths]
             slot=stage_lines[i];lines[slot]=m["stage"].ljust(widths[slot])
             if i==2: lines[1]="Winky".ljust(widths[1])
             if i==4: lines[0]="Croctopus".ljust(widths[0])
-            rom[offset:offset+m["bytes"]]=encode_message(lines,{},29)
+            rom[offset:offset+m["bytes"]]=encode_message(lines,{},max(29,m["max_line"]))
         self.rom=bytes(rom)
 
     def test_exact_records_line_counts_and_parities(self):
         patches,info=make_cranky_tips_patch(self.rom,self.config,self.font)
-        self.assertEqual([(o,len(b)) for o,b in patches],list(zip(self.widths,[61,70,68,50,70,50,51,60,70])))
+        self.assertEqual([(o,len(b)) for o,b in patches],list(zip(self.widths,[61,70,68,50,70,50,51,60,70,78,60,69])))
         self.assertEqual(info["accented_glyphs"],0)
         for m in self.config["messages"]:
             widths=self.widths[int(m["offset"],16)]
@@ -76,6 +78,11 @@ class CrankyTipsTests(unittest.TestCase):
     def test_changed_monkey_mines_pointer_is_rejected(self):
         rom=bytearray(self.rom);rom[0x3c0194]^=1
         with self.assertRaisesRegex(ValueError,"Monkey Mines hint pointer"):
+            make_cranky_tips_patch(bytes(rom),self.config,self.font)
+
+    def test_changed_vine_valley_pointer_is_rejected(self):
+        rom=bytearray(self.rom);rom[0x3c01d4]^=1
+        with self.assertRaisesRegex(ValueError,"Vine Valley hint pointer"):
             make_cranky_tips_patch(bytes(rom),self.config,self.font)
 
 

@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: menus, oito falas da Candy, quatro do Funky, seis saudações e nove dicas do Cranky em PT-BR para USA v1.1 (Rev 1).** Acrescentadas quatro dicas de Monkey Mines, mantendo os nomes das fases e as pistas sobre pneus, bananas e vida extra. Fonte e traduções anteriores preservadas. Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio. Redação e verificações em [Dicas de Monkey Mines](docs/22-DICAS-MONKEY-MINES-PT-BR.md). As novas prévias aguardam revisão; campanha, coleta dos segredos e tradução completa continuam pendentes.
+**Etapa atual: menus, oito falas da Candy, quatro do Funky, seis saudações e doze dicas do Cranky em PT-BR para USA v1.1 (Rev 1).** Acrescentadas três dicas de Vine Valley, mantendo os nomes das fases e as pistas sobre o barril final, a banana isolada e a descida com bananas. Fonte e traduções anteriores preservadas. Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio. Redação e verificações em [Dicas de Vine Valley](docs/23-DICAS-VINE-VALLEY-PT-BR.md). As novas prévias aguardam revisão; campanha, coleta dos segredos e tradução completa continuam pendentes.
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 
@@ -40,6 +40,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Primeiro lote do Cranky e fonte](docs/20-CRANKY-E-FONTE-PT-BR.md) | Seis saudações e correção da altura do ê na fonte compartilhada |
 | [Dicas de Kongo Jungle](docs/21-DICAS-KONGO-JUNGLE-PT-BR.md) | Cinco dicas de fases, nomes preservados e revisão das pistas |
 | [Dicas de Monkey Mines](docs/22-DICAS-MONKEY-MINES-PT-BR.md) | Quatro dicas adicionais, pneus, bananas e salto antecipado |
+| [Dicas de Vine Valley](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Identificação do grupo na Rev 1 e três dicas de Vine Valley |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura

@@ -161,7 +161,8 @@ int Rev1Open(FILE *file) {
         unsigned long address = strtoul(qa_cranky_message, &end, 16);
         const unsigned allowed[] = {0x07a4,0x0935,0x0990,0x09bd,0x09e8,0x0a14,
                                     0x0f35,0x0f72,0x0fb8,0x0ffc,0x102e,
-                                    0x1074,0x10a6,0x10d9,0x1115};
+                                    0x1074,0x10a6,0x10d9,0x1115,
+                                    0x1565,0x15b3,0x15ef};
         int valid = 0;
         for (size_t i=0;i<sizeof allowed/sizeof allowed[0];i++) if(address==allowed[i]) valid=1;
         if (*end || !valid) { free(s_rom); s_rom = NULL; return 0; }
