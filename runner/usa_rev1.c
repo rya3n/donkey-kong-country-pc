@@ -163,7 +163,8 @@ int Rev1Open(FILE *file) {
                                     0x0f35,0x0f72,0x0fb8,0x0ffc,0x102e,
                                     0x1074,0x10a6,0x10d9,0x1115,
                                     0x1565,0x15b3,0x15ef,
-                                    0x115b,0x11b0,0x11ff,0x1244,0x1288};
+                                    0x115b,0x11b0,0x11ff,0x1244,0x1288,
+                                    0x12d4,0x1319,0x1355,0x1395,0x13e7};
         int valid = 0;
         for (size_t i=0;i<sizeof allowed/sizeof allowed[0];i++) if(address==allowed[i]) valid=1;
         if (*end || !valid) { free(s_rom); s_rom = NULL; return 0; }

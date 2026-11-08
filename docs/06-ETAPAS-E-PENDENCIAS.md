@@ -31,7 +31,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P08 | Validar persistência | SRAM aprovada no cenário coberto | Três saves da Candy e reinícios passaram; ampliar progresso real; save states fora desta entrega |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
 | P10 | Validar campanha e estabilidade | Roteiro preparado; cobertura pendente | Registrar campanha e saves com progresso real; aceitar V14 antes de promover a versão traduzida |
-| P11 | Inventariar, traduzir e revisar PT-BR | Menus, oito falas da Candy, quatro do Funky e vinte e três do Cranky no piloto; tradução ampla pendente | Seis saudações e dezessete dicas de Kongo Jungle/Monkey Mines/Vine Valley/Gorilla Glacier; concluir V15–V17 sem dar P10 por concluída |
+| P11 | Inventariar, traduzir e revisar PT-BR | Menus, oito falas da Candy, quatro do Funky e vinte e oito do Cranky no piloto; tradução ampla pendente | Seis saudações e vinte e duas dicas de Kongo Jungle/Monkey Mines/Vine Valley/Gorilla Glacier/Kremkroc Industries Inc.; concluir V15–V17 sem dar P10 por concluída |
 | P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |
 | P14 | Implementar host interativo Rev 1 | Implementado; primeiro teste realizado | Usuário testou as primeiras fases e relatou perda de fluidez na caverna; bateria completa de ações ainda pendente |
@@ -47,6 +47,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P24 | Integrar dicas de Monkey Mines | Implementado; revisão humana pendente | Quatro dicas, nomes completos e pistas mantidos; 32 regiões anteriores idênticas; conferir relatório 22 |
 | P25 | Integrar dicas de Vine Valley | Implementado; revisão humana pendente | Grupo identificado em 0x3C01D4–0x3C01E4; três dicas, nomes completos e pistas mantidos; 36 regiões anteriores idênticas; conferir relatório 23 |
 | P26 | Integrar dicas de Gorilla Glacier | Implementado; revisão humana pendente | Cinco dicas em 0x3C01A4–0x3C01B4, nomes completos e pistas mantidos; 39 regiões anteriores idênticas; conferir relatório 24 |
+| P27 | Integrar dicas de Kremkroc Industries Inc. | Implementado; revisão humana pendente | Cinco dicas em 0x3C01B4–0x3C01C4, nomes completos, Gnawty e pistas mantidos; 44 regiões anteriores idênticas; conferir relatório 25 |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 

@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-07 — Cinco dicas de Kremkroc Industries Inc. em PT-BR
+
+- Integradas as cinco dicas do grupo de Kremkroc Industries Inc. na tabela inglesa da Rev 1 (`0x3C01B4–0x3C01C4`): Elevator Antics, Trick Track Trek, Mine Cart Madness, Poison Pond e Blackout Basement, com nomes completos, Gnawty e pistas preservados.
+- Acrescentadas cinco regiões de dados; as 44 regiões anteriores e a fonte compartilhada mantêm os mesmos bytes (`7db42041…`). O piloto passa a aplicar 49 regiões em memória.
+- Quarenta e oito testes passaram. As cinco dicas mantiveram áudio e WRAM inteira iguais ao original, com mudanças visuais só na faixa do diálogo e capturas legíveis, sem cortes. Regressão das dicas anteriores de Kongo Jungle, Monkey Mines, Vine Valley e Gorilla Glacier, menus/entrada da fase e ciclo Candy/reinício aprovados em QA isolado.
+- Criados galeria privada, catálogo `draft-10` (40 rascunhos) e relatório 25. Revisão humana e coleta dos segredos continuam pendentes.
+- ROM, executável habitual e saves pessoais preservados; nenhuma nova instalação.
+
 ## 2026-11-07 — Cinco dicas de Gorilla Glacier em PT-BR
 
 - Integradas as cinco dicas do grupo de Gorilla Glacier na tabela inglesa da Rev 1 (`0x3C01A4–0x3C01B4`): Snow Barrel Blast, Croctopus Chase, Ice Age Alley, Slipslide Ride e Torchlight Trouble, com nomes completos, Croctopus, TNT e pistas preservados.

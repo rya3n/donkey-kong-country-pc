@@ -93,6 +93,8 @@ def make_dialogue_patch(rom: bytes, config: dict, *, include_glyphs: bool=True) 
             count=occurrences(original,term)
             if count and occurrences(target,term)<count:
                 raise ValueError(f"Protected name changed: {term}")
+        if message.get("stage") and occurrences(target,message["stage"])<1:
+            raise ValueError(f"Protected name changed: {message['stage']}")
         encoded=encode_message(fitted_lines(message,list(map(len,decode_lines(source[:-1])))),config["accent_slots"],message["max_line"])
         if len(encoded)!=size:
             raise ValueError(f"{message['id']}: keep the original {size}-byte message size, got {len(encoded)}")

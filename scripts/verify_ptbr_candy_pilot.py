@@ -37,7 +37,7 @@ def main() -> int:
     parser.add_argument("--character",choices=("candy","funky","cranky","cranky-tips"),default="candy")
     parser.add_argument("--all-messages",action="store_true",help="Select each original address in headless QA only")
     parser.add_argument("--message",action="append",default=[],help="Filter --all-messages by hexadecimal low-word address")
-    parser.add_argument("--world",choices=("kongo-jungle","monkey-mines","vine-valley","gorilla-glacier"),help="Filter the Cranky hint gallery by world")
+    parser.add_argument("--world",choices=("kongo-jungle","monkey-mines","vine-valley","gorilla-glacier","kremkroc-industries"),help="Filter the Cranky hint gallery by world")
     args=parser.parse_args()
     out=args.out.resolve()
     if not out.is_relative_to(ROOT/"evidence"):
@@ -128,8 +128,8 @@ def main() -> int:
             page=page.replace("<main>","<p>Algumas saudações perguntam pelo parceiro ausente. Esta seleção técnica confere apenas a leitura: a ausência do personagem e o momento normal da fala não são reproduzidos na cena.</p><main>",1)
         elif character=="cranky-tips":
             world_title={"kongo-jungle":"Kongo Jungle","monkey-mines":"Monkey Mines","vine-valley":"Vine Valley",
-                         "gorilla-glacier":"Gorilla Glacier",
-                         None:"Kongo Jungle, Monkey Mines, Vine Valley e Gorilla Glacier"}[args.world]
+                         "gorilla-glacier":"Gorilla Glacier","kremkroc-industries":"Kremkroc Industries Inc.",
+                         None:"Kongo Jungle, Monkey Mines, Vine Valley, Gorilla Glacier e Kremkroc Industries Inc."}[args.world]
             page=page.replace("<main>",f"<p>Dicas de {world_title}. As capturas mostram o texto selecionado no cenário do Cranky; não demonstram a execução dos segredos nas fases.</p><main>",1)
         (out/"preview.html").write_text(page,encoding="utf-8")
     return 0

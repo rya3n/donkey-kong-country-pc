@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "Seventeen Kongo Jungle, Monkey Mines, Vine Valley and Gorilla Glacier hints; original names and clues preserved",
+  "scope": "Twenty-two Kongo Jungle, Monkey Mines, Vine Valley, Gorilla Glacier and Kremkroc Industries Inc. hints; original names and clues preserved",
   "messages": [
     {
       "id": "dialogue_en.3c0f35", "world": "kongo-jungle", "stage": "Jungle Hijinxs",
@@ -87,6 +87,31 @@
       "id": "dialogue_en.3c1288", "world": "gorilla-glacier", "stage": "Torchlight Trouble",
       "offset": "0x3C1288", "bytes": 76, "max_line": 29, "balanced_padding": true,
       "lines": ["O TNT rende um bom par de", "estouros de parede em parede", "em Torchlight Trouble."]
+    },
+    {
+      "id": "dialogue_en.3c12d4", "world": "kremkroc-industries", "stage": "Elevator Antics",
+      "offset": "0x3C12D4", "bytes": 69, "max_line": 29, "balanced_padding": true,
+      "lines": ["Em Elevator Antics, você", "deve subir mais alto", "que um ninho de vespas!"]
+    },
+    {
+      "id": "dialogue_en.3c1319", "world": "kremkroc-industries", "stage": "Trick Track Trek",
+      "offset": "0x3C1319", "bytes": 60, "max_line": 29, "balanced_padding": true,
+      "lines": ["Em Trick Track Trek, os", "gêmeos Gnawty sabem", "de um segredo!"]
+    },
+    {
+      "id": "dialogue_en.3c1355", "world": "kremkroc-industries", "stage": "Mine Cart Madness",
+      "offset": "0x3C1355", "bytes": 64, "max_line": 29, "balanced_padding": true,
+      "lines": ["Em Mine Cart Madness,", "você está a 3 quiques", "da terra dos prêmios."]
+    },
+    {
+      "id": "dialogue_en.3c1395", "world": "kremkroc-industries", "stage": "Poison Pond",
+      "offset": "0x3C1395", "bytes": 82, "max_line": 30, "balanced_padding": true,
+      "lines": ["Ao entrar em Poison Pond,", "ir pela direita nem sempre", "é o caminho certo pra ponta."]
+    },
+    {
+      "id": "dialogue_en.3c13e7", "world": "kremkroc-industries", "stage": "Blackout Basement",
+      "offset": "0x3C13E7", "bytes": 78, "max_line": 29, "balanced_padding": true,
+      "lines": ["Blackout Basement pode fazer", "você achar que afunda, mas", "você termina lá no céu!"]
     }
   ]
 }
