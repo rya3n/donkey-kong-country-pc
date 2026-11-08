@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 import base64
 import binascii
+from concurrent.futures import ThreadPoolExecutor
 import html
 import struct
 import zlib
@@ -66,8 +67,8 @@ def main() -> int:
         if not args.all_messages or selected-{message for _,message in cases}:
             parser.error("--message must select known character addresses with --all-messages")
         cases=[case for case in cases if case[1] in selected]
-    results=[]
-    for frames,message in cases:
+    def verify_case(item: tuple[int,int|None]) -> dict:
+        frames,message=item
         case=f"{message:04x}-{frames}" if message is not None else str(frames)
         reports={}
         for kind,build in (("baseline","usa-rev1"),("pilot","ptbr-pilot")):
@@ -113,8 +114,10 @@ def main() -> int:
                 "audio_match":True,"wram_changed_offsets":[f"0x{i:04X}" for i in changed_ram],
                 "outside_dialogue_wram_match":True,"interpreted_steps_delta":step_delta,
                 "changed_pixels":len(changed_pixels),"outside_dialogue_pixels_match":True}
-        results.append(result)
         print(json.dumps(result),flush=True)
+        return result
+    with ThreadPoolExecutor(max_workers=min(8,max(1,len(cases)))) as pool:
+        results=list(pool.map(verify_case,cases))
     (out/"results.json").write_text(json.dumps({"character":character,"world":args.world,"qa_message_selection":args.all_messages,"patchset_sha256":manifest["patchset_sha256"],
                                                "checkpoints":results},indent=2)+"\n",encoding="utf-8")
     if args.all_messages:

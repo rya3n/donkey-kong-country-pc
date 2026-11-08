@@ -1,92 +1,638 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "Six Cranky greetings and all eleven revisit messages in English mode; names preserved",
+  "scope": "All forty-one Cranky greetings and all eleven revisit messages in English mode; names preserved",
   "messages": [
     {
-      "id": "dialogue_en.3c07a4", "group": "greetings", "offset": "0x3C07A4", "bytes": 28, "max_line": 29,
+      "id": "dialogue_en.3c07a4",
+      "group": "greetings",
+      "offset": "0x3C07A4",
+      "bytes": 28,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Ei, Donkey! Cadê o Diddy?"]
+      "lines": [
+        "Ei, Donkey! Cadê o Diddy?"
+      ]
     },
     {
-      "id": "dialogue_en.3c0935", "group": "greetings", "offset": "0x3C0935", "bytes": 27, "max_line": 29,
+      "id": "dialogue_en.3c07c0",
+      "offset": "0x3C07C0",
+      "bytes": 50,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Ei, Diddy! Cadê o Donks?"]
+      "group": "greetings",
+      "lines": [
+        "Donkey, seu jovem",
+        "moleque travesso!",
+        "Quanto tempo!"
+      ]
     },
     {
-      "id": "dialogue_en.3c0990", "group": "greetings", "offset": "0x3C0990", "bytes": 45, "max_line": 29,
+      "id": "dialogue_en.3c07f2",
+      "offset": "0x3C07F2",
+      "bytes": 51,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Ora, ora! Que surpresa", "ver você aqui hoje!"]
+      "group": "greetings",
+      "lines": [
+        "Meu rapaz Donkey! Faz",
+        "anos desde que nos falamos!"
+      ]
     },
     {
-      "id": "dialogue_en.3c09bd", "group": "greetings", "offset": "0x3C09BD", "bytes": 43, "max_line": 29,
+      "id": "dialogue_en.3c0825",
+      "offset": "0x3C0825",
+      "bytes": 52,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Até que você foi bem", "chegando até aqui..."]
+      "group": "greetings",
+      "lines": [
+        "Já era hora de você visitar",
+        "seu frágil avozinho!"
+      ]
     },
     {
-      "id": "dialogue_en.3c09e8", "group": "greetings", "offset": "0x3C09E8", "bytes": 44, "max_line": 29,
+      "id": "dialogue_en.3c0859",
+      "offset": "0x3C0859",
+      "bytes": 43,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Me achou, foi?!", "O que você quer?!"]
+      "group": "greetings",
+      "lines": [
+        "Ei! Pode arrumar",
+        "uma banana ao velhote?"
+      ]
     },
     {
-      "id": "dialogue_en.3c0a14", "group": "greetings", "offset": "0x3C0A14", "bytes": 57, "max_line": 29,
+      "id": "dialogue_en.3c0884",
+      "offset": "0x3C0884",
+      "bytes": 47,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Quem disse que estou aqui?", "Foi o", "Funky Kong irritante?"]
+      "group": "greetings",
+      "lines": [
+        "E o que foi que você veio",
+        "trazer pro vovozinho?"
+      ]
     },
     {
-      "id": "dialogue_en.3c2e3b", "group": "revisits", "offset": "0x3C2E3B", "bytes": 70, "max_line": 29,
+      "id": "dialogue_en.3c08b3",
+      "offset": "0x3C08B3",
+      "bytes": 56,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Voltou aqui de novo?!", "Eu sabia que um pirralho", "como você ia falhar..."]
+      "group": "greetings",
+      "lines": [
+        "Olha, você espantou",
+        "seu velho avozinho",
+        "chegando até aqui!"
+      ]
     },
     {
-      "id": "dialogue_en.3c2e81", "group": "revisits", "offset": "0x3C2E81", "bytes": 85, "max_line": 29,
+      "id": "dialogue_en.3c08eb",
+      "offset": "0x3C08EB",
+      "bytes": 74,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Que rápido! Você nem mesmo", "me deu tempo suficiente para", "pensar em mais piadas bobas!"]
+      "group": "greetings",
+      "lines": [
+        "Enfim você resolveu vir",
+        "buscar conselhos de jogo",
+        "com o seu vovozinho!"
+      ]
     },
     {
-      "id": "dialogue_en.3c2ed6", "group": "revisits", "offset": "0x3C2ED6", "bytes": 70, "max_line": 29,
+      "id": "dialogue_en.3c0935",
+      "group": "greetings",
+      "offset": "0x3C0935",
+      "bytes": 27,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Nem sei por que", "digo tudo isso pra você,", "você nem ouviu da outra vez!"]
+      "lines": [
+        "Ei, Diddy! Cadê o Donks?"
+      ]
     },
     {
-      "id": "dialogue_en.3c2f1c", "group": "revisits", "offset": "0x3C2F1C", "bytes": 32, "max_line": 29,
+      "id": "dialogue_en.3c0950",
+      "offset": "0x3C0950",
+      "bytes": 64,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Você tem de", "ir melhor que isso!"]
+      "group": "greetings",
+      "lines": [
+        "Diddy, meu garotinho!",
+        "Olha, nem acredito",
+        "como você cresceu!"
+      ]
     },
     {
-      "id": "dialogue_en.3c2f3c", "group": "revisits", "offset": "0x3C2F3C", "bytes": 20, "max_line": 29,
+      "id": "dialogue_en.3c0990",
+      "group": "greetings",
+      "offset": "0x3C0990",
+      "bytes": 45,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Você acabou de ir!"]
+      "lines": [
+        "Ora, ora! Que surpresa",
+        "ver você aqui hoje!"
+      ]
     },
     {
-      "id": "dialogue_en.3c2f50", "group": "revisits", "offset": "0x3C2F50", "bytes": 30, "max_line": 29,
+      "id": "dialogue_en.3c09bd",
+      "group": "greetings",
+      "offset": "0x3C09BD",
+      "bytes": 43,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Já voltou?! Isso foi rápido!"]
+      "lines": [
+        "Até que você foi bem",
+        "chegando até aqui..."
+      ]
     },
     {
-      "id": "dialogue_en.3c2f6e", "group": "revisits", "offset": "0x3C2F6E", "bytes": 47, "max_line": 29,
+      "id": "dialogue_en.3c09e8",
+      "group": "greetings",
+      "offset": "0x3C09E8",
+      "bytes": 44,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Voltou ao grande mestre", "atrás de mais dicas, é?"]
+      "lines": [
+        "Me achou, foi?!",
+        "O que você quer?!"
+      ]
     },
     {
-      "id": "dialogue_en.3c2f9d", "group": "revisits", "offset": "0x3C2F9D", "bytes": 27, "max_line": 29,
+      "id": "dialogue_en.3c0a14",
+      "group": "greetings",
+      "offset": "0x3C0A14",
+      "bytes": 57,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Ainda apanhando feio, é?!"]
+      "lines": [
+        "Quem disse que estou aqui?",
+        "Foi o",
+        "Funky Kong irritante?"
+      ]
     },
     {
-      "id": "dialogue_en.3c2fb8", "group": "revisits", "offset": "0x3C2FB8", "bytes": 47, "max_line": 29,
+      "id": "dialogue_en.3c0a4d",
+      "offset": "0x3C0A4D",
+      "bytes": 41,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Pois é! Nem fazem jogadores", "como antigamente!"]
+      "group": "greetings",
+      "lines": [
+        "Ora, vejam!",
+        "Olhem só quem resolveu vir!"
+      ]
     },
     {
-      "id": "dialogue_en.3c2fe7", "group": "revisits", "offset": "0x3C2FE7", "bytes": 55, "max_line": 29,
+      "id": "dialogue_en.3c0a76",
+      "offset": "0x3C0A76",
+      "bytes": 58,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Bom,", "eu passo a fase para você!...", "Nada, só brincando!"]
+      "group": "greetings",
+      "lines": [
+        "Faz muito tempo que eu nem",
+        "vejo você por estas bandas!"
+      ]
     },
     {
-      "id": "dialogue_en.3c301e", "group": "revisits", "offset": "0x3C301E", "bytes": 86, "max_line": 31,
+      "id": "dialogue_en.3c0ab0",
+      "offset": "0x3C0AB0",
+      "bytes": 43,
+      "max_line": 29,
       "balanced_padding": true,
-      "lines": ["Como é que você se atreve", "a mostrar a cara aqui de novo", "após um desempenho lamentável!"]
+      "group": "greetings",
+      "lines": [
+        "Que é que você quer?!",
+        "Ando muito ocupado!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0adb",
+      "offset": "0x3C0ADB",
+      "bytes": 37,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Ah! Até enfim!",
+        "Alguém pra conversar!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0b00",
+      "offset": "0x3C0B00",
+      "bytes": 51,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Teve sorte de me encontrar,",
+        "eu já ia indo embora!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0b33",
+      "offset": "0x3C0B33",
+      "bytes": 49,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Você trouxe de volta",
+        "as bananas que emprestei?"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0b64",
+      "offset": "0x3C0B64",
+      "bytes": 46,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Quando vi você antes",
+        "você ainda usava fraldas!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0b92",
+      "offset": "0x3C0B92",
+      "bytes": 45,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Chegue mais perto,",
+        "deixe-me dar uma olhada!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0bbf",
+      "offset": "0x3C0BBF",
+      "bytes": 30,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Olhem só o que temos aqui!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0bdd",
+      "offset": "0x3C0BDD",
+      "bytes": 34,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Que bela surpresa,",
+        "ver você agora!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0bff",
+      "offset": "0x3C0BFF",
+      "bytes": 45,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Um bando de Kremlings",
+        "acabou de passar!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0c2c",
+      "offset": "0x3C0C2C",
+      "bytes": 27,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Aqui é terra de chifrudos!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0c47",
+      "offset": "0x3C0C47",
+      "bytes": 54,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Ei, garoto! Acredita no",
+        "barraco em que me meteram?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0c7d",
+      "offset": "0x3C0C7D",
+      "bytes": 36,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Moleque!",
+        "Você já trouxe meu jornal?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0ca1",
+      "offset": "0x3C0CA1",
+      "bytes": 52,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Eita gorila!",
+        "Deu para ouvir você vir",
+        "lá de bem longe!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0cd5",
+      "offset": "0x3C0CD5",
+      "bytes": 59,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Custa muito achar",
+        "paz e sossego hoje em dia",
+        "com você por cá!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0d10",
+      "offset": "0x3C0D10",
+      "bytes": 46,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Claro, chegue mais!",
+        "Melhor que falar com o ar!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0d3e",
+      "offset": "0x3C0D3E",
+      "bytes": 46,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Ah! Faz eu lembrar do passado",
+        "ver você aqui!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0d6c",
+      "offset": "0x3C0D6C",
+      "bytes": 78,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Rapaz, tudo aqui andou cheio!",
+        "Com todo esse bando",
+        "de Kremlings, e agora você!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0dba",
+      "offset": "0x3C0DBA",
+      "bytes": 49,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Bem parece que hoje",
+        "sou o Sr. Popular por aqui!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0deb",
+      "offset": "0x3C0DEB",
+      "bytes": 53,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Melhor que visita",
+        "da Sra. Kong!",
+        "Como posso ajudar?"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0e20",
+      "offset": "0x3C0E20",
+      "bytes": 40,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Quem diria topar",
+        "com vocês por aqui!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0e48",
+      "offset": "0x3C0E48",
+      "bytes": 44,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Hoje estou sem mais nada,",
+        "nem venha pedir!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0e74",
+      "offset": "0x3C0E74",
+      "bytes": 60,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Dei meu barril final para o",
+        "seu belo amigo orangotango."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0eb0",
+      "offset": "0x3C0EB0",
+      "bytes": 31,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "O que diabos você quer aqui?"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0ecf",
+      "offset": "0x3C0ECF",
+      "bytes": 60,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Mais aproveitador?",
+        "Eu já fiquei sem nada,",
+        "vá logo embora!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0f0b",
+      "offset": "0x3C0F0B",
+      "bytes": 42,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "greetings",
+      "lines": [
+        "Aposto que você",
+        "nem passa daqui mesmo..."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2e3b",
+      "group": "revisits",
+      "offset": "0x3C2E3B",
+      "bytes": 70,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Voltou aqui de novo?!",
+        "Eu sabia que um pirralho",
+        "como você ia falhar..."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2e81",
+      "group": "revisits",
+      "offset": "0x3C2E81",
+      "bytes": 85,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Que rápido! Você nem mesmo",
+        "me deu tempo suficiente para",
+        "pensar em mais piadas bobas!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2ed6",
+      "group": "revisits",
+      "offset": "0x3C2ED6",
+      "bytes": 70,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Nem sei por que",
+        "digo tudo isso pra você,",
+        "você nem ouviu da outra vez!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2f1c",
+      "group": "revisits",
+      "offset": "0x3C2F1C",
+      "bytes": 32,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Você tem de",
+        "ir melhor que isso!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2f3c",
+      "group": "revisits",
+      "offset": "0x3C2F3C",
+      "bytes": 20,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Você acabou de ir!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2f50",
+      "group": "revisits",
+      "offset": "0x3C2F50",
+      "bytes": 30,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Já voltou?! Isso foi rápido!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2f6e",
+      "group": "revisits",
+      "offset": "0x3C2F6E",
+      "bytes": 47,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Voltou ao grande mestre",
+        "atrás de mais dicas, é?"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2f9d",
+      "group": "revisits",
+      "offset": "0x3C2F9D",
+      "bytes": 27,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Ainda apanhando feio, é?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2fb8",
+      "group": "revisits",
+      "offset": "0x3C2FB8",
+      "bytes": 47,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Pois é! Nem fazem jogadores",
+        "como antigamente!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2fe7",
+      "group": "revisits",
+      "offset": "0x3C2FE7",
+      "bytes": 55,
+      "max_line": 29,
+      "balanced_padding": true,
+      "lines": [
+        "Bom,",
+        "eu passo a fase para você!...",
+        "Nada, só brincando!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c301e",
+      "group": "revisits",
+      "offset": "0x3C301E",
+      "bytes": 86,
+      "max_line": 31,
+      "balanced_padding": true,
+      "lines": [
+        "Como é que você se atreve",
+        "a mostrar a cara aqui de novo",
+        "após um desempenho lamentável!"
+      ]
     }
   ]
 }

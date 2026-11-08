@@ -7,19 +7,21 @@ def make_cranky_patch(rom: bytes, config: dict, font_config: dict) -> tuple[list
         raise ValueError("Cranky greeting table guard failed")
     if rom[0x3c0014:0x3c0018]!=bytes.fromhex("44 01 64 01"):
         raise ValueError("Cranky revisit table guard failed")
-    if rom[0x3c00c4:0x3c00cc]!=bytes.fromhex("90 09 bd 09 e8 09 14 0a"):
+    if rom[0x3c00c4:0x3c0104]!=bytes.fromhex("90 09 bd 09 e8 09 14 0a 4d 0a 76 0a b0 0a db 0a 00 0b 33 0b 64 0b 92 0b bf 0b dd 0b ff 0b 2c 0c 7d 0c 47 0c a1 0c d5 0c 10 0d 3e 0d 6c 0d ba 0d eb 0d 20 0e 48 0e 74 0e b0 0e cf 0e 0b 0f 10 0d"):
         raise ValueError("Cranky greeting pointer guard failed")
     if rom[0x3c0144:0x3c0164]!=bytes.fromhex("3b 2e 81 2e d6 2e 1c 2f 3c 2f 50 2f 6e 2f 9d 2f b8 2f e7 2f 1e 30 3b 2e 81 2e d6 2e 6e 2f e7 2f"):
         raise ValueError("Cranky revisit pointer guard failed")
-    expected={(0x3c07a4,28),(0x3c0935,27),(0x3c0990,45),
-              (0x3c09bd,43),(0x3c09e8,44),(0x3c0a14,57),
-              (0x3c2e3b,70),(0x3c2e81,85),(0x3c2ed6,70),
-              (0x3c2f1c,32),(0x3c2f3c,20),(0x3c2f50,30),
-              (0x3c2f6e,47),(0x3c2f9d,27),(0x3c2fb8,47),
-              (0x3c2fe7,55),(0x3c301e,86)}
+    expected={(0x3c07a4,28),(0x3c07c0,50),(0x3c07f2,51),(0x3c0825,52),(0x3c0859,43),(0x3c0884,47),(0x3c08b3,56),(0x3c08eb,74),
+              (0x3c0935,27),(0x3c0950,64),(0x3c0990,45),(0x3c09bd,43),(0x3c09e8,44),(0x3c0a14,57),(0x3c0a4d,41),(0x3c0a76,58),
+              (0x3c0ab0,43),(0x3c0adb,37),(0x3c0b00,51),(0x3c0b33,49),(0x3c0b64,46),(0x3c0b92,45),(0x3c0bbf,30),(0x3c0bdd,34),
+              (0x3c0bff,45),(0x3c0c2c,27),(0x3c0c47,54),(0x3c0c7d,36),(0x3c0ca1,52),(0x3c0cd5,59),(0x3c0d10,46),(0x3c0d3e,46),
+              (0x3c0d6c,78),(0x3c0dba,49),(0x3c0deb,53),(0x3c0e20,40),(0x3c0e48,44),(0x3c0e74,60),(0x3c0eb0,31),(0x3c0ecf,60),
+              (0x3c0f0b,42),
+              (0x3c2e3b,70),(0x3c2e81,85),(0x3c2ed6,70),(0x3c2f1c,32),(0x3c2f3c,20),(0x3c2f50,30),
+              (0x3c2f6e,47),(0x3c2f9d,27),(0x3c2fb8,47),(0x3c2fe7,55),(0x3c301e,86)}
     actual=[(int(m["offset"],16),m["bytes"]) for m in config["messages"]]
-    if len(actual)!=17 or set(actual)!=expected:
-        raise ValueError("Cranky ranges must match the seventeen identified greetings and revisits")
+    if len(actual)!=52 or set(actual)!=expected:
+        raise ValueError("Cranky ranges must match the fifty-two identified greetings and revisits")
     for m in config["messages"]:
         offset=int(m["offset"],16)
         expected_group="greetings" if offset<0x3c2e3b else "revisits"
