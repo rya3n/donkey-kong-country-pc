@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-07 — Treze falas completas do Funky Kong em PT-BR
+
+- Integradas as nove mensagens inglesas de revisita do Funky Kong (`0x3C0374–0x3C038C`, de `0x3C3334` a `0x3C3575`), concluindo todas as treze falas identificadas do personagem com preservação de Kongs, Jungle Hijinxs, Cranky, Candy, DK, Donkey e Diddy.
+- Acrescentadas nove regiões de dados; as 65 regiões anteriores e a fonte compartilhada mantêm os mesmos bytes (`b8d02225…`). O piloto passa a aplicar 74 regiões em memória (65 diálogos no total).
+- Cinquenta e dois testes passaram. As nove falas mantiveram áudio e WRAM inteira iguais ao original, com mudanças visuais só na faixa do diálogo e capturas legíveis, sem cortes. Regressão das falas de abertura do Funky, menus/entrada da fase e ciclo Candy/reinício aprovados em QA isolado.
+- Criados galeria privada, catálogo `draft-13` (65 rascunhos) e relatório 28. Revisão humana e campanha continuam pendentes.
+- ROM, executável habitual e saves pessoais preservados; nenhuma nova instalação.
+
 ## 2026-11-07 — Onze falas de retorno rápido do Cranky em PT-BR
 
 - Integradas as onze mensagens únicas da tabela inglesa de retorno rápido do Cranky (`0x3C0144–0x3C0164`, de `0x3C2E3B` a `0x3C301E`), mantendo ponteiros, comprimentos exatos em bytes, números de linhas, terminadores, paridades e o tom sarcástico original.

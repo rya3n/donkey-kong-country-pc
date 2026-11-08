@@ -38,7 +38,7 @@ def main() -> int:
     parser.add_argument("--all-messages",action="store_true",help="Select each original address in headless QA only")
     parser.add_argument("--message",action="append",default=[],help="Filter --all-messages by hexadecimal low-word address")
     parser.add_argument("--world",choices=("kongo-jungle","monkey-mines","vine-valley","gorilla-glacier","kremkroc-industries","chimp-caverns"),help="Filter the Cranky hint gallery by world")
-    parser.add_argument("--group",choices=("greetings","revisits"),help="Filter the Cranky general dialogue gallery by group")
+    parser.add_argument("--group",choices=("greetings","revisits","opening"),help="Filter the Cranky or Funky dialogue gallery by group")
     args=parser.parse_args()
     out=args.out.resolve()
     if not out.is_relative_to(ROOT/"evidence"):
@@ -54,8 +54,8 @@ def main() -> int:
             parser.error("--world requires --character cranky-tips --all-messages")
         config["messages"]=[m for m in config["messages"] if m["world"]==args.world]
     if args.group:
-        if character!="cranky" or not args.all_messages:
-            parser.error("--group requires --character cranky --all-messages")
+        if character not in ("cranky","funky") or not args.all_messages:
+            parser.error("--group requires --character cranky or funky with --all-messages")
         config["messages"]=[m for m in config["messages"] if m.get("group")==args.group]
     natural_frames=(4350,4500,4650) if character=="candy" else (4350,4650,4950,5250)
     cases=[(4350,int(msg["offset"],16)&0xffff) for msg in config["messages"]] if args.all_messages else [(f,None) for f in natural_frames]

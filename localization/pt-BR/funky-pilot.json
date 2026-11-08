@@ -1,27 +1,72 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "Four identified Funky messages in English mode; names and travel restriction preserved",
+  "scope": "All thirteen Funky messages in English mode (four opening and nine revisit lines); names and travel restriction preserved",
   "messages": [
     {
       "id": "dialogue_en.3c3074", "offset": "0x3C3074", "bytes": 34, "max_line": 29,
-      "balanced_padding": true,
+      "balanced_padding": true, "group": "opening",
       "lines": ["Opa, galera!", "Sou o Funky Kong!"]
     },
     {
       "id": "dialogue_en.3c3096", "offset": "0x3C3096", "bytes": 67, "max_line": 29,
-      "balanced_padding": true,
+      "balanced_padding": true, "group": "opening",
       "lines": ["Meu irado Jumbo Barrel", "leva vocês voando a", "qualquer ponto da ilha!"]
     },
     {
       "id": "dialogue_en.3c30d9", "offset": "0x3C30D9", "bytes": 76, "max_line": 29,
-      "balanced_padding": true,
+      "balanced_padding": true, "group": "opening",
       "lines": ["Só que, infelizmente,", "ele só leva vocês a locais", "que já visitaram..."]
     },
     {
       "id": "dialogue_en.3c3125", "offset": "0x3C3125", "bytes": 54, "max_line": 29,
-      "balanced_padding": true,
+      "balanced_padding": true, "group": "opening",
       "lines": ["o que é uma baita chatice,", "pode crer!"]
+    },
+    {
+      "id": "dialogue_en.3c3334", "offset": "0x3C3334", "bytes": 74, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Boa, Kongs irados! Se", "vocês querem velocidade,", "pulem dentro e voem!"]
+    },
+    {
+      "id": "dialogue_en.3c337e", "offset": "0x3C337E", "bytes": 76, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Precisam de umas vidas,", "galera? Jungle Hijinxs é", "o lugar certo pra isso!"]
+    },
+    {
+      "id": "dialogue_en.3c33ca", "offset": "0x3C33CA", "bytes": 55, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Opa, gorilas!", "Visitem o velho Cranky,", "ele pode ajudar!"]
+    },
+    {
+      "id": "dialogue_en.3c3401", "offset": "0x3C3401", "bytes": 63, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Mandando bem, Kongs!", "Apertem o cinto e decolem,", "vocês já foram!"]
+    },
+    {
+      "id": "dialogue_en.3c3440", "offset": "0x3C3440", "bytes": 85, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Se virem a Candy pelo", "caminho, digam que dou aula", "de surfe pra ela quando der!"]
+    },
+    {
+      "id": "dialogue_en.3c3495", "offset": "0x3C3495", "bytes": 68, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Topa um voo, amigo DK?", "Você sabe como é,", "pule logo e mande ver!"]
+    },
+    {
+      "id": "dialogue_en.3c34d9", "offset": "0x3C34D9", "bytes": 85, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Opa, cara Donkey! Talvez seu", "amiguinho do surfe esteja em", "outra fase. Vá conferir lá!"]
+    },
+    {
+      "id": "dialogue_en.3c352e", "offset": "0x3C352E", "bytes": 71, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Fala, Diddy! Perdeu o", "parceiro de novo? Decole", "de volta e confira tudo!"]
+    },
+    {
+      "id": "dialogue_en.3c3575", "offset": "0x3C3575", "bytes": 85, "max_line": 29,
+      "balanced_padding": true, "group": "revisits",
+      "lines": ["Ainda falando sozinho, cara?", "Dê uma olhada na selva, logo", "você acha o seu parceiro!"]
     }
   ]
 }

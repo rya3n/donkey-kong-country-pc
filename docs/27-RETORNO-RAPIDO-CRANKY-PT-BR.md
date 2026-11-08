@@ -64,4 +64,4 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em `evidence/2026-11-07/pt-BR/cranky-revisits/`: `verified-all/`, `prior-greetings-regression/`, `menu-gameplay/`, `saves/`, `prior-patches-check.json`, `editorial-review.json`, `unit-tests.log` e logs de build. Os dados extraídos, capturas, dumps, saves e binários permanecem fora do GitHub público.
 
-Próxima etapa: revisar as prévias de retorno rápido do Cranky e avaliar os lotes restantes de saudações, aberturas, dicas gerais e despedidas do Cranky (`P11`).
+Próxima etapa: treze falas completas do Funky Kong em [Treze falas do Funky Kong](28-FUNKY-FALAS-COMPLETAS.md).

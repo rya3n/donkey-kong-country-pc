@@ -146,7 +146,8 @@ int Rev1Open(FILE *file) {
     if (qa_funky_message) {
         char *end;
         unsigned long address = strtoul(qa_funky_message, &end, 16);
-        const unsigned allowed[] = {0x3074,0x3096,0x30d9,0x3125};
+        const unsigned allowed[] = {0x3074,0x3096,0x30d9,0x3125,
+                                    0x3334,0x337e,0x33ca,0x3401,0x3440,0x3495,0x34d9,0x352e,0x3575};
         int valid = 0;
         for (size_t i=0;i<sizeof allowed/sizeof allowed[0];i++) if(address==allowed[i]) valid=1;
         if (*end || !valid) { free(s_rom); s_rom = NULL; return 0; }
