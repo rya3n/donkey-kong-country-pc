@@ -58,4 +58,4 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em `evidence/2026-11-07/pt-BR/chimp-caverns/`: `verified-all/`, `prior-hints-regression/`, `menu-gameplay/`, `saves/`, `prior-patches-check.json`, `prior-hints-build-check.json`, `editorial-review.json`, `unit-tests.log` e logs de build. Os dados extraídos, capturas, dumps, saves e binários permanecem fora do GitHub público.
 
-Próxima etapa: revisar as prévias dos seis mundos de dicas do Cranky e avaliar os lotes restantes de diálogos gerais do Cranky (`P11`) ou a validação de campanha (`P10`).
+Próxima etapa: falas de retorno rápido do Cranky em [Retorno rápido do Cranky](27-RETORNO-RAPIDO-CRANKY-PT-BR.md).

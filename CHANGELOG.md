@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-07 — Onze falas de retorno rápido do Cranky em PT-BR
+
+- Integradas as onze mensagens únicas da tabela inglesa de retorno rápido do Cranky (`0x3C0144–0x3C0164`, de `0x3C2E3B` a `0x3C301E`), mantendo ponteiros, comprimentos exatos em bytes, números de linhas, terminadores, paridades e o tom sarcástico original.
+- Acrescentadas onze regiões de dados; as 54 regiões anteriores e a fonte compartilhada mantêm os mesmos bytes (`f0a3f4f7…`). O piloto passa a aplicar 65 regiões em memória (56 diálogos no total).
+- Cinquenta e um testes passaram. As onze falas mantiveram áudio e WRAM inteira iguais ao original, com mudanças visuais só na faixa do diálogo e capturas legíveis, sem cortes. Regressão das saudações anteriores do Cranky, menus/entrada da fase e ciclo Candy/reinício aprovados em QA isolado.
+- Criados galeria privada, catálogo `draft-12` (56 rascunhos) e relatório 27. Revisão humana e campanha continuam pendentes.
+- ROM, executável habitual e saves pessoais preservados; nenhuma nova instalação.
+
 ## 2026-11-07 — Cinco dicas de Chimp Caverns em PT-BR
 
 - Integradas as cinco dicas do grupo de Chimp Caverns na tabela inglesa da Rev 1 (`0x3C01C4–0x3C01D4`): Manic Mincers, Misty Mine, Loopy Lights, Platform Perils e Tanked Up Trouble, concluindo todas as 27 dicas de fases dos seis mundos com nomes completos, Diddy, TNT e pistas preservados.

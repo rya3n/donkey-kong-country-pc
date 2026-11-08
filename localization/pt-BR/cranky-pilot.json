@@ -1,37 +1,92 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "First batch: six Cranky greetings in English mode; names preserved",
+  "scope": "Six Cranky greetings and all eleven revisit messages in English mode; names preserved",
   "messages": [
     {
-      "id": "dialogue_en.3c07a4", "offset": "0x3C07A4", "bytes": 28, "max_line": 29,
+      "id": "dialogue_en.3c07a4", "group": "greetings", "offset": "0x3C07A4", "bytes": 28, "max_line": 29,
       "balanced_padding": true,
       "lines": ["Ei, Donkey! Cadê o Diddy?"]
     },
     {
-      "id": "dialogue_en.3c0935", "offset": "0x3C0935", "bytes": 27, "max_line": 29,
+      "id": "dialogue_en.3c0935", "group": "greetings", "offset": "0x3C0935", "bytes": 27, "max_line": 29,
       "balanced_padding": true,
       "lines": ["Ei, Diddy! Cadê o Donks?"]
     },
     {
-      "id": "dialogue_en.3c0990", "offset": "0x3C0990", "bytes": 45, "max_line": 29,
+      "id": "dialogue_en.3c0990", "group": "greetings", "offset": "0x3C0990", "bytes": 45, "max_line": 29,
       "balanced_padding": true,
       "lines": ["Ora, ora! Que surpresa", "ver você aqui hoje!"]
     },
     {
-      "id": "dialogue_en.3c09bd", "offset": "0x3C09BD", "bytes": 43, "max_line": 29,
+      "id": "dialogue_en.3c09bd", "group": "greetings", "offset": "0x3C09BD", "bytes": 43, "max_line": 29,
       "balanced_padding": true,
       "lines": ["Até que você foi bem", "chegando até aqui..."]
     },
     {
-      "id": "dialogue_en.3c09e8", "offset": "0x3C09E8", "bytes": 44, "max_line": 29,
+      "id": "dialogue_en.3c09e8", "group": "greetings", "offset": "0x3C09E8", "bytes": 44, "max_line": 29,
       "balanced_padding": true,
       "lines": ["Me achou, foi?!", "O que você quer?!"]
     },
     {
-      "id": "dialogue_en.3c0a14", "offset": "0x3C0A14", "bytes": 57, "max_line": 29,
+      "id": "dialogue_en.3c0a14", "group": "greetings", "offset": "0x3C0A14", "bytes": 57, "max_line": 29,
       "balanced_padding": true,
       "lines": ["Quem disse que estou aqui?", "Foi o", "Funky Kong irritante?"]
+    },
+    {
+      "id": "dialogue_en.3c2e3b", "group": "revisits", "offset": "0x3C2E3B", "bytes": 70, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Voltou aqui de novo?!", "Eu sabia que um pirralho", "como você ia falhar..."]
+    },
+    {
+      "id": "dialogue_en.3c2e81", "group": "revisits", "offset": "0x3C2E81", "bytes": 85, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Que rápido! Você nem mesmo", "me deu tempo suficiente para", "pensar em mais piadas bobas!"]
+    },
+    {
+      "id": "dialogue_en.3c2ed6", "group": "revisits", "offset": "0x3C2ED6", "bytes": 70, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Nem sei por que", "digo tudo isso pra você,", "você nem ouviu da outra vez!"]
+    },
+    {
+      "id": "dialogue_en.3c2f1c", "group": "revisits", "offset": "0x3C2F1C", "bytes": 32, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Você tem de", "ir melhor que isso!"]
+    },
+    {
+      "id": "dialogue_en.3c2f3c", "group": "revisits", "offset": "0x3C2F3C", "bytes": 20, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Você acabou de ir!"]
+    },
+    {
+      "id": "dialogue_en.3c2f50", "group": "revisits", "offset": "0x3C2F50", "bytes": 30, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Já voltou?! Isso foi rápido!"]
+    },
+    {
+      "id": "dialogue_en.3c2f6e", "group": "revisits", "offset": "0x3C2F6E", "bytes": 47, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Voltou ao grande mestre", "atrás de mais dicas, é?"]
+    },
+    {
+      "id": "dialogue_en.3c2f9d", "group": "revisits", "offset": "0x3C2F9D", "bytes": 27, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Ainda apanhando feio, é?!"]
+    },
+    {
+      "id": "dialogue_en.3c2fb8", "group": "revisits", "offset": "0x3C2FB8", "bytes": 47, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Pois é! Nem fazem jogadores", "como antigamente!"]
+    },
+    {
+      "id": "dialogue_en.3c2fe7", "group": "revisits", "offset": "0x3C2FE7", "bytes": 55, "max_line": 29,
+      "balanced_padding": true,
+      "lines": ["Bom,", "eu passo a fase para você!...", "Nada, só brincando!"]
+    },
+    {
+      "id": "dialogue_en.3c301e", "group": "revisits", "offset": "0x3C301E", "bytes": 86, "max_line": 31,
+      "balanced_padding": true,
+      "lines": ["Como é que você se atreve", "a mostrar a cara aqui de novo", "após um desempenho lamentável!"]
     }
   ]
 }

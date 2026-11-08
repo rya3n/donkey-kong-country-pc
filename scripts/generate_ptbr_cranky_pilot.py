@@ -5,13 +5,26 @@ from generate_ptbr_candy_pilot import make_dialogue_patch
 def make_cranky_patch(rom: bytes, config: dict, font_config: dict) -> tuple[list[tuple[int,bytes]],dict]:
     if rom[0x3c0000:0x3c0004]!=bytes.fromhex("c4 00 04 01"):
         raise ValueError("Cranky greeting table guard failed")
+    if rom[0x3c0014:0x3c0018]!=bytes.fromhex("44 01 64 01"):
+        raise ValueError("Cranky revisit table guard failed")
     if rom[0x3c00c4:0x3c00cc]!=bytes.fromhex("90 09 bd 09 e8 09 14 0a"):
         raise ValueError("Cranky greeting pointer guard failed")
+    if rom[0x3c0144:0x3c0164]!=bytes.fromhex("3b 2e 81 2e d6 2e 1c 2f 3c 2f 50 2f 6e 2f 9d 2f b8 2f e7 2f 1e 30 3b 2e 81 2e d6 2e 6e 2f e7 2f"):
+        raise ValueError("Cranky revisit pointer guard failed")
     expected={(0x3c07a4,28),(0x3c0935,27),(0x3c0990,45),
-              (0x3c09bd,43),(0x3c09e8,44),(0x3c0a14,57)}
+              (0x3c09bd,43),(0x3c09e8,44),(0x3c0a14,57),
+              (0x3c2e3b,70),(0x3c2e81,85),(0x3c2ed6,70),
+              (0x3c2f1c,32),(0x3c2f3c,20),(0x3c2f50,30),
+              (0x3c2f6e,47),(0x3c2f9d,27),(0x3c2fb8,47),
+              (0x3c2fe7,55),(0x3c301e,86)}
     actual=[(int(m["offset"],16),m["bytes"]) for m in config["messages"]]
-    if len(actual)!=6 or set(actual)!=expected:
-        raise ValueError("Cranky ranges must match the six identified greetings")
+    if len(actual)!=17 or set(actual)!=expected:
+        raise ValueError("Cranky ranges must match the seventeen identified greetings and revisits")
+    for m in config["messages"]:
+        offset=int(m["offset"],16)
+        expected_group="greetings" if offset<0x3c2e3b else "revisits"
+        if m.get("group")!=expected_group:
+            raise ValueError("Cranky message group does not match its record")
     merged={key:font_config[key] for key in ("font_offset","font_first_code","accent_slots")}
     merged["messages"]=config["messages"]
     changes,info=make_dialogue_patch(rom,merged,include_glyphs=False)

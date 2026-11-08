@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-**Etapa atual: menus, oito falas da Candy, quatro do Funky, seis saudações e todas as vinte e sete dicas de fases do Cranky em PT-BR para USA v1.1 (Rev 1).** Acrescentadas as cinco dicas de Chimp Caverns, fechando os seis mundos da tabela de dicas de fases com nomes completos, Diddy, TNT e pistas preservados. Fonte e traduções anteriores preservadas. Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio. Redação e verificações em [Dicas de Chimp Caverns](docs/26-DICAS-CHIMP-CAVERNS-PT-BR.md). As novas prévias aguardam revisão; campanha, coleta dos segredos e demais falas gerais do Cranky continuam pendentes.
+**Etapa atual: menus, oito falas da Candy, quatro do Funky, seis saudações, onze falas de retorno rápido e todas as vinte e sete dicas de fases do Cranky em PT-BR para USA v1.1 (Rev 1).** Acrescentadas as onze mensagens de retorno rápido do Cranky (`0x3C0144–0x3C0164`), somando 56 diálogos localizados no piloto com fonte e traduções anteriores preservadas. Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio. Redação e verificações em [Retorno rápido do Cranky](docs/27-RETORNO-RAPIDO-CRANKY-PT-BR.md). As novas prévias aguardam revisão; campanha, coleta dos segredos e demais falas gerais do Cranky continuam pendentes.
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 
@@ -44,6 +44,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Dicas de Gorilla Glacier](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Cinco dicas de Gorilla Glacier, nomes completos e pistas preservados |
 | [Dicas de Kremkroc Industries Inc.](docs/25-DICAS-KREMKROC-INDUSTRIES-PT-BR.md) | Cinco dicas de Kremkroc Industries Inc., nomes completos, Gnawty e pistas preservados |
 | [Dicas de Chimp Caverns](docs/26-DICAS-CHIMP-CAVERNS-PT-BR.md) | Cinco dicas de Chimp Caverns, fechando as 27 dicas dos seis mundos |
+| [Retorno rápido do Cranky](docs/27-RETORNO-RAPIDO-CRANKY-PT-BR.md) | Onze mensagens de retorno rápido do Cranky em PT-BR |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura
