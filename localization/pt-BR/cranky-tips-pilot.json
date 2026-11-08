@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "Twenty-two Kongo Jungle, Monkey Mines, Vine Valley, Gorilla Glacier and Kremkroc Industries Inc. hints; original names and clues preserved",
+  "scope": "All twenty-seven Kongo Jungle, Monkey Mines, Vine Valley, Gorilla Glacier, Kremkroc Industries Inc. and Chimp Caverns stage hints; original names and clues preserved",
   "messages": [
     {
       "id": "dialogue_en.3c0f35", "world": "kongo-jungle", "stage": "Jungle Hijinxs",
@@ -112,6 +112,31 @@
       "id": "dialogue_en.3c13e7", "world": "kremkroc-industries", "stage": "Blackout Basement",
       "offset": "0x3C13E7", "bytes": 78, "max_line": 29, "balanced_padding": true,
       "lines": ["Blackout Basement pode fazer", "você achar que afunda, mas", "você termina lá no céu!"]
+    },
+    {
+      "id": "dialogue_en.3c1435", "world": "chimp-caverns", "stage": "Manic Mincers",
+      "offset": "0x3C1435", "bytes": 44, "max_line": 29, "balanced_padding": true,
+      "lines": ["Deixe Diddy segurar o TNT", "em Manic Mincers."]
+    },
+    {
+      "id": "dialogue_en.3c1461", "world": "chimp-caverns", "stage": "Misty Mine",
+      "offset": "0x3C1461", "bytes": 60, "max_line": 29, "balanced_padding": true,
+      "lines": ["Use bastante corda e", "você se surpreenderá", "lá em Misty Mine."]
+    },
+    {
+      "id": "dialogue_en.3c149d", "world": "chimp-caverns", "stage": "Loopy Lights",
+      "offset": "0x3C149D", "bytes": 53, "max_line": 29, "balanced_padding": true,
+      "lines": ["Em Loopy Lights, o barril", "do abutre joga você longe."]
+    },
+    {
+      "id": "dialogue_en.3c14d2", "world": "chimp-caverns", "stage": "Platform Perils",
+      "offset": "0x3C14D2", "bytes": 77, "max_line": 29, "balanced_padding": true,
+      "lines": ["O abutre de Platform Perils", "sabe que por vezes é melhor", "descer para a terra."]
+    },
+    {
+      "id": "dialogue_en.3c151f", "world": "chimp-caverns", "stage": "Tanked Up Trouble",
+      "offset": "0x3C151F", "bytes": 70, "max_line": 29, "balanced_padding": true,
+      "lines": ["Você terá Tanked Up Trouble", "se tiver o tanque cheio", "e sem ter aonde ir!"]
     }
   ]
 }

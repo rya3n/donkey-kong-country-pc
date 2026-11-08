@@ -21,15 +21,18 @@ class CrankyTipsTests(unittest.TestCase):
                      0x3c115b:[30,27,27],0x3c11b0:[29,25,24],0x3c11ff:[17,24,27],
                      0x3c1244:[25,27,15],0x3c1288:[29,24,22],
                      0x3c12d4:[27,20,21],0x3c1319:[29,16,14],0x3c1355:[21,21,21],
-                     0x3c1395:[25,26,30],0x3c13e7:[28,26,23]}
+                     0x3c1395:[25,26,30],0x3c13e7:[28,26,23],
+                     0x3c1435:[26,17],0x3c1461:[20,21,18],0x3c149d:[26,26],
+                     0x3c14d2:[27,27,22],0x3c151f:[27,23,19]}
         rom=bytearray(4194304)
         rom[0xee62:0xee6f]=bytes.fromhex("a2 e9 00 a9 dc d6 a0 00 06 22 ad 99 b9")
         rom[0x3c0184:0x3c0194]=bytes.fromhex("35 0f 72 0f b8 0f fc 0f 2e 10 35 0f b8 0f 2e 10")
         rom[0x3c0194:0x3c01a4]=bytes.fromhex("74 10 a6 10 d9 10 15 11 74 10 a6 10 d9 10 15 11")
         rom[0x3c01a4:0x3c01b4]=bytes.fromhex("5b 11 b0 11 ff 11 44 12 88 12 5b 11 b0 11 ff 11")
         rom[0x3c01b4:0x3c01c4]=bytes.fromhex("d4 12 19 13 55 13 95 13 e7 13 55 13 95 13 e7 13")
+        rom[0x3c01c4:0x3c01d4]=bytes.fromhex("35 14 61 14 9d 14 d2 14 1f 15 61 14 9d 14 d2 14")
         rom[0x3c01d4:0x3c01e4]=bytes.fromhex("65 15 b3 15 ef 15 65 15 b3 15 ef 15 65 15 b3 15")
-        stage_lines=[0,1,2,1,2,2,1,0,2,0,2,2,0,0,0,2,2,0,0,0,0,0]
+        stage_lines=[0,1,2,1,2,2,1,0,2,0,2,2,0,0,0,2,2,0,0,0,0,0,1,2,0,0,0]
         for i,m in enumerate(self.config["messages"]):
             offset=int(m["offset"],16);widths=self.widths[offset]
             lines=["X"*n for n in widths]
@@ -38,12 +41,13 @@ class CrankyTipsTests(unittest.TestCase):
             if i==4: lines[0]="Croctopus".ljust(widths[0])
             if i==16: lines[0]="TNT".ljust(widths[0])
             if i==18: lines[1]="Gnawty".ljust(widths[1])
+            if i==22: lines[0]="Diddy TNT".ljust(widths[0])
             rom[offset:offset+m["bytes"]]=encode_message(lines,{},max(29,m["max_line"]))
         self.rom=bytes(rom)
 
     def test_exact_records_line_counts_and_parities(self):
         patches,info=make_cranky_tips_patch(self.rom,self.config,self.font)
-        self.assertEqual([(o,len(b)) for o,b in patches],list(zip(self.widths,[61,70,68,50,70,50,51,60,70,78,60,69,85,79,69,68,76,69,60,64,82,78])))
+        self.assertEqual([(o,len(b)) for o,b in patches],list(zip(self.widths,[61,70,68,50,70,50,51,60,70,78,60,69,85,79,69,68,76,69,60,64,82,78,44,60,53,77,70])))
         self.assertEqual(info["accented_glyphs"],0)
         for m in self.config["messages"]:
             widths=self.widths[int(m["offset"],16)]
@@ -61,7 +65,7 @@ class CrankyTipsTests(unittest.TestCase):
             m["lines"]=old
 
     def test_winky_and_croctopus_cannot_be_renamed(self):
-        for index,name in ((2,"Winky"),(4,"Croctopus"),(18,"Gnawty")):
+        for index,name in ((2,"Winky"),(4,"Croctopus"),(18,"Gnawty"),(22,"Diddy")):
             m=self.config["messages"][index];old=m["lines"][:]
             m["lines"]=[s.replace(name,"bicho") for s in old]
             with self.subTest(name=name),self.assertRaisesRegex(ValueError,"Protected name"):
@@ -101,6 +105,11 @@ class CrankyTipsTests(unittest.TestCase):
     def test_changed_kremkroc_industries_pointer_is_rejected(self):
         rom=bytearray(self.rom);rom[0x3c01b4]^=1
         with self.assertRaisesRegex(ValueError,"Kremkroc Industries hint pointer"):
+            make_cranky_tips_patch(bytes(rom),self.config,self.font)
+
+    def test_changed_chimp_caverns_pointer_is_rejected(self):
+        rom=bytearray(self.rom);rom[0x3c01c4]^=1
+        with self.assertRaisesRegex(ValueError,"Chimp Caverns hint pointer"):
             make_cranky_tips_patch(bytes(rom),self.config,self.font)
 
 

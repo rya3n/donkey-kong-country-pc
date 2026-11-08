@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-07 — Cinco dicas de Chimp Caverns em PT-BR
+
+- Integradas as cinco dicas do grupo de Chimp Caverns na tabela inglesa da Rev 1 (`0x3C01C4–0x3C01D4`): Manic Mincers, Misty Mine, Loopy Lights, Platform Perils e Tanked Up Trouble, concluindo todas as 27 dicas de fases dos seis mundos com nomes completos, Diddy, TNT e pistas preservados.
+- Acrescentadas cinco regiões de dados; as 49 regiões anteriores e a fonte compartilhada mantêm os mesmos bytes (`53285419…`). O piloto passa a aplicar 54 regiões em memória.
+- Quarenta e nove testes passaram. As cinco dicas mantiveram áudio e WRAM inteira iguais ao original, com mudanças visuais só na faixa do diálogo e capturas legíveis, sem cortes. Regressão das dicas anteriores de Kongo Jungle, Monkey Mines, Vine Valley, Gorilla Glacier e Kremkroc Industries Inc., menus/entrada da fase e ciclo Candy/reinício aprovados em QA isolado.
+- Criados galeria privada, catálogo `draft-11` (45 rascunhos) e relatório 26. Revisão humana e coleta dos segredos continuam pendentes.
+- ROM, executável habitual e saves pessoais preservados; nenhuma nova instalação.
+
 ## 2026-11-07 — Cinco dicas de Kremkroc Industries Inc. em PT-BR
 
 - Integradas as cinco dicas do grupo de Kremkroc Industries Inc. na tabela inglesa da Rev 1 (`0x3C01B4–0x3C01C4`): Elevator Antics, Trick Track Trek, Mine Cart Madness, Poison Pond e Blackout Basement, com nomes completos, Gnawty e pistas preservados.
