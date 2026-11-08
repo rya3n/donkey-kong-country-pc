@@ -37,7 +37,7 @@ O arquivo `localization/pt-BR/cranky-tips-pilot.json` agora reúne doze dicas co
 
 As mensagens em `0x3C1565`, `0x3C15B3` e `0x3C15EF` mantêm 78, 60 e 69 bytes, respectivamente, preservando ponteiros, três linhas por mensagem, terminadores e paridades (incluindo a primeira linha de 30 colunas originais em `0x3C1565`). Somente espaços laterais completam os tamanhos originais; a fonte compartilhada e seus quatro glifos acentuados (`á`, `ê`, `ó`, `é`) foram reutilizados sem novos slots ou alterações na tabela de tiles.
 
-As 36 regiões anteriores mantêm exatamente o hash `a230a43eec1b027c4995358ebf13edfc34381e2d485bef174e2b31b1867e48de` ao serem recompostas sem as três regiões novas. O piloto agora aplica 39 regiões de dados à cópia da ROM em memória (`patchset_sha256` `50ff4fc38874bb9f20cb2164c7deba0f04d632189984fb16de59b4553af3f3bd`). O arquivo da ROM, código do cartucho, unidades AOT e relógio de 60,0988 Hz permanecem intactos.
+As 36 regiões anteriores mantêm exatamente o hash `a230a43eec1b027c4995358ebf13edfc34381e2d485bef174e2b31b1867e48de` ao serem recompostas sem as três regiões novas. O piloto agora aplica 39 regiões de dados à cópia da ROM em memória (`patchset_sha256` `e80b1b28c2cf1dfeca399eb9043ebb77aea1e777638d5c410580759ac7635d10`). O arquivo da ROM, código do cartucho, unidades AOT e relógio de 60,0988 Hz permanecem intactos.
 
 O verificador `scripts/verify_ptbr_candy_pilot.py` aceita `--world vine-valley` junto de `--character cranky-tips --all-messages`. O diagnóstico `DKC_REV1_QA_CRANKY_MESSAGE` continua exclusivo do runner sem janela.
 
@@ -69,4 +69,4 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em `evidence/2026-11-07/pt-BR/vine-valley/`: `verified-all/`, `prior-hints-regression/`, `menu-gameplay/`, `saves/`, `prior-patches-check.json`, `prior-hints-build-check.json`, `editorial-review.json`, `unit-tests.log` e logs de build. Os dados extraídos, capturas, dumps, saves e binários permanecem fora do GitHub público.
 
-Próxima etapa: revisar as prévias de Vine Valley (junto de Kongo Jungle e Monkey Mines) e traduzir o grupo de Gorilla Glacier (`0x3C01A4–0x3C01B4`) na Rev 1.
+Etapa seguinte implementada: [Dicas de Gorilla Glacier](24-DICAS-GORILLA-GLACIER-PT-BR.md). O filtro `--world vine-valley` permite repetir somente este lote com o verificador atual. As três prévias de Vine Valley continuam com revisão humana pendente; campanha e coleta dos segredos permanecem na matriz de validação.

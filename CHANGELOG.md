@@ -2,6 +2,14 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-07 — Cinco dicas de Gorilla Glacier em PT-BR
+
+- Integradas as cinco dicas do grupo de Gorilla Glacier na tabela inglesa da Rev 1 (`0x3C01A4–0x3C01B4`): Snow Barrel Blast, Croctopus Chase, Ice Age Alley, Slipslide Ride e Torchlight Trouble, com nomes completos, Croctopus, TNT e pistas preservados.
+- Acrescentadas cinco regiões de dados; as 39 regiões anteriores e a fonte compartilhada mantêm os mesmos bytes (`e80b1b28…`). O piloto passa a aplicar 44 regiões em memória.
+- Quarenta e sete testes passaram. As cinco dicas mantiveram áudio e WRAM inteira iguais ao original, com mudanças visuais só na faixa do diálogo e capturas legíveis, sem cortes. Regressão das dicas anteriores de Kongo Jungle, Monkey Mines e Vine Valley, menus/entrada da fase e ciclo Candy/reinício aprovados em QA isolado.
+- Criados galeria privada, catálogo `draft-09` (35 rascunhos) e relatório 24. Revisão humana e coleta dos segredos continuam pendentes.
+- ROM, executável habitual e saves pessoais preservados; nenhuma nova instalação.
+
 ## 2026-11-07 — Três dicas de Vine Valley em PT-BR
 
 - Identificado o grupo de Vine Valley na tabela inglesa da Rev 1 em `0x3C01D4–0x3C01E4` (sexto grupo de ponteiros, separado de Gorilla Glacier, Kremkroc Industries Inc. e Chimp Caverns). Integradas as três dicas de Orang-utan Gang, Tree Top Town e Temple Tempest com nomes completos e pistas preservados.
