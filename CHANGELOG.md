@@ -2,6 +2,13 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-10 — Início da campanha PT-BR
+
+- Repetida a rota desde um perfil vazio, com morte, retorno ao mapa, nova entrada e conclusão de Jungle Hijinxs e Ropey Rampage.
+- Visitada a cabana do Cranky pelo mapa. Conferidas a saudação, a dica de Coral Capers, a dica do superpulo e a despedida em PT-BR. O roteiro termina na entrada de Reptile Rumble.
+- No retorno ao mapa de Jungle Hijinxs, as versões inglesa e PT-BR apresentaram o mesmo framebuffer, WRAM, SRAM e hash acumulado de áudio. [Relatório 31](docs/31-INICIO-CAMPANHA-PT-BR.md).
+- Na entrada da caverna, as imagens e os estados de memória coincidiram. A diferença no áudio acumulado do percurso até esse ponto ficou registrada para investigação. Passaram 59 testes Python.
+
 ## 2026-11-10 — Inventário inglês de diálogos integrado ao piloto
 
 - Integradas 117 falas do Cranky entre finais, dicas gerais, despedidas e reclamações. O piloto reúne 217 diálogos para USA Rev 1.

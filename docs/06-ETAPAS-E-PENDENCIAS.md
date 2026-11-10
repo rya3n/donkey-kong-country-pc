@@ -30,7 +30,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P07 | Validar a primeira sessão | Sessão humana realizada; cobertura parcial | Boot, entrada na fase e fluidez confirmados; ampliar as ações e cenas de V06–V09 |
 | P08 | Validar persistência | SRAM aprovada no cenário coberto | Três saves da Candy e reinícios passaram; ampliar progresso real; save states fora desta entrega |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
-| P10 | Validar campanha e estabilidade | Roteiro preparado; cobertura pendente | Registrar campanha e saves com progresso real; aceitar V14 antes de promover a versão traduzida |
+| P10 | Validar campanha e estabilidade | Em andamento | Jungle Hijinxs e Ropey Rampage concluídas. Cranky visitado pelo mapa. Retomar em Reptile Rumble e testar o save com progresso real. [Relatório 31](31-INICIO-CAMPANHA-PT-BR.md) |
 | P11 | Inventariar, traduzir e revisar PT-BR | 217 diálogos do inventário inglês no piloto | Candy 8, Funky 13 e Cranky 196. Revisão em campanha, créditos e demais telas pendentes |
 | P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |

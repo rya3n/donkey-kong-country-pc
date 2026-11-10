@@ -17,9 +17,9 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | Suíte pública: 303 testes, 2 erros, 10 skips; CTest do jogo aguarda ROM/build |
 | V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Executado em janela; usuário confirmou a fluidez após a correção |
 | V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Entrada reproduzida e sessão humana realizada; cobertura ampliada em V14 |
-| V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Não executado |
-| V07 | Morte e retorno | Ciclo completo sem travamento e com estado coerente | Não executado |
-| V08 | Concluir fase e voltar ao mapa | Saída, transição e progressão corretas | Não executado |
+| V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Parcial. Corrida, salto, barris de checkpoint e de parceiro em Jungle Hijinxs, escalada em Ropey Rampage |
+| V07 | Morte e retorno | Ciclo completo sem travamento e com estado coerente | Confirmado em Jungle Hijinxs. Perda de vida, retorno ao mapa e nova entrada |
+| V08 | Concluir fase e voltar ao mapa | Saída, transição e progressão corretas | Confirmado em Jungle Hijinxs e Ropey Rampage. Abertura da cabana do Cranky e de Reptile Rumble |
 | V09 | Áudio e apresentação | Trecho identificado sem cortes persistentes ou defeitos visíveis | Não executado |
 | V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Três repetições passaram no cenário Candy 00:00 / 00%; ampliar cobertura de progresso real |
 | V11 | Save state, se incluído no marco | Comparar continuação após load com execução contínua | Não implementado; não faz parte da entrega de SRAM |
@@ -34,21 +34,21 @@ Depois da primeira entrega, incluir caverna, chuva e cordas, fase vertical, águ
 
 Para widescreen, observar separadamente imagem central, margens, streaming, ativação de objetos e regras de gameplay. As exigências completas de promoção do upstream incluem determinismo, entradas limpas, comparação central e matriz de layouts; seguir o `upstream/AGENTS.md` antes de alterar esse código.
 
-## Próxima execução: campanha e progresso real
+## Campanha e progresso real
 
-Roteiro preparado em 2026-11-05 após o aceite dos modos de tela. Esta lista organiza o próximo teste; não registra resultados já obtidos. Usar a versão e46f8f1 como referência inicial e identificar qualquer correção posterior. Jogar pelo menu normal, sem os atalhos de entrada diagnóstica.
+Roteiro preparado em 2026-11-05 após o aceite dos modos de tela. A [primeira sessão do piloto PT-BR](31-INICIO-CAMPANHA-PT-BR.md) registra a execução de 2026-11-10. Usar o menu normal e identificar o build em cada sessão.
 
 | Passo | O que registrar | Estado |
 | --- | --- | --- |
-| Ações e retorno | Movimento, troca de personagem, barris, morte, retorno e continuação | A registrar |
-| Progressão | Nome de cada fase concluída, saída, mapa, bônus e entrada seguinte | A registrar |
-| Variedade e chefes | Água, chuva, cavernas, cordas, canhões, chefes e transições entre mundos | A registrar |
+| Ações e retorno | Movimento, troca de personagem, barris, morte, retorno e continuação | Parcial em Jungle Hijinxs e Ropey Rampage |
+| Progressão | Nome de cada fase concluída, saída, mapa, bônus e entrada seguinte | Jungle Hijinxs e Ropey Rampage concluídas. Visita ao Cranky e entrada em Reptile Rumble |
+| Variedade e chefes | Água, chuva, cavernas, cordas, canhões, chefes e transições entre mundos | Chuva e cordas em Ropey Rampage. Início da primeira caverna |
 | Saves com progresso real | Progresso mostrado no menu, salvar na Candy, fechar normalmente, reabrir e conferir o mesmo arquivo | A registrar |
 | Final da campanha | Chefe final, encerramento/créditos e estado recuperado após reabrir | A registrar |
 
 Para cada sessão, anotar versão, fases percorridas, modo de tela e defeitos observados. Testar a persistência em momentos diferentes da progressão; identificar e proteger a cópia do save antes de qualquer teste de migração ou falha. Não substituir o progresso pessoal por fixtures de QA. Percurso principal, bônus e eventuais caminhos não percorridos devem ter sua cobertura indicada separadamente.
 
-Corrigir e repetir qualquer cenário com defeito crítico antes de aceitar V14. Por autorização posterior, o inventário e os rascunhos PT-BR já começaram em paralelo; ver [Preparação PT-BR](15-PT-BR.md). Isso não aceita V14 nem promove a tradução ao executável. Suporte a controle físico, save states e pacote final continuam em seus próprios marcos.
+Corrigir e repetir qualquer cenário com defeito crítico antes de aceitar V14. O [piloto PT-BR](30-DIALOGOS-CRANKY-PT-BR.md) está em validação. Suporte a controle físico, save states e pacote final continuam em seus próprios marcos.
 
 ## Como registrar defeitos
 

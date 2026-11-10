@@ -48,6 +48,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Treze falas do Funky Kong](docs/28-FUNKY-FALAS-COMPLETAS.md) | Nove falas de revisita do Funky, fechando as 13 mensagens do personagem |
 | [Saudações do Cranky](docs/29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md) | As 41 saudações e o piloto de 100 diálogos |
 | [Inventário de diálogos do Cranky](docs/30-DIALOGOS-CRANKY-PT-BR.md) | As 117 falas finais do lote e as duas correções de texto |
+| [Primeira sessão de campanha PT-BR](docs/31-INICIO-CAMPANHA-PT-BR.md) | Rota de teste desde o menu, com visita ao Cranky e entrada em Reptile Rumble |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura
