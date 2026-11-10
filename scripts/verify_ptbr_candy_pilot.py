@@ -39,7 +39,9 @@ def main() -> int:
     parser.add_argument("--all-messages",action="store_true",help="Select each original address in headless QA only")
     parser.add_argument("--message",action="append",default=[],help="Filter --all-messages by hexadecimal low-word address")
     parser.add_argument("--world",choices=("kongo-jungle","monkey-mines","vine-valley","gorilla-glacier","kremkroc-industries","chimp-caverns"),help="Filter the Cranky hint gallery by world")
-    parser.add_argument("--group",choices=("greetings","revisits","opening"),help="Filter the Cranky or Funky dialogue gallery by group")
+    parser.add_argument("--group", choices=("greetings", "revisits", "opening", "endings",
+                                            "general_tips", "farewells", "rants"),
+                        help="Filter the Cranky or Funky dialogue gallery by group")
     args=parser.parse_args()
     out=args.out.resolve()
     if not out.is_relative_to(ROOT/"evidence"):
@@ -58,6 +60,8 @@ def main() -> int:
         if character not in ("cranky","funky") or not args.all_messages:
             parser.error("--group requires --character cranky or funky with --all-messages")
         config["messages"]=[m for m in config["messages"] if m.get("group")==args.group]
+        if not config["messages"]:
+            parser.error(f"{args.group} has no messages for {character}")
     natural_frames=(4350,4500,4650) if character=="candy" else (4350,4650,4950,5250)
     cases=[(4350,int(msg["offset"],16)&0xffff) for msg in config["messages"]] if args.all_messages else [(f,None) for f in natural_frames]
     if qa_character=="cranky" and not args.all_messages:
@@ -132,7 +136,7 @@ def main() -> int:
             title=html.escape(stage) if stage else f"Mensagem {number}"
             cards.append(f'<article><h2>{title}</h2><img alt="Fala {speaker} no jogo" src="data:image/png;base64,{encoded}"><p>{text}</p></article>')
         page='<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Falas '+speaker+' — prévia</title><style>body{background:#111b16;color:#e9f3eb;font:17px system-ui;max-width:1180px;margin:auto;padding:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px}article{background:#1d3025;border-radius:12px;padding:16px}h2{font-size:18px}img{width:100%;image-rendering:pixelated}p{line-height:1.6}</style><h1>Falas '+speaker+' — prévia de leitura</h1><p>Capturas nativas do piloto. O teste seleciona cada mensagem individualmente; não representa uma campanha completa nem altera seus saves.</p><main>'+"".join(cards)+'</main></html>'
-        if character=="cranky":
+        if character=="cranky" and args.group in (None, "greetings"):
             page=page.replace("<main>","<p>Algumas saudações perguntam pelo parceiro ausente. Esta seleção técnica confere apenas a leitura: a ausência do personagem e o momento normal da fala não são reproduzidos na cena.</p><main>",1)
         elif character=="cranky-tips":
             world_title={"kongo-jungle":"Kongo Jungle","monkey-mines":"Monkey Mines","vine-valley":"Vine Valley",

@@ -2,6 +2,17 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-10 — Inventário inglês de diálogos integrado ao piloto
+
+- Integradas 117 falas do Cranky entre finais, dicas gerais, despedidas e reclamações. O piloto reúne 217 diálogos para USA Rev 1.
+- Restaurada a referência a rinocerontes na saudação 0x3C0C2C. A dica de corrida 0x3C1796 indica X, conforme o teclado padrão do port.
+- Atualizados o README, as etapas, o catálogo privado e o verificador de diálogos. O relatório 30 reúne as galerias e as verificações do lote.
+- Passaram 52 testes Python e as 118 comparações de diálogos. Áudio e memória coincidiram com o original, com diferenças de imagem restritas à faixa do texto. Menus, entrada da fase e o ciclo Candy/reinício passaram na regressão.
+
+## 2026-11-07 — Quarenta e uma saudações do Cranky
+
+- Integradas 35 saudações adicionais, somando 41 saudações e 100 diálogos no piloto. A comparação individual das 41 saudações e o ciclo de salvar e reabrir passaram. [Relatório 29](docs/29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md).
+
 ## 2026-11-07 — Treze falas completas do Funky Kong em PT-BR
 
 - Integradas as nove mensagens inglesas de revisita do Funky Kong (`0x3C0374–0x3C038C`, de `0x3C3334` a `0x3C3575`), concluindo todas as treze falas identificadas do personagem com preservação de Kongs, Jungle Hijinxs, Cranky, Candy, DK, Donkey e Diddy.

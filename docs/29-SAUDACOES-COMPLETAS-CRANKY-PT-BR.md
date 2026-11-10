@@ -4,6 +4,8 @@ Entrega de 2026-11-07 no piloto separado USA v1.1 (Rev 1). Integradas as trinta 
 
 ## Novas saudações traduzidas (35 registros)
 
+Este quadro registra a redação de 2026-11-07. Em 2026-11-10, a fala de 0x3C0C2C passou a dizer “Terra de rinocerontes!”. [Lote seguinte e correções](30-DIALOGOS-CRANKY-PT-BR.md).
+
 | Endereço | Tamanho | Redação em PT-BR |
 | --- | --- | --- |
 | `0x3C07C0` | 50 B | Donkey, seu jovem / moleque travesso! / Quanto tempo! |

@@ -1,8 +1,210 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "All forty-one Cranky greetings and all eleven revisit messages in English mode; names preserved",
+  "scope": "All 169 Cranky greetings, revisits, rants, general gameplay tips, farewells and ending speeches in English mode; names preserved",
   "messages": [
+    {
+      "id": "dialogue_en.3c03c8",
+      "offset": "0x3C03C8",
+      "bytes": 74,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Muito bem, rapaz Donkey!",
+        "Quem diria que um pirralho",
+        "travesso que nem você"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0412",
+      "offset": "0x3C0412",
+      "bytes": 77,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "ia derrotar aquele bando",
+        "de reles Kremlings?",
+        "Deixou o velhote orgulhoso!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c045f",
+      "offset": "0x3C045F",
+      "bytes": 62,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Olhe lá no seu depósito,",
+        "acho que você vai",
+        "se surpreender lá!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c049d",
+      "offset": "0x3C049D",
+      "bytes": 26,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Parabéns ao Red Team!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c04b7",
+      "offset": "0x3C04B7",
+      "bytes": 63,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Vocês surraram aqueles",
+        "crocodilos e foram",
+        "os primeiros no fim!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c04f6",
+      "offset": "0x3C04F6",
+      "bytes": 75,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Mas o que aconteceu ao",
+        "Yellow Team? Acho que eles",
+        "precisam treinar mais!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0541",
+      "offset": "0x3C0541",
+      "bytes": 72,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Mas o que aconteceu ao",
+        "Red Team? Acho que eles",
+        "precisam treinar mais!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0589",
+      "offset": "0x3C0589",
+      "bytes": 29,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Parabéns para o Yellow Team!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c05a6",
+      "offset": "0x3C05A6",
+      "bytes": 49,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Se fosse eu jogando,",
+        "eu teria achado tudo aqui!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c05d7",
+      "offset": "0x3C05D7",
+      "bytes": 58,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Deve haver salas secretas",
+        "que você nem achou por cá!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0611",
+      "offset": "0x3C0611",
+      "bytes": 65,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Mas que bom jogador,",
+        "Donkey, rapaz!",
+        "Derrotou todos os Kremlings,"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0652",
+      "offset": "0x3C0652",
+      "bytes": 70,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "e achou cada segredo",
+        "aqui! Você já é quase",
+        "bom como eu era antes!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0698",
+      "offset": "0x3C0698",
+      "bytes": 68,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Ora, ora, ora, vejam só",
+        "quem veio: Red Team",
+        "O que houve com os dois?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c06dc",
+      "offset": "0x3C06DC",
+      "bytes": 66,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "O Yellow Team terminou",
+        "faz tempo! Bons demais",
+        "pra vocês dois, é?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c071e",
+      "offset": "0x3C071E",
+      "bytes": 71,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "Ora, ora, ora, vejam só",
+        "o grupo Yellow Team!",
+        "O que houve com os dois?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c0765",
+      "offset": "0x3C0765",
+      "bytes": 63,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "endings",
+      "lines": [
+        "O Red Team terminou",
+        "faz tempo! Bons demais",
+        "pra vocês dois, é?!"
+      ]
+    },
     {
       "id": "dialogue_en.3c07a4",
       "group": "greetings",
@@ -313,7 +515,7 @@
       "balanced_padding": true,
       "group": "greetings",
       "lines": [
-        "Aqui é terra de chifrudos!"
+        "Terra de rinocerontes!"
       ]
     },
     {
@@ -498,6 +700,1273 @@
       "lines": [
         "Aposto que você",
         "nem passa daqui mesmo..."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1634",
+      "offset": "0x3C1634",
+      "bytes": 84,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Fique bem atento atrás do",
+        "rinoceronte Rambi! Ele abre",
+        "quase toda sala escondida."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1688",
+      "offset": "0x3C1688",
+      "bytes": 63,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Ele nem voa de fato,",
+        "mas a avestruz Expresso",
+        "pode planar no ar."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c16c7",
+      "offset": "0x3C16C7",
+      "bytes": 62,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Peixe-espada Enguarde!",
+        "Ele o ajudará",
+        "a ir direto até o ponto!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1705",
+      "offset": "0x3C1705",
+      "bytes": 61,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "O rinoceronte Rambi o ajuda,",
+        "mas vai querer",
+        "investir com tudo"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1742",
+      "offset": "0x3C1742",
+      "bytes": 84,
+      "max_line": 31,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Ouvi que se rolar fora",
+        "da borda e apertar o pulo,",
+        "você dará um superpulo no ar."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1796",
+      "offset": "0x3C1796",
+      "bytes": 63,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Me disseram que se segurar",
+        "firme a tecla X aqui,",
+        "você corre!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c17d5",
+      "offset": "0x3C17D5",
+      "bytes": 78,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Eu li lá no manual que você",
+        "pula mais longe ao segurar",
+        "a corrida apertada"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1823",
+      "offset": "0x3C1823",
+      "bytes": 77,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Aposto que o Rambi consegue",
+        "arrombar quase que qualquer",
+        "passagem escondida."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1870",
+      "offset": "0x3C1870",
+      "bytes": 84,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Se bater um barril de metal na",
+        "parede e pular quando ele",
+        "ao voltar, dá pra montar lá!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c18c4",
+      "offset": "0x3C18C4",
+      "bytes": 75,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Se rolar contra um inimigo,",
+        "sua velocidade sobe mais",
+        "ao acertar o próximo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c190f",
+      "offset": "0x3C190F",
+      "bytes": 84,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Disseram que se você quicar",
+        "em oito inimigos em seguida,",
+        "ganha uma vida extra ali."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1963",
+      "offset": "0x3C1963",
+      "bytes": 86,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Soube que o Expresso nunca",
+        "pisa nos inimigos. Acho que",
+        "tem as pernas finas demais."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c19b9",
+      "offset": "0x3C19B9",
+      "bytes": 76,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Se vir um barril cheio",
+        "de estrelas, quebre logo!",
+        "Marca o meio do caminho."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1a05",
+      "offset": "0x3C1A05",
+      "bytes": 46,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Ache a Candy e ela vai",
+        "salvar o jogo pra você!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1a33",
+      "offset": "0x3C1A33",
+      "bytes": 73,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "O Funky manda você a qualquer",
+        "lugar já visitado",
+        "desta ilha, num instante!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1a7c",
+      "offset": "0x3C1A7C",
+      "bytes": 78,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Procure buracos escondidos",
+        "pelo solo e pule bem em cima",
+        "vindo lá do alto!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1aca",
+      "offset": "0x3C1ACA",
+      "bytes": 82,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Procure setas de bananas,",
+        "elas mostram a rota! Mas",
+        "claro que eu nem precisaria!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1b1c",
+      "offset": "0x3C1B1C",
+      "bytes": 81,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Se achar bananas por cá,",
+        "pode apostar que os Kremlings",
+        "passaram lá antes de você!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1b6d",
+      "offset": "0x3C1B6D",
+      "bytes": 84,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Se achar barris marcados com",
+        "DK neles, quebre-os na hora!",
+        "Seu amigo pode estar neles!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1bc1",
+      "offset": "0x3C1BC1",
+      "bytes": 60,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Pegue os",
+        "itens de vida bem depressa,",
+        "antes que voem embora."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1bfd",
+      "offset": "0x3C1BFD",
+      "bytes": 76,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Os dentes do Klaptrap evitam",
+        "qualquer ataque girando!",
+        "Pule bem em cima dele!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1c49",
+      "offset": "0x3C1C49",
+      "bytes": 86,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Zingers têm espinhos em suas",
+        "costas! Nem pule neles, só se",
+        "estiver montado no Winky!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1c9f",
+      "offset": "0x3C1C9F",
+      "bytes": 79,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "O capacete do Klump o protege",
+        "contra o seu pulo normal.",
+        "Role para derrubá-lo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1cee",
+      "offset": "0x3C1CEE",
+      "bytes": 66,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Krusha é o mais forte",
+        "Kremling-- só mesmo um barril",
+        "o derruba ali!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1d30",
+      "offset": "0x3C1D30",
+      "bytes": 54,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Barris flutuantes se abrem",
+        "assim que você toca neles."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1d66",
+      "offset": "0x3C1D66",
+      "bytes": 53,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Barris com aro só quebram",
+        "quando batem numa parede."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1d9b",
+      "offset": "0x3C1D9B",
+      "bytes": 89,
+      "max_line": 31,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Tonéis de metal nem quebram,",
+        "siga atrás deles para varrer",
+        "todos os inimigos pelo caminho!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1df4",
+      "offset": "0x3C1DF4",
+      "bytes": 79,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Segure a tecla de corrida já",
+        "e pule em inimigos pra ganhar",
+        "mais impulso no pulo."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1e43",
+      "offset": "0x3C1E43",
+      "bytes": 63,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Quique nos pneus presos",
+        "para saltar muros e",
+        "chegar em segredos"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1e82",
+      "offset": "0x3C1E82",
+      "bytes": 78,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Empurre os pneus soltos até",
+        "os pontos onde ajudem você",
+        "a achar fases secretas."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1ed0",
+      "offset": "0x3C1ED0",
+      "bytes": 63,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "Rolar por cima da Slippa,",
+        "ou esmagar a cobra",
+        "num pulo resolve já"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1f0f",
+      "offset": "0x3C1F0F",
+      "bytes": 45,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "general_tips",
+      "lines": [
+        "O castor Gnawty cai",
+        "no giro ou num pulo."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1f3c",
+      "offset": "0x3C1F3C",
+      "bytes": 18,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Por hoje é tudo!!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1f4e",
+      "offset": "0x3C1F4E",
+      "bytes": 36,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Mais nada tenho aqui",
+        "pra lhe contar."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1f72",
+      "offset": "0x3C1F72",
+      "bytes": 39,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Você já sabe de tudo",
+        "por ora, moleque."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1f99",
+      "offset": "0x3C1F99",
+      "bytes": 44,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Volte pra me visitar depois,",
+        "estarei aqui!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1fc5",
+      "offset": "0x3C1FC5",
+      "bytes": 46,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Nem sei de mais nada",
+        "além disso no momento."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c1ff3",
+      "offset": "0x3C1FF3",
+      "bytes": 55,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Isso é tudo o que há aqui.",
+        "Moleza pura, na minha conta."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c202a",
+      "offset": "0x3C202A",
+      "bytes": 52,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Até mais, trouxas",
+        "Evitem se ferir",
+        "andando lá por fora"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c205e",
+      "offset": "0x3C205E",
+      "bytes": 51,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Foi todo o conselho que o",
+        "velho Cranky tem a dar."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2091",
+      "offset": "0x3C2091",
+      "bytes": 41,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Já estou cansando,",
+        "vou tirar um cochilo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c20ba",
+      "offset": "0x3C20BA",
+      "bytes": 56,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Você quase já sabe mais",
+        "do que eu hoje.",
+        "Bom... quase lá"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c20f2",
+      "offset": "0x3C20F2",
+      "bytes": 61,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Nada mais tenho para dizer",
+        "a você neste instante,",
+        "quem sabe já"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c212f",
+      "offset": "0x3C212F",
+      "bytes": 71,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Ficaria aqui na cadeira",
+        "o dia todo, se vocês",
+        "me deixarem em paz!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2176",
+      "offset": "0x3C2176",
+      "bytes": 58,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Já vou indo lá,",
+        "vejo vocês mais tarde...",
+        "se tiverem sorte"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c21b0",
+      "offset": "0x3C21B0",
+      "bytes": 34,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Olha, é bem isso",
+        "mesmo por hoje!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c21d2",
+      "offset": "0x3C21D2",
+      "bytes": 35,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Opa, já deu a hora?!",
+        "Preciso voar"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c21f5",
+      "offset": "0x3C21F5",
+      "bytes": 55,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Eu contaria causos sobre",
+        "o passado o dia inteirinho"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c222c",
+      "offset": "0x3C222C",
+      "bytes": 28,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Voltem logo depois, ouviram"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2248",
+      "offset": "0x3C2248",
+      "bytes": 39,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Se você empacar,",
+        "volte para me ver."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c226f",
+      "offset": "0x3C226f",
+      "bytes": 69,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Nem espero mesmo ver você",
+        "outra vez, porém",
+        "pode dar sorte, acho eu."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c22b4",
+      "offset": "0x3C22B4",
+      "bytes": 35,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Foi bom bater",
+        "papo com vocês dois."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c22d7",
+      "offset": "0x3C22D7",
+      "bytes": 37,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Oi, guri? Fale alto",
+        "nem posso escutar"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c22fc",
+      "offset": "0x3C22FC",
+      "bytes": 49,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Donkey, já vi o bastante!",
+        "Essa gravata-- apague!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c232d",
+      "offset": "0x3C232D",
+      "bytes": 79,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Esse som estéreo faz meus",
+        "velhos ouvidos doerem!",
+        "Abaixe isso antes de sair!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c237c",
+      "offset": "0x3C237C",
+      "bytes": 38,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Toda essa jogatina",
+        "é demais para mim."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c23a2",
+      "offset": "0x3C23A2",
+      "bytes": 32,
+      "max_line": 31,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Vou pra cabana tirar uma soneca"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c23c2",
+      "offset": "0x3C23C2",
+      "bytes": 76,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Lembra lá do primeiro",
+        "Donkey Kong? Vou jogar",
+        "aquilo... até mais tarde!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c240e",
+      "offset": "0x3C240E",
+      "bytes": 68,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Há inimigos demais por",
+        "aqui pro meu gosto...",
+        "Vou lá me deitar!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2452",
+      "offset": "0x3C2452",
+      "bytes": 82,
+      "max_line": 31,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Eu convidaria a entrar,",
+        "mas faltou memória para",
+        "mostrar o interior da cabana!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c24a4",
+      "offset": "0x3C24A4",
+      "bytes": 80,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Agora, dê o fora!! Veja se",
+        "termina esta busca boba",
+        "sem precisar de minha ajuda"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c24f4",
+      "offset": "0x3C24F4",
+      "bytes": 72,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Trate de fechar a porteira",
+        "quando você sair.",
+        "Você nem nasceu em celeiro!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c253c",
+      "offset": "0x3C253C",
+      "bytes": 32,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Até logo mais, jacaré!",
+        "Ha! Ha!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c255c",
+      "offset": "0x3C255C",
+      "bytes": 26,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "farewells",
+      "lines": [
+        "Até mais ver, crocodilo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2576",
+      "offset": "0x3C2576",
+      "bytes": 58,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Jovens de hoje!",
+        "Vocês já nem têm",
+        "respeito pelos velhos!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c25b0",
+      "offset": "0x3C25B0",
+      "bytes": 57,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Nem havia movimento",
+        "assim bom",
+        "quando eu estava em jogos!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c25e9",
+      "offset": "0x3C25E9",
+      "bytes": 35,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Todo esse lazer já",
+        "faz mal pra você"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c260c",
+      "offset": "0x3C260C",
+      "bytes": 69,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Aposto que gastaram",
+        "metade da memória aqui,",
+        "só mesmo neste pedacinho!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2651",
+      "offset": "0x3C2651",
+      "bytes": 57,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Eles nem sustentam",
+        "esse visual bonito",
+        "muito tempo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c268a",
+      "offset": "0x3C268A",
+      "bytes": 77,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Era sorte demais quando a",
+        "gente via 3 tons bons",
+        "imagine cores de verdade"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c26d7",
+      "offset": "0x3C26D7",
+      "bytes": 49,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "A gente se virava só com",
+        "dois quadros de passo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2708",
+      "offset": "0x3C2708",
+      "bytes": 64,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Nossos velhos sprites",
+        "mudavam o tamanho",
+        "sem motivo algum ali!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2748",
+      "offset": "0x3C2748",
+      "bytes": 82,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Nunca tivemos essa coisa",
+        "chique de 3-D! Nada disso",
+        "a gente vivia com o que dava"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c279a",
+      "offset": "0x3C279A",
+      "bytes": 48,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "E com o pouco que sobrava,",
+        "éramos bem felizes!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c27ca",
+      "offset": "0x3C27CA",
+      "bytes": 39,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Ora, nunca vi mesmo",
+        "nada igual a isto!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c27f1",
+      "offset": "0x3C27F1",
+      "bytes": 57,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Aproveite a demo enquanto dá,",
+        "isso nem dura muito mais!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c282a",
+      "offset": "0x3C282A",
+      "bytes": 77,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Isso mesmo, 4 tons de",
+        "cinza, num bloquinho 2x2",
+        "era só o que havia ali..."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2877",
+      "offset": "0x3C2877",
+      "bytes": 72,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Nem consigo jogar isto,",
+        "as cores brilham demais",
+        "pros meus olhos hoje!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c28bf",
+      "offset": "0x3C28BF",
+      "bytes": 79,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Ora, até as bananas têm",
+        "mais quadros e cores do que",
+        "eu tive no meu jogo todo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c290e",
+      "offset": "0x3C290E",
+      "bytes": 81,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Olhe!... veja só isto!....",
+        "a barba mexe na cadeira!",
+        "Que gasto bobo de quadros!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c295f",
+      "offset": "0x3C295f",
+      "bytes": 52,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Pois é! Naquele tempo sim",
+        "havia jogo de verdade!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2993",
+      "offset": "0x3C2993",
+      "bytes": 78,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "E isto foi feito usando",
+        "as mais modernas máquinas",
+        "de 3D de ponta, foi é?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c29e1",
+      "offset": "0x3C29E1",
+      "bytes": 55,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "O mal dessa molecada hoje,",
+        "é serem todos muito moles!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2a18",
+      "offset": "0x3C2A18",
+      "bytes": 53,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Os velhos jogos eram",
+        "bem piores na minha época!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2a4d",
+      "offset": "0x3C2A4D",
+      "bytes": 86,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Jogávamos por horas num jogo",
+        "de uma só tela achando que",
+        "era muita sorte, e era sim!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2aa3",
+      "offset": "0x3C2AA3",
+      "bytes": 45,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Você nem duraria dois minutos",
+        "num jogo sério!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2ad0",
+      "offset": "0x3C2AD0",
+      "bytes": 56,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Eu zeraria este",
+        "D.K.Country usando só",
+        "uma vida, fácil!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2b08",
+      "offset": "0x3C2B08",
+      "bytes": 40,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Falo da época em que",
+        "jogo era jogo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2b30",
+      "offset": "0x3C2B30",
+      "bytes": 43,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "3 vidas e 3 continues,",
+        "era o que havia lá"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2b5b",
+      "offset": "0x3C2B5B",
+      "bytes": 46,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Jogos nem eram bonitos assim",
+        "no tempo de guri."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2b89",
+      "offset": "0x3C2B89",
+      "bytes": 49,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "E o povo vivia bem melhor",
+        "naqueles tempos hoje!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2bba",
+      "offset": "0x3C2BBA",
+      "bytes": 41,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Achou mesmo que isto",
+        "era 64-bit, guri?!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2be3",
+      "offset": "0x3C2BE3",
+      "bytes": 78,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Tenho mais técnica no meu",
+        "dedinho do que você tem",
+        "neste jogo inteirinho!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2c31",
+      "offset": "0x3C2C31",
+      "bytes": 52,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Sabe como é que dizem,",
+        "muito gráfico e pouco jogo!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2c65",
+      "offset": "0x3C2C65",
+      "bytes": 84,
+      "max_line": 31,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "32 meg..? Isso daria mais",
+        "de 30 jogos na minha época,",
+        "e seriam ótimos jogos também!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2cb9",
+      "offset": "0x3C2CB9",
+      "bytes": 50,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Nos meus tempos, a gente",
+        "tinha jogo de verdade..."
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2ceb",
+      "offset": "0x3C2CEB",
+      "bytes": 81,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Sabe o que é ainda pior?!",
+        "Chegar até o fim do jogo",
+        "e ter de voltar tudo do zero!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2d3c",
+      "offset": "0x3C2D3C",
+      "bytes": 48,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Você nem reconheceria um bom",
+        "jogo estando nele!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2d6c",
+      "offset": "0x3C2D6C",
+      "bytes": 82,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Um só controle e uma",
+        "só tecla bastam para criar",
+        "uma boa jogabilidade!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2dbe",
+      "offset": "0x3C2DBE",
+      "bytes": 48,
+      "max_line": 29,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Eu nem apareceria morto",
+        "num jogo que nem este!"
+      ]
+    },
+    {
+      "id": "dialogue_en.3c2dee",
+      "offset": "0x3C2DEE",
+      "bytes": 77,
+      "max_line": 30,
+      "balanced_padding": true,
+      "group": "rants",
+      "lines": [
+        "Digo que nada supera estes",
+        "gráficos, sons e",
+        "o belo jogo de Game & Watch!"
       ]
     },
     {

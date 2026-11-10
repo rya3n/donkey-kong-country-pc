@@ -31,7 +31,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P08 | Validar persistência | SRAM aprovada no cenário coberto | Três saves da Candy e reinícios passaram; ampliar progresso real; save states fora desta entrega |
 | P09 | Criar repositório público | Concluída a publicação inicial da documentação | Destino: rya3n/donkey-kong-country-pc; visibilidade pública e 12 arquivos conferidos pela API |
 | P10 | Validar campanha e estabilidade | Roteiro preparado; cobertura pendente | Registrar campanha e saves com progresso real; aceitar V14 antes de promover a versão traduzida |
-| P11 | Inventariar, traduzir e revisar PT-BR | Menus, oito falas da Candy, treze do Funky e quarenta e quatro do Cranky no piloto; tradução ampla pendente | Candy (8/8) e Funky (13/13) completos; Cranky com seis saudações, onze falas de retorno rápido e vinte e sete dicas de fases; concluir V15–V17 sem dar P10 por concluída |
+| P11 | Inventariar, traduzir e revisar PT-BR | 217 diálogos do inventário inglês no piloto | Candy 8, Funky 13 e Cranky 196. Revisão em campanha, créditos e demais telas pendentes |
 | P12 | Preparar aplicativo Windows | Após a base estável; validar após a tradução | Abertura direta e pacote verificados por V18–V19 |
 | P13 | Investigar divergência ao ampliar AOT | Aberta; candidata retirada | Localizar primeira diferença de WRAM/áudio entre 39 e 55 variantes antes de promover cobertura |
 | P14 | Implementar host interativo Rev 1 | Implementado; primeiro teste realizado | Usuário testou as primeiras fases e relatou perda de fluidez na caverna; bateria completa de ações ainda pendente |
@@ -51,6 +51,8 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P28 | Integrar dicas de Chimp Caverns | Implementado; revisão humana pendente | Cinco dicas em 0x3C01C4–0x3C01D4, fechando as 27 dicas dos seis mundos; 49 regiões anteriores idênticas; conferir relatório 26 |
 | P29 | Integrar falas de retorno rápido do Cranky | Implementado; revisão humana pendente | Onze mensagens em 0x3C0144–0x3C0164; 54 regiões anteriores idênticas; conferir relatório 27 |
 | P30 | Completar falas identificadas do Funky | Implementado; revisão humana pendente | Nove mensagens de revisita em 0x3C0374–0x3C038C, fechando todas as 13 falas do Funky; 65 regiões anteriores idênticas; conferir relatório 28 |
+| P31 | Completar saudações do Cranky | Implementado, com revisão humana pendente | 41 saudações no piloto de 100 diálogos. Conferir relatório 29 |
+| P32 | Integrar as 117 falas restantes do Cranky | Implementado, com revisão humana pendente | Finais, dicas gerais, despedidas e reclamações. Conferir relatório 30 |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.
 
