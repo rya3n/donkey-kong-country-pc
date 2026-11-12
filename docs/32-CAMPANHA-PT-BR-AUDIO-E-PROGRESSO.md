@@ -52,8 +52,61 @@ O executável de QA adicionou leitura do roteiro e captura de PCM ao host Win32.
 | 40092 | Trilha do Mapa | Deslocamento automático dos Kongs pela trilha do mapa concluído no ponto de Mine Cart Carnage |
 | 40178 | Entrada Mine Cart Carnage | Botão B pressionado no quadro 40.093, fade-in concluído e fase carregada (entrance=002e, scene=0005, camera=17) |
 | 40473 | Mine Cart Carnage - Início | Posição pronta na fase do carrinho de mina com 4 vidas preservadas e 72 bananas acumuladas |
+| 42185 | Mine Cart Carnage - J11 | Primeiro quarto da fase superado (camera=6457, 5 vidas, 1 banana) |
+| 43481 | Mine Cart Carnage - J22 | Metade da fase superada; vida extra acumulada (camera=11298, 6 vidas, 20 bananas) |
+| 45086 | Mine Cart Carnage - J40 | Fim do trecho superior com trilhos quebrados (camera=16845, 6 vidas, 37 bananas) |
+| 45146 | Mine Cart Carnage - J41/J42 | Transferência calculada de trilhos: queda do trilho superior quebrado para o carrinho no trilho inferior |
+| 45255 | Mine Cart Carnage - J44 | Penúltimo salto superado (camera=17557, 6 vidas, 37 bananas) |
+| 45428 | Mine Cart Carnage - J45 | Salto final para a estrutura de saída (w=138, j=35) executado com sucesso |
+| 45570 | Mine Cart Carnage Concluída | Saída alcançada sem perda de vidas (6 vidas preservadas, 37 bananas) e fade-out de vitória disparado |
+| 45804 | Retorno ao Mapa de Monkey Mines | Transição concluída para o mapa de Monkey Mines e deslocamento automático pela trilha do mapa |
+| 45948 | Monkey Mines - Bouncy Bonanza | Posição estabilizada no mapa diante de Bouncy Bonanza (entrance=0007, scene=0005, camera=0, 6 vidas, 37 bananas) |
 
-O roteiro usa os comandos do controle desde o menu (`evidence/2026-11-10/pt-BR/campaign-start/campaign-to-mine-cart-carnage.inputs`). A rota inteira (40.473 quadros) pode ser reproduzida a partir de um perfil vazio desde o cold boot, gerando o arquivo de salvamento idêntico e avançando pelas fases de forma 100% determinística.
+O roteiro usa os comandos do controle desde o menu (`evidence/2026-11-10/pt-BR/campaign-start/campaign-to-bouncy-bonanza.inputs`). A rota inteira (45.948 quadros) pode ser reproduzida a partir de um perfil vazio desde o cold boot, gerando o arquivo de salvamento idêntico e avançando pelas fases de forma 100% determinística.
+
+## Travessia dos 45 obstáculos de Mine Cart Carnage
+
+A fase foi superada sem qualquer perda de vidas (o número de vidas subiu de 4 para 6 durante o percurso). Todos os 45 saltos foram mapeados e validados:
+
+| Salto | Espera (w) | Pulo (j) | Quadro final | Câmera | Vidas | Bananas | Observações |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1–9 | — | — | 41905 | — | 5 | — | Saltos iniciais de carrinho sobre fendas e Krashes |
+| 10 | 160 | 10 | 42065 | — | 5 | — | Salto curto preventivo |
+| 11 | 120 | 30 | 42185 | 6457 | 5 | 1 | Salto longo sobre fenda |
+| 12 | 100 | 30 | 42315 | 6840 | 5 | 4 | Salto sobre carrinho em sentido contrário |
+| 13 | 290 | 25 | 42630 | 8179 | 5 | 5 | Travessia longa em alta velocidade |
+| 14 | 85 | 30 | 42745 | 8596 | 5 | 5 | Salto sobre abismo |
+| 15 | 114 | 25 | 42884 | 8991 | 5 | 8 | Salto sobre obstáculo |
+| 16 | 45 | 25 | 42954 | 9150 | 5 | 10 | Salto rápido em sequência |
+| 17 | 75 | 25 | 43054 | 9417 | 5 | 12 | Salto sobre carrinho |
+| 18 | 80 | 30 | 43164 | 9853 | 5 | 12 | Salto sobre abismo |
+| 19 | 33 | 30 | 43227 | 10155 | 5 | 14 | Salto em sequência |
+| 20 | 38 | 30 | 43295 | 10469 | 5 | 17 | Salto sobre carrinho |
+| 21 | 40 | 20 | 43355 | 10746 | 5 | 20 | Salto de aproximação |
+| 22 | 91 | 35 | 43481 | 11298 | 6 | 20 | Balão de 1-Up coletado (+1 vida) |
+| 23 | 82 | 35 | 43598 | 11650 | 6 | 20 | Salto sobre trilho interrompido |
+| 24 | 92 | 35 | 43725 | 12031 | 6 | 20 | Salto longo sobre grande vão |
+| 25 | 99 | 35 | 43859 | 12450 | 6 | 20 | Salto sobre carrinho reverso |
+| 26 | 145 | 35 | 44039 | 13190 | 6 | 20 | Salto de longo alcance |
+| 27 | 4 | 35 | 44078 | 13347 | 6 | 20 | Pulo imediato após aterrissagem |
+| 28 | 94 | 35 | 44207 | 13723 | 6 | 23 | Salto sobre fenda |
+| 29 | 75 | 35 | 44317 | 14095 | 6 | 23 | Salto sobre obstáculo reverso |
+| 30 | 33 | 35 | 44385 | 14319 | 6 | 25 | Salto rápido em sequência |
+| 31 | 75 | 15 | 44475 | 14672 | 6 | 27 | Salto curto sob obstáculo aéreo |
+| 32 | 27 | 35 | 44537 | 14937 | 6 | 32 | Salto longo sobre fenda |
+| 33 | 21 | 35 | 44593 | 15188 | 6 | 32 | Salto rápido de transição |
+| 34 | 20 | 35 | 44648 | 15338 | 6 | 32 | Salto sobre carrinho |
+| 35 | 43 | 35 | 44726 | 15594 | 6 | 32 | Salto longo |
+| 36 | 5 | 25 | 44756 | 15675 | 6 | 32 | Salto rápido imediato |
+| 37 | 35 | 35 | 44826 | 15912 | 6 | 34 | Salto sobre abismo |
+| 38 | 70 | 35 | 44931 | 16216 | 6 | 37 | Salto longo |
+| 39 | 34 | 35 | 45000 | 16467 | 6 | 37 | Salto sobre fenda |
+| 40 | 51 | 35 | 45086 | 16845 | 6 | 37 | Salto para início do trilho quebrado |
+| 41 | 10 | 20 | 45116 | — | 6 | 37 | Queda calculada do trilho quebrado |
+| 42 | 10 | 20 | 45146 | — | 6 | 37 | Aterrissagem no carrinho do trilho inferior |
+| 43 | 38 | 20 | 45204 | 17354 | 6 | 37 | Salto de manutenção no trilho inferior |
+| 44 | 16 | 35 | 45255 | 17557 | 6 | 37 | Penúltimo salto longo |
+| 45 | 138 | 35 | 45428 | 18315 | 6 | 37 | Salto final do carrinho para a caverna de saída |
 
 ## Validação de persistência a frio (Cold Save)
 

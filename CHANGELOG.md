@@ -2,6 +2,15 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-12 — Mine Cart Carnage concluída e chegada em Bouncy Bonanza
+
+- **Mine Cart Carnage** (Mundo 2, Fase 2) 100% concluída de forma totalmente determinística: todos os 45 saltos e transições de trilho executados sem qualquer perda de vidas (o saldo de vidas subiu de 4 para 6; 37 bananas).
+- Sequência complexa de trilhos superada: transferência dos saltos 41 e 42 calculada para aterrissar do trilho superior quebrado diretamente no carrinho que corre pelo trilho inferior (câmera ~17.000).
+- Salto final 45 (espera de 138 quadros, pulo de 35 quadros) executado no quadro 45.428, ejetando o Kong do carrinho diretamente para a área de saída sem colisão com o batente do trilho.
+- Fade-out de vitória e retorno ao mapa de **Monkey Mines** no quadro 45.804; avanço automático pela trilha do mapa concluído com estabilização diante de **Bouncy Bonanza** (`entrance=0007`, `scene=0005`, `camera=0`) no quadro 45.948 com 6 vidas preservadas e 37 bananas.
+- Roteiro determinístico integral desde o cold boot (quadro 0 a 45.948) consolidado e verificado com sucesso no arquivo `evidence/2026-11-10/pt-BR/campaign-start/campaign-to-bouncy-bonanza.inputs` (45.948 quadros) via executável headless do piloto PT-BR (`dkc_rev1_headless.exe`).
+- Documentação sincronizada em `Etapas e pendências`, `Repasse para o Gemini` (Notion) e arquivos locais do projeto.
+
 ## 2026-11-12 — Winky's Walkway concluída e entrada em Mine Cart Carnage
 
 - **Winky's Walkway** (Mundo 2, Fase 1) 100% concluída de forma totalmente determinística. 15 obstáculos superados sem sofrer qualquer dano: saltos precisos sobre abismos, plataformas suspensas, sequências de Neckys e rolamentos contra Kritters.
