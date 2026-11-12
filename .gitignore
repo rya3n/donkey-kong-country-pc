@@ -10,6 +10,7 @@
 *.pcm
 *.ppm
 *.rom
+tier2_*.json*
 generated/
 **/generated/
 captures/

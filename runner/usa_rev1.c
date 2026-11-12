@@ -255,7 +255,7 @@ int main(int argc, char **argv) {
     }
     char *end;
     long frames = strtol(argv[2], &end, 10);
-    if (*end || frames < 1 || frames > 20000) return 2;
+    if (*end || frames < 1 || frames > 120000) return 2;
     FILE *file = fopen(argv[1], "rb");
     int loaded = Rev1Open(file);
     if (file) fclose(file);

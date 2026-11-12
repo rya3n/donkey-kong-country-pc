@@ -2,6 +2,32 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-12 — Winky's Walkway concluída e entrada em Mine Cart Carnage
+
+- **Winky's Walkway** (Mundo 2, Fase 1) 100% concluída de forma totalmente determinística. 15 obstáculos superados sem sofrer qualquer dano: saltos precisos sobre abismos, plataformas suspensas, sequências de Neckys e rolamentos contra Kritters.
+- Salto final executado a partir da plataforma superior (quadro 39.558) para a rampa final de madeira (quadro 39.607). Coleta de bananas na subida e ativação do barril de saída no quadro 39.757 com 4 vidas intactas e 72 bananas.
+- Dança da vitória do Diddy com rádio boombox e fanfarra de encerramento da fase. Fade-out e retorno ao mapa de **Monkey Mines** (`entrance=002e`, `scene=0006`) no quadro 39.997.
+- Caminhada automática dos Kongs pela trilha do mapa concluída com parada no ponto de **Mine Cart Carnage** no quadro 40.092.
+- Acionamento da entrada com botão B no quadro 40.093. Carregamento completo do estágio (`scene=0005`, `camera=17`) verificado no quadro 40.178 / 40.473.
+- Roteiro determinístico consolidado e verificado com sucesso desde o cold boot (quadro 0 a 40.473) no arquivo `evidence/2026-11-10/pt-BR/campaign-start/campaign-to-mine-cart-carnage.inputs` (40.473 quadros).
+- Documentação sincronizada em `Etapas e pendências`, `Repasse para o Gemini` e arquivos locais do projeto.
+
+## 2026-11-12 — Derrota de Very Gnawty e entrada em Monkey Mines
+
+- Chefe Very Gnawty (Mundo 1) derrotado na arena com Donkey Kong: 5 acertos consecutivos sem sofrer dano (quadro 36.510). Evasão da investida mortal do chefe executada com salto no quadro 36.570, preservando todas as 4 vidas de Donkey Kong.
+- Queda e coleta da banana gigante no quadro 36.870, fanfarra de vitória de fim de mundo e fade-out no quadro 37.136. Transição pelo mapa geral da ilha (`entrance=00ec`) até o mapa de Monkey Mines (`entrance=00ed`) no quadro 37.241.
+- Posição estabilizada no mapa de Monkey Mines no quadro 37.620 com 4 vidas intactas e 55 bananas.
+- Entrada na primeira fase de Monkey Mines (**Winky's Walkway**, `entrance=00d9`) executada com botão B.
+- Roteiro integral determinístico desde o boot frio consolidado em `evidence/2026-11-10/pt-BR/campaign-start/campaign-to-monkey-mines.inputs` (37.620 quadros).
+- Documentação sincronizada em `docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md`, `docs/06-ETAPAS-E-PENDENCIAS.md`, `.project-local.md` e páginas do Notion.
+
+## 2026-11-11 — Barrel Cannon Canyon, Candy e Persistência a Frio
+
+- **Barrel Cannon Canyon:** Sequência de canhões móveis e obstáculos de chão superados até a caverna de saída. Fase concluída no quadro 34.466 com 4 vidas preservadas.
+- **Candy's Save Point:** Visita via navegação no mapa de Kongo Jungle no quadro 34.818. Diálogo da Candy em PT-BR conferido e salvamento efetuado no quadro 35.218.
+- **Persistência a Frio (Cold Save):** Validação executada via `audio-driver/cold_save.py` no perfil `gemini-clean-cold-report`. SRAM gravada em `saves/save.srm` com exatamente 2.048 bytes e SHA-256 `72d519d25cce21886142567427185942b8f2480ee9c7f0a7d912730830ea3207`. Backup automático `save.srm.bak` idêntico gerado na abertura. Hashes de framebuffer, WRAM e SRAM rigorosamente idênticos entre o runner headless e o aplicativo desktop Win32 (`DKC-Rev1-PTBR-Piloto.exe`).
+- Roteiro consolidado em `evidence/2026-11-10/pt-BR/campaign-start/campaign-to-candy.inputs` (35.218 quadros desde o boot limpo).
+
 ## 2026-11-10 — Início da campanha PT-BR
 
 - Repetida a rota desde um perfil vazio, com morte, retorno ao mapa, nova entrada e conclusão de Jungle Hijinxs e Ropey Rampage.
