@@ -4,7 +4,7 @@ Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa 
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-O piloto PT-BR para USA v1.1 (Rev 1) reúne **217 diálogos do inventário inglês**. São oito falas da Candy, treze do Funky e 196 do Cranky, incluindo as 27 dicas de fases. A rota principal de **Kongo Jungle** passou pela Candy, validou o salvamento em um novo processo e derrotou Very Gnawty. Em **Monkey Mines**, o roteiro contínuo conclui *Winky's Walkway*, *Mine Cart Carnage* e *Bouncy Bonanza*, com retorno ao mapa diante de *Stop & Go Station*. Abra **Testar DKC - PT-BR.cmd** para jogar no perfil do piloto. A revisão em campanha e a localização dos créditos e das demais telas continuam em andamento. [Diálogos do Cranky e validação](docs/30-DIALOGOS-CRANKY-PT-BR.md) · [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md).
+O piloto PT-BR para USA v1.1 (Rev 1) reúne **217 diálogos do inventário inglês**. São oito falas da Candy, treze do Funky e 196 do Cranky, incluindo as 27 dicas de fases. A rota principal de **Kongo Jungle** passou pela Candy, validou o salvamento em um novo processo e derrotou Very Gnawty. Em **Monkey Mines**, o roteiro contínuo conclui *Winky's Walkway*, *Mine Cart Carnage*, *Bouncy Bonanza* e *Stop & Go Station*. O percurso termina no mapa diante de *Millstone Mayhem*. Abra **Testar DKC - PT-BR.cmd** para jogar no perfil do piloto. A revisão em campanha e a localização dos créditos e das demais telas continuam em andamento. [Diálogos do Cranky e validação](docs/30-DIALOGOS-CRANKY-PT-BR.md) · [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md).
 
 Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
 
@@ -49,7 +49,7 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Saudações do Cranky](docs/29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md) | As 41 saudações e o piloto de 100 diálogos |
 | [Inventário de diálogos do Cranky](docs/30-DIALOGOS-CRANKY-PT-BR.md) | As 117 falas finais do lote e as duas correções de texto |
 | [Primeira sessão de campanha PT-BR](docs/31-INICIO-CAMPANHA-PT-BR.md) | Rota de teste desde o menu, com visita ao Cranky e entrada em Reptile Rumble |
-| [Áudio e progresso na campanha PT-BR](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) | Kongo Jungle, persistência a frio e roteiro contínuo até o mapa diante de Stop & Go Station |
+| [Áudio e progresso na campanha PT-BR](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) | Kongo Jungle, persistência a frio e roteiro contínuo até o mapa diante de Millstone Mayhem |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 ## Situação em uma leitura

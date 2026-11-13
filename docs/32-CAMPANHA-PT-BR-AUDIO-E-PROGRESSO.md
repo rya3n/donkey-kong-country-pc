@@ -169,3 +169,21 @@ O [roteiro de 50.529 quadros](../recipes/usa-rev1/campaign-to-stop-and-go-statio
 O rastreio registra cinco vidas durante toda a fase. O piloto headless e o coletor de QA geraram capturas finais idênticas. O SHA-256 do framebuffer no relatório do piloto é `38f2bbff2765052d78197c186ac5a57b0e41191c544fc3226e230597b18611dd`. Os 59 testes Python passaram.
 
 Para reproduzir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil de teste novo, 50.529 quadros e o roteiro de Stop & Go Station. O marco final é a seleção no mapa. A próxima etapa da campanha começa pela entrada na fase.
+
+## Saída de Stop & Go Station
+
+O [roteiro de 55.451 quadros](../recipes/usa-rev1/campaign-to-millstone-mayhem-map.inputs) parte do menu e mantém os comandos anteriores até o quadro 53.291. A nova sequência aciona o barril para parar os Rockkrocs, encadeia os saltos nos três apoios e ajusta a espera nas plataformas móveis. O roteiro retorna ao mapa sobre Stop & Go Station e segue à direita pelo ponto de Funky até Millstone Mayhem.
+
+| Quadro | Resultado |
+| --- | --- |
+| 50820 | Stop & Go Station aberta, `entrance=0x0031` e `scene=0x0002` |
+| 52474 | Plataforma vertical atravessada |
+| 53367 | Barril acionado antes dos três apoios com Rockkrocs |
+| 53666 | Travessia dos três apoios concluída |
+| 54052 | Trecho das plataformas móveis concluído |
+| 55149 | Mapa de Monkey Mines após a saída de Stop & Go Station |
+| 55451 | Millstone Mayhem selecionada no mapa, `entrance=0x0042`, cinco vidas e 93 bananas |
+
+O rastreio confirmou cinco vidas desde a entrada até a saída de Stop & Go Station. O piloto headless e o coletor de QA repetiram os 55.451 quadros desde o menu em perfis novos, sem restaurar snapshots. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `c75034a68e48605b69bc2c13a18c1d45408e2ae945fd9e60954feccade4edd25`. Os 59 testes Python passaram.
+
+Para repetir, use o mesmo comando de reprodução em um perfil novo, com 55.451 quadros e o roteiro de Millstone Mayhem. A próxima etapa começa pela entrada na fase.

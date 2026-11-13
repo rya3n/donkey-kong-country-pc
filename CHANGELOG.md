@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-13 — Stop & Go Station concluída
+
+- Ajustada a sequência de comandos para atravessar os três apoios com Rockkrocs e as plataformas móveis com cinco vidas preservadas.
+- Confirmados o retorno a Monkey Mines no quadro 55.149 e a seleção de Millstone Mayhem no quadro 55.451. O piloto headless e o coletor de QA geraram a mesma captura final desde o menu. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-stop--go-station).
+
 ## 2026-11-13 — Bouncy Bonanza concluída
 
 - Validada a travessia desde o menu, com cinco vidas preservadas em Bouncy Bonanza. O roteiro passa pelo túnel inferior, pelos Zingers e pela plataforma móvel final.
