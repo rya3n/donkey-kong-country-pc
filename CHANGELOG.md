@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-13 — Master Necky derrotado e Vine Valley aberto
+
+- Validada a luta de Necky's Nuts com cinco golpes e seis vidas preservadas. Após a animação da banana gigante, o mapa geral selecionou Vine Valley.
+- Confirmada a seleção de Vulture Culture no quadro 62.704. As duas repetições desde o menu em perfis novos geraram a mesma captura final. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#master-necky-e-chegada-a-vine-valley).
+
 ## 2026-11-13 — Millstone Mayhem concluída
 
 - Validada a travessia das mós e dos vãos com checkpoint ativado e uma vida extra obtida ao completar 100 bananas. Nenhuma vida foi perdida na fase.

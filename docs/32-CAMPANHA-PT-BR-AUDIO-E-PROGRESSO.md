@@ -206,3 +206,21 @@ O [roteiro de 60.409 quadros](../recipes/usa-rev1/campaign-to-neckys-nuts-map.in
 O piloto headless e o coletor de QA repetiram os 60.409 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro de transições confirmou que a vida extra foi a única alteração de vidas na fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `f6ba6755159572b4fdc1115dbd95a5f124b3b9549167e9627cf897b24a0b4f3f`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 60.409 quadros e o roteiro de Necky's Nuts. O próximo teste começa no mapa, pela entrada no chefe.
+
+## Master Necky e chegada a Vine Valley
+
+O [roteiro de 62.704 quadros](../recipes/usa-rev1/campaign-to-vine-valley-map.inputs) mantém os comandos até o mapa de Necky's Nuts e acrescenta a luta contra Master Necky. A sequência usa o pneu para atingir o chefe nos dois lados da arena. Após a vitória e a animação da banana gigante, o mapa geral seleciona Vine Valley. Um toque em B abre o mapa desse mundo com Vulture Culture selecionada.
+
+| Quadro | Resultado |
+| --- | --- |
+| 60650 | Arena de Necky's Nuts, `entrance=0x00E1`, `scene=0x000C`, seis vidas |
+| 60714 | Primeiro golpe confirmado, com quatro golpes restantes |
+| 61414 | Quarto golpe confirmado, com um golpe restante |
+| 61601 | Último golpe visível |
+| 61951 | Banana gigante e animação de vitória |
+| 62463 | Vine Valley selecionado no mapa geral, `entrance=0x00E9` |
+| 62704 | Vulture Culture selecionada no mapa de Vine Valley, `entrance=0x00A5`, seis vidas e 10 bananas |
+
+O piloto headless e o coletor de QA repetiram os 62.704 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro de transições confirmou seis vidas durante a luta e a saída de Monkey Mines. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `97fa79dc94aa494e5c9e94c4147c387c52c09e43b6e845f1cc763caeef4bfea8`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 62.704 quadros e o roteiro de Vine Valley. A próxima etapa começa pela entrada em Vulture Culture.
