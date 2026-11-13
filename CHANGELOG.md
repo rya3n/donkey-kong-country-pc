@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-13 — Bouncy Bonanza concluída
+
+- Validada a travessia desde o menu, com cinco vidas preservadas em Bouncy Bonanza. O roteiro passa pelo túnel inferior, pelos Zingers e pela plataforma móvel final.
+- Confirmado o retorno a Monkey Mines com Stop & Go Station selecionada no quadro 50.529. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-bouncy-bonanza).
+
 ## 2026-11-13 — Rota contínua até Bouncy Bonanza
 
 - Ajustados os comandos de salto em Mine Cart Carnage. A repetição desde o menu em perfil novo, sem snapshots, confirmou o mapa de Monkey Mines no quadro 45.981 e a abertura de Bouncy Bonanza no quadro 46.272, com cinco vidas e 40 bananas.

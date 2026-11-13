@@ -153,4 +153,19 @@ Para reproduzir desde o menu, use o mesmo comando da seção anterior com um per
 
 O piloto headless e o coletor de QA repetiram os 46.272 quadros em perfis novos, sem carregar snapshots. As capturas finais PPM foram idênticas. No relatório do piloto, o SHA-256 do framebuffer é `269096de8875fa231a28dd3cc10aa8290fc2aaa7dd64098585c98c91d2959867`. Os 59 testes Python passaram.
 
-O próximo marco é concluir Bouncy Bonanza, confirmar o retorno ao mapa e seguir pelas fases restantes. A escuta do áudio em janela, a revisão dos textos restantes e o aplicativo final seguem na [matriz de validação](05-VALIDACAO.md).
+## Saída de Bouncy Bonanza
+
+O [roteiro de 50.529 quadros](../recipes/usa-rev1/campaign-to-stop-and-go-station-map.inputs) continua a partir da entrada registrada no quadro 46.272. A rota segue pelo túnel inferior, usa os pneus para passar pelos Zingers e cruza a plataforma móvel antes da placa de saída. A exploração usou snapshots para testar os saltos. As verificações finais começaram no menu em perfis novos e usaram apenas comandos do controle.
+
+| Quadro | Resultado |
+| --- | --- |
+| 47601 | Zinger na região do barril de checkpoint ultrapassado |
+| 47896 | Travessia do túnel inferior |
+| 48911 | Chegada à plataforma após os dois primeiros pneus da sequência final |
+| 49424 | Último grupo de Zingers ultrapassado |
+| 49939 | Placa de saída visível |
+| 50529 | Mapa de Monkey Mines com Stop & Go Station selecionada, `entrance=0x0031` |
+
+O rastreio registra cinco vidas durante toda a fase. O piloto headless e o coletor de QA geraram capturas finais idênticas. O SHA-256 do framebuffer no relatório do piloto é `38f2bbff2765052d78197c186ac5a57b0e41191c544fc3226e230597b18611dd`. Os 59 testes Python passaram.
+
+Para reproduzir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil de teste novo, 50.529 quadros e o roteiro de Stop & Go Station. O marco final é a seleção no mapa. A próxima etapa da campanha começa pela entrada na fase.
