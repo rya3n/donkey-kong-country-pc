@@ -52,26 +52,26 @@ O executável de QA adicionou leitura do roteiro e captura de PCM ao host Win32.
 | 40092 | Trilha do Mapa | Deslocamento automático dos Kongs pela trilha do mapa concluído no ponto de Mine Cart Carnage |
 | 40178 | Entrada Mine Cart Carnage | Botão B pressionado no quadro 40.093, fade-in concluído e fase carregada (entrance=002e, scene=0005, camera=17) |
 | 40473 | Mine Cart Carnage - Início | Posição pronta na fase do carrinho de mina com 4 vidas preservadas e 72 bananas acumuladas |
-| 42185 | Mine Cart Carnage - J11 | Primeiro quarto da fase superado (camera=6457, 5 vidas, 1 banana) |
+| 42185 | Mine Cart Carnage - J11 | Trecho repetido desde o menu (camera=6457, 5 vidas, 1 banana) |
 | 43481 | Mine Cart Carnage - J22 | Metade da fase superada; vida extra acumulada (camera=11298, 6 vidas, 20 bananas) |
 | 45086 | Mine Cart Carnage - J40 | Fim do trecho superior com trilhos quebrados (camera=16845, 6 vidas, 37 bananas) |
 | 45146 | Mine Cart Carnage - J41/J42 | Transferência calculada de trilhos: queda do trilho superior quebrado para o carrinho no trilho inferior |
 | 45255 | Mine Cart Carnage - J44 | Penúltimo salto superado (camera=17557, 6 vidas, 37 bananas) |
 | 45428 | Mine Cart Carnage - J45 | Salto final para a estrutura de saída (w=138, j=35) executado com sucesso |
-| 45570 | Mine Cart Carnage Concluída | Saída alcançada sem perda de vidas (6 vidas preservadas, 37 bananas) e fade-out de vitória disparado |
+| 45570 | Mine Cart Carnage concluída a partir de snapshot | Saída alcançada com 6 vidas e 37 bananas |
 | 45804 | Retorno ao Mapa de Monkey Mines | Transição concluída para o mapa de Monkey Mines e deslocamento automático pela trilha do mapa |
-| 45948 | Monkey Mines - Bouncy Bonanza | Posição estabilizada no mapa diante de Bouncy Bonanza (entrance=0007, scene=0005, camera=0, 6 vidas, 37 bananas) |
+| 45948 | Mapa diante de Bouncy Bonanza | Chegada reproduzida a partir do snapshot local de Mine Cart Carnage. A sequência integral precisa ser reconstruída |
 
-O roteiro usa os comandos do controle desde o menu (`evidence/2026-11-10/pt-BR/campaign-start/campaign-to-bouncy-bonanza.inputs`). A rota inteira (45.948 quadros) pode ser reproduzida a partir de um perfil vazio desde o cold boot, gerando o arquivo de salvamento idêntico e avançando pelas fases de forma 100% determinística.
+O [roteiro público de 40.473 quadros](../recipes/usa-rev1/campaign-to-mine-cart-carnage.inputs) contém os comandos do controle desde o menu até o início de Mine Cart Carnage. Os primeiros 35.218 quadros geram o save da Candy e 37.620 chegam a Monkey Mines.
 
-## Travessia dos 45 obstáculos de Mine Cart Carnage
+## Travessia dos 45 obstáculos de Mine Cart Carnage em QA
 
-A fase foi superada sem qualquer perda de vidas (o número de vidas subiu de 4 para 6 durante o percurso). Todos os 45 saltos foram mapeados e validados:
+Os valores abaixo foram registrados durante a exploração com pontos de restauração. A tabela serve como referência para reconstruir uma sequência contínua a partir do início da fase.
 
 | Salto | Espera (w) | Pulo (j) | Quadro final | Câmera | Vidas | Bananas | Observações |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1–9 | — | — | 41905 | — | 5 | — | Saltos iniciais de carrinho sobre fendas e Krashes |
-| 10 | 160 | 10 | 42065 | — | 5 | — | Salto curto preventivo |
+| 10 | 160 | 10 | 42035 | — | 5 | — | Salto curto preventivo |
 | 11 | 120 | 30 | 42185 | 6457 | 5 | 1 | Salto longo sobre fenda |
 | 12 | 100 | 30 | 42315 | 6840 | 5 | 4 | Salto sobre carrinho em sentido contrário |
 | 13 | 290 | 25 | 42630 | 8179 | 5 | 5 | Travessia longa em alta velocidade |
@@ -114,5 +114,28 @@ O script `cold_save.py` foi executado sobre o perfil de teste gerado pela campan
 
 1. **Arquivo SRAM:** `saves/save.srm` com exatamente 2.048 bytes e dados de progresso válidos (`sram_sha256`: `72d519d25cce21886142567427185942b8f2480ee9c7f0a7d912730830ea3207`).
 2. **Backup automático:** `saves/save.srm.bak` gerado na inicialização subsequente com hash idêntico ao original.
-3. **Menu File Select:** O carregamento da tela de seleção de arquivos (quadro 4.801 do boot frio) exibiu o primeiro arquivo com o progresso real acumulado.
+3. **Retorno ao ponto salvo:** Após selecionar o slot, o quadro 4.801 do boot frio mostra os Kongs na Candy. O arquivo foi carregado do disco e permaneceu idêntico após a execução.
 4. **Coincidência Headless vs Desktop Win32:** Hashes de framebuffer (`7eea6811...`), WRAM (`14c7629c...`) e SRAM (`72d519d2...`) rigorosamente idênticos entre os ambientes.
+
+## Retomar em Mine Cart Carnage
+
+Execute da raiz do projeto, com o piloto PT-BR compilado e a ROM Rev 1 local, em um PowerShell sem opções de diagnóstico do jogo.
+
+```powershell
+$qa = New-Item -ItemType Directory -Path 'evidence/replay-mine-cart-carnage' -ErrorAction Stop
+$previousSaveDir = $env:DKC_REV1_SAVE_DIR
+$env:DKC_REV1_SAVE_DIR = $qa.FullName
+try {
+    & '.\build\ptbr-pilot\dkc_rev1_headless.exe' `
+        '.\Donkey Kong Country (USA) (Rev 1).sfc' 40473 `
+        (Join-Path $qa.FullName 'mine-cart-carnage') `
+        '.\recipes\usa-rev1\campaign-to-mine-cart-carnage.inputs'
+    if ($LASTEXITCODE -ne 0) { throw "Replay falhou com código $LASTEXITCODE" }
+} finally {
+    $env:DKC_REV1_SAVE_DIR = $previousSaveDir
+}
+```
+
+O roteiro local de 45.948 quadros reproduziu os hashes registrados em `acd5d06`. No rastreio quadro a quadro, o salto 11 foi reproduzido em 42.185, com câmera 6.457 e cinco vidas. O roteiro perdeu uma vida no quadro 43.907. A captura final mostrou a área inicial de Mine Cart Carnage e o runner informou `entrance=46` (`0x002E`). A chegada a Bouncy Bonanza veio de uma execução com o snapshot `minecart_j44.snap` no quadro 45.255. A revisão repetiu essa execução e confirmou o mapa diante de Bouncy Bonanza em 45.948 e a entrada na fase em 46.239.
+
+Use os snapshots locais para consultar a exploração de Mine Cart Carnage e de Bouncy Bonanza. Para ampliar a rota validada, registre uma sequência contínua que chegue ao mapa de Monkey Mines após o carrinho e confirme o início de Bouncy Bonanza em novo perfil. Depois, conclua Bouncy Bonanza e as fases restantes. A validação da campanha, a escuta do áudio em janela, a revisão dos textos restantes e o aplicativo final seguem na [matriz de validação](05-VALIDACAO.md).

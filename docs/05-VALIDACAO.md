@@ -14,14 +14,14 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | --- | --- | --- | --- |
 | V01 | Verificar ROM do perfil | Tamanho e SHA-256 exatos | Rev 1 aceita; v1.2 rejeitada no verificador e no host |
 | V02 | Gerar e compilar | Comandos terminam com sucesso e executável é identificado | Protótipo Rev 1 compilado com MSVC; identidade no relatório |
-| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | Suíte pública: 303 testes, 2 erros, 10 skips; CTest do jogo aguarda ROM/build |
+| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | Suíte Python local: 59 testes passaram. Suíte pública anterior: 303 testes, 2 erros e 10 skips. CTest do jogo pendente |
 | V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Executado em janela; usuário confirmou a fluidez após a correção |
 | V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Entrada reproduzida e sessão humana realizada; cobertura ampliada em V14 |
 | V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Parcial. Corrida, salto, barris de checkpoint e de parceiro em Jungle Hijinxs, escalada em Ropey Rampage |
 | V07 | Morte e retorno | Ciclo completo sem travamento e com estado coerente | Confirmado em Jungle Hijinxs. Perda de vida, retorno ao mapa e nova entrada |
-| V08 | Concluir fase e voltar ao mapa | Saída, transição e progressão corretas | Confirmado em Jungle Hijinxs e Ropey Rampage. Abertura da cabana do Cranky e de Reptile Rumble |
-| V09 | Áudio e apresentação | Trecho identificado sem cortes persistentes ou defeitos visíveis | Não executado |
-| V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Três repetições passaram no cenário Candy 00:00 / 00%; ampliar cobertura de progresso real |
+| V08 | Concluir fase e voltar ao mapa | Saída, transição e progressão corretas | Repetido na rota principal de Kongo Jungle e em Winky's Walkway. Saída de Mine Cart Carnage reproduzida a partir de snapshot |
+| V09 | Áudio e apresentação | Trecho identificado sem cortes persistentes ou defeitos visíveis | PCM comparado da despedida do Cranky até a caverna. Escuta em janela pendente |
+| V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Candy de Kongo Jungle aprovada com progresso real em headless e Win32. Ampliar aos demais pontos da campanha |
 | V11 | Save state, se incluído no marco | Comparar continuação após load com execução contínua | Não implementado; não faz parte da entrega de SRAM |
 | V12 | Controle físico | Ações e reconexão no dispositivo disponível | Não executado |
 | V13 | Repetição determinística | Três replays com mesma entrada e hashes dos estados comparados iguais | Três execuções de 600 quadros idênticas; entrada na fase repetida; cobertura restrita |
@@ -41,9 +41,9 @@ Roteiro preparado em 2026-11-05 após o aceite dos modos de tela. A [primeira se
 | Passo | O que registrar | Estado |
 | --- | --- | --- |
 | Ações e retorno | Movimento, troca de personagem, barris, morte, retorno e continuação | Parcial em Jungle Hijinxs e Ropey Rampage |
-| Progressão | Nome de cada fase concluída, saída, mapa, bônus e entrada seguinte | Jungle Hijinxs e Ropey Rampage concluídas. Visita ao Cranky e entrada em Reptile Rumble |
-| Variedade e chefes | Água, chuva, cavernas, cordas, canhões, chefes e transições entre mundos | Chuva e cordas em Ropey Rampage. Início da primeira caverna |
-| Saves com progresso real | Progresso mostrado no menu, salvar na Candy, fechar normalmente, reabrir e conferir o mesmo arquivo | A registrar |
+| Progressão | Nome de cada fase concluída, saída, mapa, bônus e entrada seguinte | Rota principal de Kongo Jungle e Winky's Walkway concluídas. Retomar no roteiro contínuo de Mine Cart Carnage. Bouncy Bonanza explorada com snapshots |
+| Variedade e chefes | Água, chuva, cavernas, cordas, canhões, chefes e transições entre mundos | Chuva, cordas, caverna, água, canhões, carrinho e Very Gnawty exercitados |
+| Saves com progresso real | Selecionar o slot, salvar na Candy, fechar normalmente, reabrir e conferir o mesmo arquivo | Confirmado na Candy de Kongo Jungle com [roteiro e evidências](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) |
 | Final da campanha | Chefe final, encerramento/créditos e estado recuperado após reabrir | A registrar |
 
 Para cada sessão, anotar versão, fases percorridas, modo de tela e defeitos observados. Testar a persistência em momentos diferentes da progressão; identificar e proteger a cópia do save antes de qualquer teste de migração ou falha. Não substituir o progresso pessoal por fixtures de QA. Percurso principal, bônus e eventuais caminhos não percorridos devem ter sua cobertura indicada separadamente.
