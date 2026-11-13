@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-13 — Rota contínua até Bouncy Bonanza
+
+- Ajustados os comandos de salto em Mine Cart Carnage. A repetição desde o menu em perfil novo, sem snapshots, confirmou o mapa de Monkey Mines no quadro 45.981 e a abertura de Bouncy Bonanza no quadro 46.272, com cinco vidas e 40 bananas.
+- O piloto headless reproduziu a mesma imagem final do coletor de QA. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#roteiro-contínuo-até-bouncy-bonanza).
+
 ## 2026-11-12 — Revisão do roteiro de Monkey Mines
 
 - Publicada a sequência de 40.473 quadros desde o menu até Mine Cart Carnage. Repetidos o salvamento com progresso real na Candy e a recuperação da mesma SRAM em processos novos headless e Win32, com backup idêntico. Passaram 59 testes Python.

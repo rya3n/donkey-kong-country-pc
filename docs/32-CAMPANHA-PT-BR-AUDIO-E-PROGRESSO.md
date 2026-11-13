@@ -62,7 +62,7 @@ O executável de QA adicionou leitura do roteiro e captura de PCM ao host Win32.
 | 45804 | Retorno ao Mapa de Monkey Mines | Transição concluída para o mapa de Monkey Mines e deslocamento automático pela trilha do mapa |
 | 45948 | Mapa diante de Bouncy Bonanza | Chegada reproduzida a partir do snapshot local de Mine Cart Carnage. A sequência integral precisa ser reconstruída |
 
-O [roteiro público de 40.473 quadros](../recipes/usa-rev1/campaign-to-mine-cart-carnage.inputs) contém os comandos do controle desde o menu até o início de Mine Cart Carnage. Os primeiros 35.218 quadros geram o save da Candy e 37.620 chegam a Monkey Mines.
+O [roteiro público de 40.473 quadros](../recipes/usa-rev1/campaign-to-mine-cart-carnage.inputs) contém os comandos do controle desde o menu até o início de Mine Cart Carnage. Os primeiros 35.218 quadros geram o save da Candy e 37.620 chegam a Monkey Mines. O [roteiro ampliado](../recipes/usa-rev1/campaign-to-bouncy-bonanza.inputs) mantém esse trecho e segue até Bouncy Bonanza.
 
 ## Travessia dos 45 obstáculos de Mine Cart Carnage em QA
 
@@ -138,4 +138,19 @@ try {
 
 O roteiro local de 45.948 quadros reproduziu os hashes registrados em `acd5d06`. No rastreio quadro a quadro, o salto 11 foi reproduzido em 42.185, com câmera 6.457 e cinco vidas. O roteiro perdeu uma vida no quadro 43.907. A captura final mostrou a área inicial de Mine Cart Carnage e o runner informou `entrance=46` (`0x002E`). A chegada a Bouncy Bonanza veio de uma execução com o snapshot `minecart_j44.snap` no quadro 45.255. A revisão repetiu essa execução e confirmou o mapa diante de Bouncy Bonanza em 45.948 e a entrada na fase em 46.239.
 
-Use os snapshots locais para consultar a exploração de Mine Cart Carnage e de Bouncy Bonanza. Para ampliar a rota validada, registre uma sequência contínua que chegue ao mapa de Monkey Mines após o carrinho e confirme o início de Bouncy Bonanza em novo perfil. Depois, conclua Bouncy Bonanza e as fases restantes. A validação da campanha, a escuta do áudio em janela, a revisão dos textos restantes e o aplicativo final seguem na [matriz de validação](05-VALIDACAO.md).
+## Roteiro contínuo até Bouncy Bonanza
+
+O novo roteiro preserva os comandos até o quadro 43.725. A partir daí, o primeiro salto ajustado espera 119 quadros e mantém B por 35. Os saltos seguintes foram alinhados pela posição da câmera, incluindo a transferência para o trilho inferior. O rastreio registra a entrada com quatro vidas e a coleta de uma vida extra no quadro 42.113. Nenhuma vida foi perdida na fase.
+
+| Quadro | Resultado |
+| --- | --- |
+| 43945 | Carrinho inimigo ultrapassado, com câmera em 12.631 |
+| 45284 | Transferência para o trilho inferior concluída, com câmera em 17.553 |
+| 45981 | Mapa de Monkey Mines diante de Bouncy Bonanza, `entrance=0x0007` |
+| 46272 | Bouncy Bonanza aberta, `entrance=0x0007`, `scene=0x0001`, cinco vidas e 40 bananas |
+
+Para reproduzir desde o menu, use o mesmo comando da seção anterior com um perfil de teste novo, o [roteiro de Bouncy Bonanza](../recipes/usa-rev1/campaign-to-bouncy-bonanza.inputs) e 46.272 quadros. Para conferir o mapa, use 45.981 quadros em outro perfil novo. O teste usa a ROM USA v1.1 (Rev 1) e o piloto PT-BR.
+
+O piloto headless e o coletor de QA repetiram os 46.272 quadros em perfis novos, sem carregar snapshots. As capturas finais PPM foram idênticas. No relatório do piloto, o SHA-256 do framebuffer é `269096de8875fa231a28dd3cc10aa8290fc2aaa7dd64098585c98c91d2959867`. Os 59 testes Python passaram.
+
+O próximo marco é concluir Bouncy Bonanza, confirmar o retorno ao mapa e seguir pelas fases restantes. A escuta do áudio em janela, a revisão dos textos restantes e o aplicativo final seguem na [matriz de validação](05-VALIDACAO.md).
