@@ -187,3 +187,22 @@ O [roteiro de 55.451 quadros](../recipes/usa-rev1/campaign-to-millstone-mayhem-m
 O rastreio confirmou cinco vidas desde a entrada até a saída de Stop & Go Station. O piloto headless e o coletor de QA repetiram os 55.451 quadros desde o menu em perfis novos, sem restaurar snapshots. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `c75034a68e48605b69bc2c13a18c1d45408e2ae945fd9e60954feccade4edd25`. Os 59 testes Python passaram.
 
 Para repetir, use o mesmo comando de reprodução em um perfil novo, com 55.451 quadros e o roteiro de Millstone Mayhem. A próxima etapa começa pela entrada na fase.
+
+## Saída de Millstone Mayhem
+
+O [roteiro de 60.409 quadros](../recipes/usa-rev1/campaign-to-neckys-nuts-map.inputs) preserva os 55.451 quadros até o mapa de Millstone Mayhem. A sequência passa pelas mós e pelos Kritters, ativa o barril de checkpoint e ajusta a corrida e os saltos para atravessar os vãos. No último, Diddy ganha distância rolando antes de saltar. O mapa aparece com Cranky's Cabin selecionada. Um toque à direita seleciona Necky's Nuts, a fase de Master Necky.
+
+| Quadro | Resultado |
+| --- | --- |
+| 55742 | Millstone Mayhem aberta, `entrance=0x0042` e `scene=0x0008` |
+| 57308 | Sexta vida obtida ao completar 100 bananas |
+| 57600 | Barril de checkpoint ativado |
+| 58161 | Travessia do vão com a mó concluída |
+| 59763 | Último vão ultrapassado |
+| 59898 | Saída acionada |
+| 60258 | Mapa de Monkey Mines com Cranky's Cabin selecionada, `entrance=0x00EF` |
+| 60409 | Necky's Nuts selecionada no mapa, `entrance=0x00E1`, seis vidas e 10 bananas |
+
+O piloto headless e o coletor de QA repetiram os 60.409 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro de transições confirmou que a vida extra foi a única alteração de vidas na fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `f6ba6755159572b4fdc1115dbd95a5f124b3b9549167e9627cf897b24a0b4f3f`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 60.409 quadros e o roteiro de Necky's Nuts. O próximo teste começa no mapa, pela entrada no chefe.

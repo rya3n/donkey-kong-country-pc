@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-13 — Millstone Mayhem concluída
+
+- Validada a travessia das mós e dos vãos com checkpoint ativado e uma vida extra obtida ao completar 100 bananas. Nenhuma vida foi perdida na fase.
+- Confirmados o retorno a Monkey Mines no quadro 60.258 e a seleção de Necky's Nuts no quadro 60.409, com seis vidas. As duas repetições desde o menu geraram a mesma captura final. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-millstone-mayhem).
+
 ## 2026-11-13 — Stop & Go Station concluída
 
 - Ajustada a sequência de comandos para atravessar os três apoios com Rockkrocs e as plataformas móveis com cinco vidas preservadas.
