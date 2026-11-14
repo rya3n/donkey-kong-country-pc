@@ -260,3 +260,21 @@ O [roteiro de 72.546 quadros](../recipes/usa-rev1/campaign-to-forest-frenzy-map.
 O piloto headless e o coletor de QA repetiram os 72.546 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou seis vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `5087e31f22a58dffc91f4b1f4256a614b087b7d0faebb319aab73efc817f290d`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 72.546 quadros e o roteiro de Forest Frenzy. O próximo teste começa pela entrada nessa fase.
+
+## Saída de Forest Frenzy
+
+O [roteiro de 78.949 quadros](../recipes/usa-rev1/campaign-to-temple-tempest-map.inputs) mantém os comandos até Forest Frenzy no mapa e percorre a rota principal da fase. Os comandos de subida e descida ajustam a altura dos Kongs nas cordas móveis para passar pelos Zingers. Depois de cruzar o trecho dos abutres, a rota volta ao chão, passa pelos últimos Kritters e segue até o mapa de Vine Valley.
+
+| Quadro | Resultado |
+| --- | --- |
+| 72837 | Forest Frenzy aberta, `entrance=0x00D0`, `scene=0x000B`, seis vidas |
+| 73712 | Travessia pelas primeiras cordas concluída |
+| 74963 | Barril de checkpoint ativado |
+| 76051 | Chegada à plataforma após os Zingers amarelos |
+| 77955 | Última corda, após o trecho dos abutres |
+| 78599 | Saída em andamento |
+| 78949 | Temple Tempest selecionada no mapa, `entrance=0x0043`, seis vidas e 82 bananas |
+
+O piloto headless e o coletor de QA repetiram os 78.949 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou seis vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `ae2227d1e6312579fd9b7b729af7eb9f6c8d16c10fa6f71e519f480f3b519c23`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 78.949 quadros e o roteiro de Temple Tempest. O próximo teste começa pela entrada nessa fase.

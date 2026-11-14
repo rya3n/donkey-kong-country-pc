@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-14 — Forest Frenzy concluída
+
+- Ajustada a altura nas cordas móveis para passar pelos Zingers e pelos abutres. A rota ativou o checkpoint e preservou as seis vidas.
+- Temple Tempest ficou selecionada no mapa de Vine Valley no quadro 78.949, com 82 bananas. As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-forest-frenzy).
+
 ## 2026-11-13 — Tree Top Town concluída
 
 - Sincronizados os disparos dos barris móveis. A rota ativou o checkpoint, usou o pneu para chegar à saída e preservou as seis vidas.
