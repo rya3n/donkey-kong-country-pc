@@ -242,3 +242,21 @@ O [roteiro de 68.009 quadros](../recipes/usa-rev1/campaign-to-tree-top-town-map.
 O piloto headless e o coletor de QA repetiram os 68.009 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou seis vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `1ee95b1b54e313b8d54fd88986494d534fc392e2e9c52b9274b38aab423b009d`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 68.009 quadros e o roteiro de Tree Top Town. O próximo teste começa pela entrada nessa fase.
+
+## Saída de Tree Top Town
+
+O [roteiro de 72.546 quadros](../recipes/usa-rev1/campaign-to-forest-frenzy-map.inputs) mantém os comandos até a seleção de Tree Top Town. A sequência atravessa as pontes com Kritters, acerta o tempo dos disparos nos barris móveis e usa o pneu para alcançar a plataforma da saída. O mapa de Vine Valley mantém Tree Top Town selecionada após a conclusão. Um toque para baixo seleciona Forest Frenzy.
+
+| Quadro | Resultado |
+| --- | --- |
+| 68300 | Tree Top Town aberta, `entrance=0x00A4`, `scene=0x000A`, seis vidas |
+| 69085 | Primeira ponte com Kritters atravessada |
+| 69886 | Barril de checkpoint ativado |
+| 71700 | Sequência final de barris verticais ultrapassada |
+| 72065 | Saída acionada |
+| 72395 | Mapa de Vine Valley com Tree Top Town selecionada após a saída |
+| 72546 | Forest Frenzy selecionada, `entrance=0x00D0`, seis vidas e 52 bananas |
+
+O piloto headless e o coletor de QA repetiram os 72.546 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou seis vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `5087e31f22a58dffc91f4b1f4256a614b087b7d0faebb319aab73efc817f290d`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 72.546 quadros e o roteiro de Forest Frenzy. O próximo teste começa pela entrada nessa fase.

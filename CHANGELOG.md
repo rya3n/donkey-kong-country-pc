@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-13 — Tree Top Town concluída
+
+- Sincronizados os disparos dos barris móveis. A rota ativou o checkpoint, usou o pneu para chegar à saída e preservou as seis vidas.
+- Confirmados o retorno ao mapa de Vine Valley no quadro 72.395 e a seleção de Forest Frenzy no quadro 72.546, com 52 bananas. As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-tree-top-town).
+
 ## 2026-11-13 — Vulture Culture concluída
 
 - Ajustados os disparos dos barris para atravessar os vãos entre abutres e Zingers. As seis vidas foram preservadas durante toda a fase.
