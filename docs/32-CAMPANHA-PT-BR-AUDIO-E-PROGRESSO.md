@@ -297,3 +297,22 @@ O [roteiro de 84.234 quadros](../recipes/usa-rev1/campaign-to-orang-utan-gang-ma
 O piloto headless e o coletor de QA repetiram os 84.234 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou que a vida extra foi a única alteração no contador de vidas da fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `6d06a350fa50985de66cd87f5052390cf6014580a794882123fe2ef4a718beb6`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 84.234 quadros e o roteiro de Orang-utan Gang. O próximo teste começa pela entrada nessa fase.
+
+## Saída de Orang-utan Gang
+
+O [roteiro de 88.509 quadros](../recipes/usa-rev1/campaign-to-clam-city-map.inputs) mantém os comandos até Orang-utan Gang no mapa. Na rota principal da fase, os Kongs cruzam as copas e as pontes de cipó, ativam o checkpoint, passam pelos barris dos Manky Kongs e descem até a saída. O mapa de Vine Valley seleciona Cranky’s Cabin após a conclusão. Um toque para a esquerda seleciona Clam City.
+
+| Quadro | Resultado |
+| --- | --- |
+| 84525 | Orang-utan Gang aberta, `entrance=0x000D`, `scene=0x0000`, sete vidas |
+| 85194 | Primeiras pontes de cipó atravessadas |
+| 85790 | Barril de checkpoint ativado |
+| 85976 | Barril DK quebra e o parceiro retorna |
+| 87360 | Últimas pontes atravessadas e trilha inferior alcançada |
+| 87888 | Placa de saída visível |
+| 88358 | Retorno ao mapa com Cranky’s Cabin selecionada, `entrance=0x00F3` |
+| 88509 | Clam City selecionada, `entrance=0x00DE`, sete vidas e 37 bananas |
+
+O piloto headless e o coletor de QA repetiram os 88.509 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou sete vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `318f1f5b2a03bfc341104d315df53ee9dd3ae132091c245c45862caa85a515c5`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 88.509 quadros e o roteiro de Clam City. O próximo teste começa pela entrada nessa fase.
