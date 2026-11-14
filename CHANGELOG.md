@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-13 — Vulture Culture concluída
+
+- Ajustados os disparos dos barris para atravessar os vãos entre abutres e Zingers. As seis vidas foram preservadas durante toda a fase.
+- Confirmada a saída para o mapa de Vine Valley com Tree Top Town selecionada no quadro 68.009 e 38 bananas. As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-vulture-culture).
+
 ## 2026-11-13 — Master Necky derrotado e Vine Valley aberto
 
 - Validada a luta de Necky's Nuts com cinco golpes e seis vidas preservadas. Após a animação da banana gigante, o mapa geral selecionou Vine Valley.

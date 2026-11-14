@@ -224,3 +224,21 @@ O [roteiro de 62.704 quadros](../recipes/usa-rev1/campaign-to-vine-valley-map.in
 O piloto headless e o coletor de QA repetiram os 62.704 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro de transições confirmou seis vidas durante a luta e a saída de Monkey Mines. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `97fa79dc94aa494e5c9e94c4147c387c52c09e43b6e845f1cc763caeef4bfea8`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 62.704 quadros e o roteiro de Vine Valley. A próxima etapa começa pela entrada em Vulture Culture.
+
+## Saída de Vulture Culture
+
+O [roteiro de 68.009 quadros](../recipes/usa-rev1/campaign-to-tree-top-town-map.inputs) mantém os comandos até a seleção de Vulture Culture e percorre a rota principal da fase. A sequência ajusta o tempo dos disparos para atravessar os vãos e passar pelos abutres e Zingers. Após a saída, o mapa de Vine Valley seleciona Tree Top Town automaticamente.
+
+| Quadro | Resultado |
+| --- | --- |
+| 62995 | Vulture Culture aberta, `entrance=0x00A5`, `scene=0x000B`, seis vidas |
+| 64536 | Travessia do primeiro grupo de abutres |
+| 65185 | Trecho do barril de parceiro ultrapassado |
+| 65419 | Sequência de barris giratórios atravessada |
+| 67123 | Travessia dos barris após a placa de saída em andamento |
+| 67440 | Saída acionada |
+| 68009 | Tree Top Town selecionada no mapa, `entrance=0x00A4`, seis vidas e 38 bananas |
+
+O piloto headless e o coletor de QA repetiram os 68.009 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou seis vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `1ee95b1b54e313b8d54fd88986494d534fc392e2e9c52b9274b38aab423b009d`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 68.009 quadros e o roteiro de Tree Top Town. O próximo teste começa pela entrada nessa fase.
