@@ -278,3 +278,22 @@ O [roteiro de 78.949 quadros](../recipes/usa-rev1/campaign-to-temple-tempest-map
 O piloto headless e o coletor de QA repetiram os 78.949 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou seis vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer no relatório do piloto é `ae2227d1e6312579fd9b7b729af7eb9f6c8d16c10fa6f71e519f480f3b519c23`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 78.949 quadros e o roteiro de Temple Tempest. O próximo teste começa pela entrada nessa fase.
+
+## Saída de Temple Tempest
+
+O [roteiro de 84.234 quadros](../recipes/usa-rev1/campaign-to-orang-utan-gang-map.inputs) mantém os comandos até Temple Tempest no mapa. A rota principal passa pelas rodas dos Gnawtys, ativa o checkpoint e usa as cordas e os saltos nos pneus para cruzar os vãos. Depois da saída, o mapa de Vine Valley seleciona Candy’s Save Point. Um toque para a direita seleciona Orang-utan Gang.
+
+| Quadro | Resultado |
+| --- | --- |
+| 79240 | Temple Tempest aberta, `entrance=0x0043`, `scene=0x0008`, seis vidas |
+| 80207 | Segunda perseguição atravessada até a borda do vão |
+| 81188 | Barril de checkpoint ativado |
+| 81718 | Sétima vida obtida ao completar 100 bananas |
+| 83181 | Travessia dos pneus no trecho dos Zingers concluída |
+| 83613 | Últimas cordas atravessadas e placas de saída visíveis |
+| 84083 | Retorno ao mapa com Candy’s Save Point selecionado, `entrance=0x00FF` |
+| 84234 | Orang-utan Gang selecionada, `entrance=0x000D`, sete vidas e 13 bananas |
+
+O piloto headless e o coletor de QA repetiram os 84.234 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou que a vida extra foi a única alteração no contador de vidas da fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `6d06a350fa50985de66cd87f5052390cf6014580a794882123fe2ef4a718beb6`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 84.234 quadros e o roteiro de Orang-utan Gang. O próximo teste começa pela entrada nessa fase.

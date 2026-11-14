@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-14 — Temple Tempest concluída
+
+- A rota passou pelas rodas dos Gnawtys, pelas cordas e pelos pneus, ativou o checkpoint e ganhou uma vida ao completar 100 bananas.
+- O mapa voltou em Candy’s Save Point. Um toque à direita selecionou Orang-utan Gang no quadro 84.234, com sete vidas e 13 bananas.
+- As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-temple-tempest).
+
 ## 2026-11-14 — Forest Frenzy concluída
 
 - Ajustada a altura nas cordas móveis para passar pelos Zingers e pelos abutres. A rota ativou o checkpoint e preservou as seis vidas.
