@@ -316,3 +316,21 @@ O [roteiro de 88.509 quadros](../recipes/usa-rev1/campaign-to-clam-city-map.inpu
 O piloto headless e o coletor de QA repetiram os 88.509 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou sete vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `318f1f5b2a03bfc341104d315df53ee9dd3ae132091c245c45862caa85a515c5`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 88.509 quadros e o roteiro de Clam City. O próximo teste começa pela entrada nessa fase.
+
+## Saída de Clam City
+
+O [roteiro de 94.899 quadros](../recipes/usa-rev1/campaign-to-bumble-b-rumble-map.inputs) mantém os comandos até Clam City no mapa. A rota principal sobe pelo primeiro corredor, passa por ostras e cardumes, quebra dois barris DK e ativa o checkpoint. Depois de cruzar o trecho dos tubarões, os comandos ajustam a profundidade para passar pelos Croctopus e alcançar a saída subaquática. O mapa de Vine Valley seleciona Bumble B Rumble automaticamente.
+
+| Quadro | Resultado |
+| --- | --- |
+| 88800 | Clam City aberta, `entrance=0x00DE`, `scene=0x0003`, sete vidas |
+| 90302 | Cardume ultrapassado |
+| 91237 | Segundo barril DK aberto no alto do corredor |
+| 91916 | Barril de checkpoint ativado |
+| 93270 | Travessia dos tubarões concluída e corredor superior alcançado |
+| 93797 | Seta de saída visível |
+| 94899 | Bumble B Rumble selecionada, `entrance=0x00E5`, sete vidas e 59 bananas |
+
+O piloto headless e o coletor de QA repetiram os 94.899 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou sete vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `b00f5ff62f8141ad9ba653f24b41bbf561529b2fef4885744d1030321429a28a`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 94.899 quadros e o roteiro de Bumble B Rumble. O próximo teste começa pela entrada no chefe.
