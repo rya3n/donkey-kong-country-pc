@@ -13,6 +13,8 @@
 #include "snes/ppu.h"
 #include "snes/snes.h"
 
+#include <errno.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -254,8 +256,12 @@ int main(int argc, char **argv) {
         return 2;
     }
     char *end;
+    errno = 0;
     long frames = strtol(argv[2], &end, 10);
-    if (*end || frames < 1 || frames > 120000) return 2;
+    if (errno == ERANGE || end == argv[2] || *end || frames < 1 || frames > INT_MAX) {
+        fprintf(stderr, "FRAMES must be an integer from 1 to %d.\n", INT_MAX);
+        return 2;
+    }
     FILE *file = fopen(argv[1], "rb");
     int loaded = Rev1Open(file);
     if (file) fclose(file);

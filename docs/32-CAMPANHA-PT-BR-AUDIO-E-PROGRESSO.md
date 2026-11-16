@@ -421,3 +421,30 @@ O [roteiro de 114.560 quadros](../recipes/usa-rev1/campaign-to-croctopus-chase-m
 O piloto headless e o coletor de QA repetiram os 114.560 quadros desde o menu em perfis novos, sem restaurar snapshots. O contador registrou nove vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `b0b890560c37f0007719b8208fa1e7cc79e9d47f739265d41fd6b9878fdca6f7`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 114.560 quadros e o roteiro de Croctopus Chase. O próximo teste começa pela entrada em Croctopus Chase.
+
+## Saída de Croctopus Chase
+
+O [roteiro de 125.724 quadros](../recipes/usa-rev1/campaign-to-torchlight-trouble-map.inputs) mantém os comandos até o mapa de Croctopus Chase. Diddy passa pelo primeiro Croctopus no corredor subaquático e recupera Donkey no barril DK. A rota cruza os túneis, ativa o checkpoint e ganha uma vida extra ao completar 100 bananas. Diddy é atingido nos últimos túneis e Donkey segue sozinho até a saída. Ao voltar ao mapa, Cranky's Cabin fica selecionada. Um toque para cima seleciona Torchlight Trouble.
+
+| Quadro | Resultado |
+| --- | --- |
+| 114821 | Croctopus Chase aberta, `entrance=0x003E`, `scene=0x0003`, nove vidas |
+| 115690 | Donkey recuperado no barril DK |
+| 116782 | Passagem vertical do lado leste alcançada |
+| 118658 | Corredor oeste alcançado |
+| 119602 | Barril de checkpoint visível |
+| 119650 | Barril de checkpoint ativado |
+| 120930 | Subida concluída após a perseguição no corredor pós-checkpoint |
+| 121171 | Vida extra registrada após completar 100 bananas |
+| 125058 | Saída subaquática alcançada |
+| 125398 | Retorno ao mapa com Cranky's Cabin selecionada |
+| 125524 | Torchlight Trouble selecionada com um toque para cima |
+| 125724 | Mapa estabilizado, `entrance=0x0014`, dez vidas e 11 bananas |
+
+Em um perfil de QA separado, a perda de uma vida após o checkpoint devolveu o jogo ao mapa com Croctopus Chase selecionada. Ao entrar de novo, o piloto abriu `entrance=0x003F` e reposicionou Donkey no barril de checkpoint.
+
+O executável headless anterior rejeitava roteiros acima de 120 mil quadros. A validação de `FRAMES` passou a aceitar inteiros positivos até o limite representável pelo contador. O executável atualizado informa o intervalo aceito ao receber um argumento inválido. A comparação de 4.800 quadros com o build anterior produziu o mesmo relatório de imagem, áudio e memória. [Código do headless](../runner/usa_rev1.c).
+
+O coletor de QA e o piloto headless reproduziram os 125.724 quadros desde o menu em perfis novos. O registro de vidas mostrou apenas o ganho da vida extra em Croctopus Chase. A imagem final PPM e o arquivo de salvamento coincidiram byte a byte. O SHA-256 do framebuffer registrado pelo piloto é `4c7d16001badce81c5b5ce3e0efc6bca6963fe3a72cbd821ea2a69c152b64136`. Os 59 testes Python passaram.
+
+Para repetir, compile o piloto atualizado e use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 125.724 quadros e o roteiro de Torchlight Trouble. O próximo teste começa pela entrada em Torchlight Trouble. [Script de compilação do piloto](../scripts/build_ptbr_pilot.ps1).

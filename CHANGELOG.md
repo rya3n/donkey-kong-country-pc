@@ -2,6 +2,13 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-16 — Croctopus Chase concluída
+
+- A rota recuperou Donkey no barril DK, ativou o checkpoint e ganhou uma vida extra nos túneis. Um teste separado confirmou a reentrada pelo checkpoint após uma morte.
+- O retorno ao mapa selecionou Cranky's Cabin. Um toque para cima selecionou Torchlight Trouble no quadro 125.724, com dez vidas e 11 bananas.
+- Corrigida a validação de `FRAMES` no headless para reproduzir roteiros acima de 120 mil quadros. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-croctopus-chase).
+- As duas execuções desde o menu em perfis novos geraram a mesma captura final e o mesmo arquivo de salvamento. Passaram os 59 testes Python.
+
 ## 2026-11-16 — Ice Age Alley concluída
 
 - O percurso usou Expresso no primeiro vão, ativou o checkpoint e atravessou as cordas, incluindo o salto do pneu.
