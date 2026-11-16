@@ -66,6 +66,10 @@ Em **Gorilla Glacier**, o roteiro já concluiu *Snow Barrel Blast*, *Slipslide R
 
 ## 🍌 Tradução PT-BR
 
+<p align="center">
+  <img src="docs/assets/readme/traduzido-pt-br.gif" width="720" alt="Piloto traduzido para PT-BR, com efeito de digitação.">
+</p>
+
 O piloto reúne **217 diálogos** do inventário em inglês. São **8 da Candy**, **13 do Funky** e **196 do Cranky**, incluindo **27 dicas** de fases. A revisão durante a campanha e a localização dos créditos e das demais telas seguem em andamento.
 
 [Preparação e glossário](docs/15-PT-BR.md) · [Piloto dos menus](docs/16-PILOTO-PT-BR.md) · [Inventário dos diálogos](docs/30-DIALOGOS-CRANKY-PT-BR.md)
