@@ -45,6 +45,10 @@ O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela
 > [!TIP]
 > Os saves ficam em `data/usa-rev1/saves/`. Veja como recuperar e validar seu progresso no [guia de salvamento](docs/13-SAVES.md).
 
+<p align="center">
+  <a href="docs/13-SAVES.md"><img src="docs/assets/readme/cabana-de-salvamento.webp" width="720" alt="Abrir o guia de salvamento. Uma cabana iluminada na selva em pixel art."></a>
+</p>
+
 <a name="mapa-da-campanha"></a>
 
 ## 🗺️ Mapa da campanha
