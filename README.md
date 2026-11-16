@@ -1,20 +1,87 @@
+<p align="center">
+  <img src="docs/assets/readme/capa-snes.svg" width="960" alt="Donkey Kong Country — Port para PC. Capa retrô com cartucho de Super Nintendo, barril DK e selva em tons de verde.">
+</p>
+
 # Donkey Kong Country — Port para PC
+
+<p align="center">
+  <strong>Port nativo para Windows</strong> · <strong>Piloto em português do Brasil</strong> · <strong>USA v1.1 (Rev 1)</strong>
+</p>
+
+<p align="center">
+  <a href="#como-jogar"><img src="docs/assets/readme/start.svg" width="290" alt="START — Como jogar"></a>
+</p>
+
+<p align="center">
+  <a href="docs/04-AMBIENTE-E-REPRODUCAO.md"><strong>Configurar e compilar</strong></a> ·
+  <a href="#mapa-da-campanha"><strong>Mapa da campanha</strong></a> ·
+  <a href="#traducao-pt-br"><strong>Tradução PT-BR</strong></a> ·
+  <a href="CHANGELOG.md"><strong>Atualizações</strong></a>
+</p>
+
+---
 
 Projeto pessoal de estudo, integração e desenvolvimento de uma versão nativa de Donkey Kong Country para Windows, partindo do trabalho público do DKC1Recomp.
 
 **Meta final:** após estabilizar e validar o port, traduzir o jogo para PT-BR e preparar uma versão de Windows em que o jogador abra o executável e jogue, com saves persistentes e sem configuração repetida.
 
-O piloto PT-BR para USA v1.1 (Rev 1) reúne **217 diálogos do inventário inglês**. São oito falas da Candy, treze do Funky e 196 do Cranky, incluindo as 27 dicas de fases. A rota principal de **Kongo Jungle** passou pela Candy, validou o salvamento em um novo processo e derrotou Very Gnawty. O roteiro contínuo completa **Monkey Mines** e **Vine Valley**, com a vitória contra Queen B. em *Bumble B Rumble*. Em **Gorilla Glacier**, o percurso conclui *Snow Barrel Blast*, *Slipslide Ride* e *Ice Age Alley* e termina no mapa com *Croctopus Chase* selecionada. Abra **Testar DKC - PT-BR.cmd** para jogar no perfil do piloto. A revisão em campanha e a localização dos créditos e das demais telas continuam em andamento. [Diálogos do Cranky e validação](docs/30-DIALOGOS-CRANKY-PT-BR.md) · [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md).
+<a name="como-jogar"></a>
 
-Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
+## 🎮 Como jogar
 
-Controles: setas, Z para pular, X para correr/rolar, C para trocar, Enter para Start e Esc para fechar. F6 alterna preencher/4:3; F11 alterna janela/tela cheia. Preencher mantém toda a imagem, esticando-a conforme o formato da janela ou monitor. Detalhes em [Teste interativo](docs/11-TESTE-INTERATIVO.md).
+1. Siga o [guia de ambiente e compilação](docs/04-AMBIENTE-E-REPRODUCAO.md) com a sua cópia da ROM **USA v1.1 (Rev 1)**.
+2. Após compilar, abra [Jogar DKC.cmd](Jogar%20DKC.cmd), escolha um arquivo no menu e salve na Candy. Para continuar, reabra o jogo e selecione o mesmo arquivo.
+3. Para entrar no perfil de testes em português, abra [Testar DKC - PT-BR.cmd](Testar%20DKC%20-%20PT-BR.cmd).
 
-Após o primeiro teste do usuário, corrigimos a cadência da janela preservando 60,0988 Hz e verificamos trechos iniciais de 40 entradas de fases e chefes. Resultados e cobertura em [Verificação de fluidez](docs/12-FLUIDEZ.md).
+| Comando | Teclas |
+| :--- | :--- |
+| Mover | <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> |
+| Pular · Correr ou rolar · Trocar personagem | <kbd>Z</kbd> · <kbd>X</kbd> · <kbd>C</kbd> |
+| Start · Fechar | <kbd>Enter</kbd> · <kbd>Esc</kbd> |
+| Preencher ou 4:3 · Janela ou tela cheia | <kbd>F6</kbd> · <kbd>F11</kbd> |
 
-Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.com/rya3n/donkey-kong-country-pc). Publicamos documentação, configuração e integração próprias; os arquivos de jogo, fontes derivadas da ROM e binários permanecem locais.
+O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela ou monitor. Detalhes em [Teste interativo](docs/11-TESTE-INTERATIVO.md).
 
-## Comece por aqui
+> [!TIP]
+> Os saves ficam em `data/usa-rev1/saves/`. Veja como recuperar e validar seu progresso no [guia de salvamento](docs/13-SAVES.md).
+
+<a name="mapa-da-campanha"></a>
+
+## 🗺️ Mapa da campanha
+
+<p align="center">
+  <img src="docs/assets/readme/mapa-dos-mundos.webp" width="960" alt="Mapa em pixel art. Uma trilha dourada passa pela selva, pelas minas, pelo vale das pontes suspensas e pela geleira.">
+</p>
+
+| Mundo | Até onde foi o teste |
+| :--- | :--- |
+| 🌴 [**Kongo Jungle**](docs/21-DICAS-KONGO-JUNGLE-PT-BR.md) | Rota principal validada, com save na Candy e vitória sobre Very Gnawty. |
+| ⛏️ [**Monkey Mines**](docs/22-DICAS-MONKEY-MINES-PT-BR.md) | Percurso contínuo finalizado. |
+| 🌿 [**Vine Valley**](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Percurso contínuo finalizado, com vitória sobre Queen B. |
+| ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Chegada ao mapa com *Croctopus Chase* selecionada. |
+
+Em **Gorilla Glacier**, o roteiro já concluiu *Snow Barrel Blast*, *Slipslide Ride* e *Ice Age Alley*. O registro da [campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) inclui o teste de reabertura do save em um novo processo.
+
+<a name="traducao-pt-br"></a>
+
+## 🍌 Tradução PT-BR
+
+O piloto reúne **217 diálogos** do inventário em inglês. São **8 da Candy**, **13 do Funky** e **196 do Cranky**, incluindo **27 dicas** de fases. A revisão durante a campanha e a localização dos créditos e das demais telas seguem em andamento.
+
+[Preparação e glossário](docs/15-PT-BR.md) · [Piloto dos menus](docs/16-PILOTO-PT-BR.md) · [Inventário dos diálogos](docs/30-DIALOGOS-CRANKY-PT-BR.md)
+
+---
+
+## 📖 Guias e documentação
+
+| Para | Abra |
+| :--- | :--- |
+| Entender o port e a recompilação | [Visão e escopo](docs/01-VISAO-E-ESCOPO.md) · [Arquitetura](docs/03-ARQUITETURA.md) |
+| Reproduzir a configuração e os testes | [Ambiente e reprodução](docs/04-AMBIENTE-E-REPRODUCAO.md) · [Plano de validação](docs/05-VALIDACAO.md) |
+| Consultar as mudanças | [Changelog](CHANGELOG.md) · [Etapas e pendências](docs/06-ETAPAS-E-PENDENCIAS.md) |
+
+<details>
+<summary>Índice completo dos documentos</summary>
 
 | Documento | O que você encontra |
 | --- | --- |
@@ -52,6 +119,15 @@ Repositório público do projeto: [rya3n/donkey-kong-country-pc](https://github.
 | [Áudio e progresso na campanha PT-BR](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) | Kongo Jungle, persistência a frio e roteiro contínuo até Croctopus Chase no mapa de Gorilla Glacier |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
+</details>
+
+<details>
+<summary>Notas técnicas e organização dos arquivos</summary>
+
+Após compilar, abra **Jogar DKC.cmd**, escolha seu arquivo no menu e salve na Candy. Para continuar, reabra e selecione o mesmo arquivo. Saves em data/usa-rev1/saves/, fora da pasta de build; detalhes em [Salvamento de progresso](docs/13-SAVES.md). O launcher antigo Jogar DKC - Teste.cmd também abre pelo menu normal. Testar caverna.cmd é isolado dos saves pessoais.
+
+Após o primeiro teste do usuário, corrigimos a cadência da janela preservando 60,0988 Hz e verificamos trechos iniciais de 40 entradas de fases e chefes. Resultados e cobertura em [Verificação de fluidez](docs/12-FLUIDEZ.md).
+
 ## Situação em uma leitura
 
 - A decisão atual é trabalhar com a ROM USA Rev 1 disponível (v1.1), substituindo a espera pela v1.0. A v1.2 também está na pasta e é rejeitada pelo novo perfil.
@@ -87,4 +163,12 @@ Os links de navegação do Notion privado ficam no arquivo local `.project-local
 
 Para repetir a checagem local, execute `python scripts/check_project.py` ou use `--json` para obter um relatório estruturado. O verificador retorna código 1 quando há pré-requisitos pendentes e não altera a ROM, o código ou o sistema.
 
-Base consultada: [DKC1Recomp](https://github.com/elliotttate/DKC1Recomp). Os avanços relatados pelos autores são evidências externas e não equivalem a resultados obtidos aqui.
+</details>
+
+## Créditos e publicação
+
+Este é um projeto de fã baseado no trabalho público do [DKC1Recomp](https://github.com/elliotttate/DKC1Recomp). Donkey Kong Country é o jogo original da Rare para Super Nintendo, publicado pela Nintendo.
+
+Publicamos documentação, configuração e integração próprias; os arquivos de jogo, fontes derivadas da ROM e binários permanecem locais.
+
+[Créditos, procedência e escopo da publicação](docs/08-CREDITOS-E-PUBLICACAO.md)

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="354" viewBox="0 0 960 354" role="img" aria-labelledby="title desc">
+  <title id="title">Donkey Kong Country — Port para PC</title>
+  <desc id="desc">Capa em estilo Super Nintendo com fundo verde de selva, título dourado e cartucho cinza.</desc>
+  <defs>
+    <linearGradient id="base" x2="1" y2="1">
+      <stop stop-color="#142c20"/><stop offset=".56" stop-color="#0a1b16"/><stop offset="1" stop-color="#070e11"/>
+    </linearGradient>
+    <linearGradient id="gold" x2="0" y2="1">
+      <stop stop-color="#fff3a7"/><stop offset=".48" stop-color="#ffd15f"/><stop offset=".52" stop-color="#ffb442"/><stop offset="1" stop-color="#f28435"/>
+    </linearGradient>
+    <linearGradient id="shell" x2=".2" y2="1">
+      <stop stop-color="#c3bfcb"/><stop offset=".47" stop-color="#a9a5b3"/><stop offset="1" stop-color="#6f6b7d"/>
+    </linearGradient>
+    <linearGradient id="label" x2=".8" y2="1">
+      <stop stop-color="#336343"/><stop offset="1" stop-color="#122b24"/>
+    </linearGradient>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M0 3h4" stroke="#000" stroke-opacity=".16"/>
+    </pattern>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M1 1h2v2H1z" fill="#98e4a6" opacity=".12"/>
+    </pattern>
+    <path id="leaf" d="M0 50v-8h13v-8h11v-8h13v-8h15V9h17V0h66v8h-12v8h-18v8H92v8H78v8H59v8H38v8H14v6H0z"/>
+    <path id="banana" d="M3 24h6v5h9v3h15v-4h8v-7h5V10h6V3h4v11h-4v13h-5v9h-8v7H23v-3H12v-5H6v-5H3z"/>
+  </defs>
+  <rect width="960" height="354" rx="16" fill="#13111a"/>
+  <rect x="5" y="5" width="950" height="344" rx="13" fill="url(#base)" stroke="#89734d"/>
+  <rect x="15" y="15" width="930" height="324" rx="8" fill="url(#dots)" stroke="#4a593d"/>
+  <path d="M16 44V16h28m872 0h28v28m0 266v28h-28m-872 0H16v-28" fill="none" stroke="#e0af54" stroke-width="2"/>
+  <g opacity=".54" fill="#2d6545">
+    <use href="#leaf" transform="translate(17 33) rotate(-15) scale(.97 .42)"/>
+    <use href="#leaf" transform="translate(142 338) rotate(188) scale(.95 .52)"/>
+    <use href="#leaf" transform="translate(944 52) rotate(190) scale(.89 .41)"/>
+    <use href="#leaf" transform="translate(930 317) rotate(157) scale(.88 .54)"/>
+  </g>
+  <path d="M326 61h230m-156 232h155" stroke="#68946b" stroke-opacity=".38" stroke-dasharray="2 8"/>
+  <g font-family="ui-monospace,Consolas,monospace">
+    <text x="52" y="64" fill="#a5d5a0" font-size="13" font-weight="700" letter-spacing="2.6">SUPER NINTENDO  /  USA REV 1</text>
+    <path d="M53 81h132" stroke="#bad895" stroke-opacity=".72" stroke-width="2"/>
+  </g>
+  <g font-family="Impact,Arial Black,DejaVu Sans,sans-serif" font-weight="900" stroke-linejoin="round" paint-order="stroke">
+    <text x="49" y="154" font-size="61" textLength="490" lengthAdjust="spacingAndGlyphs" fill="#951e22" stroke="#060d0d" stroke-width="10" transform="translate(0 6)">DONKEY KONG</text>
+    <text x="49" y="154" font-size="61" textLength="490" lengthAdjust="spacingAndGlyphs" fill="url(#gold)" stroke="#6d2521" stroke-width="4">DONKEY KONG</text>
+    <text x="49" y="235" font-size="82" textLength="490" lengthAdjust="spacingAndGlyphs" fill="#951e22" stroke="#060d0d" stroke-width="10" transform="translate(0 6)">COUNTRY</text>
+    <text x="49" y="235" font-size="82" textLength="490" lengthAdjust="spacingAndGlyphs" fill="url(#gold)" stroke="#6d2521" stroke-width="5">COUNTRY</text>
+  </g>
+  <g font-family="ui-monospace,Consolas,monospace">
+    <rect x="53" y="262" width="265" height="48" rx="4" fill="#243a28" stroke="#a88848"/>
+    <path d="M60 268h250" stroke="#809363" opacity=".48"/>
+    <text x="70" y="293" fill="#fff0b5" font-size="21" font-weight="700" letter-spacing="2.2">PORT PARA PC</text>
+    <text x="346" y="291" fill="#b5c8ad" font-size="17" font-weight="700">WINDOWS · PT-BR</text>
+  </g>
+  <g transform="translate(595 54)">
+    <path d="M21 10h273v16h17v195l-14 14H20L4 220V26h17z" fill="#04090b" opacity=".8" transform="translate(5 12)"/>
+    <path d="M22 8h266l12 12v26h13v170l-15 15H16L2 217V46h13V20z" fill="url(#shell)" stroke="#e9e2db" stroke-width="1.5"/>
+    <path d="M17 49h281v151H17z" fill="#5d5a6a" stroke="#d7cfda" stroke-width="2"/>
+    <path d="M23 56h269v137H23z" fill="#0d141a" stroke="#343540" stroke-width="2"/>
+    <rect x="28" y="61" width="259" height="127" rx="4" fill="url(#label)" stroke="#caa653"/>
+    <path d="M28 72h259m-259 95h259" stroke="#cdaa58" stroke-opacity=".42"/>
+    <path d="M47 63v123m7-123v123" stroke="#9e7051" opacity=".8"/>
+    <g fill="#84ac66" opacity=".27">
+      <use href="#leaf" transform="translate(281 73) rotate(164) scale(.64 .3)"/>
+      <use href="#leaf" transform="translate(69 172) rotate(-25) scale(.62 .26)"/>
+    </g>
+    <g transform="translate(97 86)">
+      <path d="M15 7h69v5h7v8h4v58h-4v8h-7v5H15v-5H8v-8H4V20h4v-8h7z" fill="#29170f"/>
+      <path d="M18 11h64v7h8v61h-8v8H18v-8h-8V18h8z" fill="#a45426"/>
+      <path d="M21 20h11v61H21zm15 0h14v64H36zm20 0h12v64H56zm18 0h8v61h-8z" fill="#d78032"/>
+      <path d="M12 26h76v9H12zm0 39h76v9H12z" fill="#49392e"/>
+      <path d="M13 26h75v3H13zm0 39h75v3H13z" fill="#b3976c"/>
+      <text x="50" y="60" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="31" font-weight="900" fill="#ffcb57" stroke="#752121" stroke-width="4" paint-order="stroke">DK</text>
+    </g>
+    <use href="#banana" transform="translate(202 125) scale(.88)" fill="#151911" opacity=".85"/>
+    <use href="#banana" transform="translate(201 122) scale(.88)" fill="#facc50"/>
+    <path d="M16 212h280m-220 8h164" stroke="#524e62" stroke-width="3"/>
+    <path d="M34 23h248m-248 6h248" stroke="#777384" opacity=".78"/>
+  </g>
+  <g>
+    <circle cx="818" cy="309" r="6" fill="#3d80b5"/><circle cx="839" cy="309" r="6" fill="#68a578"/>
+    <circle cx="860" cy="309" r="6" fill="#e3b047"/><circle cx="881" cy="309" r="6" fill="#c34d51"/>
+  </g>
+  <rect x="15" y="15" width="930" height="324" rx="8" fill="url(#scan)"/>
+</svg>

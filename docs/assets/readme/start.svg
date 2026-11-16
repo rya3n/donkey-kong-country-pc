@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="314" height="60" viewBox="0 0 314 60" role="img" aria-labelledby="title">
+  <title id="title">START · Como jogar</title>
+  <style>
+    .cursor { animation: select 1.4s steps(1, end) infinite; }
+    @keyframes select { 58% { opacity: .28; } }
+    @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+  </style>
+  <path d="M13 3h288l10 10v34l-10 10H13L3 47V13z" fill="#161b19" stroke="#e9b858" stroke-width="2"/>
+  <path d="M16 9h282l7 7v28l-7 7H16l-7-7V16z" fill="#24372a" stroke="#7f7350"/>
+  <path class="cursor" d="M27 21h4v4h5v4h5v3h-5v4h-5v4h-4z" fill="#ffd66a"/>
+  <text x="53" y="36" font-family="ui-monospace,Consolas,monospace" font-weight="800" font-size="18" fill="#ffd66a" letter-spacing="1.5">START</text>
+  <path d="M126 20h1v21h-1z" fill="#ae9258"/>
+  <text x="144" y="36" font-family="ui-monospace,Consolas,monospace" font-size="16" font-weight="700" fill="#f4e8c4">COMO JOGAR</text>
+</svg>
