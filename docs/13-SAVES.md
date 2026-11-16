@@ -36,6 +36,8 @@ Sete testes de arquivos reais e processos separados passaram: primeira abertura 
 
 O replay de 600 quadros sem persistência manteve todos os campos do relatório de referência. Um smoke test de 900 quadros com SRAM ativa manteve o alvo de 60,0988 Hz, intervalo médio de 16,639 ms, p95 de 17,424 ms e zero estouros do prazo após aquecimento. Esse processo rodou com janela oculta; mede o agendamento do host e não substitui uma nova avaliação visual na janela. Evidência em evidence/2026-11-05/saves/.
 
+Em 2026-11-16, a rota de campanha no piloto PT-BR salvou no slot 1 em Gorilla Glacier após concluir Torchlight Trouble. A seleção de jogo exibiu 00:28 e 21% na reabertura. Processos novos leram o arquivo de 2.048 bytes e o backup automático coincidiu com o original. [Salvamento da Candy em Gorilla Glacier](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#salvamento-da-candy-em-gorilla-glacier).
+
 ## Reproduzir os testes
 
 Após compilar com scripts/build_rev1.ps1, executar na raiz:

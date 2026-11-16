@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-16 — Salvamento validado em Gorilla Glacier
+
+- O roteiro saiu do mapa, entrou em Candy's Save Point e gravou o slot 1 com 00:28 e 21%.
+- O menu mostrou os mesmos dados após a reabertura. O jogo voltou ao ponto da Candy em Gorilla Glacier. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#salvamento-da-candy-em-gorilla-glacier).
+- O arquivo de 2.048 bytes e o backup coincidiram após a reabertura em Win32 e headless. Os 59 testes Python passaram.
+
 ## 2026-11-16 — Torchlight Trouble concluída
 
 - A rota abriu a caixa de Squawks, atravessou as plataformas móveis e ativou o checkpoint. Um teste separado confirmou a reentrada pelo checkpoint com a lanterna acesa.

@@ -473,3 +473,20 @@ Em um perfil separado, uma queda após o checkpoint devolveu o jogo ao mapa com 
 O coletor de QA e o piloto headless reproduziram os 129.094 quadros desde o menu em perfis novos. O contador ficou em dez vidas durante a rota principal da fase. A imagem final PPM e o arquivo de salvamento coincidiram byte a byte. O SHA-256 do framebuffer registrado pelo piloto é `aafc8caff451ef7ecef95fbfd50ee527420c10951be71012e96ba4a7f6f15f8d`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 129.094 quadros e o roteiro de Candy's Save Point. O próximo teste é o salvamento da Candy em Gorilla Glacier.
+
+## Salvamento da Candy em Gorilla Glacier
+
+O [roteiro de 129.851 quadros](../recipes/usa-rev1/campaign-to-gorilla-glacier-candy-save.inputs) preserva a rota até o mapa da Candy. A sequência entra em Candy's Save Point, salta no barril e confirma o slot 1. A tela mostra 00:28 e 21% antes de voltar ao mapa.
+
+| Quadro | Resultado |
+| --- | --- |
+| 129094 | Candy's Save Point selecionado em Gorilla Glacier |
+| 129355 | Diálogo da Candy em PT-BR |
+| 129715 | Tela de salvamento com o slot 1 selecionado, 00:28 e 21% |
+| 129851 | Confirmação concluída e retorno ao mapa, `entrance=0x00FC`, dez vidas e 34 bananas |
+
+Na reabertura, o menu de seleção exibiu os mesmos 00:28 e 21% no slot 1. Ao carregar, os Kongs voltaram ao ponto da Candy em Gorilla Glacier. A nova sessão começou com cinco vidas e zero bananas. Três toques para a esquerda no mapa, passando por Torchlight Trouble e Funky's Flights, selecionam Rope Bridge Rumble.
+
+O coletor de QA e o headless reproduziram os 129.851 quadros desde o menu em perfis novos. Os dois gravaram o mesmo arquivo de 2.048 bytes, com SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e`. Na reabertura em processos novos, Win32 e headless produziram a mesma imagem e o mesmo conteúdo de WRAM e SRAM. O arquivo em disco e o backup automático coincidiram. Os 59 testes Python passaram.
+
+Para reproduzir a gravação, use a seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 129.851 quadros e o roteiro de salvamento em Gorilla Glacier. Depois que o processo encerrar, use o mesmo `DKC_REV1_SAVE_DIR` em uma nova execução de 4.801 quadros com o [roteiro de reabertura](../recipes/usa-rev1/cold-load.inputs).
