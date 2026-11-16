@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-16 — Slipslide Ride concluída
+
+- A rota usou cordas azuis e roxas, ativou o checkpoint e subiu o último trecho com 16 saltos alternados entre duas cordas.
+- O mapa selecionou Ice Age Alley automaticamente. O roteiro termina no quadro 109.605, com nove vidas e 57 bananas.
+- As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-slipslide-ride).
+
 ## 2026-11-15 — Snow Barrel Blast concluída
 
 - A rota atravessou a nevasca, ativou o barril de checkpoint e passou pelo atalho de canhões, onde rendeu uma vida extra.

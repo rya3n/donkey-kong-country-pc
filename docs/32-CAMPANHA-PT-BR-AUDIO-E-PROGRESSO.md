@@ -375,3 +375,25 @@ O [roteiro de 103.582 quadros](../recipes/usa-rev1/campaign-to-slipslide-ride-ma
 O piloto headless e o coletor de QA repetiram os 103.582 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou que a vida extra foi a única alteração no contador de vidas durante a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `9e97b2a9f07e0f3d3d9df21ff477a7d05dce38544def0545733adc1ea5635265`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 103.582 quadros e o roteiro de Slipslide Ride. O próximo teste começa pela entrada em Slipslide Ride.
+
+## Saída de Slipslide Ride
+
+O [roteiro de 109.605 quadros](../recipes/usa-rev1/campaign-to-ice-age-alley-map.inputs) mantém os comandos até o mapa de Slipslide Ride. A fase alterna subidas em cordas azuis, descidas em cordas roxas e saltos para contornar os Zingers. A rota ativa o checkpoint após três cordas, recupera Donkey no barril DK e usa o canhão automático para alcançar a passagem superior. Perto da saída, Diddy sobe com 16 saltos alternados entre duas cordas roxas. O mapa seleciona Ice Age Alley automaticamente depois da saída.
+
+| Quadro | Resultado |
+| --- | --- |
+| 103808 | Slipslide Ride aberta, `entrance=0x006D`, `scene=0x0009`, oito vidas |
+| 104525 | Primeira descida na corda roxa |
+| 104918 | Vida extra registrada após completar 100 bananas |
+| 105996 | Barril de checkpoint ativado |
+| 106171 | Donkey recuperado no barril DK |
+| 106382 | Passagem superior alcançada pelo canhão automático |
+| 106759 | Travessia das quatro cordas azuis concluída |
+| 107182 | Plataforma da letra N alcançada |
+| 108874 | Topo da subida final alcançado |
+| 109391 | Ice Age Alley selecionada automaticamente no mapa |
+| 109605 | Mapa de Gorilla Glacier estabilizado, `entrance=0x00A7`, nove vidas e 57 bananas |
+
+O piloto headless e o coletor de QA repetiram os 109.605 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou que a vida extra foi a única alteração no contador de vidas durante a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `b100aada153ead145a468d5b49f1194942365a3303b311f7889cc44b5d9327fb`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 109.605 quadros e o roteiro de Ice Age Alley. O próximo teste começa pela entrada em Ice Age Alley.
