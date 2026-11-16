@@ -397,3 +397,27 @@ O [roteiro de 109.605 quadros](../recipes/usa-rev1/campaign-to-ice-age-alley-map
 O piloto headless e o coletor de QA repetiram os 109.605 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou que a vida extra foi a única alteração no contador de vidas durante a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `b100aada153ead145a468d5b49f1194942365a3303b311f7889cc44b5d9327fb`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 109.605 quadros e o roteiro de Ice Age Alley. O próximo teste começa pela entrada em Ice Age Alley.
+
+## Saída de Ice Age Alley
+
+O [roteiro de 114.560 quadros](../recipes/usa-rev1/campaign-to-croctopus-chase-map.inputs) mantém os comandos até o mapa de Ice Age Alley. Os Kongs buscam Expresso à esquerda da entrada e atravessam o primeiro vão com ele. Depois de desmontar, a rota usa o barril DK para recuperar Donkey, cruza as cordas e ativa o checkpoint. O canhão automático leva à margem seguinte. Mais à frente, o salto do pneu alcança outra corda. Donkey cruza os últimos vãos e Diddy passa pelo Klaptrap final depois do encontro com o último Manky Kong. O mapa seleciona Croctopus Chase automaticamente depois da saída.
+
+| Quadro | Resultado |
+| --- | --- |
+| 109831 | Ice Age Alley aberta, `entrance=0x00A7`, `scene=0x0004`, nove vidas |
+| 110089 | Expresso montado |
+| 110676 | Travessia do vão com Neckys concluída |
+| 110948 | Donkey recuperado no barril DK |
+| 111380 | Terceira corda antes do checkpoint alcançada |
+| 111746 | Barril de checkpoint ativado |
+| 111793 | Margem seguinte alcançada pelo canhão automático |
+| 112403 | Corda alcançada com o salto do pneu |
+| 113334 | Última corda alcançada com Donkey |
+| 113852 | Diddy passou pelo último Manky Kong |
+| 113985 | Klaptrap final ultrapassado |
+| 114375 | Croctopus Chase selecionada automaticamente no mapa |
+| 114560 | Mapa de Gorilla Glacier estabilizado, `entrance=0x003E`, nove vidas e 80 bananas |
+
+O piloto headless e o coletor de QA repetiram os 114.560 quadros desde o menu em perfis novos, sem restaurar snapshots. O contador registrou nove vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `b0b890560c37f0007719b8208fa1e7cc79e9d47f739265d41fd6b9878fdca6f7`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 114.560 quadros e o roteiro de Croctopus Chase. O próximo teste começa pela entrada em Croctopus Chase.

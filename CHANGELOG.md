@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-16 — Ice Age Alley concluída
+
+- O percurso usou Expresso no primeiro vão, ativou o checkpoint e atravessou as cordas, incluindo o salto do pneu.
+- O mapa selecionou Croctopus Chase automaticamente. O roteiro termina no quadro 114.560, com nove vidas e 80 bananas.
+- As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-ice-age-alley).
+
 ## 2026-11-16 — Slipslide Ride concluída
 
 - A rota usou cordas azuis e roxas, ativou o checkpoint e subiu o último trecho com 16 saltos alternados entre duas cordas.
