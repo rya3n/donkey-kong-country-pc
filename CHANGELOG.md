@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-15 — Snow Barrel Blast concluída
+
+- A rota atravessou a nevasca, ativou o barril de checkpoint e passou pelo atalho de canhões, onde rendeu uma vida extra.
+- O mapa liberou Slipslide Ride. O roteiro termina no quadro 103.582, com oito vidas e 89 bananas.
+- As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-snow-barrel-blast).
+
 ## 2026-11-15 — Queen B. derrotada e Gorilla Glacier aberto
 
 - Confirmados os cinco golpes em Bumble B Rumble e a animação da banana gigante, com sete vidas preservadas.

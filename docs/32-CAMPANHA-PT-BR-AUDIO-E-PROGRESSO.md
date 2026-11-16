@@ -354,3 +354,24 @@ O [roteiro de 98.224 quadros](../recipes/usa-rev1/campaign-to-gorilla-glacier-ma
 O piloto headless e o coletor de QA repetiram os 98.224 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou sete vidas durante a luta e a transição. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `d1f768136cde67e731ff9f28a2ab1c81095d6d7971cb0126cf12cbcb62832359`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 98.224 quadros e o roteiro de Gorilla Glacier. O próximo teste começa pela entrada em Snow Barrel Blast.
+
+## Saída de Snow Barrel Blast
+
+O [roteiro de 103.582 quadros](../recipes/usa-rev1/campaign-to-slipslide-ride-map.inputs) mantém os comandos até a abertura de Gorilla Glacier. Em Snow Barrel Blast, os Kongs passam pelos Neckys, atravessam as sequências de canhões e ativam o checkpoint sob a nevasca. Na sequência final, um disparo para baixo entra no atalho indicado pela dica do Cranky. As bananas do atalho rendem uma vida extra, e o percurso volta à encosta antes da saída. De volta ao mapa, um toque à direita seleciona Slipslide Ride. [Dicas de Gorilla Glacier](24-DICAS-GORILLA-GLACIER-PT-BR.md).
+
+| Quadro | Resultado |
+| --- | --- |
+| 98450 | Snow Barrel Blast aberta, `entrance=0x0024`, `scene=0x0004`, sete vidas |
+| 98627 | Primeiro canhão giratório alcançado |
+| 101074 | Barril de checkpoint ativado sob a nevasca |
+| 101329 | Segundo Kong recuperado pelo barril DK |
+| 102136 | Atalho alcançado pelo disparo para baixo |
+| 102221 | Vida extra registrada |
+| 102676 | Desembarque na encosta final |
+| 102863 | Placa de saída visível |
+| 103316 | Retorno ao mapa de Gorilla Glacier |
+| 103582 | Slipslide Ride selecionada, `entrance=0x006D`, oito vidas e 89 bananas |
+
+O piloto headless e o coletor de QA repetiram os 103.582 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou que a vida extra foi a única alteração no contador de vidas durante a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `9e97b2a9f07e0f3d3d9df21ff477a7d05dce38544def0545733adc1ea5635265`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 103.582 quadros e o roteiro de Slipslide Ride. O próximo teste começa pela entrada em Slipslide Ride.
