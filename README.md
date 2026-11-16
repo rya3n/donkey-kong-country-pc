@@ -62,9 +62,9 @@ O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela
 | 🌴 [**Kongo Jungle**](docs/21-DICAS-KONGO-JUNGLE-PT-BR.md) | Rota principal validada, com save na Candy e vitória sobre Very Gnawty. |
 | ⛏️ [**Monkey Mines**](docs/22-DICAS-MONKEY-MINES-PT-BR.md) | Percurso contínuo finalizado. |
 | 🌿 [**Vine Valley**](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Percurso contínuo finalizado, com vitória sobre Queen B. |
-| ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Chegada ao mapa com *Torchlight Trouble* selecionada. |
+| ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | *Torchlight Trouble* concluída e *Candy's Save Point* selecionado no mapa. |
 
-Em **Gorilla Glacier**, o roteiro já concluiu *Snow Barrel Blast*, *Slipslide Ride*, *Ice Age Alley* e *Croctopus Chase*. O registro da [campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) inclui o teste de reabertura do save em um novo processo.
+Em **Gorilla Glacier**, o roteiro já concluiu *Snow Barrel Blast*, *Slipslide Ride*, *Ice Age Alley*, *Croctopus Chase* e *Torchlight Trouble*. O registro da [campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) inclui o teste de reabertura do save em um novo processo.
 
 <a name="traducao-pt-br"></a>
 
@@ -124,7 +124,7 @@ O piloto reúne **217 diálogos** do inventário em inglês. São **8 da Candy**
 | [Saudações do Cranky](docs/29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md) | As 41 saudações e o piloto de 100 diálogos |
 | [Inventário de diálogos do Cranky](docs/30-DIALOGOS-CRANKY-PT-BR.md) | As 117 falas finais do lote e as duas correções de texto |
 | [Primeira sessão de campanha PT-BR](docs/31-INICIO-CAMPANHA-PT-BR.md) | Rota de teste desde o menu, com visita ao Cranky e entrada em Reptile Rumble |
-| [Áudio e progresso na campanha PT-BR](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) | Kongo Jungle, persistência a frio e roteiro contínuo até Torchlight Trouble no mapa de Gorilla Glacier |
+| [Áudio e progresso na campanha PT-BR](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) | Kongo Jungle, persistência a frio e roteiro contínuo até Candy's Save Point no mapa de Gorilla Glacier |
 | [Log de atualizações](CHANGELOG.md) | Histórico datado do que mudou e do que foi verificado |
 
 </details>

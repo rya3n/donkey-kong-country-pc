@@ -448,3 +448,28 @@ O executável headless anterior rejeitava roteiros acima de 120 mil quadros. A v
 O coletor de QA e o piloto headless reproduziram os 125.724 quadros desde o menu em perfis novos. O registro de vidas mostrou apenas o ganho da vida extra em Croctopus Chase. A imagem final PPM e o arquivo de salvamento coincidiram byte a byte. O SHA-256 do framebuffer registrado pelo piloto é `4c7d16001badce81c5b5ce3e0efc6bca6963fe3a72cbd821ea2a69c152b64136`. Os 59 testes Python passaram.
 
 Para repetir, compile o piloto atualizado e use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 125.724 quadros e o roteiro de Torchlight Trouble. O próximo teste começa pela entrada em Torchlight Trouble. [Script de compilação do piloto](../scripts/build_ptbr_pilot.ps1).
+
+## Saída de Torchlight Trouble
+
+O [roteiro de 129.094 quadros](../recipes/usa-rev1/campaign-to-gorilla-glacier-candy-map.inputs) preserva os comandos até o mapa de Torchlight Trouble. Donkey abre a caixa de Squawks com um salto. As capturas mostram a caverna escura antes da abertura e o facho iluminando o terreno à frente depois dela. A lanterna é a função descrita para Squawks no manual original. [Manual de Donkey Kong Country](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAALE.pdf).
+
+A rota principal passa pelos barris em chamas e pelas plataformas móveis, ativa o checkpoint e recupera Diddy no barril DK. Diddy termina a travessia das serras e cruza a saída. De volta ao mapa, um toque para a direita seleciona Candy's Save Point.
+
+| Quadro | Resultado |
+| --- | --- |
+| 125985 | Torchlight Trouble aberta, `entrance=0x0014`, `scene=0x0001`, dez vidas |
+| 126066 | Squawks liberado e facho visível |
+| 126489 | Plataforma horizontal alcançada |
+| 126739 | Elevador alcançado |
+| 127125 | Barril de checkpoint ativado |
+| 127225 | Diddy recuperado no barril DK |
+| 128081 | Última plataforma móvel alcançada |
+| 128398 | Placa de saída visível |
+| 128893 | Retorno ao mapa de Gorilla Glacier |
+| 129094 | Candy's Save Point selecionado, `entrance=0x00FC`, dez vidas e 34 bananas |
+
+Em um perfil separado, uma queda após o checkpoint devolveu o jogo ao mapa com uma vida a menos. Ao entrar novamente, o piloto abriu `entrance=0x0013` e posicionou Diddy no checkpoint com Squawks e a lanterna acesa.
+
+O coletor de QA e o piloto headless reproduziram os 129.094 quadros desde o menu em perfis novos. O contador ficou em dez vidas durante a rota principal da fase. A imagem final PPM e o arquivo de salvamento coincidiram byte a byte. O SHA-256 do framebuffer registrado pelo piloto é `aafc8caff451ef7ecef95fbfd50ee527420c10951be71012e96ba4a7f6f15f8d`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 129.094 quadros e o roteiro de Candy's Save Point. O próximo teste é o salvamento da Candy em Gorilla Glacier.

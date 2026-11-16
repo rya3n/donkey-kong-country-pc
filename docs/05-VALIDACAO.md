@@ -18,8 +18,8 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Executado em janela; usuário confirmou a fluidez após a correção |
 | V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Entrada reproduzida e sessão humana realizada; cobertura ampliada em V14 |
 | V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Parcial. Corrida, salto, barris de checkpoint e de parceiro em Jungle Hijinxs, escalada em Ropey Rampage |
-| V07 | Morte e retorno | Ciclo completo sem travamento e com estado coerente | Retorno ao mapa e nova entrada confirmados em Jungle Hijinxs. Reentrada pelo checkpoint confirmada em Croctopus Chase |
-| V08 | Concluir fase e voltar ao mapa | Saída, transição e progressão corretas | Rota principal validada em Kongo Jungle, Monkey Mines e Vine Valley. Em Gorilla Glacier, Snow Barrel Blast, Slipslide Ride, Ice Age Alley e Croctopus Chase concluídas e Torchlight Trouble liberada |
+| V07 | Morte e retorno | Ciclo completo sem travamento e com estado coerente | Retorno ao mapa e nova entrada confirmados em Jungle Hijinxs. Reentrada pelo checkpoint confirmada em Croctopus Chase e Torchlight Trouble |
+| V08 | Concluir fase e voltar ao mapa | Saída, transição e progressão corretas | Rota principal validada em Kongo Jungle, Monkey Mines e Vine Valley. Em Gorilla Glacier, a rota passou por cinco fases até Torchlight Trouble e chegou ao mapa de Candy's Save Point |
 | V09 | Áudio e apresentação | Trecho identificado sem cortes persistentes ou defeitos visíveis | PCM comparado da despedida do Cranky até a caverna. Escuta em janela pendente |
 | V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Candy de Kongo Jungle aprovada com progresso real em headless e Win32. Ampliar aos demais pontos da campanha |
 | V11 | Save state, se incluído no marco | Comparar continuação após load com execução contínua | Não implementado; não faz parte da entrega de SRAM |
@@ -40,8 +40,8 @@ Roteiro preparado em 2026-11-05 após o aceite dos modos de tela. A [primeira se
 
 | Passo | O que registrar | Estado |
 | --- | --- | --- |
-| Ações e retorno | Movimento, troca de personagem, barris, morte, retorno e continuação | Cobertura parcial em Jungle Hijinxs e Ropey Rampage. Reentrada pelo checkpoint subaquático confirmada em Croctopus Chase |
-| Progressão | Nome de cada fase concluída, saída, mapa, bônus e entrada seguinte | Rota principal de Kongo Jungle, Monkey Mines e Vine Valley concluída. Em Gorilla Glacier, a rota passou pelo atalho em Snow Barrel Blast e pelos checkpoints de Slipslide Ride, Ice Age Alley e Croctopus Chase. Retomar no mapa de Torchlight Trouble pelo [roteiro contínuo](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-croctopus-chase) |
+| Ações e retorno | Movimento, troca de personagem, barris, morte, retorno e continuação | Cobertura parcial em Jungle Hijinxs e Ropey Rampage. Reentrada pelo checkpoint confirmada em Croctopus Chase e em Torchlight Trouble com Squawks |
+| Progressão | Nome de cada fase concluída, saída, mapa, bônus e entrada seguinte | Rota principal de Kongo Jungle, Monkey Mines e Vine Valley concluída. Em Gorilla Glacier, a rota passou pelo atalho em Snow Barrel Blast e pelos checkpoints de Slipslide Ride, Ice Age Alley, Croctopus Chase e Torchlight Trouble. Retomar no mapa de Candy's Save Point pelo [roteiro contínuo](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-torchlight-trouble) |
 | Variedade e chefes | Água, chuva, cavernas, cordas, canhões, chefes e transições entre mundos | Chuva, cordas, caverna, água, canhões e carrinho exercitados. Very Gnawty e Master Necky derrotados com transição para o próximo mundo |
 | Saves com progresso real | Selecionar o slot, salvar na Candy, fechar normalmente, reabrir e conferir o mesmo arquivo | Confirmado na Candy de Kongo Jungle com [roteiro e evidências](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md) |
 | Final da campanha | Chefe final, encerramento/créditos e estado recuperado após reabrir | A registrar |

@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-16 — Torchlight Trouble concluída
+
+- A rota abriu a caixa de Squawks, atravessou as plataformas móveis e ativou o checkpoint. Um teste separado confirmou a reentrada pelo checkpoint com a lanterna acesa.
+- Depois da saída, um toque para a direita selecionou Candy's Save Point. O roteiro termina no quadro 129.094, com dez vidas e 34 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-torchlight-trouble).
+- As duas execuções desde o menu em perfis novos geraram a mesma imagem final e o mesmo arquivo de salvamento. Passaram os 59 testes Python.
+
 ## 2026-11-16 — Croctopus Chase concluída
 
 - A rota recuperou Donkey no barril DK, ativou o checkpoint e ganhou uma vida extra nos túneis. Um teste separado confirmou a reentrada pelo checkpoint após uma morte.
