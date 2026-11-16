@@ -513,3 +513,23 @@ O [roteiro de 134.644 quadros](../recipes/usa-rev1/campaign-to-really-gnawty-ram
 Em um perfil separado, uma morte após o checkpoint devolveu o jogador ao mapa com nove vidas. A nova entrada começou no checkpoint (`entrance=0x00CF`), junto ao barril intermediário. A rota principal manteve as dez vidas da Candy e o mesmo arquivo de salvamento do slot 1.
 
 As 45 capturas da reprodução desde o menu coincidiram com as da repetição iniciada no estado de QA do mapa da Candy. Os 59 testes Python passaram. Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Really Gnawty Rampage e 134.644 quadros. A próxima etapa começa no mapa, com o chefe selecionado.
+
+## Really Gnawty e chegada a Kremkroc Industries Inc.
+
+O [roteiro de 137.350 quadros](../recipes/usa-rev1/campaign-to-oil-drum-alley-map.inputs) mantém os comandos até Really Gnawty Rampage. Na arena, os Kongs desviam dos saltos altos e atingem o chefe de cima. Após o quinto golpe, a animação mostra a banana gigante. Um toque em B leva ao mapa geral, que seleciona Kremkroc Industries Inc. Outro toque em B abre o mapa industrial com Oil Drum Alley selecionada.
+
+| Quadro | Resultado |
+| --- | --- |
+| 134885 | Arena de Really Gnawty Rampage, `entrance=0x00E2`, `scene=0x000C` |
+| 134949 | Primeiro golpe confirmado, quatro golpes restantes |
+| 135202 | Segundo golpe confirmado, três golpes restantes |
+| 135638 | Terceiro golpe confirmado, dois golpes restantes |
+| 135940 | Quarto golpe confirmado, um golpe restante |
+| 136308 | Quinto golpe confirmado |
+| 136548 | Animação de vitória e banana gigante |
+| 137049 | Kremkroc Industries Inc. selecionada no mapa geral, `entrance=0x00E7` |
+| 137350 | Oil Drum Alley selecionada no mapa industrial, `entrance=0x0040`, dez vidas e 53 bananas |
+
+O coletor de QA reproduziu o roteiro desde o menu em um perfil novo. As 13 capturas coincidiram com as da repetição iniciada no estado de QA do mapa de Really Gnawty Rampage. O teste manteve dez vidas e 53 bananas durante a luta e a transição. O arquivo do slot 1 manteve o mesmo conteúdo da validação da Candy. Os 59 testes Python passaram.
+
+Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Oil Drum Alley e 137.350 quadros. A próxima etapa começa pela entrada em Oil Drum Alley.

@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-16 — Really Gnawty derrotado
+
+- O teste confirmou os cinco golpes, a animação de vitória e a liberação de Kremkroc Industries Inc. As dez vidas e 53 bananas foram preservadas.
+- O roteiro de 137.350 quadros termina no mapa industrial, com Oil Drum Alley selecionada. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#really-gnawty-e-chegada-a-kremkroc-industries-inc).
+- A reprodução desde o menu e a repetição iniciada no mapa de Really Gnawty Rampage geraram 13 capturas idênticas. Passaram os 59 testes Python.
+
 ## 2026-11-16 — Rope Bridge Rumble concluída
 
 - A rota atravessou os pneus suspensos e as plataformas móveis. Um teste separado confirmou a reentrada pelo checkpoint após uma morte.
