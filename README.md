@@ -62,9 +62,9 @@ O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela
 | 🌴 [**Kongo Jungle**](docs/21-DICAS-KONGO-JUNGLE-PT-BR.md) | Rota principal validada, com save na Candy e vitória sobre Very Gnawty. |
 | ⛏️ [**Monkey Mines**](docs/22-DICAS-MONKEY-MINES-PT-BR.md) | Percurso contínuo finalizado. |
 | 🌿 [**Vine Valley**](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Percurso contínuo finalizado, com vitória sobre Queen B. |
-| ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | *Torchlight Trouble* concluída e salvamento com a Candy validado. |
+| ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Seis fases concluídas até *Rope Bridge Rumble*. Próximo teste em *Really Gnawty Rampage*. |
 
-Em **Gorilla Glacier**, o roteiro já concluiu *Snow Barrel Blast*, *Slipslide Ride*, *Ice Age Alley*, *Croctopus Chase* e *Torchlight Trouble*. O teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#salvamento-da-candy-em-gorilla-glacier).
+Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Os testes de *Rope Bridge Rumble* confirmaram a saída e a reentrada pelo checkpoint. O roteiro contínuo termina no mapa com *Really Gnawty Rampage* selecionada. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-rope-bridge-rumble).
 
 <a name="traducao-pt-br"></a>
 

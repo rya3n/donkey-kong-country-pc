@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-16 — Rope Bridge Rumble concluída
+
+- A rota atravessou os pneus suspensos e as plataformas móveis. Um teste separado confirmou a reentrada pelo checkpoint após uma morte.
+- O mapa selecionou Really Gnawty Rampage automaticamente no fim do roteiro de 134.644 quadros, com dez vidas e 53 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-rope-bridge-rumble).
+- A reprodução desde o menu e a repetição a partir da Candy geraram 45 capturas idênticas. Passaram os 59 testes Python.
+
 ## 2026-11-16 — Salvamento validado em Gorilla Glacier
 
 - O roteiro saiu do mapa, entrou em Candy's Save Point e gravou o slot 1 com 00:28 e 21%.

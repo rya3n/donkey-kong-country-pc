@@ -490,3 +490,26 @@ Na reabertura, o menu de seleção exibiu os mesmos 00:28 e 21% no slot 1. Ao ca
 O coletor de QA e o headless reproduziram os 129.851 quadros desde o menu em perfis novos. Os dois gravaram o mesmo arquivo de 2.048 bytes, com SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e`. Na reabertura em processos novos, Win32 e headless produziram a mesma imagem e o mesmo conteúdo de WRAM e SRAM. O arquivo em disco e o backup automático coincidiram. Os 59 testes Python passaram.
 
 Para reproduzir a gravação, use a seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 129.851 quadros e o roteiro de salvamento em Gorilla Glacier. Depois que o processo encerrar, use o mesmo `DKC_REV1_SAVE_DIR` em uma nova execução de 4.801 quadros com o [roteiro de reabertura](../recipes/usa-rev1/cold-load.inputs).
+
+## Saída de Rope Bridge Rumble
+
+O [roteiro de 134.644 quadros](../recipes/usa-rev1/campaign-to-really-gnawty-rampage-map.inputs) mantém os comandos até o salvamento da Candy. Três toques para a esquerda no mapa selecionam Rope Bridge Rumble. A rota recupera Donkey num barril DK antes do checkpoint e Diddy num segundo barril DK depois dele. Diddy cruza a última sequência de pneus e os três Zingers antes da saída.
+
+| Quadro | Resultado |
+| --- | --- |
+| 130304 | Rope Bridge Rumble selecionada, `entrance=0x00CE` |
+| 130565 | Entrada na fase, dez vidas e 34 bananas |
+| 130692 | Primeiro pneu usado para cruzar o vão inicial |
+| 131057 | Impulso alto do pneu para alcançar a rota superior |
+| 131673 | Primeiro barril DK aberto na sequência de pneus suspensos |
+| 132016 | Checkpoint ativado, dez vidas e 49 bananas |
+| 132872 | Diddy recuperado no segundo barril DK |
+| 133155 | Trecho de plataformas móveis e Zingers atravessado |
+| 133876 | Última sequência de três pneus suspensos atravessada |
+| 134170 | Último vão transposto por cima dos três Zingers |
+| 134524 | Retorno ao mapa de Gorilla Glacier após a saída |
+| 134644 | Really Gnawty Rampage selecionada automaticamente, `entrance=0x00E2`, dez vidas e 53 bananas |
+
+Em um perfil separado, uma morte após o checkpoint devolveu o jogador ao mapa com nove vidas. A nova entrada começou no checkpoint (`entrance=0x00CF`), junto ao barril intermediário. A rota principal manteve as dez vidas da Candy e o mesmo arquivo de salvamento do slot 1.
+
+As 45 capturas da reprodução desde o menu coincidiram com as da repetição iniciada no estado de QA do mapa da Candy. Os 59 testes Python passaram. Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Really Gnawty Rampage e 134.644 quadros. A próxima etapa começa no mapa, com o chefe selecionado.
