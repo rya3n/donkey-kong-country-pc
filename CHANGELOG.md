@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-15 — Queen B. derrotada e Gorilla Glacier aberto
+
+- Confirmados os cinco golpes em Bumble B Rumble e a animação da banana gigante, com sete vidas preservadas.
+- Gorilla Glacier abriu com Snow Barrel Blast selecionada no quadro 98.224, com sete vidas e 59 bananas.
+- As duas execuções desde o menu em perfis novos geraram capturas finais idênticas. Passaram os 59 testes Python. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#queen-b-e-chegada-a-gorilla-glacier).
+
 ## 2026-11-15 — Clam City concluída
 
 - A rota desviou dos cardumes e das pérolas, ativou o checkpoint e ajustou a profundidade para passar pelos Croctopus.

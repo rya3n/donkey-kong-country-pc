@@ -334,3 +334,23 @@ O [roteiro de 94.899 quadros](../recipes/usa-rev1/campaign-to-bumble-b-rumble-ma
 O piloto headless e o coletor de QA repetiram os 94.899 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou sete vidas durante toda a fase. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `b00f5ff62f8141ad9ba653f24b41bbf561529b2fef4885744d1030321429a28a`. Os 59 testes Python passaram.
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 94.899 quadros e o roteiro de Bumble B Rumble. O próximo teste começa pela entrada no chefe.
+
+## Queen B. e chegada a Gorilla Glacier
+
+O [roteiro de 98.224 quadros](../recipes/usa-rev1/campaign-to-gorilla-glacier-map.inputs) mantém os comandos até a seleção de Bumble B Rumble e acrescenta a luta contra Queen B. Os Kongs atravessam a arena durante as investidas da chefe e lançam os barris quando ela volta a ficar vulnerável. Após a vitória, um toque em B fecha a sequência da banana gigante e o mapa geral seleciona Gorilla Glacier. Outro toque em B abre o mapa do mundo com Snow Barrel Blast selecionada.
+
+| Quadro | Resultado |
+| --- | --- |
+| 95060 | Arena de Bumble B Rumble, `entrance=0x00E5`, `scene=0x000C`, sete vidas |
+| 95134 | Primeiro golpe confirmado, com quatro golpes restantes |
+| 95631 | Segundo golpe confirmado, com três golpes restantes |
+| 96133 | Terceiro golpe confirmado, com dois golpes restantes |
+| 96666 | Quarto golpe confirmado, com um golpe restante |
+| 97287 | Último golpe confirmado |
+| 97417 | Banana gigante e animação de vitória |
+| 97923 | Gorilla Glacier selecionado no mapa geral, `entrance=0x00E8` |
+| 98224 | Snow Barrel Blast selecionada no mapa de Gorilla Glacier, `entrance=0x0024`, sete vidas e 59 bananas |
+
+O piloto headless e o coletor de QA repetiram os 98.224 quadros desde o menu em perfis novos, sem restaurar snapshots. O registro confirmou sete vidas durante a luta e a transição. As capturas finais PPM foram idênticas. O SHA-256 do framebuffer registrado pelo piloto é `d1f768136cde67e731ff9f28a2ab1c81095d6d7971cb0126cf12cbcb62832359`. Os 59 testes Python passaram.
+
+Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 98.224 quadros e o roteiro de Gorilla Glacier. O próximo teste começa pela entrada em Snow Barrel Blast.
