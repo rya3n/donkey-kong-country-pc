@@ -2,6 +2,10 @@
   <img src="docs/assets/readme/capa-snes.svg" width="960" alt="Donkey Kong Country — Port para PC. Capa retrô com cartucho de Super Nintendo, barril DK e selva em tons de verde.">
 </p>
 
+<p align="center">
+  <img src="docs/assets/readme/traducao-pt-br.gif" width="800" alt="Piloto do Donkey Kong Country. Tradução PT-BR em andamento, em animação pixel art.">
+</p>
+
 # Donkey Kong Country — Port para PC
 
 <p align="center">
@@ -70,10 +74,6 @@ Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e 
 <a name="traducao-pt-br"></a>
 
 ## 🍌 Tradução PT-BR
-
-<p align="center">
-  <img src="docs/assets/readme/traduzido-pt-br.gif" width="720" alt="Piloto traduzido para PT-BR, com efeito de digitação.">
-</p>
 
 O piloto reúne **217 diálogos** do inventário em inglês. São **8 da Candy**, **13 do Funky** e **196 do Cranky**, incluindo **27 dicas** de fases. A revisão durante a campanha e a localização dos créditos e das demais telas seguem em andamento.
 

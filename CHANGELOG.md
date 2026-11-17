@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-17 — Apresentação e fluxo de trabalho do projeto
+
+- O README mostra a capa seguida do GIF **Tradução PT-BR em andamento**, antes do título. A animação representa o estado do piloto enquanto a revisão em jogo segue aberta.
+- As instruções do repositório reúnem os pontos de consulta para retomar a campanha, registrar evidências e publicar alterações.
+
 ## 2026-11-17 — Oil Drum Alley concluída
 
 - A rota passou pelo canhão oculto, pelos tambores em chamas e pelos pneus suspensos. Um teste separado confirmou a reentrada pelo checkpoint após uma queda.
