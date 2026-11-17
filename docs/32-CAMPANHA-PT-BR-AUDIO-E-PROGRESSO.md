@@ -533,3 +533,24 @@ O [roteiro de 137.350 quadros](../recipes/usa-rev1/campaign-to-oil-drum-alley-ma
 O coletor de QA reproduziu o roteiro desde o menu em um perfil novo. As 13 capturas coincidiram com as da repetição iniciada no estado de QA do mapa de Really Gnawty Rampage. O teste manteve dez vidas e 53 bananas durante a luta e a transição. O arquivo do slot 1 manteve o mesmo conteúdo da validação da Candy. Os 59 testes Python passaram.
 
 Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Oil Drum Alley e 137.350 quadros. A próxima etapa começa pela entrada em Oil Drum Alley.
+
+## Saída de Oil Drum Alley
+
+O [roteiro de 142.970 quadros](../recipes/usa-rev1/campaign-to-trick-track-trek-map.inputs) mantém os comandos até a seleção de Oil Drum Alley. Na rota principal, Donkey usa o canhão oculto para voltar à plataforma alta, ativa o checkpoint e recupera Diddy num barril DK. Diddy usa os pneus suspensos para atravessar a sequência final de tambores.
+
+| Quadro | Resultado |
+| --- | --- |
+| 137611 | Entrada em Oil Drum Alley, `entrance=0x0040`, `scene=0x0007`, dez vidas e 53 bananas |
+| 138972 | Canhão oculto lança Donkey do corredor baixo |
+| 139607 | Barril intermediário ativado, dez vidas e 60 bananas |
+| 140126 | Primeiro fosso após o checkpoint atravessado |
+| 141081 | Diddy recuperado no barril DK |
+| 141239 | Travessia dos dois tambores sobre o fosso concluída |
+| 142186 | Segundo pneu suspenso alcançado na sequência final |
+| 142352 | Último tambor ultrapassado |
+| 142730 | Retorno ao mapa de Kremkroc Industries Inc. |
+| 142970 | Trick Track Trek selecionada automaticamente, `entrance=0x002F`, dez vidas e 64 bananas |
+
+Em um perfil separado, uma queda depois do checkpoint devolveu o jogador ao mapa com nove vidas. Ao entrar novamente, o jogo abriu `entrance=0x0044` e retomou na plataforma do barril intermediário.
+
+A reprodução desde o menu em perfil novo e a repetição iniciada no estado de QA do mapa de Oil Drum Alley geraram 49 capturas idênticas. O arquivo do slot 1 manteve o mesmo conteúdo da validação da Candy. Os 59 testes Python passaram. Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Trick Track Trek e 142.970 quadros. A próxima etapa começa pela entrada em Trick Track Trek.

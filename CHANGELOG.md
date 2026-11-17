@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-17 — Oil Drum Alley concluída
+
+- A rota passou pelo canhão oculto, pelos tambores em chamas e pelos pneus suspensos. Um teste separado confirmou a reentrada pelo checkpoint após uma queda.
+- O roteiro de 142.970 quadros termina no mapa de Kremkroc Industries Inc. com Trick Track Trek selecionada, dez vidas e 64 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-oil-drum-alley).
+- A reprodução desde o menu e a repetição iniciada no mapa de Oil Drum Alley geraram 49 capturas idênticas. Passaram os 59 testes Python.
+
 ## 2026-11-16 — Really Gnawty derrotado
 
 - O teste confirmou os cinco golpes, a animação de vitória e a liberação de Kremkroc Industries Inc. As dez vidas e 53 bananas foram preservadas.
