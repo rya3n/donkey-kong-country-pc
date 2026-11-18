@@ -650,7 +650,7 @@ Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart
 
 ## Saída de Blackout Basement
 
-O [roteiro de 181.287 quadros](../recipes/usa-rev1/campaign-to-boss-dumb-drum-map.inputs) começa no menu e preserva todas as entradas até o mapa de Blackout Basement. A rota usa pneus, cordas, elevadores e plataformas que afundam. Donkey assume o controle após o último grupo de Kritters e passa pelo Zinger final. A rota principal mantém 11 vidas.
+O [roteiro de 181.287 quadros](../recipes/usa-rev1/campaign-to-boss-dumb-drum-map.inputs) começa no menu e preserva todas as entradas até o mapa de Blackout Basement. A rota usa pneus, cordas, elevadores e plataformas que afundam. Donkey assume o controle após o último grupo de Kritters e passa pelo Klaptrap final. A rota principal mantém 11 vidas.
 
 | Quadro do replay | Observação |
 | ---: | --- |
@@ -660,10 +660,10 @@ O [roteiro de 181.287 quadros](../recipes/usa-rev1/campaign-to-boss-dumb-drum-ma
 | 178245 | Checkpoint acionado com o salto do pneu, 65 bananas |
 | 178508 | Primeira corda no extremo direito do balanço |
 | 178834 | Diddy chega ao primeiro elevador |
-| 179080 | Segunda corda no extremo direito do balanço, após passar pelos dois Krushas |
+| 179080 | Segunda corda no extremo direito do balanço, após passar pelos dois Klumps |
 | 179323 | Segunda plataforma do par de elevadores |
 | 179623 | Segunda plataforma horizontal |
-| 179920 | Três Zingers ultrapassados após a primeira plataforma que afunda |
+| 179920 | Três Klaptraps ultrapassados após a primeira plataforma que afunda |
 | 180163 | Quarta plataforma que afunda na sequência final |
 | 180537 | Manky Kong e os barris ultrapassados |
 | 180877 | Volta ao mapa de Kremkroc Industries Inc. |
@@ -676,3 +676,24 @@ Em outro perfil de QA, a partir do checkpoint no quadro 178.245, foram usados 45
 O coletor headless do piloto PT-BR para Windows com USA Rev 1 reproduziu a rota desde o menu e desde o mapa de Blackout Basement em perfis independentes. As 57 capturas e a WRAM final coincidiram. A SRAM do slot 1 manteve 2.048 bytes e o SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e` do salvamento validado na Candy. Os 59 testes Python passaram. Bônus, segredos e áudio em dispositivo seguem na matriz geral.
 
 Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Boss Dumb Drum e 181.287 quadros. O SHA-256 do roteiro é `963bcd893495e028a40eacc676d1ff7f799690635fb7dce920d5375b47fc34d0`. As evidências locais ficam em `bb-live/`, `bb-snapshot/` e `bb-confirmation/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `bb-live/boss-dumb-drum-selecionado.snap` permite retomar pela entrada no chefe.
+
+## Boss Dumb Drum e chegada a Chimp Caverns
+
+O [roteiro de 185.077 quadros](../recipes/usa-rev1/campaign-to-tanked-up-trouble-map.inputs) preserva os comandos desde o menu até o mapa de Boss Dumb Drum. Donkey se desloca lateralmente para desviar das quedas do tambor. Ele derrota os pares de Kritters, Slippas e Klumps com rolamentos e os pares de Klaptraps e Armys com saltos. O tambor cai no centro e a animação mostra a banana gigante. O roteiro segue até Chimp Caverns no mapa geral e entra no mapa local com um toque em B.
+
+| Quadro do replay | Observação |
+| ---: | --- |
+| 181287 | Boss Dumb Drum selecionado no mapa, `entrance=0x00E3`, `scene=0x0007`, 11 vidas e 72 bananas |
+| 181548 | Arena carregada, `scene=0x000C` |
+| 181860 | Par de Kritters derrotado |
+| 182261 | Par de Slippas derrotado |
+| 182842 | Par de Klaptraps derrotado |
+| 183421 | Par de Klumps derrotado |
+| 184110 | Par de Armys derrotado. Tambor retorna ao centro |
+| 184385 | Banana gigante ao lado de Donkey na animação de vitória |
+| 184886 | Chimp Caverns selecionado no mapa geral, `entrance=0x00E6` |
+| 185077 | Tanked Up Trouble selecionada no mapa de Chimp Caverns, `entrance=0x0030`, `scene=0x000C`, 11 vidas e 72 bananas |
+
+No piloto headless PT-BR para Windows com USA Rev 1, o replay desde o menu chegou ao quadro 181.287 e produziu um estado idêntico byte a byte ao marco de Boss Dumb Drum da validação anterior. A verificação foi retomada desse estado em um novo processo após o limite de espera do coletor. Outra execução partiu do estado salvo na validação de Blackout Basement. Os comandos do roteiro coincidiram quadro a quadro com os registrados, e as duas reproduções da luta e da transição coincidiram nas 33 capturas e na WRAM final. A SRAM do slot 1 preservou os 2.048 bytes da Candy. Os 59 testes Python passaram. A seleção no mapa é o ponto final desta validação.
+
+Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Tanked Up Trouble e 185.077 quadros. O SHA-256 do roteiro é `e219e4fb560a8bd2f4ac50decb85ffa53dc189c95855a17c80275ebd296e86ef`. As evidências locais estão em `dd-live/`, `dd-resumed/`, `dd-snapshot/` e `dd-confirmation-v2/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `dd-resumed/tanked-up-trouble-selecionada.snap` permite retomar pela entrada em Tanked Up Trouble.

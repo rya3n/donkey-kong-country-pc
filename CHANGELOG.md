@@ -2,6 +2,13 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-18 — Boss Dumb Drum derrotado e Chimp Caverns liberado
+
+- Donkey venceu os cinco pares da arena, e a animação de vitória mostrou a banana gigante. A seleção de Chimp Caverns foi confirmada no mapa geral.
+- O roteiro de 185.077 quadros termina com Tanked Up Trouble selecionada no mapa de Chimp Caverns, 11 vidas e 72 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#boss-dumb-drum-e-chegada-a-chimp-caverns).
+- O replay desde o menu confirmou o estado inicial da luta. As duas reproduções a partir desse mapa coincidiram nas 33 capturas e na WRAM final. A SRAM da Candy preservou os mesmos 2.048 bytes. Os 59 testes Python passaram.
+- Corrigidos no relatório de Blackout Basement os nomes dos Klumps e Klaptraps observados nas capturas.
+
 ## 2026-11-18 — Blackout Basement concluída
 
 - As capturas mostraram o cenário escurecer e voltar a acender enquanto Diddy avançava. A rota principal passou pelas cordas, pelos elevadores e pelas plataformas que afundam. Um teste separado confirmou a reentrada pelo checkpoint após perder uma vida.
