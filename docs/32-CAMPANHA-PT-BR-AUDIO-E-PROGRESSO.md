@@ -599,3 +599,26 @@ Em um perfil de QA separado, a partir do quadro 156.939, o teste atravessou o pr
 As 60 capturas do coletor coincidiram entre a execução iniciada no menu com retomada no quadro 158.878 e a repetição iniciada no mapa de Elevator Antics. Em um perfil novo, o executável headless do piloto PT-BR executou os 160.795 quadros sem retomada e reproduziu a mesma imagem final, WRAM e SRAM. O slot 1 manteve os 2.048 bytes do salvamento na Candy, com SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e`. Os 59 testes Python passaram. A cobertura desta etapa inclui o percurso principal e o retorno pelo checkpoint. Bônus e escuta no dispositivo seguem na matriz de validação.
 
 Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Poison Pond e 160.795 quadros. O SHA-256 do roteiro é `97930af7d22914fb8ed2c4400301cc9851560c7929296b557e81974e9fa829ed`. As evidências locais ficam em `ea-live/`, `ea-live-tail/`, `ea-full-reference/`, `ea-verified-stock/` e `ea-confirmation/` na pasta `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `ea-live-tail/poison-pond-selecionada.snap` permite retomar pela entrada em Poison Pond.
+
+## Saída de Poison Pond
+
+O [roteiro de 169.930 quadros](../recipes/usa-rev1/campaign-to-mine-cart-madness-map.inputs) preserva as entradas até o mapa de Poison Pond. Diddy nada entre os peixes e as primeiras serras e recupera Donkey em um barril DK. A rota ativa o checkpoint, usa os recuos dos corredores para esperar as serras passarem e cruza o último cardume junto ao teto, com 11 vidas durante a fase. Consultei o guia de T_Hayes para localizar as bifurcações de Poison Pond. [Guia no GameFAQs](https://gamefaqs.gamespot.com/snes/588282-donkey-kong-country/faqs/16178).
+
+| Quadro | Resultado |
+| --- | --- |
+| 160795 | Poison Pond selecionada no mapa, `entrance=0x0022`, `scene=0x0001`, 11 vidas |
+| 161086 | Entrada estável no corredor subaquático, `entrance=0x0022`, `scene=0x0003` |
+| 162916 | Donkey retorna pelo primeiro barril DK usado no roteiro |
+| 164420 | Estrela do checkpoint ativa, 11 vidas e 19 bananas |
+| 165722 | Diddy recuperado na sala leste antes das serras giratórias |
+| 167624 | Donkey recuperado na sala oeste |
+| 168136 | Abrigo lateral alcançado no corredor vertical das duas serras |
+| 168997 | Duas serras finais ultrapassadas, 11 vidas e 24 bananas |
+| 169649 | Volta ao mapa com Poison Pond selecionada |
+| 169930 | Mine Cart Madness selecionada com um toque para cima, `entrance=0x0027`, `scene=0x0003`, 11 vidas e 24 bananas |
+
+Em um perfil de QA separado, a tentativa iniciada no quadro 164.420 perdeu uma vida em uma serra. Poison Pond voltou a aparecer no mapa no quadro 164.930, com dez vidas. Após a transição do mapa e a nova entrada, Donkey reapareceu nas coordenadas `896, 27103`, junto ao checkpoint, no quadro 165.451 (`entrance=0x002A`, `scene=0x0003`, câmera 767).
+
+O coletor de QA do piloto PT-BR repetiu o roteiro desde o menu e, em outro perfil, a partir do mapa de Poison Pond. As 42 capturas e a WRAM final foram idênticas. O salvamento do slot 1 manteve 2.048 bytes e o SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e` da validação da Candy. Os 59 testes Python passaram. Bônus, segredos e escuta em dispositivo fazem parte da matriz geral.
+
+Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Mine Cart Madness e 169.930 quadros. O SHA-256 do roteiro é `1e672479f86cde381ceadaaf5ebf10c2ab29e0a9153d92a6aeb8dfaad5a20464`. As evidências locais ficam em `pp-live/`, `pp-snapshot/` e `pp-confirmation/` na pasta `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `pp-live/mine-cart-madness-selecionada.snap` permite retomar pela entrada em Mine Cart Madness.

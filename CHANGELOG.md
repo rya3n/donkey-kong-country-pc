@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-18 — Poison Pond concluída
+
+- A rota principal atravessou os corredores subaquáticos e as serras com 11 vidas. Um teste isolado confirmou a reentrada pelo checkpoint depois da perda de uma vida.
+- O roteiro de 169.930 quadros termina com Mine Cart Madness selecionada e 24 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-poison-pond).
+- As 42 capturas e a WRAM final coincidiram entre o replay desde o menu e o replay iniciado no mapa de Poison Pond. A SRAM do slot 1 manteve o estado validado na Candy. Os 59 testes Python passaram.
+
 ## 2026-11-18 — Elevator Antics concluída
 
 - A rota passou pelas cordas, pelo ninho de Zingers e pelos elevadores. Um teste separado confirmou a reentrada pelo checkpoint após perder uma vida.
