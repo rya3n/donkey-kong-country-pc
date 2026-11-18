@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-18 — Blackout Basement concluída
+
+- As capturas mostraram o cenário escurecer e voltar a acender enquanto Diddy avançava. A rota principal passou pelas cordas, pelos elevadores e pelas plataformas que afundam. Um teste separado confirmou a reentrada pelo checkpoint após perder uma vida.
+- O roteiro de 181.287 quadros termina com Boss Dumb Drum selecionado, 11 vidas e 72 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-blackout-basement).
+- As 57 capturas e a WRAM final coincidiram entre os replays iniciados no menu e no mapa de Blackout Basement. A SRAM do slot 1 preservou o registro validado na Candy. Os 59 testes Python passaram.
+
 ## 2026-11-18 — Mine Cart Madness concluída
 
 - A rota principal passou pelas trocas de carrinho, pelos pneus e pelos Zingers com 11 vidas. Um teste isolado confirmou que Diddy volta ao carrinho do checkpoint após perder uma vida.

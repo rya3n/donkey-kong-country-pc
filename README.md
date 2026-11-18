@@ -67,9 +67,9 @@ O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela
 | ⛏️ [**Monkey Mines**](docs/22-DICAS-MONKEY-MINES-PT-BR.md) | Percurso contínuo finalizado. |
 | 🌿 [**Vine Valley**](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Percurso contínuo finalizado, com vitória sobre Queen B. |
 | ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Rota principal concluída, com vitória sobre *Really Gnawty*. |
-| 🏭 [**Kremkroc Industries Inc.**](docs/25-DICAS-KREMKROC-INDUSTRIES-PT-BR.md) | Rota principal validada até *Mine Cart Madness*, com *Blackout Basement* selecionada. |
+| 🏭 [**Kremkroc Industries Inc.**](docs/25-DICAS-KREMKROC-INDUSTRIES-PT-BR.md) | Rota principal validada até *Blackout Basement*, com *Boss Dumb Drum* selecionado. |
 
-Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Em **Kremkroc Industries Inc.**, o teste de *Mine Cart Madness* confirmou as trocas de carrinho e a reentrada pelo checkpoint. O roteiro contínuo termina no mapa com *Blackout Basement* selecionada e 11 vidas. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-mine-cart-madness).
+Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Em **Kremkroc Industries Inc.**, o teste de *Blackout Basement* confirmou as alternâncias de iluminação, o movimento no escuro e a reentrada pelo checkpoint. O roteiro contínuo termina no mapa com *Boss Dumb Drum* selecionado e 11 vidas. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-blackout-basement).
 
 <a name="traducao-pt-br"></a>
 
