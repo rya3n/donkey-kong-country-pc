@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-18 — Elevator Antics concluída
+
+- A rota passou pelas cordas, pelo ninho de Zingers e pelos elevadores. Um teste separado confirmou a reentrada pelo checkpoint após perder uma vida.
+- O roteiro de 160.795 quadros termina no mapa de Kremkroc Industries Inc. com Poison Pond selecionada e 11 vidas, incluindo uma vida extra pelas bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-elevator-antics).
+- As 60 capturas de controle coincidiram entre as execuções de QA. A reprodução do menu ao mapa no piloto headless confirmou a imagem final, a WRAM e o salvamento. Passaram os 59 testes Python.
+
 ## 2026-11-17 — Trick Track Trek concluída
 
 - A rota atravessou as duas plataformas sobre trilhos, ativou o checkpoint e passou pelos inimigos e pelos barris da passarela final. Um teste separado confirmou a reentrada pelo checkpoint após uma queda.

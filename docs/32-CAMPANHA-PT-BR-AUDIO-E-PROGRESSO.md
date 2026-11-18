@@ -577,3 +577,25 @@ Em um perfil separado, uma queda depois do checkpoint devolveu o jogador ao mapa
 A execução desde o menu em perfil novo e a repetição iniciada no estado de QA do mapa de Trick Track Trek geraram 42 capturas idênticas. O executável headless do piloto PT-BR repetiu toda a sequência desde o menu e coincidiu com o coletor na imagem final, na WRAM e no arquivo de salvamento. O slot 1 preservou os 2.048 bytes e o SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e` da validação da Candy. Os 59 testes Python passaram. A cobertura desta etapa acompanha o percurso principal e o retorno pelo checkpoint. Bônus e escuta no dispositivo seguem na matriz de validação.
 
 Para reproduzir desde o menu, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Elevator Antics e 153.169 quadros. As evidências locais ficam em `trick-verified-live/`, `trick-verified-snapshot/`, `trick-verified-stock/` e `trick-final-confirmation-1118/` dentro da pasta de campanha em `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `trick-verified-live/elevator-antics-selecionada.snap` permite retomar a exploração local. A próxima etapa começa pela entrada em Elevator Antics.
+
+## Saída de Elevator Antics
+
+O [roteiro de 160.795 quadros](../recipes/usa-rev1/campaign-to-poison-pond-map.inputs) preserva as entradas até o mapa de Elevator Antics. A rota cruza as cordas do ninho de Zingers, ativa o checkpoint, usa um barril contra Krusha e atravessa os conjuntos de elevadores. No trecho final, Diddy desce pelo fosso para passar sob o teto baixo e sobe no elevador do outro lado. As bananas na saída rendem a 11ª vida, sem perda de vidas na rota principal.
+
+| Quadro | Resultado |
+| --- | --- |
+| 153169 | Elevator Antics selecionada no mapa, `entrance=0x0018`, `scene=0x0006`, dez vidas e 79 bananas |
+| 153460 | Entrada estável na fase, `entrance=0x0018`, `scene=0x0001` |
+| 155722 | Saída do ninho de Zingers |
+| 156939 | Estrela do checkpoint ativa, dez vidas e 94 bananas |
+| 157952 | Krusha atingido por um barril |
+| 159722 | Travessia sob o teto baixo entre elevadores, dez vidas e 99 bananas |
+| 160127 | 11ª vida obtida na saída |
+| 160514 | Retorno ao mapa com Elevator Antics selecionada |
+| 160795 | Poison Pond selecionada ao mover para a direita, `entrance=0x0022`, `scene=0x0001`, 11 vidas e zero bananas |
+
+Em um perfil de QA separado, a partir do quadro 156.939, o teste atravessou o primeiro patamar e perdeu uma vida. Ao selecionar Elevator Antics de novo, Diddy reapareceu na área do checkpoint no quadro 158.010, com `entrance=0x0023`, câmera 39.325, nove vidas e 94 bananas.
+
+As 60 capturas do coletor coincidiram entre a execução iniciada no menu com retomada no quadro 158.878 e a repetição iniciada no mapa de Elevator Antics. Em um perfil novo, o executável headless do piloto PT-BR executou os 160.795 quadros sem retomada e reproduziu a mesma imagem final, WRAM e SRAM. O slot 1 manteve os 2.048 bytes do salvamento na Candy, com SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e`. Os 59 testes Python passaram. A cobertura desta etapa inclui o percurso principal e o retorno pelo checkpoint. Bônus e escuta no dispositivo seguem na matriz de validação.
+
+Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Poison Pond e 160.795 quadros. O SHA-256 do roteiro é `97930af7d22914fb8ed2c4400301cc9851560c7929296b557e81974e9fa829ed`. As evidências locais ficam em `ea-live/`, `ea-live-tail/`, `ea-full-reference/`, `ea-verified-stock/` e `ea-confirmation/` na pasta `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `ea-live-tail/poison-pond-selecionada.snap` permite retomar pela entrada em Poison Pond.
