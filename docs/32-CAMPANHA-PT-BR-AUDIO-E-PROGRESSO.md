@@ -697,3 +697,25 @@ O [roteiro de 185.077 quadros](../recipes/usa-rev1/campaign-to-tanked-up-trouble
 No piloto headless PT-BR para Windows com USA Rev 1, o replay desde o menu chegou ao quadro 181.287 e produziu um estado idêntico byte a byte ao marco de Boss Dumb Drum da validação anterior. A verificação foi retomada desse estado em um novo processo após o limite de espera do coletor. Outra execução partiu do estado salvo na validação de Blackout Basement. Os comandos do roteiro coincidiram quadro a quadro com os registrados, e as duas reproduções da luta e da transição coincidiram nas 33 capturas e na WRAM final. A SRAM do slot 1 preservou os 2.048 bytes da Candy. Os 59 testes Python passaram. A seleção no mapa é o ponto final desta validação.
 
 Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Tanked Up Trouble e 185.077 quadros. O SHA-256 do roteiro é `e219e4fb560a8bd2f4ac50decb85ffa53dc189c95855a17c80275ebd296e86ef`. As evidências locais estão em `dd-live/`, `dd-resumed/`, `dd-snapshot/` e `dd-confirmation-v2/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `dd-resumed/tanked-up-trouble-selecionada.snap` permite retomar pela entrada em Tanked Up Trouble.
+
+## Saída de Tanked Up Trouble
+
+O [roteiro de 194.983 quadros](../recipes/usa-rev1/campaign-to-manic-mincers-map.inputs) preserva as entradas anteriores até a seleção de Tanked Up Trouble. A rota principal registra 23 abastecimentos nas duas plataformas sobre trilhos. Os saltos incluem rebotes em Neckys e pneus, desvios pelos canhões e a passagem por Zingers. O contato com inimigos alternou o personagem ativo em trechos da rota. O contador permaneceu em 11 vidas da entrada à saída.
+
+| Quadro | Resultado |
+| --- | --- |
+| 185077 | Tanked Up Trouble selecionada no mapa de Chimp Caverns, `entrance=0x0030`, `scene=0x000C`, 11 vidas e 72 bananas |
+| 185312 | Entrada na fase, `scene=0x0006`, com câmera em 39.290 |
+| 185758 | Primeiro abastecimento registrado na plataforma |
+| 188606–188865 | O indicador mostra duas luzes laranja antes do desvio para o nono barril e cinco verdes após a volta do canhão |
+| 189184 | Barril de checkpoint ativado em x=43.990, antes da segunda plataforma |
+| 193852 | 23º abastecimento registrado, após a coleta do barril em x=50.337 |
+| 194137–194550 | Plataforma para no fim do trilho. Os saltos passam pela seta e alcançam a passarela elevada com a placa EXIT |
+| 194862 | Retorno ao mapa de Chimp Caverns com a ligação para a próxima fase aberta |
+| 194983 | Manic Mincers selecionada após um toque para cima, `entrance=0x0012`, `scene=0x0006`, câmera em zero, 11 vidas e 93 bananas |
+
+O teste independente partiu do checkpoint ativado no quadro 189.184. A entrada `0082 210` seguida de `0000 700` provocou a queda e devolveu a seleção a Tanked Up Trouble no quadro 190.094, com 10 vidas. Um toque em B (`0001 1`) e 195 quadros neutros reabriram a fase pelo checkpoint no quadro 190.290, com `entrance=0x003A`, câmera em 43.914 e Donkey em x=43.986.
+
+O piloto headless PT-BR para Windows usou a ROM USA v1.1 (Rev 1). A execução desde o menu em perfil novo registrou os mesmos comandos quadro a quadro que o roteiro. A execução a partir do estado salvo no mapa produziu as mesmas 81 capturas PPM e os mesmos 128 KiB de WRAM final. Os 2.048 bytes da SRAM do slot 1 coincidiram com a gravação da Candy. Os 59 testes Python passaram. A cobertura deste marco vai até a seleção no mapa e inclui a retomada pelo checkpoint. A revisão de bônus, áudio em janela e entrada em Manic Mincers segue pendente.
+
+Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Manic Mincers e 194.983 quadros. O SHA-256 do roteiro é `df60a8c69adcee2ed9a9420438b3762cb4911dea8ee042223d898a2c227cb6d5`. As evidências locais ficam em `tu-live/`, `tu-snapshot/` e `tu-confirmation/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `tu-live/manic-mincers-selecionada.snap` permite retomar pela entrada em Manic Mincers.

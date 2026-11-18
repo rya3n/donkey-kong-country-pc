@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-18 — Tanked Up Trouble concluída
+
+- O roteiro registra 23 abastecimentos da plataforma, a travessia até a saída e o retorno ao mapa com *Manic Mincers* selecionada, 11 vidas e 93 bananas.
+- Em um perfil de QA separado, a morte consumiu uma vida e a fase reabriu pelo checkpoint. [Roteiro de 194.983 quadros e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-tanked-up-trouble).
+- As 81 capturas e a WRAM final coincidiram entre a reprodução iniciada no menu e a iniciada no estado salvo de QA. A SRAM do slot 1 preservou o registro validado na Candy. Os 59 testes Python passaram.
+
 ## 2026-11-18 — Boss Dumb Drum derrotado e Chimp Caverns liberado
 
 - Donkey venceu os cinco pares da arena, e a animação de vitória mostrou a banana gigante. A seleção de Chimp Caverns foi confirmada no mapa geral.
