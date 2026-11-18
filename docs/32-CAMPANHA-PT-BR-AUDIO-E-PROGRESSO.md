@@ -554,3 +554,26 @@ O [roteiro de 142.970 quadros](../recipes/usa-rev1/campaign-to-trick-track-trek-
 Em um perfil separado, uma queda depois do checkpoint devolveu o jogador ao mapa com nove vidas. Ao entrar novamente, o jogo abriu `entrance=0x0044` e retomou na plataforma do barril intermediário.
 
 A reprodução desde o menu em perfil novo e a repetição iniciada no estado de QA do mapa de Oil Drum Alley geraram 49 capturas idênticas. O arquivo do slot 1 manteve o mesmo conteúdo da validação da Candy. Os 59 testes Python passaram. Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Trick Track Trek e 142.970 quadros. A próxima etapa começa pela entrada em Trick Track Trek.
+
+## Saída de Trick Track Trek
+
+O [roteiro de 153.169 quadros](../recipes/usa-rev1/campaign-to-elevator-antics-map.inputs) mantém os comandos até o mapa de Trick Track Trek. A rota principal embarca na primeira plataforma, cruza os Neckys e os projéteis, ativa o checkpoint junto à segunda plataforma e recupera Diddy em um barril DK. No fim do trilho, Diddy pula para a passarela e passa pelos barris antes da saída.
+
+| Quadro | Resultado |
+| --- | --- |
+| 143261 | Entrada estável em Trick Track Trek, `entrance=0x002F`, `scene=0x0006`, dez vidas e 64 bananas |
+| 143464 | Primeira plataforma em movimento, dez vidas e 66 bananas |
+| 147470 | Fim do primeiro trilho alcançado |
+| 147699 | Checkpoint ativado e segunda plataforma alcançada, dez vidas e 73 bananas |
+| 148174 | Barril DK aberto e Diddy na segunda plataforma |
+| 150686 | Gêmeos Gnawty ultrapassados |
+| 152401 | Fim do segundo trilho alcançado, dez vidas e 79 bananas |
+| 152446 | Salto para a passarela final concluído |
+| 152769 | Retorno ao mapa de Kremkroc Industries Inc. |
+| 153169 | Elevator Antics selecionada, `entrance=0x0018`, dez vidas e 79 bananas |
+
+Em um perfil separado, uma queda depois do checkpoint devolveu o jogador ao mapa com nove vidas. A nova entrada abriu `entrance=0x0039` e retomou com Donkey junto à segunda plataforma, com a câmera em 32.954.
+
+A execução desde o menu em perfil novo e a repetição iniciada no estado de QA do mapa de Trick Track Trek geraram 42 capturas idênticas. O executável headless do piloto PT-BR repetiu toda a sequência desde o menu e coincidiu com o coletor na imagem final, na WRAM e no arquivo de salvamento. O slot 1 preservou os 2.048 bytes e o SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e` da validação da Candy. Os 59 testes Python passaram. A cobertura desta etapa acompanha o percurso principal e o retorno pelo checkpoint. Bônus e escuta no dispositivo seguem na matriz de validação.
+
+Para reproduzir desde o menu, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Elevator Antics e 153.169 quadros. As evidências locais ficam em `trick-verified-live/`, `trick-verified-snapshot/`, `trick-verified-stock/` e `trick-final-confirmation-1118/` dentro da pasta de campanha em `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `trick-verified-live/elevator-antics-selecionada.snap` permite retomar a exploração local. A próxima etapa começa pela entrada em Elevator Antics.

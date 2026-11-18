@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-17 — Trick Track Trek concluída
+
+- A rota atravessou as duas plataformas sobre trilhos, ativou o checkpoint e passou pelos inimigos e pelos barris da passarela final. Um teste separado confirmou a reentrada pelo checkpoint após uma queda.
+- O roteiro de 153.169 quadros termina no mapa de Kremkroc Industries Inc. com Elevator Antics selecionada, dez vidas e 79 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-trick-track-trek).
+- A execução desde o menu e a repetição iniciada no mapa de Trick Track Trek geraram 42 capturas idênticas. O piloto headless confirmou a imagem final, a WRAM e o salvamento. Passaram os 59 testes Python.
+
 ## 2026-11-17 — Apresentação e fluxo de trabalho do projeto
 
 - O README mostra a capa seguida do GIF **Tradução PT-BR em andamento**, antes do título. A animação representa o estado do piloto enquanto a revisão em jogo segue aberta.

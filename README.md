@@ -67,9 +67,9 @@ O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela
 | ⛏️ [**Monkey Mines**](docs/22-DICAS-MONKEY-MINES-PT-BR.md) | Percurso contínuo finalizado. |
 | 🌿 [**Vine Valley**](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Percurso contínuo finalizado, com vitória sobre Queen B. |
 | ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Rota principal concluída, com vitória sobre *Really Gnawty*. |
-| 🏭 [**Kremkroc Industries Inc.**](docs/25-DICAS-KREMKROC-INDUSTRIES-PT-BR.md) | *Oil Drum Alley* concluída, com *Trick Track Trek* selecionada. |
+| 🏭 [**Kremkroc Industries Inc.**](docs/25-DICAS-KREMKROC-INDUSTRIES-PT-BR.md) | *Oil Drum Alley* e *Trick Track Trek* concluídas, com *Elevator Antics* selecionada. |
 
-Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Em **Kremkroc Industries Inc.**, os testes confirmaram a saída de *Oil Drum Alley* e a reentrada pelo checkpoint. O roteiro contínuo termina no mapa com *Trick Track Trek* selecionada. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-oil-drum-alley).
+Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Em **Kremkroc Industries Inc.**, os testes confirmaram a saída de *Oil Drum Alley* e *Trick Track Trek*, com reentrada pelos checkpoints. O roteiro contínuo termina no mapa com *Elevator Antics* selecionada. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-trick-track-trek).
 
 <a name="traducao-pt-br"></a>
 
