@@ -622,3 +622,28 @@ Em um perfil de QA separado, a tentativa iniciada no quadro 164.420 perdeu uma v
 O coletor de QA do piloto PT-BR repetiu o roteiro desde o menu e, em outro perfil, a partir do mapa de Poison Pond. As 42 capturas e a WRAM final foram idênticas. O salvamento do slot 1 manteve 2.048 bytes e o SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e` da validação da Candy. Os 59 testes Python passaram. Bônus, segredos e escuta em dispositivo fazem parte da matriz geral.
 
 Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Mine Cart Madness e 169.930 quadros. O SHA-256 do roteiro é `1e672479f86cde381ceadaaf5ebf10c2ab29e0a9153d92a6aeb8dfaad5a20464`. As evidências locais ficam em `pp-live/`, `pp-snapshot/` e `pp-confirmation/` na pasta `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `pp-live/mine-cart-madness-selecionada.snap` permite retomar pela entrada em Mine Cart Madness.
+
+## Saída de Mine Cart Madness
+
+O [roteiro de 176.304 quadros](../recipes/usa-rev1/campaign-to-blackout-basement-map.inputs) parte do menu e preserva todas as entradas até o mapa de Mine Cart Madness. No percurso, Diddy salta de um carrinho ao outro, usa os trilhos inferiores e superiores, passa pelos Neckys e pelos Zingers, usa os pneus para atravessar os vãos e salta do último carrinho até a saída. A rota principal mantém 11 vidas.
+
+| Quadro do replay | Observação |
+| ---: | --- |
+| 169930 | Mine Cart Madness selecionada no mapa, `entrance=0x0027`, `scene=0x0003`, 11 vidas e 24 bananas |
+| 170296 | Aproximação ao primeiro carrinho, `entrance=0x0027`, `scene=0x0005` |
+| 170541 | Diddy no primeiro carrinho |
+| 170932 | Primeira troca de carrinho após o vão |
+| 172515 | Checkpoint acionado após os três vãos, com 43 bananas |
+| 173085 | Terceiro vão após o checkpoint ultrapassado |
+| 173369 | Transferência para o próximo carrinho com impulso do pneu |
+| 174159 | Salto do pneu sobre o Kritter no carrinho |
+| 174631 | Terceiro Zinger vermelho da subida ultrapassado |
+| 175367 | Aterrissagem após saltar do último carrinho |
+| 175503 | Diddy na saída, após o último Gnawty |
+| 176304 | Blackout Basement selecionada com um toque para a direita, `entrance=0x0041`, `scene=0x0005`, 11 vidas e 60 bananas |
+
+Em um perfil de QA separado, a reprodução a partir do checkpoint do quadro 172.515 deixou o carrinho seguir sem comandos até perder uma vida. O quadro 173.315 mostrou a volta ao mapa com dez vidas. Um toque em B e 175 quadros sem comandos recolocaram Diddy no carrinho junto ao checkpoint no quadro 173.491, em `x=6748`, `y=240`, com `entrance=0x003B`, `scene=0x0005` e câmera 6665.
+
+O coletor de QA headless do piloto PT-BR no Windows, com USA Rev 1, reproduziu o trajeto desde o menu e, em outro perfil, a partir do mapa de Mine Cart Madness. As 57 capturas e a WRAM final foram idênticas. A SRAM do slot 1 manteve 2.048 bytes e o SHA-256 `b48f8b1daf9c266fe691df3050bd8e4e3d4eea7ede647c67c3649391e1b6109e` do salvamento validado na Candy. Os 59 testes Python passaram. Os bônus, os segredos e o áudio em dispositivo seguem na matriz geral de validação.
+
+Para reproduzir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Blackout Basement e 176.304 quadros. O SHA-256 do roteiro é `c0e73c169e66ff5c17e61d5a709d83bd4211b6b5e6518d13a5cf81581d25647e`. As evidências locais ficam em `mc-live/`, `mc-snapshot/` e `mc-confirmation/` na pasta `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `mc-live/blackout-basement-selecionada.snap` permite retomar pela entrada em Blackout Basement.

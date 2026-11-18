@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-18 — Mine Cart Madness concluída
+
+- A rota principal passou pelas trocas de carrinho, pelos pneus e pelos Zingers com 11 vidas. Um teste isolado confirmou que Diddy volta ao carrinho do checkpoint após perder uma vida.
+- O roteiro de 176.304 quadros termina no mapa com Blackout Basement selecionada, 11 vidas e 60 bananas. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-mine-cart-madness).
+- As 57 capturas e a WRAM final coincidiram entre o replay desde o menu e o replay iniciado no mapa de Mine Cart Madness. A SRAM do slot 1 preservou o registro validado na Candy. Os 59 testes Python passaram.
+
 ## 2026-11-18 — Poison Pond concluída
 
 - A rota principal atravessou os corredores subaquáticos e as serras com 11 vidas. Um teste isolado confirmou a reentrada pelo checkpoint depois da perda de uma vida.
