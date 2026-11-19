@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-19 — Final da campanha validado
+
+- King K. Rool caiu após dez golpes. O teste confirmou as investidas, as ondas de balas de canhão, a retomada após os créditos falsos e a vitória.
+- O roteiro de 254.444 quadros chega às falas finais do Cranky, à apresentação do elenco, aos créditos reais e à tela de título. Ao reabrir o jogo, o slot 1 mostrou 00:54 e 34% e carregou em *Jungle Hijinxs*.
+- Os 59 testes Python passaram. A escuta em janela e a localização dos créditos continuam pendentes. [Relatório e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#gang-plank-galleon-e-final-da-campanha).
+
 ## 2026-11-19 — Necky's Revenge concluído
 
 - A luta confirmou cinco golpes após sequências de uma a cinco nozes. A banana gigante apareceu, e o mapa geral selecionou *Gang-Plank Galleon* automaticamente, com 13 vidas e 24 bananas.

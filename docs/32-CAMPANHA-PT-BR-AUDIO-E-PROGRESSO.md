@@ -849,3 +849,30 @@ O [roteiro de 222.939 quadros](../recipes/usa-rev1/campaign-to-gang-plank-galleo
 O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). Dois processos com perfis isolados partiram, respectivamente, do estado gravado ao fim do replay desde o menu e do estado gravado ao fim do replay de Platform Perils. Os dois reproduziram os mesmos 2.315 quadros novos. As entradas registradas, as 24 capturas PPM e os 128 KiB de WRAM inicial e final coincidiram. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. O ensaio cobre a luta e a transição de mapa no piloto headless. A validação em janela, o áudio e a luta final ficam para os ensaios correspondentes.
 
 Para repetir a rota desde o menu, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, o roteiro de Gang-Plank Galleon e 222.939 quadros. O SHA-256 do roteiro é `2a230e8f1c0655570920d6b2b000178e6e5a545d230c304095855e82c12bc794`. As evidências locais ficam em `neckys-revenge-from-menu-state/`, `neckys-revenge-from-map-state/` e `neckys-revenge-assembled/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `neckys-revenge-from-menu-state/gang-plank-galleon-selecionado.snap` permite retomar na entrada do navio.
+
+## Gang-Plank Galleon e final da campanha
+
+O [roteiro de 254.444 quadros](../recipes/usa-rev1/campaign-to-ending-title.inputs) acrescenta 31.505 quadros ao roteiro que termina no mapa de Gang-Plank Galleon. O registro da luta contou dez lançamentos de coroa e dez golpes confirmados. Após os três primeiros golpes, o chefe fez séries de uma, duas e três investidas. Após o quarto, o quinto e o sexto golpes, vieram ondas de 9, 17 e 25 balas de canhão. O sétimo golpe abriu a sequência dos créditos falsos. King K. Rool se levantou e voltou a atacar com saltos e lançamentos da coroa até o décimo golpe. O contador permaneceu em 13 vidas e 24 bananas até o retorno ao título.
+
+| Quadro | Resultado |
+| --- | --- |
+| 223021 | Entrada no navio, `entrance=0x0068` e `scene=0x000D` |
+| 223432, 223745, 224161 | Primeiros três golpes, seguidos das séries de investidas |
+| 224686, 225516, 226658 | Golpes quatro a seis, seguidos das três ondas de balas de canhão |
+| 228089 e 228821 | Sétimo golpe e créditos falsos visíveis |
+| 229811 | Chefe de pé no navio e controle devolvido ao jogador |
+| 230143 e 230601 | Oitavo e nono golpes após a retomada da luta |
+| 231352 e 231604 | Décimo golpe e banana gigante visível |
+| 231944 | Conversa de encerramento com Cranky Kong |
+| 234194 | Depósito de bananas recuperado |
+| 235094 e 242744 | Amostras da apresentação do elenco, com Necky e Candy Kong |
+| 245894–250844 | Amostras dos créditos reais, da abertura aos últimos nomes e funções |
+| 251210 e 254444 | Reinício automático e tela de título confirmada, `entrance=0x0000`, `scene=0x0001` |
+
+Dois processos com perfis isolados reproduziram o trecho novo no piloto Windows PT-BR sem janela com a ROM local USA v1.1 (Rev 1). Os estados iniciais vieram dos dois replays do marco anterior, no quadro 222.939. As entradas executadas, 53 capturas PPM e 128 KiB de WRAM inicial e final coincidiram. Os 59 testes Python passaram. Este ensaio verificou os estados e as imagens do final. Áudio e apresentação em janela seguem para validação interativa. A cobertura das salas de bônus permanece parcial.
+
+O jogo atualizou automaticamente os 2.048 bytes da SRAM durante a sequência de vitória. Em um terceiro perfil, um novo processo carregou o arquivo final sem restaurar um snapshot. O slot 1 mostrou **00:54 e 34%** no quadro 1.800. No quadro 2.400, o jogo selecionou Jungle Hijinxs no mapa de Kongo Jungle com cinco vidas e zero bananas. No quadro 4.801, a fase estava jogável. O arquivo e o backup gerado na reabertura coincidiram com a SRAM final dos dois replays.
+
+As falas amostradas do Cranky no encerramento apareceram em PT-BR durante a campanha. Os créditos falsos e os rótulos dos créditos reais apareceram em inglês. A próxima revisão de tradução deve conferir os dois blocos em contexto, preservando os nomes próprios e a brincadeira dos créditos falsos.
+
+Para reproduzir desde o menu, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro do final e 254.444 quadros. O SHA-256 do roteiro é `c55c1b2dba6e3f5e2539e3f5390ac56ee46e2570ccf00575e3e2f8eeac10ef26`. Para verificar a reabertura, execute o [roteiro de carregamento](../recipes/usa-rev1/cold-load.inputs) por 4.801 quadros com o mesmo diretório de save. As evidências locais ficam em `gang-plank-replay-menu-state/`, `gang-plank-replay-map-state/`, `gang-plank-postgame-reopen/` e `gang-plank-assembled/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`.
