@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-19 — Platform Perils concluída
+
+- A rota principal passou pelas plataformas móveis, pelos pneus suspensos e pelos Krushas. O roteiro de 220.624 quadros termina com *Necky's Revenge* selecionado, 13 vidas e 24 bananas.
+- O teste em perfil separado confirmou a perda de uma vida numa queda e a reentrada pelo checkpoint.
+- As 80 capturas e a WRAM final coincidiram entre os replays iniciados no menu e no mapa. Os 59 testes Python passaram. [Relatório e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-platform-perils).
+
 ## 2026-11-19 — Loopy Lights concluída
 
 - A rota principal atravessou os fossos, as plataformas móveis, os pneus, os Zingers e a subida com barris rolantes. O roteiro de 212.344 quadros termina em *Platform Perils*, com 12 vidas e 82 bananas.

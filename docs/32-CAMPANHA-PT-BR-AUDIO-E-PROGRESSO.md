@@ -803,3 +803,28 @@ O teste de checkpoint partiu do quadro 208.661 em perfil separado. As entradas `
 O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). O replay desde o menu registrou as entradas do roteiro quadro a quadro. As 61 capturas PPM e os 128 KiB de WRAM final coincidiram com a reprodução iniciada no estado salvo do mapa. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. O teste cobre a rota principal, a iluminação, o checkpoint e a seleção seguinte. As salas de bônus, o áudio em janela e a entrada em Platform Perils ficaram fora deste teste.
 
 Para repetir a rota principal, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Platform Perils e 212.344 quadros. O SHA-256 é `afaedbfb8c3b840f08bfd35eb475c57aaf9e659642741dc5e69fc5a5ae1abbd0`. As evidências locais ficam em `ll-live/`, `ll-snapshot/`, `ll-confirmation/` e `ll-equal/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `ll-live/platform-perils-selecionada.snap` permite retomar pela entrada em Platform Perils.
+
+## Saída de Platform Perils
+
+O [roteiro de 220.624 quadros](../recipes/usa-rev1/campaign-to-neckys-revenge-map.inputs) preserva as entradas anteriores até a seleção de Platform Perils. A rota principal cruza plataformas horizontais, verticais e descendentes, usa pneus suspensos e abre caminho com barris de TNT nas plataformas guardadas pelos Krushas. Donkey recupera Diddy com um barril DK após o checkpoint. Diddy assume o controle após um contato de Donkey com um Zinger e conclui a fase. A coleta de bananas rende uma vida extra, e o contador termina em 13.
+
+| Quadro | Resultado |
+| --- | --- |
+| 212344 | Platform Perils selecionada em Chimp Caverns, `entrance=0x002B`, `scene=0x0002`, 12 vidas e 82 bananas |
+| 212430–212861 | Entrada na fase com `scene=0x0006`, passagem pelo primeiro Krusha e travessia na primeira plataforma horizontal |
+| 213207–214403 | Travessia por plataformas horizontais e verticais, com a passagem entre dois Zingers |
+| 214607–214682 | A 100ª banana rende a 13ª vida e zera o contador de bananas. Donkey rebate no Necky e alcança a ponte seguinte |
+| 215622–215665 | Barril de checkpoint fechado e depois ativado na posição x=21.328 |
+| 216059 | Donkey e Diddy na mesma plataforma após abrir o barril DK |
+| 217365–217753 | Salto alto no pneu e descida pelos apoios guardados pelos Kritters |
+| 217881–219499 | Travessia por plataformas com pneus suspensos e lançamentos de TNT nas passagens guardadas por Krushas |
+| 218963 | Diddy assume após o contato de Donkey com um Zinger |
+| 219656–219966 | Plataforma para a esquerda, salto para o apoio elevado e travessia para a última plataforma guardada |
+| 220482 | Retorno ao mapa com o caminho para o chefe aberto |
+| 220624 | Necky's Revenge selecionado, `entrance=0x00E4`, `scene=0x0006`, câmera em zero, 13 vidas e 24 bananas |
+
+O teste de checkpoint partiu do quadro 215.665 em um perfil separado. As entradas `0082 183` e `0000 255` causaram uma queda e devolveram o controle ao mapa no quadro 216.103, com 12 vidas. Um toque em B (`0001 1`) e 203 quadros neutros reabriram a fase pelo checkpoint no quadro 216.307, com `entrance=0x002C`, câmera em 21.256 e Donkey em x=21.328.
+
+O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). O replay desde o menu registrou as entradas do roteiro quadro a quadro. As 80 capturas PPM e os 128 KiB de WRAM final coincidiram com o replay iniciado no estado salvo do mapa. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. As salas de bônus, o áudio em janela e a luta contra Necky's Revenge ficaram fora deste ensaio.
+
+Para repetir a rota principal, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Necky's Revenge e 220.624 quadros. O SHA-256 é `9dc4396445f35e8a3d5aec193bc8d9662e725ad6cf875a87987931c771d0fd63`. As evidências locais ficam em `platform-perils-replay/`, `platform-perils-snapshot/`, `platform-perils-confirmation/` e `platform-perils-equal/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `platform-perils-replay/neckys-revenge-selecionada.snap` permite retomar na entrada do chefe.
