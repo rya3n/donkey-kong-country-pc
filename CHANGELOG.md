@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-19 — Loopy Lights concluída
+
+- A rota principal atravessou os fossos, as plataformas móveis, os pneus, os Zingers e a subida com barris rolantes. O roteiro de 212.344 quadros termina em *Platform Perils*, com 12 vidas e 82 bananas.
+- Em perfil de QA separado, o toque no barril alternou a iluminação de OFF para ON, e a espera confirmou o retorno a OFF. O teste de queda confirmou a perda de uma vida e a reentrada pelo checkpoint.
+- As 61 capturas e a WRAM final coincidiram entre os replays iniciados no menu e no mapa. Os 59 testes Python passaram. [Relatório e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-loopy-lights).
+
 ## 2026-11-19 — Misty Mine concluída
 
 - A rota principal atravessou as cordas, os fossos e os barris que geram inimigos. O roteiro de 206.398 quadros termina com *Loopy Lights* selecionada, 12 vidas e 50 bananas.

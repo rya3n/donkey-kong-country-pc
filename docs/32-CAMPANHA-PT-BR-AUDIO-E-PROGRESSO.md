@@ -777,3 +777,29 @@ O bônus da corda longa foi verificado em outro perfil a partir do quadro 203.23
 O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). A reprodução desde o menu registrou os comandos do roteiro quadro a quadro. As 55 capturas PPM e os 128 KiB de WRAM final coincidiram com a reprodução iniciada no estado salvo do mapa. A SRAM da Candy preservou os mesmos 2.048 bytes. Os 59 testes Python passaram. A cobertura inclui a rota principal, o checkpoint e o bônus da corda longa. Outras salas de bônus, áudio em janela e entrada em Loopy Lights seguem pendentes.
 
 Para repetir a rota principal, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Loopy Lights e 206.398 quadros. O SHA-256 do roteiro é `4cc9c7bc8a522c3d67eeade62ce8cc9ce5b078fd9f9933a243c5081c440b78e6`. As evidências locais ficam em `mi-live/`, `mi-snapshot/` e `mi-confirmation/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `mi-live/loopy-lights-selecionada.snap` permite retomar pela entrada em Loopy Lights.
+
+## Saída de Loopy Lights
+
+O [roteiro de 212.344 quadros](../recipes/usa-rev1/campaign-to-platform-perils-map.inputs) preserva as entradas anteriores até a seleção de Loopy Lights. A rota cruza as plataformas móveis, usa pneus para saltar entre apoios sobre fossos e passa pelos Zingers e pelos barris rolantes da subida. Diddy recupera Donkey com um barril DK e Donkey assume após um contato com um Klaptrap. O contador permanece em 12 vidas.
+
+| Quadro | Resultado |
+| --- | --- |
+| 206398 | Loopy Lights selecionada em Chimp Caverns, `entrance=0x0036`, `scene=0x0002`, 12 vidas e 50 bananas |
+| 206685 | Diddy na caverna após saltar perto do primeiro barril de iluminação |
+| 207261–207321 | Travessia entre as duas plataformas móveis do fosso |
+| 208515–208661 | Barril de checkpoint fechado e depois ativado no ponto x=30.272 |
+| 209015 | Donkey recuperado com o barril DK |
+| 210111–210236 | Travessia nas duas plataformas que sobem e descem alternadamente |
+| 210468–210775 | Saltos nos quatro pneus até a margem dos Zingers |
+| 211362–211666 | Subida sobre os barris rolantes e descida para o trecho final |
+| 212100 | Retorno ao mapa de Chimp Caverns com a ligação seguinte aberta |
+| 212214 | Candy's Save Point selecionado durante a passagem, `entrance=0x00FE` |
+| 212344 | Platform Perils selecionada, `entrance=0x002B`, `scene=0x0002`, câmera em zero, 12 vidas e 82 bananas |
+
+O teste de iluminação partiu do quadro 207.771. As entradas `0082 1`, `0083 15`, `0000 43`, `0083 59` e `0000 60` posicionaram Diddy aos pés do barril em x=28.608. O barril estava em OFF no quadro 207.949. Um salto com `0001 15` seguido de `0000 61` deixou o barril em ON no quadro 208.025. Após mais 109 quadros neutros, o barril voltou a OFF. Com a mesma posição de câmera e de Diddy nos quadros 208.025 e 208.134, a média dos tons de cinza entre as linhas 32 e 207 da captura caiu de 13,56 para 1,03 na escala de 0 a 255.
+
+O teste de checkpoint partiu do quadro 208.661 em perfil separado. As entradas `0082 123`, `0083 68`, `0082 1`, `0083 197` e `0000 218` causaram uma queda e trouxeram a seleção de volta a Loopy Lights no quadro 209.268 com 11 vidas. Um toque em B (`0001 1`) e 200 quadros neutros reabriram a fase no quadro 209.469 com `entrance=0x003D`, câmera em 30.200 e Diddy em x=30.272, na posição do checkpoint.
+
+O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). O replay desde o menu registrou as entradas do roteiro quadro a quadro. As 61 capturas PPM e os 128 KiB de WRAM final coincidiram com a reprodução iniciada no estado salvo do mapa. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. O teste cobre a rota principal, a iluminação, o checkpoint e a seleção seguinte. As salas de bônus, o áudio em janela e a entrada em Platform Perils ficaram fora deste teste.
+
+Para repetir a rota principal, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Platform Perils e 212.344 quadros. O SHA-256 é `afaedbfb8c3b840f08bfd35eb475c57aaf9e659642741dc5e69fc5a5ae1abbd0`. As evidências locais ficam em `ll-live/`, `ll-snapshot/`, `ll-confirmation/` e `ll-equal/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `ll-live/platform-perils-selecionada.snap` permite retomar pela entrada em Platform Perils.
