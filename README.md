@@ -68,9 +68,9 @@ O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela
 | 🌿 [**Vine Valley**](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Percurso contínuo finalizado, com vitória sobre Queen B. |
 | ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Rota principal concluída, com vitória sobre *Really Gnawty*. |
 | 🏭 [**Kremkroc Industries Inc.**](docs/25-DICAS-KREMKROC-INDUSTRIES-PT-BR.md) | Rota principal concluída, com vitória sobre *Boss Dumb Drum*. |
-| 🪨 [**Chimp Caverns**](docs/26-DICAS-CHIMP-CAVERNS-PT-BR.md) | *Tanked Up Trouble* concluída. *Manic Mincers* selecionada no mapa. |
+| 🪨 [**Chimp Caverns**](docs/26-DICAS-CHIMP-CAVERNS-PT-BR.md) | *Tanked Up Trouble* e *Manic Mincers* concluídas. *Misty Mine* selecionada no mapa. |
 
-Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Em **Chimp Caverns**, o roteiro contínuo passa pelos abastecimentos de *Tanked Up Trouble* e termina com *Manic Mincers* selecionada e 11 vidas. O teste de reentrada pelo checkpoint rodou em um perfil de QA separado. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-tanked-up-trouble).
+Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Em **Chimp Caverns**, o roteiro contínuo atravessa *Manic Mincers* e termina com *Misty Mine* selecionada e 12 vidas. A reentrada pelo checkpoint foi confirmada em um perfil de QA separado. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-manic-mincers).
 
 <a name="traducao-pt-br"></a>
 

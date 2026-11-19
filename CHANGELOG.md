@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-19 — Manic Mincers concluída
+
+- A rota principal passou pelos Mincers, cruzou quatro fossos com plataformas e usou o pneu para saltar acima do par final. A coleta de bananas rendeu uma vida extra e o roteiro terminou em Misty Mine com 12 vidas e 16 bananas.
+- A morte e a reentrada pelo checkpoint foram confirmadas em um perfil de QA separado. As 55 capturas e a WRAM final coincidiram entre as reproduções iniciadas no menu e no mapa. Os 59 testes Python passaram. [Roteiro de 200.157 quadros e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-manic-mincers).
+
 ## 2026-11-18 — Tanked Up Trouble concluída
 
 - O roteiro registra 23 abastecimentos da plataforma, a travessia até a saída e o retorno ao mapa com *Manic Mincers* selecionada, 11 vidas e 93 bananas.

@@ -719,3 +719,26 @@ O teste independente partiu do checkpoint ativado no quadro 189.184. A entrada `
 O piloto headless PT-BR para Windows usou a ROM USA v1.1 (Rev 1). A execução desde o menu em perfil novo registrou os mesmos comandos quadro a quadro que o roteiro. A execução a partir do estado salvo no mapa produziu as mesmas 81 capturas PPM e os mesmos 128 KiB de WRAM final. Os 2.048 bytes da SRAM do slot 1 coincidiram com a gravação da Candy. Os 59 testes Python passaram. A cobertura deste marco vai até a seleção no mapa e inclui a retomada pelo checkpoint. A revisão de bônus, áudio em janela e entrada em Manic Mincers segue pendente.
 
 Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Manic Mincers e 194.983 quadros. O SHA-256 do roteiro é `df60a8c69adcee2ed9a9420438b3762cb4911dea8ee042223d898a2c227cb6d5`. As evidências locais ficam em `tu-live/`, `tu-snapshot/` e `tu-confirmation/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `tu-live/manic-mincers-selecionada.snap` permite retomar pela entrada em Manic Mincers.
+
+## Saída de Manic Mincers
+
+O [roteiro de 200.157 quadros](../recipes/usa-rev1/campaign-to-misty-mine-map.inputs) preserva as entradas anteriores até a seleção de Manic Mincers. A rota principal alterna passagens por baixo dos Mincers e saltos sobre eles. Exercita Mincers fixos, verticais, orbitais e um que rola pelo chão. Diddy assume o controle após contato com um par de Mincers e recupera Donkey com um barril DK depois do checkpoint. Donkey termina a fase após Diddy ser atingido no quarto fosso. A coleta de bananas rende uma vida e o contador chega a 12.
+
+| Quadro | Resultado |
+| --- | --- |
+| 194983 | Manic Mincers selecionada em Chimp Caverns, `entrance=0x0012`, `scene=0x0006`, 11 vidas e 93 bananas |
+| 195058 | Transição para a fase, `scene=0x0001` |
+| 196155 | Contador de vidas sobe de 11 para 12 após a 100ª banana |
+| 196761 | Diddy ultrapassa o Mincer fixo e o Mincer que rola pelo chão |
+| 196978 | Checkpoint ativado. O barril estava em x=20.485 |
+| 197368 | Donkey recuperado pelo barril DK após o primeiro Krusha |
+| 197856–198895 | Travessia de quatro fossos com plataformas. No segundo, Diddy volta à plataforma entre dois Mincers e salta novamente até a outra margem |
+| 199669–199730 | Donkey usa o pneu para saltar acima dos dois Mincers empilhados em x=26.502 |
+| 200036 | Retorno ao mapa de Chimp Caverns com a ligação para a próxima fase aberta |
+| 200157 | Misty Mine selecionada, `entrance=0x000A`, `scene=0x0001`, câmera em zero, 12 vidas e 16 bananas |
+
+O teste em perfil separado carregou o checkpoint ativado no quadro 196.978. A entrada `0080 220` seguida de `0000 420` provocou a morte e devolveu a seleção a Manic Mincers no quadro 197.618 com 11 vidas. Um toque em B (`0001 1`) e 230 quadros neutros reabriram a fase no quadro 197.849, com `entrance=0x0029`, câmera em 20.413 e Diddy em x=20.485.
+
+O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1) e perfis de QA isolados. A reprodução desde o menu registrou os comandos do roteiro quadro a quadro. As 55 capturas PPM e os 128 KiB de WRAM final coincidiram com a reprodução iniciada no estado salvo do mapa. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. O teste cobre a rota principal e a reentrada pelo checkpoint. Bônus, áudio em janela e a entrada em Misty Mine seguem pendentes.
+
+Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Misty Mine e 200.157 quadros. O SHA-256 do roteiro é `10c577579dd78c14a93bc95b00285b6c555a2fa3a571bd0bab0f471ff04e9d11`. As evidências locais ficam em `mm-live/`, `mm-snapshot/` e `mm-confirmation/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `mm-live/misty-mine-selecionada.snap` permite retomar pela entrada em Misty Mine.
