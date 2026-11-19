@@ -68,9 +68,10 @@ O modo preencher mantém toda a imagem, esticando-a conforme o formato da janela
 | 🌿 [**Vine Valley**](docs/23-DICAS-VINE-VALLEY-PT-BR.md) | Percurso contínuo finalizado, com vitória sobre Queen B. |
 | ❄️ [**Gorilla Glacier**](docs/24-DICAS-GORILLA-GLACIER-PT-BR.md) | Rota principal concluída, com vitória sobre *Really Gnawty*. |
 | 🏭 [**Kremkroc Industries Inc.**](docs/25-DICAS-KREMKROC-INDUSTRIES-PT-BR.md) | Rota principal concluída, com vitória sobre *Boss Dumb Drum*. |
-| 🪨 [**Chimp Caverns**](docs/26-DICAS-CHIMP-CAVERNS-PT-BR.md) | *Tanked Up Trouble*, *Manic Mincers*, *Misty Mine*, *Loopy Lights* e *Platform Perils* concluídas. *Necky's Revenge* selecionado no mapa. |
+| 🪨 [**Chimp Caverns**](docs/26-DICAS-CHIMP-CAVERNS-PT-BR.md) | Rota principal concluída, com vitória sobre *Necky's Revenge*. |
+| **Gang-Plank Galleon** | Navio selecionado no mapa geral. Luta final pendente de validação. |
 
-Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Em **Chimp Caverns**, o roteiro contínuo conclui *Platform Perils* e termina com *Necky's Revenge* selecionado, 13 vidas e 24 bananas. A reentrada pelo checkpoint de *Platform Perils* foi confirmada em um perfil de QA separado. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-platform-perils).
+Em **Gorilla Glacier**, o teste salvou o slot 1 na Candy com 21% de progresso e recuperou a partida em um novo processo. Depois de **Chimp Caverns**, o roteiro de 222.939 quadros termina com *Gang-Plank Galleon* selecionado, 13 vidas e 24 bananas. Os 2.315 quadros novos foram repetidos em dois perfis de QA a partir do mapa de *Necky's Revenge*. [Campanha, persistência e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-neckys-revenge).
 
 <a name="traducao-pt-br"></a>
 

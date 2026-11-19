@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-19 — Necky's Revenge concluído
+
+- A luta confirmou cinco golpes após sequências de uma a cinco nozes. A banana gigante apareceu, e o mapa geral selecionou *Gang-Plank Galleon* automaticamente, com 13 vidas e 24 bananas.
+- Dois perfis de QA reproduziram os 2.315 quadros novos a partir dos estados salvos do mapa. As 24 capturas e a WRAM final coincidiram, os 2.048 bytes da SRAM da Candy foram preservados e os 59 testes Python passaram. [Relatório e roteiro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-neckys-revenge).
+
 ## 2026-11-19 — Platform Perils concluída
 
 - A rota principal passou pelas plataformas móveis, pelos pneus suspensos e pelos Krushas. O roteiro de 220.624 quadros termina com *Necky's Revenge* selecionado, 13 vidas e 24 bananas.

@@ -828,3 +828,24 @@ O teste de checkpoint partiu do quadro 215.665 em um perfil separado. As entrada
 O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). O replay desde o menu registrou as entradas do roteiro quadro a quadro. As 80 capturas PPM e os 128 KiB de WRAM final coincidiram com o replay iniciado no estado salvo do mapa. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. As salas de bônus, o áudio em janela e a luta contra Necky's Revenge ficaram fora deste ensaio.
 
 Para repetir a rota principal, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Necky's Revenge e 220.624 quadros. O SHA-256 é `9dc4396445f35e8a3d5aec193bc8d9662e725ad6cf875a87987931c771d0fd63`. As evidências locais ficam em `platform-perils-replay/`, `platform-perils-snapshot/`, `platform-perils-confirmation/` e `platform-perils-equal/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `platform-perils-replay/neckys-revenge-selecionada.snap` permite retomar na entrada do chefe.
+
+## Saída de Necky's Revenge
+
+O [roteiro de 222.939 quadros](../recipes/usa-rev1/campaign-to-gang-plank-galleon-map.inputs) preserva os 220.624 quadros já validados desde o menu e acrescenta a entrada, a luta e a transição até Gang-Plank Galleon. O registro quadro a quadro identificou cinco ciclos com uma, duas, três, quatro e cinco nozes, respectivamente. Os saltos do pneu permitem desviar dos projéteis e acertar o chefe após cada sequência. Diddy participa dos dois primeiros golpes. Donkey prossegue sozinho após o contato de Diddy com um projétil e completa a luta. O contador de vidas permanece em 13.
+
+| Quadro | Resultado |
+| --- | --- |
+| 220702 | Entrada na arena, `entrance=0x00E4` e `scene=0x000C` |
+| 220919 | Primeiro golpe após uma noz, com quatro golpes restantes |
+| 221144 | Segundo golpe após duas nozes, com três golpes restantes |
+| 221392 | Terceiro golpe após três nozes, com dois golpes restantes |
+| 221707 | Quarto golpe após quatro nozes, com um golpe restante |
+| 222053 | Último golpe após cinco nozes e início da animação de derrota do chefe |
+| 222324 | Banana gigante visível na arena |
+| 222630 | Retorno ao mapa geral, `entrance=0x00E6` |
+| 222735 | Seleção automática de Gang-Plank Galleon, `entrance=0x0068` |
+| 222939 | Gang-Plank Galleon confirmado no mapa, `scene=0x000C`, câmera em zero, 13 vidas e 24 bananas |
+
+O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). Dois processos com perfis isolados partiram, respectivamente, do estado gravado ao fim do replay desde o menu e do estado gravado ao fim do replay de Platform Perils. Os dois reproduziram os mesmos 2.315 quadros novos. As entradas registradas, as 24 capturas PPM e os 128 KiB de WRAM inicial e final coincidiram. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. O ensaio cobre a luta e a transição de mapa no piloto headless. A validação em janela, o áudio e a luta final ficam para os ensaios correspondentes.
+
+Para repetir a rota desde o menu, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, o roteiro de Gang-Plank Galleon e 222.939 quadros. O SHA-256 do roteiro é `2a230e8f1c0655570920d6b2b000178e6e5a545d230c304095855e82c12bc794`. As evidências locais ficam em `neckys-revenge-from-menu-state/`, `neckys-revenge-from-map-state/` e `neckys-revenge-assembled/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `neckys-revenge-from-menu-state/gang-plank-galleon-selecionado.snap` permite retomar na entrada do navio.
