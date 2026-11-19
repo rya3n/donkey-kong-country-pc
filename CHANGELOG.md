@@ -2,6 +2,12 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-19 — Misty Mine concluída
+
+- A rota principal atravessou as cordas, os fossos e os barris que geram inimigos. O roteiro de 206.398 quadros termina com *Loopy Lights* selecionada, 12 vidas e 50 bananas.
+- Em perfis separados, foram confirmadas a reentrada pelo checkpoint e a coleta das quatro letras KONG no bônus da corda longa, com uma vida extra e retorno à fase.
+- As 55 capturas e a WRAM final coincidiram entre as reproduções iniciadas no menu e no mapa. Os 59 testes Python passaram. [Roteiro e reprodução](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#saída-de-misty-mine).
+
 ## 2026-11-19 — Manic Mincers concluída
 
 - A rota principal passou pelos Mincers, cruzou quatro fossos com plataformas e usou o pneu para saltar acima do par final. A coleta de bananas rendeu uma vida extra e o roteiro terminou em Misty Mine com 12 vidas e 16 bananas.

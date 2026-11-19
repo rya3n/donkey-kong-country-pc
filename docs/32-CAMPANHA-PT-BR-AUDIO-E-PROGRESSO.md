@@ -742,3 +742,38 @@ O teste em perfil separado carregou o checkpoint ativado no quadro 196.978. A en
 O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1) e perfis de QA isolados. A reprodução desde o menu registrou os comandos do roteiro quadro a quadro. As 55 capturas PPM e os 128 KiB de WRAM final coincidiram com a reprodução iniciada no estado salvo do mapa. A SRAM do slot 1 preservou os 2.048 bytes da gravação da Candy. Os 59 testes Python passaram. O teste cobre a rota principal e a reentrada pelo checkpoint. Bônus, áudio em janela e a entrada em Misty Mine seguem pendentes.
 
 Para repetir, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Misty Mine e 200.157 quadros. O SHA-256 do roteiro é `10c577579dd78c14a93bc95b00285b6c555a2fa3a571bd0bab0f471ff04e9d11`. As evidências locais ficam em `mm-live/`, `mm-snapshot/` e `mm-confirmation/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `mm-live/misty-mine-selecionada.snap` permite retomar pela entrada em Misty Mine.
+
+## Saída de Misty Mine
+
+O [roteiro de 206.398 quadros](../recipes/usa-rev1/campaign-to-loopy-lights-map.inputs) preserva as entradas anteriores até a seleção de Misty Mine. A rota principal inclui subida e descida em cordas, troca entre cordas sobre o fosso, saltos entre os barris que geram inimigos e um salto a partir do topo de um barril até a margem da seta. O contador permaneceu em 12 vidas. Diddy assume após o contato de Donkey com um Klaptrap e conclui a fase.
+
+| Quadro | Resultado |
+| --- | --- |
+| 200157 | Misty Mine selecionada em Chimp Caverns, `entrance=0x000A`, `scene=0x0001`, 12 vidas e 16 bananas |
+| 200457 | Transição para a mina, `scene=0x0002` |
+| 201178–201928 | Subida na primeira corda e descida na segunda |
+| 202585–202711 | Donkey sobe e salta de uma corda para a seguinte sobre o fosso |
+| 203014 | Checkpoint ativado. O barril estava em x=6.437 |
+| 203231–203407 | Rota superior pela corda longa até a margem direita |
+| 205496–205685 | Diddy parte do topo de um barril, cruza o fosso e salta sobre os quatro barris de Slippas após a seta |
+| 206086 | Retorno ao mapa com a ligação seguinte aberta |
+| 206207 | Seleção de Funky's Flights como ponto de passagem no mapa, `entrance=0x00F8` |
+| 206398 | Loopy Lights selecionada, `entrance=0x0036`, `scene=0x0002`, câmera em zero, 12 vidas e 50 bananas |
+
+O teste de checkpoint partiu do quadro 203.014. As entradas `0082 102`, `0080 1`, `0082 30`, `0083 53`, `0010 31`, `0020 155` e `0000 220` levaram à queda da corda longa e ao retorno ao mapa no quadro 203.606 com 11 vidas. Um toque em B (`0001 1`) seguido de 230 quadros neutros reabriu Misty Mine pelo checkpoint no quadro 203.837, com `entrance=0x002D`, câmera em 6.365 e Donkey em x=6.437.
+
+O bônus da corda longa foi verificado em outro perfil a partir do quadro 203.231. A descida levou ao salto para a direita e à sala de bônus no quadro 203.487, com `entrance=0x0033`. A captura do quadro 204.066 mostra as quatro letras KONG. A recompensa elevou o contador a 13 vidas. A saída devolveu os dois Kongs à mina no quadro 204.528, com `entrance=0x0080`, Donkey em x=8.656 e 63 bananas.
+
+| Quadro ao fim do trecho | Entradas para repetir o bônus após o quadro 203.231 |
+| --- | --- |
+| 203326 | `0020 95` |
+| 203487 | `0083 60`, `0082 101` |
+| 203592 | `0082 42`, `0083 43`, `0010 20` |
+| 203699 | `0010 37`, `0000 70` |
+| 203959 | `0020 73`, `0000 18`, `0010 126`, `0000 43` |
+| 204173 | `0020 72`, `0000 142` |
+| 204528 | `0010 63`, `0083 64`, `0082 48`, `0000 180` |
+
+O piloto headless PT-BR rodou em Windows com a ROM USA v1.1 (Rev 1). A reprodução desde o menu registrou os comandos do roteiro quadro a quadro. As 55 capturas PPM e os 128 KiB de WRAM final coincidiram com a reprodução iniciada no estado salvo do mapa. A SRAM da Candy preservou os mesmos 2.048 bytes. Os 59 testes Python passaram. A cobertura inclui a rota principal, o checkpoint e o bônus da corda longa. Outras salas de bônus, áudio em janela e entrada em Loopy Lights seguem pendentes.
+
+Para repetir a rota principal, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro de Loopy Lights e 206.398 quadros. O SHA-256 do roteiro é `4cc9c7bc8a522c3d67eeade62ce8cc9ce5b078fd9f9933a243c5081c440b78e6`. As evidências locais ficam em `mi-live/`, `mi-snapshot/` e `mi-confirmation/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. O estado `mi-live/loopy-lights-selecionada.snap` permite retomar pela entrada em Loopy Lights.
