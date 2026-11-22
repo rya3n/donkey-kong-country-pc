@@ -860,7 +860,7 @@ O [roteiro de 254.444 quadros](../recipes/usa-rev1/campaign-to-ending-title.inpu
 | 223432, 223745, 224161 | Primeiros três golpes, seguidos das séries de investidas |
 | 224686, 225516, 226658 | Golpes quatro a seis, seguidos das três ondas de balas de canhão |
 | 228089 e 228821 | Sétimo golpe e créditos falsos visíveis |
-| 229811 | Chefe de pé no navio e controle devolvido ao jogador |
+| 229811 | Cena de volta ao navio com controle devolvido, antes da primeira série de saltos |
 | 230143 e 230601 | Oitavo e nono golpes após a retomada da luta |
 | 231352 e 231604 | Décimo golpe e banana gigante visível |
 | 231944 | Conversa de encerramento com Cranky Kong |
@@ -873,6 +873,6 @@ Dois processos com perfis isolados reproduziram o trecho novo no piloto Windows 
 
 O jogo atualizou automaticamente os 2.048 bytes da SRAM durante a sequência de vitória. Em um terceiro perfil, um novo processo carregou o arquivo final sem restaurar um snapshot. O slot 1 mostrou **00:54 e 34%** no quadro 1.800. No quadro 2.400, o jogo selecionou Jungle Hijinxs no mapa de Kongo Jungle com cinco vidas e zero bananas. No quadro 4.801, a fase estava jogável. O arquivo e o backup gerado na reabertura coincidiram com a SRAM final dos dois replays.
 
-As falas amostradas do Cranky no encerramento apareceram em PT-BR durante a campanha. Os créditos falsos e os rótulos dos créditos reais apareceram em inglês. A próxima revisão de tradução deve conferir os dois blocos em contexto, preservando os nomes próprios e a brincadeira dos créditos falsos.
+As falas amostradas do Cranky no encerramento apareceram em PT-BR durante a campanha. Os créditos falsos e os rótulos dos créditos reais apareceram em inglês. A revisão posterior identificou sete registros no bloco falso e 25 no real e registrou os critérios para preservar nomes e a brincadeira do chefe. [Revisão dos créditos](15-PT-BR.md#revisão-em-jogo-dos-créditos).
 
 Para reproduzir desde o menu, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro do final e 254.444 quadros. O SHA-256 do roteiro é `c55c1b2dba6e3f5e2539e3f5390ac56ee46e2570ccf00575e3e2f8eeac10ef26`. Para verificar a reabertura, execute o [roteiro de carregamento](../recipes/usa-rev1/cold-load.inputs) por 4.801 quadros com o mesmo diretório de save. As evidências locais ficam em `gang-plank-replay-menu-state/`, `gang-plank-replay-map-state/`, `gang-plank-postgame-reopen/` e `gang-plank-assembled/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`.

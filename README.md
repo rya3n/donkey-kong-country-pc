@@ -77,7 +77,7 @@ A **rota principal da campanha** foi validada até o retorno à tela de título 
 
 ## 🍌 Tradução PT-BR
 
-O piloto reúne **217 diálogos** do inventário em inglês. São **8 da Candy**, **13 do Funky** e **196 do Cranky**, incluindo **27 dicas** de fases. O final da campanha exibiu as falas amostradas do Cranky em PT-BR. Os créditos falsos e reais ainda exibem texto em inglês e seguem para revisão.
+O piloto reúne **217 diálogos** do inventário em inglês. São **8 da Candy**, **13 do Funky** e **196 do Cranky**, incluindo **27 dicas** de fases. O final da campanha exibiu as falas amostradas do Cranky em PT-BR. A revisão visual confirmou que os créditos falsos e reais ainda exibem texto em inglês. [Revisão dos créditos](docs/15-PT-BR.md#revisão-em-jogo-dos-créditos).
 
 [Preparação e glossário](docs/15-PT-BR.md) · [Piloto dos menus](docs/16-PILOTO-PT-BR.md) · [Inventário dos diálogos](docs/30-DIALOGOS-CRANKY-PT-BR.md)
 

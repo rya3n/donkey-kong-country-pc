@@ -62,3 +62,19 @@ Evidências desta execução: evidence/2026-11-05/pt-BR/. Catálogos locais: exp
 Localizar menus e suas tabelas/fontes na Rev 1, verificar os glifos de PT-BR e o espaço por linha, e definir como integrar dados traduzidos sem alterar endereços de código ou a identidade da ROM original. Depois, realizar um piloto visual separado, comparar execução, áudio e saves, e revisar as falas em tela. A cobertura de campanha continua registrada no plano de validação; a preparação editorial não a aprova automaticamente.
 
 Referência estrutural consultada localmente: [disassembly de Yoshifanatic1, revisão c2080f4](https://github.com/Yoshifanatic1/Donkey-Kong-Country-1-Disassembly/tree/c2080f40469c716923f550706509a0d354229841). A referência declara suporte a USA v1.0 e licença GPLv3; nenhum trecho de sua implementação foi copiado para o leitor próprio. A extração desta etapa usa exclusivamente a ROM Rev 1 conferida.
+
+## Revisão em jogo dos créditos
+
+Em 2026-11-22, a revisão no piloto Windows PT-BR confirmou que os 32 registros do inventário `credits_en` cobrem os dois blocos exibidos no jogo. O leitor de inventário mantém os IDs atuais. Os intervalos abaixo usam offsets do arquivo USA v1.1 (Rev 1), com fim exclusivo.
+
+| Trecho | Intervalo | Registros | O que revisar |
+| --- | --- | ---: | --- |
+| Créditos falsos no navio | `0x01EFFC–0x01F08F` | 7 | Título, cinco atribuições e a pergunta final. Preservar o efeito da grafia proposital com K, os nomes, o alinhamento pontilhado e o ponto de interrogação |
+| Créditos reais após o elenco | `0x01F08F–0x01F405` | 25 | Cabeçalho e 24 grupos de crédito. Localizar títulos e funções e preservar grafia, ordem e associação de nomes e marcas |
+| Apresentação do elenco | `0x01DFD5–0x01E1BC` | 47 | Conferir títulos e frases em revisão própria. Preservar nomes de personagens |
+
+O inventário registra linhas de até 24 caracteres no trecho falso e até 28 no real. Use essas medidas para priorizar os casos de encaixe. A aprovação em PT-BR exige verificar a largura e o alinhamento na rolagem, os glifos das funções localizadas e a associação de cada nome ao seu grupo. Termos editoriais como “Programação”, “Testes” e “Agradecimentos” servem de referência para os rótulos de função.
+
+Em dois perfis de QA, a revisão conferiu 17 capturas da sequência falsa e 41 da real. No navio, o quadro 229.272 mostra a pergunta final, e o quadro 229.811 marca o retorno do controle. No encerramento real, o quadro 245.894 mostra a abertura dos créditos, o quadro 250.889 mostra a última atribuição e o quadro 251.294 já mostra a sequência de abertura do jogo. As funções amostradas continuam em inglês. O manifesto do piloto contém 226 regiões de patch e nenhuma se sobrepõe aos intervalos de créditos ou de elenco. Os 59 testes Python passaram.
+
+Os dois blocos podem ser alcançados pelo [roteiro do final da campanha](../recipes/usa-rev1/campaign-to-ending-title.inputs). As capturas de revisão ficam em `credits-review-fake/` e `credits-review-real/`, dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. A tradução em jogo, a revisão dos glifos localizados e a escuta em janela permanecem pendentes.

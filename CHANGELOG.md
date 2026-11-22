@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-22 — Créditos revisados no piloto PT-BR
+
+- A revisão das duas sequências confirmou sete registros no bloco falso e 25 no real no inventário da Rev 1. O trecho falso inclui a pergunta final antes da retomada da luta.
+- As 58 capturas de QA confirmaram a rolagem e as transições. Os 59 testes Python passaram. A localização em jogo continua pendente. [Relatório](docs/15-PT-BR.md#revisão-em-jogo-dos-créditos).
+
 ## 2026-11-19 — Final da campanha validado
 
 - King K. Rool caiu após dez golpes. O teste confirmou as investidas, as ondas de balas de canhão, a retomada após os créditos falsos e a vitória.
