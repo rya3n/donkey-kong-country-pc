@@ -78,3 +78,14 @@ O inventário registra linhas de até 24 caracteres no trecho falso e até 28 no
 Em dois perfis de QA, a revisão conferiu 17 capturas da sequência falsa e 41 da real. No navio, o quadro 229.272 mostra a pergunta final, e o quadro 229.811 marca o retorno do controle. No encerramento real, o quadro 245.894 mostra a abertura dos créditos, o quadro 250.889 mostra a última atribuição e o quadro 251.294 já mostra a sequência de abertura do jogo. As funções amostradas continuam em inglês. O manifesto do piloto contém 226 regiões de patch e nenhuma se sobrepõe aos intervalos de créditos ou de elenco. Os 59 testes Python passaram.
 
 Os dois blocos podem ser alcançados pelo [roteiro do final da campanha](../recipes/usa-rev1/campaign-to-ending-title.inputs). As capturas de revisão ficam em `credits-review-fake/` e `credits-review-real/`, dentro de `evidence/2026-11-10/pt-BR/campaign-start/`. A tradução em jogo, a revisão dos glifos localizados e a escuta em janela permanecem pendentes.
+
+### Prévia da rolagem com texto próprio
+
+O [gerador de prévia](../scripts/preview_credit_text.py) lê um arquivo JSON UTF-8 com uma lista de linhas e cria um HTML local. Ele preserva as linhas em branco, normaliza acentos para NFC e destaca os trechos que excedem a largura de referência. A prévia tem pausa e controle de posição.
+
+```powershell
+python scripts/preview_credit_text.py --input evidence/texto-proprio.json --columns 24 --out evidence/previa-24.html
+python scripts/preview_credit_text.py --input evidence/texto-proprio.json --columns 28 --out evidence/previa-28.html
+```
+
+Em 2026-11-22, o teste com 11 linhas sintéticas confirmou duas linhas acima da referência de 24 caracteres e uma acima da referência de 28. No Edge, a rolagem, a pausa, o controle de posição e os acentos passaram em larguras de 390 e 1.100 pixels. Os 59 testes Python passaram. Os resultados se referem à fonte do navegador. A fonte do jogo e a integração de um catálogo próprio ficam na etapa V15–V16.

@@ -2,6 +2,11 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-22 — Prévia de rolagem dos créditos em PT-BR
+
+- Adicionado um gerador de prévia HTML para testar acentos, pausa, posição da rolagem e largura de linhas com um catálogo próprio.
+- O ensaio no Edge passou em 390 e 1.100 pixels, com referências de 24 e 28 caracteres por linha. A conferência da fonte do jogo continua pendente. [Prévia da rolagem](docs/15-PT-BR.md#prévia-da-rolagem-com-texto-próprio).
+
 ## 2026-11-22 — Créditos revisados no piloto PT-BR
 
 - A revisão das duas sequências confirmou sete registros no bloco falso e 25 no real no inventário da Rev 1. O trecho falso inclui a pergunta final antes da retomada da luta.
