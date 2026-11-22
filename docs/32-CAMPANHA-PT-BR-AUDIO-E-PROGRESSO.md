@@ -28,6 +28,23 @@ O teste em janela reproduziu 1.902 quadros após preparar o estado do mapa diant
 
 O executável de QA adicionou leitura do roteiro e captura de PCM ao host Win32. O teste mede a saída do aplicativo para a API de áudio. A escuta no dispositivo e o efeito perceptível da diferença ainda precisam de confirmação.
 
+## Medição da sessão de áudio no Win32
+
+Em 2026-11-22, o piloto PT-BR USA Rev 1 rodou no Windows 10 22H2 (build 19045) em perfis isolados, com salvamento desabilitado. O ensaio executou o host Win32 em duas rodadas para cada fase. Cada rodada observou 720 quadros com o personagem parado após 4.800 quadros de preparação. A cadência alvo do host era 60,0988 Hz.
+
+O medidor do Windows foi associado ao PID do jogo. A sessão reportou dois canais e o ensaio coletou o pico geral da sessão, em escala de 0 a 1. A análise excluiu o primeiro segundo e o último meio segundo da série de leituras. [Medidores de pico do Windows](https://learn.microsoft.com/en-us/windows/win32/coreaudio/peak-meters)
+
+| Fase | Rodada | Duração analisada | Leituras | Leituras com pico zero | Maior intervalo entre leituras |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Jungle Hijinxs | 1 | 10,38 s | 667 | 0 | 27,82 ms |
+| Jungle Hijinxs | 2 | 10,42 s | 671 | 0 | 16,55 ms |
+| Reptile Rumble | 1 | 10,67 s | 686 | 0 | 31,80 ms |
+| Reptile Rumble | 2 | 10,53 s | 674 | 0 | 33,20 ms |
+
+Em todas as rodadas, a imagem final (framebuffer) e o estado da memória de trabalho (WRAM) coincidiram com o teste sem janela da mesma fase. A mediana do intervalo de apresentação ficou entre 16,64 e 16,67 ms. Em Reptile Rumble, o host registrou oito quadros acima do prazo na primeira rodada e seis na segunda. O maior intervalo de apresentação foi de 69,40 ms.
+
+As 2.698 leituras confirmam sinal na sessão de áudio do jogo nos trechos medidos. O ensaio usou leituras espaçadas, com o personagem parado. A escuta no dispositivo, a verificação de cortes audíveis ou distorções e a cobertura com o personagem em movimento continuam pendentes. Os 59 testes da suíte Python passaram. As evidências locais estão em `evidence/2026-11-22/audio-win32/`.
+
 ## Progressão pelo mapa
 
 | Quadro | Cenário | Resultado |
