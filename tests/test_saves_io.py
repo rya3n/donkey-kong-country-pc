@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-EXE = ROOT / "build/usa-rev1/rev1_saves_io_tests.exe"
+EXE = Path(os.environ.get("DKC_SAVE_TEST_EXE") or ROOT / "build/usa-rev1/rev1_saves_io_tests.exe")
 TEMP_ROOT = ROOT / "evidence/save-io-tests"
 
 def pattern(seed):

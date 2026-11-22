@@ -14,7 +14,7 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | --- | --- | --- | --- |
 | V01 | Verificar ROM do perfil | Tamanho e SHA-256 exatos | Rev 1 aceita; v1.2 rejeitada no verificador e no host |
 | V02 | Gerar e compilar | Comandos terminam com sucesso e executável é identificado | Protótipo Rev 1 compilado com MSVC; identidade no relatório |
-| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | Suíte Python local: 59 testes passaram. Suíte pública anterior: 303 testes, 2 erros e 10 skips. CTest do jogo pendente |
+| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | CTest do port aprovado na Rev 1 base e no piloto PT-BR. Suíte pública anterior: 303 testes, 2 erros e 10 skips. [Execução local](#ctest-no-windows) |
 | V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Executado em janela; usuário confirmou a fluidez após a correção |
 | V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Entrada reproduzida e sessão humana realizada; cobertura ampliada em V14 |
 | V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Parcial. Corrida, salto, barris de checkpoint e de parceiro em Jungle Hijinxs, escalada em Ropey Rampage e movimento durante as alternâncias de iluminação em Blackout Basement |
@@ -27,6 +27,15 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | V13 | Repetição determinística | Três replays com mesma entrada e hashes dos estados comparados iguais | Três execuções de 600 quadros idênticas; entrada na fase repetida; cobertura restrita |
 
 Salvar com Candy e usar save state são funcionalidades diferentes e exigem testes distintos. Um quicksave bem-sucedido não comprova persistência do progresso do cartucho.
+
+## CTest no Windows
+
+Em 2026-11-22, as configurações Release da Rev 1 base e do piloto PT-BR passaram nos dois alvos do CTest com MSVC 19.44, Ninja 1.12.1, CTest 3.31.6 e Python 3.12.10. Os executáveis de teste foram compilados em diretórios novos, incluindo um caminho com espaços e acentos no piloto.
+
+- `rev1_present` verificou a composição GDI em oito dimensões, a apresentação em 4:3 e preenchimento e 20 ciclos de tela cheia por monitor detectado.
+- `rev1_python` executou os 59 testes do port em cada configuração, incluindo os sete testes de persistência com o auxiliar do próprio build.
+
+O comando direto `python -m unittest discover -s tests` também passou com 59 testes. A configuração sem Python registrou apenas `rev1_present` e exibiu o aviso esperado. Com `BUILD_TESTING=OFF`, nenhum teste foi registrado. A nova execução da suíte pública do upstream permanece em P05. Logs locais em `evidence/2026-11-22/ctest-win32/`. [Comandos de reprodução](04-AMBIENTE-E-REPRODUCAO.md#testes-do-port-usa-rev-1-no-windows)
 
 ## Quando ampliar a cobertura
 

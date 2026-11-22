@@ -68,6 +68,17 @@ Após um build bem-sucedido, registrar o hash do executável, preservar os logs 
 
 O pacote oficial já extraído fica em `runtime/v0.0.17/DKC1Recomp-v0.0.17-Windows-x64/`. Ele serve como referência identificada e também exige a ROM suportada. Executá-lo futuramente não substitui comprovar uma compilação própria.
 
+### Testes do port USA Rev 1 no Windows
+
+No PowerShell de desenvolvedor x64, após configurar o port com o procedimento da Rev 1 e `BUILD_TESTING=ON` (padrão), execute na raiz:
+
+```powershell
+cmake --build build/usa-rev1 --target rev1_present_tests rev1_saves_io_tests
+ctest --test-dir build/usa-rev1 --output-on-failure
+```
+
+Use `build/ptbr-pilot` nos dois comandos para testar a configuração do piloto. O CTest deve listar `rev1_present` (GDI e modos de tela) e `rev1_python` (suíte do projeto, que inclui os testes de persistência com SRAM sintética). A suíte Python recebe o caminho do auxiliar de saves do próprio build. Se a configuração informar que o Python 3.11 ou posterior está indisponível, apenas `rev1_present` será registrado. Os executáveis de teste usam dados sintéticos.
+
 ## Evidências da futura execução
 
 Reservar uma pasta local por execução, por exemplo `evidence/AAAA-MM-DD/execucao-01/`, com comandos, saída completa, hashes e resultado dos cenários. Dados derivados do jogo e saves devem permanecer locais.

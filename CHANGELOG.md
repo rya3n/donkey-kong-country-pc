@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-22 — Testes do port integrados ao CTest
+
+- O CTest passou a executar o teste nativo de apresentação e a suíte Python com o auxiliar de saves da configuração selecionada. Os dois alvos passaram na Rev 1 base e no piloto PT-BR, com 59 testes Python em cada configuração. [Validação](docs/05-VALIDACAO.md#ctest-no-windows)
+
 ## 2026-11-22 — Áudio medido no aplicativo Windows
 
 - Medido o sinal da sessão de áudio do piloto PT-BR em duas rodadas por fase em Jungle Hijinxs e Reptile Rumble. Todas as 2.698 leituras analisadas tiveram sinal. A escuta em janela continua pendente. [Relatório](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#medição-da-sessão-de-áudio-no-win32)

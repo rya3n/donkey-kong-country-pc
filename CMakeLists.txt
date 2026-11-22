@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(dkc_usa_rev1_bringup LANGUAGES C)
 option(DKC_BUILD_PTBR_PILOT "Build the separate experimental PT-BR menu pilot" OFF)
+include(CTest)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(SNESRECOMP_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/upstream/snesrecomp")
@@ -65,6 +66,20 @@ if(WIN32)
     target_link_libraries(rev1_present_tests PRIVATE gdi32 user32)
     if(MSVC)
         target_compile_options(rev1_present_tests PRIVATE /W3 /utf-8)
+    endif()
+endif()
+if(BUILD_TESTING AND WIN32)
+    add_test(NAME rev1_present COMMAND rev1_present_tests)
+    find_package(Python3 3.11 QUIET COMPONENTS Interpreter)
+    if(Python3_Interpreter_FOUND)
+        add_test(NAME rev1_python
+            COMMAND "${Python3_EXECUTABLE}" -m unittest discover -s tests -v
+            WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+        set_tests_properties(rev1_python PROPERTIES
+            ENVIRONMENT "DKC_SAVE_TEST_EXE=$<TARGET_FILE:rev1_saves_io_tests>"
+            TIMEOUT 120)
+    else()
+        message(STATUS "Python 3.11+ not found: rev1_python test is unavailable")
     endif()
 endif()
 foreach(TARGET IN ITEMS dkc_rev1_headless dkc_rev1_desktop)
