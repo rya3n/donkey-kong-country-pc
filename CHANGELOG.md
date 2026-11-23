@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Executáveis portáteis inspecionados
+
+- Adicionado um verificador de SHA-256, arquitetura x64, subsistema gráfico e importações de DLLs. As cópias portáteis testadas coincidiram com os builds locais e apresentaram as mesmas dependências diretas. A execução em Windows sem ferramentas de desenvolvimento segue na V19. [Inspeção e roteiro](docs/05-VALIDACAO.md#inspeção-do-executável-portátil-v19)
+
 ## 2026-11-23 — Modo de imagem lembrado ao reabrir
 
 - A versão base e o piloto PT-BR recuperam a última escolha do F6 após o encerramento normal. Os testes verificaram Preencher e 4:3 em perfis do projeto e portáteis, incluindo falha de gravação e preservação dos saves. [Validação V19](docs/05-VALIDACAO.md#preferência-de-imagem-no-windows-v19)

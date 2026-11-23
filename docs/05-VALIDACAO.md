@@ -124,3 +124,27 @@ Os perfis e logs do ensaio ficam em `evidence/2026-11-23/v18-abertura/`. A V18 f
 Em 2026-11-23, a versão base e o piloto PT-BR recuperaram a escolha entre Preencher e 4:3. O ensaio executou 16 sessões normais, combinando os dois builds com a estrutura do projeto e uma pasta portátil, com espaços e acentos. O arquivo de preferência só foi atualizado nas sessões em que o modo mudou. O save de QA e o backup permaneceram idênticos.
 
 Três ensaios adicionais verificaram a abertura em Preencher com arquivo inválido, a preservação do valor anterior quando a substituição do arquivo foi bloqueada e o isolamento de `--jungle`. Os executáveis de teste foram iniciados com apenas pastas do Windows no `PATH`. O computador de teste tem ferramentas de desenvolvimento instaladas. Os três alvos do CTest passaram nos dois builds, com 65 testes Python por configuração. Evidências em `evidence/2026-11-23/v19-preferencias/`. O ensaio do pacote final em Windows sem ferramentas de desenvolvimento segue na V19.
+
+## Inspeção do executável portátil (V19)
+
+Em 2026-11-23, as cópias portáteis do [ensaio de preferências](#preferência-de-imagem-no-windows-v19) foram comparadas pelo SHA-256 com os executáveis da pasta de build. A Rev 1 base tem 605.184 bytes e o piloto PT-BR tem 667.136 bytes. Ambos são PE x64 com subsistema gráfico e listaram as mesmas sete importações diretas.
+
+Seis bibliotecas estavam presentes no diretório de sistema do Windows desse computador. A sétima, `api-ms-win-core-path-l1-1-0.dll`, é um contrato resolvido pelo carregador do sistema. O relatório encontrou zero DLLs ao lado dos executáveis e zero importações diretas do redistribuível do Visual C++. Essa inspeção registra as dependências do binário no computador de build. [DUMPBIN /DEPENDENTS](https://learn.microsoft.com/en-us/cpp/build/reference/dependents?view=msvc-170) · [Carregamento de API sets](https://learn.microsoft.com/en-us/windows/win32/apiindex/api-set-loader-operation)
+
+No PowerShell de desenvolvedor x64, use o script na raiz do projeto. Passe `-ExpectedSha256` para conferir uma cópia contra o hash de referência. Se o DUMPBIN estiver fora do `PATH`, informe o caminho instalado com `-Dumpbin`.
+
+```powershell
+.\scripts\inspect_windows_executable.ps1 -Executable '.\build\ptbr-pilot\DKC-Rev1-PTBR-Piloto.exe'
+```
+
+O script foi testado em PowerShell 7. Rejeitou um executável de console, um arquivo truncado e uma divergência de hash. Relatórios locais em `evidence/2026-11-23/v19-pacote/`.
+
+### Ensaio do pacote em Windows sem ferramentas de desenvolvimento
+
+1. Registrar versão, build e arquitetura do Windows. Conferir o SHA-256 do executável entregue com `Get-FileHash -LiteralPath 'CAMINHO_DO_EXECUTAVEL' -Algorithm SHA256` e comparar com o relatório da compilação escolhida para o pacote.
+2. Preparar uma pasta de QA gravável com espaços e acentos. Usar a ROM local USA Rev 1 ao lado do executável, conforme o [guia de abertura direta](11-TESTE-INTERATIVO.md#abrir-direto-pelo-executável). A pasta de teste deve ter um perfil novo.
+3. Abrir o executável pelo Explorador. Conferir abertura sem terminal ou seletor de ROM, chegada ao menu, áudio durante a partida, comandos de teclado e troca de proporção com F6.
+4. Jogar até salvar na Candy e fechar normalmente. Reabrir pelo Explorador, retomar o slot salvo e conferir a proporção escolhida. Conferir o `save.srm` e o backup em `data/<perfil>/saves/`.
+5. Registrar o hash testado, o caminho de instalação, o resultado de cada etapa, a localização recuperada e eventuais falhas.
+
+O ensaio final segue pendente. A inspeção local complementa os testes da V18 e da preferência de imagem. A aceitação da V19 exige execução no Windows de destino com o pacote final identificado.
