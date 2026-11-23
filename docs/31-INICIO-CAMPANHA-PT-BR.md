@@ -100,4 +100,17 @@ Em 2026-11-23, o [roteiro de 9.806 quadros](../recipes/usa-rev1/campaign-jungle-
 
 A versão base e o piloto PT-BR repetiram os mesmos quadros do coletor em cinco pontos, incluindo os três barris combinados, a ficha, a coleta e a fase após o retorno. Os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os builds nesses pontos. As entradas do coletor coincidiram quadro a quadro com o roteiro publicado. Os 65 testes Python passaram. As evidências ficam em `evidence/2026-11-23/v14-bonus-jungle2/`.
 
-Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 9.806 quadros e um perfil novo para cada execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. O teste cobre os dois bônus de Jungle Hijinxs em um jogador e em execução sem janela. Os bônus das outras fases e a escuta em janela continuam em V14.
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 9.806 quadros e um perfil novo para cada execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. O teste cobre os dois bônus de Jungle Hijinxs em um jogador e em execução sem janela. O percurso da V14 avança para os [bônus de Ropey Rampage](#salas-de-bônus-de-ropey-rampage-v14).
+
+## Salas de bônus de Ropey Rampage (V14)
+
+Em 2026-11-23, dois roteiros partiram do menu em perfis de QA vazios. Cada um reaproveita a rota até Reptile Rumble e desvia para um bônus de Ropey Rampage. A tabela registra os quadros de cada roteiro separadamente.
+
+| Roteiro | Entrada e desafio | Recompensa | Retorno à fase |
+| --- | --- | --- | --- |
+| [Primeiro bônus, 12.150 quadros](../recipes/usa-rev1/campaign-ropey-first-bonus.inputs) | Queda após a letra O leva ao barril que lança Diddy para a sala `0x001c`. No quadro 10.860 ele está na plataforma inicial. Os saltos passam pelas seis cordas. | Letra N conferida no quadro 11.664. O contador foi de 68 a 76 bananas entre a entrada jogável e a saída. | Entrada `0x006f`, três vidas e 76 bananas. Entre os quadros 12.126 e 12.150, o direcional direito desloca Diddy de 11.999 para 12.027. |
+| [Segundo bônus, 13.952 quadros](../recipes/usa-rev1/campaign-ropey-second-bonus.inputs) | Queda no vão antes da placa de seta leva à sala `0x001b`. No quadro 12.866, o balão está sobre o terceiro barril. Diddy salta sob esse barril. | O balão fica disponível no centro no quadro 13.036. Diddy salta para pegá-lo e passa de três para quatro vidas até o quadro 13.233. | Entrada `0x0070`, quatro vidas e 69 bananas. Entre os quadros 13.918 e 13.952, o direcional esquerdo desloca Diddy de 13.412 para 13.377. |
+
+Os executáveis sem janela da versão base e do piloto PT-BR coincidiram em oito pontos de verificação, quatro de cada roteiro. As capturas também coincidiram com as do coletor iniciado sem snapshots. Os hashes de imagem, WRAM, SRAM e áudio acumulado foram iguais entre os builds nesses pontos. Os comandos gravados coincidiram quadro a quadro com os dois roteiros. Os 65 testes Python passaram. As evidências ficam em `evidence/2026-11-23/v14-bonus-ropey/`.
+
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro e o total de quadros da tabela. Use um perfil vazio por execução e `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. A V14 segue com a cobertura das fases seguintes e a escuta em janela.
