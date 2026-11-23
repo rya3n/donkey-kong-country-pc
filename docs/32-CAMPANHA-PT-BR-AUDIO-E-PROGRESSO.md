@@ -43,7 +43,26 @@ O medidor do Windows foi associado ao PID do jogo. A sessão reportou dois canai
 
 Em todas as rodadas, a imagem final (framebuffer) e o estado da memória de trabalho (WRAM) coincidiram com o teste sem janela da mesma fase. A mediana do intervalo de apresentação ficou entre 16,64 e 16,67 ms. Em Reptile Rumble, o host registrou oito quadros acima do prazo na primeira rodada e seis na segunda. O maior intervalo de apresentação foi de 69,40 ms.
 
-As 2.698 leituras confirmam sinal na sessão de áudio do jogo nos trechos medidos. O ensaio usou leituras espaçadas, com o personagem parado. A escuta no dispositivo, a verificação de cortes audíveis ou distorções e a cobertura com o personagem em movimento continuam pendentes. Os 59 testes da suíte Python passaram. As evidências locais estão em `evidence/2026-11-22/audio-win32/`.
+As 2.698 leituras confirmam sinal na sessão de áudio do jogo nos trechos medidos. O ensaio usou leituras espaçadas, com o personagem parado. A escuta no dispositivo e a verificação de cortes audíveis ou distorções continuam pendentes. Os 59 testes da suíte Python passaram. As evidências locais estão em `evidence/2026-11-22/audio-win32/`. [Medição em movimento](#áudio-em-movimento-e-na-transição-para-a-caverna)
+
+## Áudio em movimento e na transição para a caverna
+
+Em 2026-11-22, uma compilação local de QA reproduziu trechos do [roteiro da campanha](../recipes/usa-rev1/campaign-to-ending-title.inputs) no host Win32. O teste avançou até o quadro inicial e executou cada trecho com cadência alvo de 60,0988 Hz e salvamento desabilitado. Registrou se cada bloco PCM tinha amostras não nulas antes de ser enviado ao Windows, além dos picos da sessão do próprio processo. Os timestamps usam o mesmo contador de alta resolução. A análise descartou 250 ms de cada ponta do intervalo em comum. [Medidor do Windows](https://learn.microsoft.com/en-us/windows/win32/api/endpointvolume/nf-endpointvolume-iaudiometerinformation-getpeakvalue)
+
+| Trecho e quadros da campanha | Rodada | Leituras | Leituras de pico zero | Maior intervalo entre apresentações do host |
+| --- | --- | ---: | ---: | ---: |
+| Jungle Hijinxs, 5.341–6.200 | 1 | 879 | 25 | 31,85 ms |
+| Jungle Hijinxs, 5.341–6.200 | 2 | 875 | 24 | 22,84 ms |
+| Jungle Hijinxs, extensão até 6.400 | 1 | 1.093 | 97 | 27,80 ms |
+| Cabana, mapa e Reptile Rumble, 14.401–15.850 | 1 | 1.506 | 85 | 29,53 ms |
+| Cabana, mapa e Reptile Rumble, 14.401–15.850 | 2 | 1.611 | 172 | 1.489,64 ms |
+| Cabana, mapa e Reptile Rumble, 14.401–15.850 | 3 | 1.504 | 84 | 25,42 ms |
+
+As pausas do PCM nos quadros 5.998–6.025, 14.454–14.493 e 14.988–15.037 se repetiram. O primeiro pico zero de cada grupo correspondente chegou entre 109 e 130 ms após o início do PCM silencioso. A extensão em Jungle Hijinxs também registrou a volta do áudio após a pausa dos quadros 6.197–6.237. Os seis ensaios abriram a sessão estéreo, concluíram a sequência e reproduziram os códigos de cena da V13, além da imagem e da WRAM finais da execução sem janela.
+
+Na segunda passagem pela caverna, houve uma interrupção adicional entre os quadros 15.739 e 15.740. O intervalo entre apresentações foi de 1.489,64 ms, com 1.483,37 ms decorridos antes do início do quadro seguinte e 6,18 ms de execução do núcleo. O medidor registrou 86 leituras consecutivas de pico zero, distribuídas por 1,33 s. O jogo gerou PCM ativo nos quadros imediatamente anterior e posterior. O áudio voltou durante a mesma rodada. O evento ocorreu em uma das três passagens e a causa segue em investigação.
+
+O ensaio mediu a sessão Win32 com a janela oculta e registrou intervalos do host. A escuta no dispositivo em jogo segue pendente. Os 59 testes Python passaram. Os logs, o código local de QA e a comparação estão em `evidence/2026-11-22/audio-em-movimento/`.
 
 ## Progressão pelo mapa
 
