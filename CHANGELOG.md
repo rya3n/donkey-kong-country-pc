@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Interrupção na caverna investigada
+
+- Seis rodadas no executável do jogador tiveram sinal em todas as leituras. Duas novas passagens pelo roteiro da transição confirmaram as pausas do áudio do jogo. A interrupção longa permanece como ocorrência isolada em DKC-BUG-5. [Diagnóstico](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#repetição-no-piloto-e-diagnóstico-da-espera)
+
 ## 2026-11-22 — Áudio Win32 medido em movimento
 
 - Seis ensaios em Jungle Hijinxs e da cabana do Cranky até Reptile Rumble confirmaram as cenas, os estados finais e as pausas do PCM gerado. Uma passagem pela caverna teve uma interrupção adicional de apresentação e áudio, registrada para investigação. [Medição](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#áudio-em-movimento-e-na-transição-para-a-caverna)

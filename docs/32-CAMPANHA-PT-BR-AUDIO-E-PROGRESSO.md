@@ -64,6 +64,26 @@ Na segunda passagem pela caverna, houve uma interrupção adicional entre os qua
 
 O ensaio mediu a sessão Win32 com a janela oculta e registrou intervalos do host. A escuta no dispositivo em jogo segue pendente. Os 59 testes Python passaram. Os logs, o código local de QA e a comparação estão em `evidence/2026-11-22/audio-em-movimento/`.
 
+### Repetição no piloto e diagnóstico da espera
+
+Entre 2026-11-22 e 2026-11-23, o piloto PT-BR do jogador foi testado seis vezes a partir do atalho `--caverna`, com salvamento desabilitado e 17 s de comandos automatizados por rodada. Quatro rodadas usaram a janela oculta e duas usaram a janela visível. Três rodadas usaram o log de quadros. A cópia de teste tinha o mesmo SHA-256 do executável do jogador (`537f4be9984d154d546819cbde14b69b939e994c156e0bf7ce7e611cc3042c83`).
+
+As 6.239 leituras analisadas da sessão tiveram sinal. Nas três rodadas com log, o maior intervalo de apresentação do host foi de 36,01 ms. O atalho começa dentro da caverna. O roteiro completo da transição foi testado à parte com instrumentação de QA.
+
+Duas novas passagens executaram os mesmos 1.450 quadros da cabana até Reptile Rumble. A instrumentação registrou separadamente o tempo gasto no relógio de quadros, na fila de áudio, na fila de mensagens e na gravação dos logs. O quadro 15.740 sucede o intervalo de 1,49 s registrado no ensaio anterior.
+
+| Medição do host | Passagem 1 | Passagem 2 |
+| --- | ---: | ---: |
+| Intervalo de apresentação no quadro 15.740 | 18,31 ms | 14,76 ms |
+| Maior intervalo de apresentação no trecho | 44,46 ms | 30,06 ms |
+| Maior espera acumulada pelo relógio em um quadro | 17,64 ms | 16,98 ms |
+| Maior tempo de gravação do log de quadros | 0,20 ms | 15,39 ms |
+| Chamadas de espera por um slot de áudio | 0 | 0 |
+
+Os dois replays recuperaram as pausas do PCM nos quadros 14.454–14.493 e 14.988–15.037. As cenas e os hashes de imagem e WRAM finais coincidiram com a referência sem janela. A interrupção longa permaneceu restrita à ocorrência anterior. O teste original registrava o tempo total entre quadros, e a causa dessa espera segue em investigação em DKC-BUG-5. A escuta no dispositivo continua pendente na V09.
+
+Os 59 testes Python e os dois alvos do CTest passaram na configuração base e no piloto. As evidências locais do diagnóstico estão em `evidence/2026-11-22/diagnostico-caverna/`. A segunda tentativa instrumentada foi interrompida na preparação. As duas passagens completas estão em `trace-1-transition/` e `trace-3-transition/`.
+
 ## Progressão pelo mapa
 
 | Quadro | Cenário | Resultado |
