@@ -68,3 +68,20 @@ O teste confirma o uso do Y do SNES para pegar o barril e soltá-lo ao liberar o
 O coletor de QA repetiu o percurso sem snapshot. Em cinco pontos, os executáveis sem janela da versão base e do piloto reproduziram a mesma captura do coletor. Entre os dois builds, também coincidiram os hashes de imagem, WRAM, SRAM e áudio acumulado nesses quadros. A sequência de entradas gravada pelo coletor coincidiu quadro a quadro com o roteiro. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-23/v06-jungle/`. A validação desta sequência cobre um jogador e execução sem janela.
 
 Para repetir, use o comando da seção [Repetir o percurso](#repetir-o-percurso) com o roteiro de Jungle Hijinxs acima, 5.392 quadros e um perfil novo.
+
+## Primeira sala de bônus de Jungle Hijinxs (V14)
+
+Em 2026-11-23, o [roteiro de 8.235 quadros](../recipes/usa-rev1/campaign-jungle-first-bonus.inputs) repetiu os primeiros 7.280 quadros da rota até Reptile Rumble e desviou na caixa de Rambi. O percurso começa no menu em um perfil novo, chega à caixa com três vidas e 30 bananas e entra no bônus com Rambi. As duas perdas de vida do prefixo ocorreram antes do desvio.
+
+| Quadro | Resultado |
+| ---: | --- |
+| 7.338–7.378 | Diddy quebra a caixa e monta em Rambi. |
+| 7.611 | Rambi abre o acesso na parede e o jogo seleciona a entrada do bônus (`0x0006`). |
+| 7.651–7.708 | A sala carrega e fica jogável com Diddy montado. |
+| 7.912–7.919 | O salto alcança o balão vermelho. O contador sobe de três para quatro vidas e o registro chega a 70 bananas, 40 a mais que na entrada. |
+| 7.994–8.051 | A saída seleciona `0x0008` e o jogo volta à fase principal. |
+| 8.196–8.235 | Diddy e Rambi estão na copa após a saída. O direcional esquerdo volta a mover a dupla e a câmera recua de 4.183 para 4.138. |
+
+Quatro pontos de verificação foram repetidos nos executáveis sem janela da versão base e do piloto PT-BR. As capturas coincidiram com as do coletor, e os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os builds. O coletor partiu do menu e suas entradas coincidiram quadro a quadro com o roteiro publicado. Os 65 testes Python passaram. As evidências ficam em `evidence/2026-11-23/v14-bonus-jungle/`.
+
+Para repetir, use o comando da seção [Repetir o percurso](#repetir-o-percurso) com o roteiro de bônus, 8.235 quadros e um perfil novo. O resultado cobre a primeira sala, a recompensa e o retorno à fase. A segunda sala fica para outro ensaio da V14.
