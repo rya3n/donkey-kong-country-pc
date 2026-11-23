@@ -1,0 +1,47 @@
+name: Upstream public tests
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/upstream-public-tests.yml
+      - config/upstream.lock.json
+
+permissions:
+  contents: read
+
+jobs:
+  public-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      CC: clang
+      ASAN_OPTIONS: halt_on_error=1
+      UBSAN_OPTIONS: halt_on_error=1
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+      - name: Fetch the pinned public sources
+        run: |
+          lock=config/upstream.lock.json
+          repository="$(jq -er .repository "$lock")"
+          expected="$(jq -er .commit "$lock")"
+          git init --quiet upstream
+          git -C upstream fetch --depth 1 "$repository" "$expected"
+          git -C upstream checkout --detach FETCH_HEAD
+          git -C upstream submodule update --init --recursive --depth 1
+          test "$(git -C upstream rev-parse HEAD)" = "$expected"
+          test "$(git -C upstream/snesrecomp rev-parse HEAD)" = "$(jq -er .engine_commit "$lock")"
+          test "$(git -C upstream/snesrecomp/lib/recomp-net rev-parse HEAD)" = "$(jq -er .recomp_net_commit "$lock")"
+          git -C upstream submodule status --recursive
+      - name: Prepare Python and compiler
+        run: |
+          python3 -m venv "$RUNNER_TEMP/upstream-tests"
+          "$RUNNER_TEMP/upstream-tests/bin/python" -m pip install --only-binary=:all: numpy==2.5.1 Pillow==12.3.0
+          "$RUNNER_TEMP/upstream-tests/bin/python" --version
+          "$CC" --version
+      - name: Run upstream unittest
+        working-directory: upstream
+        run: |
+          "$RUNNER_TEMP/upstream-tests/bin/python" -B -m unittest discover -s tests -v
