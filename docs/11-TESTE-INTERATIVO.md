@@ -18,11 +18,11 @@ Abrir DKC-Rev1-Teste.exe sem argumentos inicia pelo boot normal. O programa proc
 | --- | --- |
 | Setas | Direcional |
 | Z | B do SNES: pular |
-| X | Y do SNES: correr/rolar |
+| X | Y do SNES: correr, rolar, pegar barril e arremessar ao soltar |
 | C | A do SNES: trocar personagem |
 | V | X do SNES |
 | Enter | Start: iniciar/pausar |
-| Shift | Select |
+| Shift | Select, também troca personagem |
 | A / S | L / R |
 | F6 | Alternar preencher / proporção original 4:3 |
 | F11 | Entrar ou sair da tela cheia no monitor atual |
@@ -46,11 +46,11 @@ O host Windows reconhece um controle XInput para o primeiro jogador ao abrir o j
 | --- | --- |
 | Direcional ou analógico esquerdo | Direcional do SNES |
 | A | B do SNES, pular |
-| X | Y do SNES, correr ou rolar |
+| X | Y do SNES, correr, rolar, pegar barril e arremessar ao soltar |
 | B | A do SNES, trocar personagem |
 | Y | X do SNES |
 | Menu / Start | Start, iniciar ou pausar |
-| View / Back | Select |
+| View / Back | Select, também troca personagem |
 | LB / RB | L / R do SNES |
 
 Se o controle desconectar, o jogo libera seus comandos no próximo quadro e volta a procurar por um controle a cada segundo enquanto estiver em foco. Ao conectar ou voltar à janela, solte os botões e centralize o analógico antes de jogar. Isso evita enviar ao jogo um botão que já estava pressionado.

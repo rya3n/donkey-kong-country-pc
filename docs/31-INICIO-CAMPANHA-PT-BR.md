@@ -48,3 +48,23 @@ Quadros para inspecionar em perfis vazios independentes: 5064 (mapa após morrer
 ## Retomada
 
 Retomar em Reptile Rumble e seguir por Kongo Jungle. Visitar Funky e Candy pelo mapa para conferir as falas em contexto. Registrar o progresso ao salvar com Candy, fechar o jogo e confirmar o mesmo arquivo em um novo processo. A campanha de Monkey Mines e o aceite de V14, V16 e V17 continuam pendentes.
+
+## Rolamento, barril DK e troca de personagem (V06)
+
+Em 2026-11-23, o [roteiro de 5.392 quadros](../recipes/usa-rev1/campaign-jungle-actions.inputs) foi reproduzido desde o menu, em um novo perfil de um jogador. A entrada é Jungle Hijinxs (`0x0016`). O roteiro usa apenas comandos de controle e termina na mesma fase, com Donkey Kong à frente e as cinco vidas iniciais.
+
+| Quadro | Ação confirmada nas capturas |
+| ---: | --- |
+| 4.520 | Donkey avança em rolamento. |
+| 4.620 | Um segundo rolamento atinge o primeiro Kritter, sem perda de vida. |
+| 4.660 | Donkey carrega o barril DK acima da cabeça. |
+| 4.684–4.720 | O barril é arremessado e quebra. Diddy é libertado e se junta à dupla. |
+| 4.956–4.970 | Após o comando A do SNES, Diddy assume a liderança e responde ao direcional. |
+| 5.016 | Diddy aparece no ar após o salto. |
+| 5.359–5.392 | Depois de os dois voltarem ao chão, Select devolve o controle a Donkey. O direcional volta a mover Donkey, com Diddy seguindo atrás. |
+
+O teste confirma o uso do Y do SNES para pegar o barril e soltá-lo ao liberar o botão, o B para pular e a troca por A ou Select. No teclado do port, essas ações correspondem a X, Z, C e Shift. [Manual da Nintendo](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAALE.pdf) · [Mapeamento do port](11-TESTE-INTERATIVO.md#abrir-e-jogar)
+
+O coletor de QA repetiu o percurso sem snapshot. Em cinco pontos, os executáveis sem janela da versão base e do piloto reproduziram a mesma captura do coletor. Entre os dois builds, também coincidiram os hashes de imagem, WRAM, SRAM e áudio acumulado nesses quadros. A sequência de entradas gravada pelo coletor coincidiu quadro a quadro com o roteiro. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-23/v06-jungle/`. A validação desta sequência cobre um jogador e execução sem janela.
+
+Para repetir, use o comando da seção [Repetir o percurso](#repetir-o-percurso) com o roteiro de Jungle Hijinxs acima, 5.392 quadros e um perfil novo.

@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Ações de Jungle Hijinxs validadas
+
+- O roteiro V06 reproduziu o rolamento contra o Kritter, o arremesso do barril DK, o resgate e o salto de Diddy e as trocas de controle. A versão base e o piloto PT-BR coincidiram em cinco pontos de verificação. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#rolamento-barril-dk-e-troca-de-personagem-v06)
+
 ## 2026-11-23 — Executáveis portáteis inspecionados
 
 - Adicionado um verificador de SHA-256, arquitetura x64, subsistema gráfico e importações de DLLs. As cópias portáteis testadas coincidiram com os builds locais e apresentaram as mesmas dependências diretas. A execução em Windows sem ferramentas de desenvolvimento segue na V19. [Inspeção e roteiro](docs/05-VALIDACAO.md#inspeção-do-executável-portátil-v19)
