@@ -23,7 +23,7 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | V09 | Áudio e apresentação | Trecho identificado sem cortes persistentes ou defeitos visíveis | Seis rodadas do piloto na caverna tiveram sinal em todas as 6.239 leituras. A interrupção longa permaneceu restrita ao ensaio anterior. DKC-BUG-5 em investigação e escuta no dispositivo pendente. [Diagnóstico](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#repetição-no-piloto-e-diagnóstico-da-espera) |
 | V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Validado em Kongo Jungle e Gorilla Glacier, com reabertura em headless e Win32. Em Monkey Mines, o piloto sem janela reabriu na Candy e entrou na arena de Master Necky. [Teste](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#visitas-de-serviço-em-monkey-mines) |
 | V11 | Save state, se incluído no marco | Comparar continuação após load com execução contínua | Não implementado; não faz parte da entrega de SRAM |
-| V12 | Controle físico | Ações e reconexão no dispositivo disponível | Não executado |
+| V12 | Controle físico | Ações e reconexão no dispositivo disponível | XInput implementado. Mapeamento, zona morta, remoção e reconexão simuladas aprovados. Ensaio físico pendente. [Resultados e procedimento](#controle-xinput-v12) |
 | V13 | Repetição determinística | Três replays com mesma entrada e hashes dos estados comparados iguais | Aprovada na rota principal do piloto sem janela. Três replays de 254.444 quadros e três reaberturas de 4.801 quadros coincidiram. [Relatório](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#repetição-determinística-da-rota-principal) |
 
 Salvar com Candy e usar save state são funcionalidades diferentes e exigem testes distintos. Um quicksave bem-sucedido não comprova persistência do progresso do cartucho.
@@ -36,6 +36,14 @@ Em 2026-11-22, as configurações Release da Rev 1 base e do piloto PT-BR passar
 - `rev1_python` executou os 59 testes do port em cada configuração, incluindo os sete testes de persistência com o auxiliar do próprio build.
 
 O comando direto `python -m unittest discover -s tests` também passou com 59 testes. A configuração sem Python registrou apenas `rev1_present` e exibiu o aviso esperado. Com `BUILD_TESTING=OFF`, nenhum teste foi registrado. Logs locais em `evidence/2026-11-22/ctest-win32/`. [Comandos de reprodução](04-AMBIENTE-E-REPRODUCAO.md#testes-do-port-usa-rev-1-no-windows)
+
+## Controle XInput (V12)
+
+Em 2026-11-23, os builds Release da Rev 1 base e do piloto PT-BR no Windows passaram nos três alvos do CTest, incluindo os 59 testes Python por configuração. `rev1_gamepad` simulou ausência de controle, os 12 botões, diagonais e limite da zona morta, retomada após perda de foco, desconexão e reconexão no mesmo slot e em outro slot. Os executáveis importaram `XINPUT9_1_0.dll`. O teste de 600 quadros sem janela repetiu a imagem e o relatório de estado e áudio do build anterior em cada configuração.
+
+Todos os quatro slots consultados pela biblioteca do Windows retornaram `ERROR_DEVICE_NOT_CONNECTED`. Em um ensaio de 17 segundos no piloto Win32 com teclado, iniciado com `--caverna` em um diretório isolado, o host completou 1.022 quadros e encerrou normalmente. A mediana entre apresentações ficou em 16,64 ms e houve sinal nas 1.040 leituras de pico da sessão de áudio.
+
+A V12 segue aguardando um controle físico XInput. Os logs locais estão em `evidence/2026-11-23/xinput/`. [Mapeamento e roteiro com controle físico](11-TESTE-INTERATIVO.md#controle-xinput)
 
 ## Suíte pública do upstream
 

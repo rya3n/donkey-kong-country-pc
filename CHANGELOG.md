@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Suporte a controle XInput no Windows
+
+- A Rev 1 base e o piloto PT-BR passam a reconhecer controle XInput para o primeiro jogador, com detecção automática e reconexão. Os três alvos do CTest passaram nos dois builds. O ensaio com controle físico está pendente. [Controles e roteiro](docs/11-TESTE-INTERATIVO.md#controle-xinput)
+
 ## 2026-11-23 — Visitas em Monkey Mines verificadas
 
 - Confirmadas as falas amostradas de Cranky, Funky e Candy em PT-BR, o voo de Funky até Kongo Jungle e a reabertura do save da Candy. O slot preservou o acesso à arena de Master Necky. [Roteiros e validação](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#visitas-de-serviço-em-monkey-mines)

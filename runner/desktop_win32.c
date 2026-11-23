@@ -14,6 +14,7 @@
 #include "usa_rev1_saves.h"
 #include "gdi_present.h"
 #include "window_mode.h"
+#include "gamepad_win32.h"
 
 enum { AUDIO_SLOTS = 8, PATH_CAP = 32768 };
 static const wchar_t *s_title = L"Donkey Kong Country - Rev 1 experimental";
@@ -27,6 +28,7 @@ static const wchar_t *s_title = L"Donkey Kong Country - Rev 1 experimental";
 static HWND s_window;
 static int s_running = 1, s_active, s_ready;
 static uint32_t s_keys;
+static Rev1Gamepad s_gamepad;
 static HWAVEOUT s_device;
 static HANDLE s_audio_event;
 static struct { WAVEHDR header; int16_t pcm[2048]; } s_audio[AUDIO_SLOTS];
@@ -187,6 +189,7 @@ static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM 
     case WM_KEYUP: s_keys &= ~KeyMask(wp); return 0;
     case WM_KILLFOCUS:
         s_keys = 0;
+        s_gamepad.require_neutral = true;
         s_active = 0;
         if (s_device) waveOutReset(s_device);
         return 0;
@@ -424,6 +427,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         if (!s_running) break;
         QueryPerformanceCounter(&now);
         if (s_save_paused || (!s_bench_frames && (!s_active || IsIconic(s_window)))) {
+            s_gamepad.require_neutral = true;
             next_frame = (double)now.QuadPart;
             previous_present = 0;
             previous_finish = next_frame;
@@ -444,7 +448,10 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
         LARGE_INTEGER work_begin, cpu_finish, present_finish;
         QueryPerformanceCounter(&work_begin);
         int16_t *pcm = s_device ? s_audio[slot].pcm : discarded_audio;
-        if (!Rev1Step(s_bench_frames ? 0 : s_keys, pcm, &samples)) {
+        uint32_t input = 0;
+        if (!s_bench_frames)
+            input = s_keys | Rev1GamepadPoll(&s_gamepad, GetTickCount64(), XInputGetState);
+        if (!Rev1Step(input, pcm, &samples)) {
             s_core_failed = 1;
             CloseAudio();
             MessageBoxW(s_window, L"A execucao experimental parou. Consulte DKC-Rev1-teste.log.", s_title, MB_OK | MB_ICONERROR);

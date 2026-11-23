@@ -30,6 +30,25 @@ Abrir DKC-Rev1-Teste.exe sem argumentos inicia pelo boot normal. O programa proc
 
 Clicar na janela para dar foco ao teclado. O jogo pausa ao perder o foco ou ser minimizado e limpa as teclas mantidas. Por padrão, o framebuffer 256×224 preenche toda a área da janela, esticando a imagem conforme sua proporção. F6 restaura 4:3, com bordas quando necessário. F11 usa o monitor em que a janela estiver; ao sair, restaura a posição e o tamanho anteriores. O modo escolhido vale para a sessão atual.
 
+## Controle XInput
+
+O host Windows reconhece um controle XInput para o primeiro jogador ao abrir o jogo ou ao conectá-lo com o aplicativo em foco. O teclado continua disponível. A leitura usa a biblioteca XInput 9.1.0 do Windows. [Versões do XInput](https://learn.microsoft.com/en-us/windows/win32/xinput/xinput-versions)
+
+| Controle Xbox | Ação no jogo |
+| --- | --- |
+| Direcional ou analógico esquerdo | Direcional do SNES |
+| A | B do SNES, pular |
+| X | Y do SNES, correr ou rolar |
+| B | A do SNES, trocar personagem |
+| Y | X do SNES |
+| Menu / Start | Start, iniciar ou pausar |
+| View / Back | Select |
+| LB / RB | L / R do SNES |
+
+Se o controle desconectar, o jogo libera seus comandos no próximo quadro e volta a procurar por um controle a cada segundo enquanto estiver em foco. Ao conectar ou voltar à janela, solte os botões e centralize o analógico antes de jogar. Isso evita enviar ao jogo um botão que já estava pressionado.
+
+Para concluir a V12, use `Testar caverna.cmd` com um controle físico. Mova com o direcional e o analógico, pule com A, corra com X e pause com Menu. Desconecte enquanto estiver movendo, solte os comandos e reconecte. O personagem deve parar de receber comandos do controle na desconexão e voltar a responder após a reconexão. Registre também se a perda de foco e a retomada exigem soltar os comandos mantidos. [Situação da V12](05-VALIDACAO.md#controle-xinput-v12)
+
 ## Implementação e resultado
 
 Host Windows próprio em runner/desktop_win32.c, com GDI para apresentação e WinMM para áudio PCM estéreo de 32.040 Hz. Não houve instalação de nova biblioteca. A rotina de execução e produção de áudio é compartilhada com o runner automatizado por runner/usa_rev1.h.
@@ -40,6 +59,6 @@ O processo interativo foi iniciado com --jungle e expôs a janela de controle ap
 
 ## Limites
 
-O host atual oferece saves da Candy e tela cheia, adicionados após o primeiro teste descrito acima. Save states e suporte a controle físico continuam pendentes. A saída de áudio foi implementada, mas sua qualidade não foi confirmada por escuta automatizada. Se o dispositivo não abrir, o programa avisa e permite continuar sem som. Falhas de execução encerram o trecho com mensagem, sem ignorar watchdog ou erros da engine.
+O host atual oferece saves da Candy e tela cheia, adicionados após o primeiro teste descrito acima. O ensaio com controle físico continua pendente. Save states ficam fora do escopo do salvamento com a Candy. A escuta no dispositivo segue pendente na V09. Se o dispositivo de áudio não abrir, o programa avisa e permite continuar sem som. Falhas de execução encerram o trecho com mensagem, sem ignorar watchdog ou erros da engine.
 
 O log DKC-Rev1-teste.log fica junto ao executável e é refeito a cada abertura. Fechar o jogo antes de consultá-lo; a abertura atual do log pode bloquear leitura simultânea. Evidências locais da compilação e regressão estão em evidence/2026-11-04/usa-rev1/. A divergência da candidata de 55 variantes continua aberta; esta versão mantém a configuração padrão de 39.
