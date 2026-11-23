@@ -25,7 +25,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P02 | Identificar a ROM de trabalho | Concluída para Rev 1; escopo alterado em D011 | USA v1.1 local validada por tamanho/hash; v1.0 deixou de ser pré-requisito do alvo próprio |
 | P03 | Selecionar revisão de código/engine | Concluída | v0.0.17 e os três commits conferidos contra config/upstream.lock.json |
 | P04 | Confirmar ambiente C/CMake | Concluída a verificação básica | MSVC/CMake/Ninja no E:, SDK funcional e programa mínimo compilado e executado |
-| P05 | Repetir suíte com logs completos | Executada; portabilidade pendente | 303 testes, 2 erros por cc/flags de sanitizers e 10 skips; log integral preservado |
+| P05 | Repetir suíte com logs completos | Concluída com resultados por ambiente | Ubuntu: 307 aprovados e cinco pulos justificados. Windows: os testes de temporização e cadência passaram, e os dois erros de ligação HD foram reproduzidos. [Resultados e logs](05-VALIDACAO.md#suíte-pública-do-upstream) |
 | P06 | Gerar fontes e compilar | Concluída para protótipo sem janela | 39 variantes AOT e interpretador de apoio; MSVC/CMake/Ninja, comandos e hashes registrados |
 | P07 | Validar a primeira sessão | Sessão humana realizada; cobertura parcial | Boot, entrada na fase e fluidez confirmados; ampliar as ações e cenas de V06–V09 |
 | P08 | Validar persistência | Aprovada na Candy de Kongo Jungle e de Gorilla Glacier | O progresso foi carregado em novos processos headless e Win32, com backup idêntico. Em Gorilla Glacier, o slot 1 recuperou 00:28 e 21%. Outros pontos da campanha seguem na validação de V10. |
@@ -63,6 +63,6 @@ A meta posterior acordada é PT-BR e abertura direta. A publicação inicial de 
 - Rev 1 tem configuração própria ainda incompleta; muitos caminhos continuam no interpretador de apoio.
 - A ampliação de AOT mudou WRAM e áudio; imagem final igual não permite aceitar a candidata.
 - A base sem janela ainda não foi comparada com hardware ou referência independente; determinismo não comprova exatidão.
-- A suíte pública anterior contém dois erros por dependências de cc/sanitizers; não é uma suíte aprovada.
+- A v0.0.17 do upstream ainda tem dois erros de ligação nos testes HD em Windows com LLVM MinGW. Esses casos passaram no Ubuntu. [Relatório da P05](05-VALIDACAO.md#suíte-pública-do-upstream)
 - O upstream mantém recursos experimentais: ativá-los cedo dificulta separar defeitos da base de mudanças do projeto.
 - Evidências iniciais sem log integral têm menor rastreabilidade: novas execuções precisam arquivar comandos e saídas.

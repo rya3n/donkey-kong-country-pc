@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-22 — Suíte pública do upstream repetida
+
+- Adicionado o workflow do GitHub Actions para a revisão pública fixada. Ubuntu aprovou 307 casos e registrou cinco pulos. No Windows, seis casos antes pulados passaram com LLVM MinGW e os dois erros de ligação dos testes HD foram identificados. [Resultados e logs](docs/05-VALIDACAO.md#suíte-pública-do-upstream)
+
 ## 2026-11-22 — Testes do port integrados ao CTest
 
 - O CTest passou a executar o teste nativo de apresentação e a suíte Python com o auxiliar de saves da configuração selecionada. Os dois alvos passaram na Rev 1 base e no piloto PT-BR, com 59 testes Python em cada configuração. [Validação](docs/05-VALIDACAO.md#ctest-no-windows)

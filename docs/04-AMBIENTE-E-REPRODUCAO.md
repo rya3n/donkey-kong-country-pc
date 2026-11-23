@@ -79,6 +79,10 @@ ctest --test-dir build/usa-rev1 --output-on-failure
 
 Use `build/ptbr-pilot` nos dois comandos para testar a configuração do piloto. O CTest deve listar `rev1_present` (GDI e modos de tela) e `rev1_python` (suíte do projeto, que inclui os testes de persistência com SRAM sintética). A suíte Python recebe o caminho do auxiliar de saves do próprio build. Se a configuração informar que o Python 3.11 ou posterior está indisponível, apenas `rev1_present` será registrado. Os executáveis de teste usam dados sintéticos.
 
+### Repetir a suíte pública do upstream
+
+Na aba Actions do repositório, execute **Upstream public tests**. O job em Ubuntu confere as três revisões de `config/upstream.lock.json`, instala NumPy, Pillow e SciPy em um ambiente Python isolado e executa a suíte pública com Clang. O log contém os casos aprovados, pulados e eventuais erros. A execução usa o código público fixado e os dados sintéticos da suíte. [Resultados por ambiente](05-VALIDACAO.md#suíte-pública-do-upstream)
+
 ## Evidências da futura execução
 
 Reservar uma pasta local por execução, por exemplo `evidence/AAAA-MM-DD/execucao-01/`, com comandos, saída completa, hashes e resultado dos cenários. Dados derivados do jogo e saves devem permanecer locais.

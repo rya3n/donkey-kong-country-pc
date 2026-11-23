@@ -14,7 +14,7 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | --- | --- | --- | --- |
 | V01 | Verificar ROM do perfil | Tamanho e SHA-256 exatos | Rev 1 aceita; v1.2 rejeitada no verificador e no host |
 | V02 | Gerar e compilar | Comandos terminam com sucesso e executável é identificado | Protótipo Rev 1 compilado com MSVC; identidade no relatório |
-| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | CTest do port aprovado na Rev 1 base e no piloto PT-BR. Suíte pública anterior: 303 testes, 2 erros e 10 skips. [Execução local](#ctest-no-windows) |
+| V03 | Testes do build e suíte pública | Resultados completos, sem falhas inexplicadas; skips justificados | CTest do port aprovado na Rev 1 base e no piloto PT-BR. Suíte pública no Ubuntu: 312 contabilizados, 307 aprovados, cinco pulos. Dois erros de ligação delimitados no Windows. [Resultados](#suíte-pública-do-upstream) |
 | V04 | Boot, apresentação e menu | Imagem estável e progressão até seleção de jogo | Executado em janela; usuário confirmou a fluidez após a correção |
 | V05 | Entrar em Jungle Hijinxs | Roteiro do boot até controle do personagem | Entrada reproduzida e sessão humana realizada; cobertura ampliada em V14 |
 | V06 | Movimento e interação | Mover, pular, rolar, resgatar Diddy, trocar e usar barril | Parcial. Corrida, salto, barris de checkpoint e de parceiro em Jungle Hijinxs, escalada em Ropey Rampage e movimento durante as alternâncias de iluminação em Blackout Basement |
@@ -35,7 +35,17 @@ Em 2026-11-22, as configurações Release da Rev 1 base e do piloto PT-BR passar
 - `rev1_present` verificou a composição GDI em oito dimensões, a apresentação em 4:3 e preenchimento e 20 ciclos de tela cheia por monitor detectado.
 - `rev1_python` executou os 59 testes do port em cada configuração, incluindo os sete testes de persistência com o auxiliar do próprio build.
 
-O comando direto `python -m unittest discover -s tests` também passou com 59 testes. A configuração sem Python registrou apenas `rev1_present` e exibiu o aviso esperado. Com `BUILD_TESTING=OFF`, nenhum teste foi registrado. A nova execução da suíte pública do upstream permanece em P05. Logs locais em `evidence/2026-11-22/ctest-win32/`. [Comandos de reprodução](04-AMBIENTE-E-REPRODUCAO.md#testes-do-port-usa-rev-1-no-windows)
+O comando direto `python -m unittest discover -s tests` também passou com 59 testes. A configuração sem Python registrou apenas `rev1_present` e exibiu o aviso esperado. Com `BUILD_TESTING=OFF`, nenhum teste foi registrado. Logs locais em `evidence/2026-11-22/ctest-win32/`. [Comandos de reprodução](04-AMBIENTE-E-REPRODUCAO.md#testes-do-port-usa-rev-1-no-windows)
+
+## Suíte pública do upstream
+
+Em 2026-11-22, a P05 repetiu `python -B -m unittest discover -s tests -v` no DKC1Recomp v0.0.17. A revisão `559bab62596a97e91f389b39cdeb6cda981ab7c9` e os dois submódulos coincidiram com `config/upstream.lock.json`.
+
+No Windows 10 22H2 com MSVC e Python 3.12.10, a repetição confirmou 303 testes contabilizados, dois erros e dez pulos. Os dois erros ocorreram na chamada ao compilador `cc` ausente, em `test_hd_material_cache` e na preparação de `test_hd_preload`. Os testes nativos de fila de temporização e cadência de apresentação passaram.
+
+Com Clang 23.1.6 do LLVM MinGW UCRT, seis testes antes pulados passaram. A suíte no Windows terminou com 303 testes contabilizados, dois erros de ligação e quatro pulos. O LLD encontrou referências a `WsShadow*` e `Dkc1HdEnabled` que as linhas originais de ligação dos dois testes de HD deixam sem definição no Windows. Os quatro pulos abrangem dois testes de Metal, o adaptador de áudio do iOS e uma comparação que exige evidência local do SuperZSNES. Logs da suíte e do linker em `evidence/2026-11-22/p05-upstream/`. [Pacote portátil usado](https://github.com/mstorsjo/llvm-mingw/releases/tag/20261117)
+
+No Ubuntu 24.04 do GitHub Actions, a mesma revisão foi testada com Clang 18.1.3, Python 3.12.3 e os sanitizers configurados para interromper em caso de erro. O cache de materiais e os nove casos de pré-carregamento HD passaram. A suíte terminou com **312 testes contabilizados, 307 aprovados e cinco pulos**. Os dois testes específicos de MSVC passaram no Windows. Dois testes de Metal dependem de macOS e a comparação de SuperZSNES depende do arquivo local `state5`. A suíte própria do port também passou com 59 testes no Windows. [Execução Ubuntu e log](https://github.com/rya3n/donkey-kong-country-pc/actions/runs/45086760504)
 
 ## Quando ampliar a cobertura
 

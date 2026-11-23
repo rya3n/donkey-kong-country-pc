@@ -91,6 +91,8 @@ Ferramentas verificadas: BuildTools 17.14.44, toolset MSVC 14.44.35207, CMake 3.
 
 A suíte pública da v0.0.17 executou 303 testes em 11,540 segundos e terminou com FAILED (errors=2, skipped=10). Os dois erros são test_hd_material_cache e setUpClass de test_hd_preload, que chamam cc e usam flags GCC/Clang e sanitizers indisponíveis nesse ambiente MSVC. Não foram alterados nem ignorados para produzir uma aprovação artificial. Os dez skips permanecem registrados no log integral; a suíte não é considerada aprovada.
 
+A [repetição de 2026-11-22](05-VALIDACAO.md#suíte-pública-do-upstream) confirmou a causa inicial e identificou as referências que o linker do Windows exige nos dois testes de HD.
+
 O verificador final confirmou os três commits e detectou as três ferramentas no E:. Sua única pendência de pré-requisitos é a ROM USA v1.0, com saída 1 esperada. Logs completos locais: evidence/2026-11-04/environment/toolchain.log, public-tests.log e preflight.json. Essas evidências ficam fora da publicação, conforme .gitignore. Nenhum teste de boot ou gameplay foi executado.
 
 ## E08 — Primeiro protótipo USA Rev 1
