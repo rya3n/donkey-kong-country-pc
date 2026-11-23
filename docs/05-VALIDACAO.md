@@ -100,4 +100,6 @@ Estes critérios propostos dão forma verificável à meta de PT-BR e abertura d
 
 A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto do piloto cobre os 217 intervalos de diálogos. A apresentação do elenco, os créditos e as telas restantes seguem em revisão. [Resultado da auditoria V15](15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
 
+Na revisão V16 da Candy, o título do menu e o mapa coincidiram entre os builds, e a fala mostrou as diferenças esperadas na faixa de diálogo. Os saves também coincidiram. A diferença digital de áudio após confirmar o slot ficou reproduzida para investigação na V17. [Teste e limites](15-PT-BR.md#título-do-menu-de-salvamento-da-candy-v16)
+
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.

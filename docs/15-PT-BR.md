@@ -113,3 +113,26 @@ python -B scripts/check_ptbr_catalog.py --rom 'Donkey Kong Country (USA) (Rev 1)
 ```
 
 O campo `pilot_coverage` contém contagens por grupo e por tipo de correspondência. O verificador rejeita um manifesto de outra ROM e intervalos inválidos ou sobrepostos. A suíte Python passou com 62 testes. Evidências locais em `evidence/2026-11-23/v15-cobertura/`.
+
+## Título do menu de salvamento da Candy (V16)
+
+A inspeção da visita em Monkey Mines confirmou três elementos distintos. A saudação da Candy aparece em PT-BR, o título dentro do menu de slots aparece em inglês e o mapa exibe **Candy's Save Point**. A proposta de rótulo para o menu é **Salvar com a Candy**. A revisão deve manter o nome completo do ponto no mapa e conferir o encaixe do título acima dos slots. [Visita em Monkey Mines](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#visitas-de-serviço-em-monkey-mines)
+
+O verificador usa a receita curta de QA da Candy nas duas compilações existentes. Cada captura começa em um perfil vazio. Ele compara os quadros da fala, do menu e da volta ao mapa e conta os pixels alterados na faixa reservada ao título. O mapa desse ensaio rápido é o do primeiro mundo. A inspeção de Monkey Mines segue como referência da visita pela rota da campanha.
+
+```powershell
+python -B scripts/verify_ptbr_candy_ui.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' `
+    --out evidence/revisao-menu-candy
+```
+
+O diretório de saída deve ser novo. As capturas do framebuffer, o manifesto da execução e os saves criados pelo ensaio ficam em `evidence/`.
+
+Em 2026-11-23, duas rodadas produziram os mesmos resultados por build:
+
+| Quadro | Cena | Comparação entre a versão base e o piloto |
+| ---: | --- | --- |
+| 4.440 | Fala da Candy | 1.498 pixels diferentes, todos dentro da faixa de diálogo. |
+| 4.800 | Menu de salvamento | Zero pixels diferentes, inclusive na faixa do título. |
+| 4.936 | Volta ao mapa | Zero pixels diferentes. Os arquivos de save de 2.048 bytes coincidiram entre si e com o relatório da SRAM. |
+
+A cadeia digital de áudio coincidiu até o quadro 4.800 e divergiu até 4.936 após a confirmação do slot. O número de quadros com áudio ativo foi igual. A causa e o efeito audível ficam para a regressão V17. A revisão confirmou o título em inglês no build atual. A troca do rótulo em jogo e a conferência do novo desenho continuam na V16. Os 62 testes Python passaram. Evidências locais em `evidence/2026-11-23/v16-candy-ui/`.

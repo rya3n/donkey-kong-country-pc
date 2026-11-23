@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Menu de salvamento da Candy revisado
+
+- Adicionado um teste reproduzível da fala, do menu de slots e da volta ao mapa. A fala muda no piloto, o título do menu segue em inglês e as imagens do mapa e os saves coincidem. Duas rodadas repetiram uma diferença digital de áudio depois da confirmação do slot. A revisão do título segue em V16 e a diferença de áudio em V17. [Resultados](docs/15-PT-BR.md#título-do-menu-de-salvamento-da-candy-v16)
+
 ## 2026-11-23 — Cobertura do piloto PT-BR conferida
 
 - A auditoria V15 confirmou que o manifesto do piloto cobre exatamente os 217 intervalos de diálogos do catálogo parcial. Os 50 nomes do mapa permanecem preservados. Créditos, elenco e telas restantes seguem em revisão. Os 62 testes Python passaram. [Resultados e comando](docs/15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
