@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Primeiro bônus de Reptile Rumble validado
+
+- O roteiro confirmou a parede aberta com um barril, a coleta de dez bananas e uma vida e o retorno jogável à caverna. A versão base e o piloto PT-BR coincidiram nos quatro pontos comparados em execução sem janela. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#primeiro-bônus-de-reptile-rumble-v14)
+
 ## 2026-11-23 — Bônus de Ropey Rampage validados
 
 - Dois roteiros confirmaram a travessia das seis cordas, a coleta da letra N, a escolha do barril correto, a vida extra e a volta ao controle na fase. A versão base e o piloto PT-BR coincidiram em oito pontos, em execução sem janela. [Resultados e roteiros](docs/31-INICIO-CAMPANHA-PT-BR.md#salas-de-bônus-de-ropey-rampage-v14)
