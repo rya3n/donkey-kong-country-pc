@@ -131,4 +131,21 @@ Em 2026-11-23, o [roteiro de 15.773 quadros](../recipes/usa-rev1/campaign-reptil
 
 Os executáveis sem janela da versão base e do piloto PT-BR coincidiram nos quatro pontos comparados (parede, sala, balão e retorno). As capturas também coincidiram com o coletor executado desde o menu, e os dois executáveis apresentaram os mesmos hashes de imagem, WRAM, SRAM e áudio acumulado nesses quadros. Os comandos gravados pelo coletor coincidiram com o roteiro. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-23/v14-bonus-reptile1/`.
 
-Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 15.773 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. A próxima sala de Reptile Rumble é a dos canhões. A escuta com o jogo em janela segue em V09/V14.
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 15.773 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. O roteiro continua na [sala dos canhões de Reptile Rumble](#sala-dos-canhões-de-reptile-rumble-v14).
+
+## Sala dos canhões de Reptile Rumble (V14)
+
+Em 2026-11-23, o [roteiro de 16.939 quadros](../recipes/usa-rev1/campaign-reptile-second-bonus.inputs) começou no menu com um perfil vazio. Os primeiros 15.773 quadros repetem o primeiro bônus. A partir do retorno à caverna, Donkey Kong usa dois pneus para alcançar a plataforma e saltar à esquerda para o canhão de entrada.
+
+| Quadro | Resultado |
+| ---: | --- |
+| 15.829–15.952 | Os dois saltos com impulso dos pneus levam à plataforma do barril DK. |
+| 16.014–16.271 | Donkey entra no canhão suspenso e chega à sala `0x0048`, com quatro vidas e 92 bananas. |
+| 16.289–16.501 | Um salto inicia o trajeto automático. O coletor confirma a passagem de Donkey por nove canhões distintos, do primeiro ao último. |
+| 16.369–16.371 | O total de vidas passa de quatro para cinco ao atingir 100 bananas. O contador já mostra uma banana no quadro 16.371. |
+| 16.591 | A dupla chega à plataforma do cacho final. O contador termina em 30, equivalente a 38 bananas coletadas na sala. |
+| 16.911–16.939 | Donkey volta à plataforma da caverna pela entrada `0x00c9`, com cinco vidas e 30 bananas. O direcional direito move Donkey de 2.336 para 2.365. |
+
+Os executáveis sem janela da versão base e do piloto PT-BR coincidiram em quatro quadros. Foram comparados o canhão de entrada, a sequência em andamento, a recompensa e o retorno à fase. Em cada ponto, as capturas coincidiram com as do coletor e os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os dois executáveis. O coletor começou no menu e as entradas gravadas coincidiram com o roteiro quadro a quadro. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-23/v14-bonus-reptile2/`.
+
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 16.939 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. O terceiro bônus de Reptile Rumble é o próximo ensaio da V14. A escuta com o jogo em janela segue em V09/V14.
