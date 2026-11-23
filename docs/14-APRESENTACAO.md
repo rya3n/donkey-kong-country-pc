@@ -42,7 +42,7 @@ Após o aceite das piscadas, o usuário pediu retirar as bordas e adaptar a apre
 - **F6:** alterna preencher e 4:3 original. Em 4:3, bordas pretas voltam quando o formato da janela exigir.
 - **F11:** alterna janela e tela cheia sem moldura. Consulta MonitorFromWindow e GetMonitorInfo para usar o monitor atual, incluindo sua posição no desktop, em vez de assumir o monitor principal.
 - Ao voltar da tela cheia, restaura tamanho, posição e estado da janela. Mudanças de resolução ou de monitor durante a tela cheia reajustam o tamanho. O programa não muda resolução nem frequência do sistema.
-- A escolha de proporção vale para a sessão; a próxima abertura começa em preencher. O jogo continua pausando quando perde foco e Esc continua fechando o aplicativo.
+- A escolha de proporção pelo F6 é recuperada na próxima abertura após fechar normalmente. O jogo começa em Preencher quando o perfil ainda não tem uma preferência válida. O jogo continua pausando quando perde foco e Esc continua fechando o aplicativo.
 
 Preencher remove as bordas acrescentadas pelo host. Preto que faça parte da própria imagem, carregamentos e transições do cartucho permanece visível. Os dois modos continuam usando composição fora da tela e a mesma simulação a 60,0988 Hz.
 
@@ -51,6 +51,12 @@ Verificações desta extensão: build Release passou; comparação RGB em oito t
 Os testes usam janelas ocultas e destinos GDI em memória. A inspeção visual dos novos modos e sua validação em outros computadores permanecem pendentes; não foram simulados monitores desconectados ou configurações de DPI diferentes.
 
 Retorno posterior de 2026-11-05: o usuário confirmou que a versão com os novos modos está funcionando perfeitamente. P17 aceita no teste relatado; outros computadores e configurações de monitor continuam sem cobertura declarada. A próxima etapa é a validação da campanha e de saves com progresso real.
+
+## Preferência de imagem entre sessões
+
+Desde 2026-11-23, o jogo carrega a opção do F6 a partir de `display-mode.txt` no perfil ativo. O arquivo é gravado ao fechar normalmente quando a opção final for diferente da inicial. O host escreve primeiro em um arquivo temporário no mesmo diretório, sincroniza o conteúdo e então substitui a preferência. Se essa etapa falhar, o log registra o erro e o jogo encerra. Os atalhos de diagnóstico usam a configuração da própria sessão. [FlushFileBuffers](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-flushfilebuffers) · [MoveFileExW](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw)
+
+A versão base e o piloto PT-BR passaram por 16 sessões normais em quatro combinações de build e pasta. Os testes alternaram para 4:3, reabriram em 4:3, voltaram a Preencher e reabriram novamente. Também foram verificados conteúdo inválido, substituição bloqueada e isolamento do atalho de diagnóstico. [Validação V19](05-VALIDACAO.md#preferência-de-imagem-no-windows-v19)
 
 ## Referências da implementação
 

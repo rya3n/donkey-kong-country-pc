@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Modo de imagem lembrado ao reabrir
+
+- A versão base e o piloto PT-BR recuperam a última escolha do F6 após o encerramento normal. Os testes verificaram Preencher e 4:3 em perfis do projeto e portáteis, incluindo falha de gravação e preservação dos saves. [Validação V19](docs/05-VALIDACAO.md#preferência-de-imagem-no-windows-v19)
+
 ## 2026-11-23 — Abertura direta em pasta portátil
 
 - O executável encontra a ROM local a partir de sua própria pasta. Na abertura portátil, o perfil fica em `data/` junto ao executável. Oito aberturas sem argumentos verificaram as duas versões, a estrutura de projeto e a portátil, com reabertura de save e backup. [Validação V18](docs/05-VALIDACAO.md#abertura-direta-no-windows-v18)

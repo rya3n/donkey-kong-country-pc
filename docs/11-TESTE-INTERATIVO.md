@@ -28,7 +28,7 @@ Abrir DKC-Rev1-Teste.exe sem argumentos inicia pelo boot normal. O programa proc
 | F11 | Entrar ou sair da tela cheia no monitor atual |
 | Esc | Fechar o teste |
 
-Clicar na janela para dar foco ao teclado. O jogo pausa ao perder o foco ou ser minimizado e limpa as teclas mantidas. Por padrão, o framebuffer 256×224 preenche toda a área da janela, esticando a imagem conforme sua proporção. F6 restaura 4:3, com bordas quando necessário. F11 usa o monitor em que a janela estiver; ao sair, restaura a posição e o tamanho anteriores. O modo escolhido vale para a sessão atual.
+Clicar na janela para dar foco ao teclado. O jogo pausa ao perder o foco ou ser minimizado e limpa as teclas mantidas. Por padrão, o framebuffer 256×224 preenche toda a área da janela, esticando a imagem conforme sua proporção. F6 restaura 4:3, com bordas quando necessário. Ao fechar normalmente pelo modo de jogo habitual, a escolha do F6 fica salva no perfil e volta na próxima abertura. F11 usa o monitor em que a janela estiver. Ao sair da tela cheia, o jogo restaura a posição e o tamanho anteriores. Cada sessão começa em janela.
 
 ## Abrir direto pelo executável
 

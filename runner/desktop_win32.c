@@ -7,6 +7,7 @@
 #include <pathcch.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 #include <wchar.h>
 #include <stdlib.h>
 #include "common_rtl.h"
@@ -46,7 +47,40 @@ static int s_save_paused, s_core_failed;
 static Rev1GdiSurface s_present_surface;
 static int s_paint_error_reported;
 static Rev1ScaleMode s_scale_mode = REV1_SCALE_FILL;
+static Rev1ScaleMode s_initial_scale_mode = REV1_SCALE_FILL;
+static int s_use_display_preferences;
+static const wchar_t *s_display_mode_path = L"display-mode.txt";
 static Rev1WindowMode s_window_mode;
+
+/* The normal session holds the profile lock and uses the profile directory. */
+static Rev1ScaleMode ReadDisplayMode(void) {
+    FILE *file = _wfopen(s_display_mode_path, L"rb");
+    if (!file) return REV1_SCALE_FILL;
+    char text[sizeof "4:3\n"];
+    size_t length = fread(text, 1, sizeof text, file);
+    int aspect = !ferror(file) && length == sizeof text - 1 &&
+                 !memcmp(text, "4:3\n", length);
+    fclose(file);
+    return aspect ? REV1_SCALE_4_3 : REV1_SCALE_FILL;
+}
+
+static int WriteDisplayMode(Rev1ScaleMode mode) {
+    const char *text = mode == REV1_SCALE_4_3 ? "4:3\n" : "fill\n";
+    wchar_t pending[64];
+    if (swprintf_s(pending, _countof(pending), L"display-mode-%lu-%llu.tmp",
+                   GetCurrentProcessId(), GetTickCount64()) < 0) return 0;
+    HANDLE file = CreateFileW(pending, GENERIC_WRITE, 0, NULL, CREATE_NEW,
+                              FILE_ATTRIBUTE_NORMAL, NULL);
+    if (file == INVALID_HANDLE_VALUE) return 0;
+    DWORD written, length = (DWORD)strlen(text);
+    int ok = WriteFile(file, text, length, &written, NULL) && written == length &&
+             FlushFileBuffers(file);
+    if (!CloseHandle(file)) ok = 0;
+    if (ok && MoveFileExW(pending, s_display_mode_path,
+                          MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH)) return 1;
+    DeleteFileW(pending);
+    return 0;
+}
 
 static void UpdateControlsTitle(void) {
     if (s_save_paused) return;
@@ -213,7 +247,12 @@ static LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wp, LPARAM 
         }
         break;
     case WM_CLOSE:
-        if (FlushSaveWithRetry(1)) DestroyWindow(window);
+        if (FlushSaveWithRetry(1)) {
+            if (s_use_display_preferences && s_scale_mode != s_initial_scale_mode &&
+                !WriteDisplayMode(s_scale_mode))
+                fprintf(stderr, "[display] unable to save display mode\n");
+            DestroyWindow(window);
+        }
         return 0;
     case WM_DESTROY:
         Rev1GdiFree(&s_present_surface);
@@ -409,6 +448,9 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     if ((_wgetenv(L"DKC_REV1_SAVE_DIR") || (!shortcut && !s_bench_frames)) && !OpenSaveStorage()) {
         Rev1Close(); DestroyWindow(s_window); return 6;
     }
+    s_use_display_preferences = !shortcut && !s_bench_frames && Rev1SavesEnabled();
+    if (s_use_display_preferences)
+        s_initial_scale_mode = s_scale_mode = ReadDisplayMode();
     if (shortcut) {
         SetWindowTextW(s_window, s_start_candy ? L"Preparando as falas da Candy - aguarde alguns segundos" :
             s_start_cave ? L"Preparando Reptile Rumble - aguarde alguns segundos" :

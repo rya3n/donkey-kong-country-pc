@@ -10,7 +10,7 @@ Registro de 2026-11-05. O host Windows da USA Rev 1 agora carrega e grava a SRAM
 
 Os saves pessoais ficam em **data/usa-rev1/saves/save.srm**, na pasta do projeto no E:, fora de build/. O arquivo contém os slots do cartucho. Recompilar o executável não remove essa pasta. Na abertura seguinte, um save existente de tamanho correto recebe uma cópia em save.srm.bak antes da execução da ROM. Esse backup representa o início da sessão anterior; não é um histórico ilimitado.
 
-Na abertura portátil, a pasta `data/` fica junto ao executável. Os perfis da versão base e do piloto PT-BR continuam em subpastas próprias, `usa-rev1` e `usa-rev1-ptbr-pilot`. [Como abrir direto pelo executável](11-TESTE-INTERATIVO.md#abrir-direto-pelo-executável)
+Na abertura portátil, a pasta `data/` fica junto ao executável. Os perfis da versão base e do piloto PT-BR continuam em subpastas próprias, `usa-rev1` e `usa-rev1-ptbr-pilot`. A escolha de proporção do F6 fica em `display-mode.txt` no diretório do perfil, ao lado de `saves/`. [Como abrir direto pelo executável](11-TESTE-INTERATIVO.md#abrir-direto-pelo-executável)
 
 Os modos --jungle e --caverna continuam como atalhos de teste e não carregam nem gravam os saves pessoais. Testar caverna.cmd permanece isolado do progresso normal. Para jogar e continuar a campanha, usar Jogar DKC.cmd. Nenhum arquivo de teste foi copiado para a pasta pessoal.
 
@@ -55,4 +55,4 @@ A pasta de saída da verificação funcional deve ser nova. Os perfis de QA são
 
 runner/usa_rev1_saves.c integra o módulo [desktop_sram.c do DKC1Recomp](https://github.com/elliotttate/DKC1Recomp/blob/559bab62596a97e91f389b39cdeb6cda981ab7c9/runner/desktop_sram.c). O aviso MIT está em third_party/DKC1Recomp-LICENSE.txt. Foram reutilizadas a persistência existente e a ideia do fixture documentado em upstream/docs/INGAME_SAVES.md, adaptando a sequência e validando a ROM Rev 1. O código, a engine e os metadados v1.0 do clone permanecem intactos.
 
-Save states, retomada exata no meio de uma fase e persistência de preferências ainda não foram implementados neste host. A cadência, física e áudio não foram acelerados. A conclusão desta etapa aprova a persistência da SRAM no cenário coberto; campanha ampla, tradução PT-BR e pacote final continuam nas etapas próprias.
+Save states e retomada exata no meio de uma fase continuam fora da cobertura da SRAM. A cadência, física e áudio não foram acelerados. A conclusão desta etapa aprova a persistência da SRAM no cenário coberto; campanha ampla, tradução PT-BR e pacote final continuam nas etapas próprias.

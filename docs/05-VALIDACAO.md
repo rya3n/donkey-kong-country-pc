@@ -96,7 +96,7 @@ Estes critérios propostos dão forma verificável à meta de PT-BR e abertura d
 | V16 | Qualidade linguística e visual | Revisão em contexto, acentos corretos, texto legível e sem cortes ou estouros de caixas |
 | V17 | Regressão da tradução | Rotas, progressão, áudio e persistência continuam corretos após a localização |
 | V18 | Abertura direta | Após a preparação inicial definida, abrir o executável inicia o jogo sem terminal ou nova seleção de ROM. [Ensaio das compilações atuais](#abertura-direta-no-windows-v18) |
-| V19 | Pacote de aplicativo | Testar em ambiente Windows sem ferramentas de desenvolvimento, incluindo caminho com espaços/acentos, saves e preferências entre sessões |
+| V19 | Pacote de aplicativo | Testar em ambiente Windows sem ferramentas de desenvolvimento, incluindo caminho com espaços/acentos, saves e preferências entre sessões. [Preferência de imagem validada nos builds locais](#preferência-de-imagem-no-windows-v19) |
 
 A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto do piloto cobre os 217 intervalos de diálogos. A apresentação do elenco, os créditos e as telas restantes seguem em revisão. [Resultado da auditoria V15](15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
 
@@ -118,3 +118,9 @@ Em 2026-11-23, os executáveis Windows GUI x64 da Rev 1 base e do piloto PT-BR f
 Os builds passaram nos três alvos do CTest, com 65 testes Python por configuração. A inspeção dos executáveis listou apenas bibliotecas do sistema Windows como dependências diretas. A resolução de caminhos usa a API PathCch. [Documentação da Microsoft](https://learn.microsoft.com/en-us/windows/win32/api/pathcch/nf-pathcch-pathcchremovefilespec)
 
 Os perfis e logs do ensaio ficam em `evidence/2026-11-23/v18-abertura/`. A V18 foi verificada nestas compilações locais. A abertura e o progresso precisam ser repetidos no pacote final em um Windows sem ferramentas de desenvolvimento na V19.
+
+## Preferência de imagem no Windows (V19)
+
+Em 2026-11-23, a versão base e o piloto PT-BR recuperaram a escolha entre Preencher e 4:3. O ensaio executou 16 sessões normais, combinando os dois builds com a estrutura do projeto e uma pasta portátil, com espaços e acentos. O arquivo de preferência só foi atualizado nas sessões em que o modo mudou. O save de QA e o backup permaneceram idênticos.
+
+Três ensaios adicionais verificaram a abertura em Preencher com arquivo inválido, a preservação do valor anterior quando a substituição do arquivo foi bloqueada e o isolamento de `--jungle`. Os executáveis de teste foram iniciados com apenas pastas do Windows no `PATH`. O computador de teste tem ferramentas de desenvolvimento instaladas. Os três alvos do CTest passaram nos dois builds, com 65 testes Python por configuração. Evidências em `evidence/2026-11-23/v19-preferencias/`. O ensaio do pacote final em Windows sem ferramentas de desenvolvimento segue na V19.
