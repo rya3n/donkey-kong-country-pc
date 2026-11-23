@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Cobertura do piloto PT-BR conferida
+
+- A auditoria V15 confirmou que o manifesto do piloto cobre exatamente os 217 intervalos de diálogos do catálogo parcial. Os 50 nomes do mapa permanecem preservados. Créditos, elenco e telas restantes seguem em revisão. Os 62 testes Python passaram. [Resultados e comando](docs/15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
+
 ## 2026-11-23 — Suporte a controle XInput no Windows
 
 - A Rev 1 base e o piloto PT-BR passam a reconhecer controle XInput para o primeiro jogador, com detecção automática e reconexão. Os três alvos do CTest passaram nos dois builds. O ensaio com controle físico está pendente. [Controles e roteiro](docs/11-TESTE-INTERATIVO.md#controle-xinput)

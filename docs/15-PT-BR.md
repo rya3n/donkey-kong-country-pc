@@ -89,3 +89,27 @@ python scripts/preview_credit_text.py --input evidence/texto-proprio.json --colu
 ```
 
 Em 2026-11-22, o teste com 11 linhas sintéticas confirmou duas linhas acima da referência de 24 caracteres e uma acima da referência de 28. No Edge, a rolagem, a pausa, o controle de posição e os acentos passaram em larguras de 390 e 1.100 pixels. Os 59 testes Python passaram. Os resultados se referem à fonte do navegador. A fonte do jogo e a integração de um catálogo próprio ficam na etapa V15–V16.
+
+## Auditoria de cobertura do piloto (V15)
+
+Em 2026-11-23, o verificador comparou os 346 registros do catálogo privado com os 226 intervalos do manifesto PT-BR. Para cada registro, o relatório contou coincidências exatas de início e fim, outras sobreposições e ausência de sobreposição. O executável sem janela confirmou a identidade do conjunto de alterações do manifesto ao rodar 600 quadros com a Rev 1.
+
+| Grupo inventariado | Registros | Com rascunho | Intervalo exato no manifesto | Situação |
+| --- | ---: | ---: | ---: | --- |
+| Diálogos | 217 | 217 | 217 | O piloto cobre os intervalos das falas da Candy, do Funky e do Cranky. A revisão em contexto segue na V16. |
+| Nomes do mapa | 50 | 0 | 0 | Preservados pela política editorial. |
+| Apresentação do elenco | 47 | 0 | 0 | Cobertura de títulos e frases a revisar. |
+| Créditos falsos e reais | 32 | 0 | 0 | A revisão da referência e a prévia no navegador estão registradas acima. A integração em jogo segue pendente. |
+
+Nenhum registro teve sobreposição parcial ou com intervalo de tamanho diferente. Nove regiões do manifesto ficam fora desses registros. Os rótulos gráficos e a revisão de telas têm evidências próprias. O título interno do menu de salvamento da Candy apareceu em inglês na validação de Monkey Mines. A revisão desse título deve preservar o nome completo do local no mapa. [Piloto dos menus](16-PILOTO-PT-BR.md) · [Visita à Candy](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#visitas-de-serviço-em-monkey-mines)
+
+O escopo do resultado são os intervalos da Rev 1 contidos no catálogo. A presença no manifesto confirma a cobertura estrutural, e a aceitação da localização exige leitura em contexto, revisão de acentos e verificação do encaixe na tela.
+
+```powershell
+$catalogo = 'experimental/usa-rev1/pt-BR'
+python -B scripts/check_ptbr_catalog.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' `
+    --original "$catalogo/catalog-initial.json" --draft "$catalogo/catalog-draft-16.json" `
+    --pilot-manifest "$catalogo/menu-pilot/manifest.json"
+```
+
+O campo `pilot_coverage` contém contagens por grupo e por tipo de correspondência. O verificador rejeita um manifesto de outra ROM e intervalos inválidos ou sobrepostos. A suíte Python passou com 62 testes. Evidências locais em `evidence/2026-11-23/v15-cobertura/`.

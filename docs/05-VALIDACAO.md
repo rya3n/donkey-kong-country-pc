@@ -98,4 +98,6 @@ Estes critérios propostos dão forma verificável à meta de PT-BR e abertura d
 | V18 | Abertura direta | Após a preparação inicial definida, abrir o executável inicia o jogo sem terminal ou nova seleção de ROM |
 | V19 | Pacote de aplicativo | Testar em ambiente Windows sem ferramentas de desenvolvimento, incluindo caminho com espaços/acentos, saves e preferências entre sessões |
 
-Todos estão pendentes. A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.
+A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto do piloto cobre os 217 intervalos de diálogos. A apresentação do elenco, os créditos e as telas restantes seguem em revisão. [Resultado da auditoria V15](15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
+
+A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.
