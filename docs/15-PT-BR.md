@@ -136,3 +136,5 @@ Em 2026-11-23, duas rodadas produziram os mesmos resultados por build:
 | 4.936 | Volta ao mapa | Zero pixels diferentes. Os arquivos de save de 2.048 bytes coincidiram entre si e com o relatório da SRAM. |
 
 A cadeia digital de áudio coincidiu até o quadro 4.800 e divergiu até 4.936 após a confirmação do slot. O número de quadros com áudio ativo foi igual. A causa e o efeito audível ficam para a regressão V17. A revisão confirmou o título em inglês no build atual. A troca do rótulo em jogo e a conferência do novo desenho continuam na V16. Os 62 testes Python passaram. Evidências locais em `evidence/2026-11-23/v16-candy-ui/`.
+
+A V17 localizou a primeira diferença entre os quadros 4.832 e 4.835 e mediu o deslocamento na volta ao mapa. [Comparação quadro a quadro](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17).

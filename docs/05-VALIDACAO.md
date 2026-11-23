@@ -102,4 +102,6 @@ A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto 
 
 Na revisão V16 da Candy, o título do menu e o mapa coincidiram entre os builds, e a fala mostrou as diferenças esperadas na faixa de diálogo. Os saves também coincidiram. A diferença digital de áudio após confirmar o slot ficou reproduzida para investigação na V17. [Teste e limites](15-PT-BR.md#título-do-menu-de-salvamento-da-candy-v16)
 
+A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
+
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.

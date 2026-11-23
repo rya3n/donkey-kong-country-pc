@@ -28,6 +28,30 @@ O teste em janela reproduziu 1.902 quadros após preparar o estado do mapa diant
 
 O executável de QA adicionou leitura do roteiro e captura de PCM ao host Win32. O teste mede a saída do aplicativo para a API de áudio. A escuta no dispositivo e o efeito perceptível da diferença ainda precisam de confirmação.
 
+## Diferença digital após salvar na Candy (V17)
+
+Em 2026-11-23, a receita curta de QA da Candy foi repetida nos dois builds com o coletor sem janela. Aos 4.936 quadros, os relatórios de cada coletor coincidiram com os do respectivo executável da [revisão do menu](15-PT-BR.md#título-do-menu-de-salvamento-da-candy-v16), incluindo o hash acumulado de áudio. A execução estendida manteve a mesma entrada e aguardou no mapa até 6.500 quadros. O verificador recalculou os hashes a partir do PCM estéreo de 16 bits a 32.040 Hz.
+
+| Quadros | Comparação da versão base com o piloto PT-BR |
+| --- | --- |
+| 1–4.831 | PCM idêntico, inclusive ao confirmar o slot no quadro 4.801. |
+| 4.832–4.835 | Primeira diferença, com desvio máximo de 56 unidades na escala PCM de 16 bits. |
+| 4.836–4.875 | PCM idêntico. |
+| 4.876–6.500 | Diferença ao retornar ao mapa e durante a espera. |
+
+Os dois builds geraram o mesmo número de amostras por quadro. Nenhum quadro ficou silencioso em apenas um deles. Nos oito períodos amostrados entre os quadros 4.877 e 6.495, o melhor alinhamento colocou o piloto entre 20 e 40 pares de amostras atrás da versão base, cerca de 0,62 a 1,25 ms. A correlação dos sinais alinhados ficou entre 0,991 e 0,999. A busca avaliou deslocamentos de até 256 pares de amostras por janela, com a média removida por canal e a correlação normalizada.
+
+A imagem, a WRAM e a SRAM coincidiram no quadro 6.500. Os arquivos de save tinham 2.048 bytes. Uma repetição até o quadro 4.936 com a persistência em disco desativada produziu as mesmas amostras de cada build. Isso exclui a gravação do save pelo Windows como condição para reproduzir a diferença. A análise mediu o PCM antes da saída no dispositivo. A origem do deslocamento e o efeito audível continuam na V17.
+
+Para conferir as capturas privadas, use os diretórios com `audio.csv` (colunas `frame` e `samples`) e `audio.pcm` (estéreo de 16 bits, little-endian). O script imprime contagens e hashes.
+
+```powershell
+$qa = 'evidence/2026-11-23/v17-candy-audio'
+python -B scripts/compare_pcm_frames.py --base "$qa/base-6500" --pilot "$qa/pilot-6500"
+```
+
+Os 65 testes Python passaram. As capturas, os perfis isolados e a análise de alinhamento ficam nas evidências locais. O coletor usado é o da revisão anterior, em `evidence/2026-11-10/pt-BR/campaign-start/audio-driver/`.
+
 ## Medição da sessão de áudio no Win32
 
 Em 2026-11-22, o piloto PT-BR USA Rev 1 rodou no Windows 10 22H2 (build 19045) em perfis isolados, com salvamento desabilitado. O ensaio executou o host Win32 em duas rodadas para cada fase. Cada rodada observou 720 quadros com o personagem parado após 4.800 quadros de preparação. A cadência alvo do host era 60,0988 Hz.
