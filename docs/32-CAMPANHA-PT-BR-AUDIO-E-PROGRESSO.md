@@ -263,6 +263,32 @@ O piloto headless e o coletor de QA repetiram os 60.409 quadros desde o menu em 
 
 Para repetir, use o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com um perfil novo, 60.409 quadros e o roteiro de Necky's Nuts. O próximo teste começa no mapa, pela entrada no chefe.
 
+## Visitas de serviço em Monkey Mines
+
+Em 2026-11-23, o piloto PT-BR da USA Rev 1 foi testado em três visitas independentes. Cada desvio começou no mapa em Cranky's Cabin, quadro 60.258, com seis vidas e dez bananas. A rota de referência é o [roteiro até Necky's Nuts](../recipes/usa-rev1/campaign-to-neckys-nuts-map.inputs), executado até esse quadro.
+
+| Visita | Quadros | O que foi confirmado |
+| --- | --- | --- |
+| Cranky's Cabin | 60.619–61.463 | Saudação, dica que preserva Winky e Barrel Cannon Canyon, instrução da tecla X e despedida em PT-BR. A última confirmação voltou ao mapa com a cabana selecionada (`0x00EF`). |
+| Funky's Flights | 60.560–61.804 | Fala em PT-BR, acesso ao mapa aéreo, seleção de Kongo Jungle (`0x00EC`) e chegada ao mapa de Kongo Jungle com Jungle Hijinxs selecionada. |
+| Candy's Save Point | 60.862–61.619 | Saudação em PT-BR, entrada no barril de save, seleção do slot 1 e retorno ao mapa (`0x00FB`). O título do menu de salvamento apareceu em inglês. |
+
+O slot 1 gravou 2.048 bytes com SHA-256 `5c7a9c8dfa47e90b7ad018561764fdeaa18309883e4e24aa7ce522c49d7b27ce`. Um boot frio exibiu **00:11 e 10%** no menu, voltou ao ponto da Candy em Monkey Mines no quadro 2.400 e entrou na cabana no quadro 4.801, com a instrução de salvamento em PT-BR. Em outro perfil, o piloto sem janela carregou o mesmo slot e percorreu o mapa até **Necky's Nuts**. A arena de Master Necky abriu no quadro 3.446 (`entrance=0x00E1`, `scene=0x000C`). O save e o backup permaneceram idênticos à gravação da Candy.
+
+O coletor repetiu o prefixo desde o menu em um perfil vazio e gerou um novo estado no quadro 60.258. Os desvios independentes a partir desse estado e do marco arquivado produziram 14 capturas correspondentes idênticas, três estados finais idênticos e a mesma SRAM em cada visita. A captura da reabertura na Candy também coincidiu entre o coletor e o executável sem janela. Os 59 testes Python passaram. Evidências locais em `evidence/2026-11-23/monkey-mines/`.
+
+### Comandos dos desvios
+
+Use os primeiros 60.258 quadros do roteiro até Necky's Nuts como prefixo em cada perfil de teste. Os dois comandos finais do roteiro original, direita e 150 quadros de espera, ficam após o ponto de partida dos desvios. A tabela usa máscaras hexadecimais, durações em quadros e parênteses para indicar grupos repetidos.
+
+| Visita | Entradas após o quadro 60.258 |
+| --- | --- |
+| Cranky | `0001 1`, `0000 360`, quatro vezes (`0001 1`, `0000 210`) |
+| Funky | Duas vezes (`0040 1`, `0000 150`), `0001 1`, `0000 360`, `0001 1`, `0000 250`, `0040 1`, `0000 330`, `0001 1`, `0000 300` |
+| Candy | Três vezes (`0040 1`, `0000 150`), `0010 1`, `0000 150`, `0001 1`, `0000 260`, `0080 20`, `0081 30`, `0000 310`, `0001 1`, `0000 135` |
+
+A reabertura da cabana usa [cold-load.inputs](../recipes/usa-rev1/cold-load.inputs) em um novo processo com o mesmo diretório de save. Para entrar na arena, execute os primeiros 2.400 quadros do roteiro frio, depois `0020 1`, `0000 150`, quatro vezes (`0080 1`, `0000 150`), `0001 1` e `0000 290`.
+
 ## Master Necky e chegada a Vine Valley
 
 O [roteiro de 62.704 quadros](../recipes/usa-rev1/campaign-to-vine-valley-map.inputs) mantém os comandos até o mapa de Necky's Nuts e acrescenta a luta contra Master Necky. A sequência usa o pneu para atingir o chefe nos dois lados da arena. Após a vitória e a animação da banana gigante, o mapa geral seleciona Vine Valley. Um toque em B abre o mapa desse mundo com Vulture Culture selecionada.

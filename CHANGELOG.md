@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Visitas em Monkey Mines verificadas
+
+- Confirmadas as falas amostradas de Cranky, Funky e Candy em PT-BR, o voo de Funky até Kongo Jungle e a reabertura do save da Candy. O slot preservou o acesso à arena de Master Necky. [Roteiros e validação](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#visitas-de-serviço-em-monkey-mines)
+
 ## 2026-11-23 — Interrupção na caverna investigada
 
 - Seis rodadas no executável do jogador tiveram sinal em todas as leituras. Duas novas passagens pelo roteiro da transição confirmaram as pausas do áudio do jogo. A interrupção longa permanece como ocorrência isolada em DKC-BUG-5. [Diagnóstico](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#repetição-no-piloto-e-diagnóstico-da-espera)
