@@ -30,6 +30,14 @@ Abrir DKC-Rev1-Teste.exe sem argumentos inicia pelo boot normal. O programa proc
 
 Clicar na janela para dar foco ao teclado. O jogo pausa ao perder o foco ou ser minimizado e limpa as teclas mantidas. Por padrão, o framebuffer 256×224 preenche toda a área da janela, esticando a imagem conforme sua proporção. F6 restaura 4:3, com bordas quando necessário. F11 usa o monitor em que a janela estiver; ao sair, restaura a posição e o tamanho anteriores. O modo escolhido vale para a sessão atual.
 
+## Abrir direto pelo executável
+
+No projeto compilado, abra `build/usa-rev1/DKC-Rev1-Teste.exe` ou `build/ptbr-pilot/DKC-Rev1-PTBR-Piloto.exe` pelo Explorador. Os atalhos `.cmd` continuam disponíveis. A ROM verificada na raiz do projeto é encontrada automaticamente, e o progresso fica em `data/` na raiz.
+
+Para usar uma pasta portátil, coloque o executável compilado e sua ROM local USA Rev 1 na mesma pasta gravável. Use o nome `Donkey Kong Country (USA) (Rev 1).sfc` no arquivo local da ROM. Depois, abra o `.exe` diretamente. Os dados ficam na pasta `data/` ao lado do executável, em `usa-rev1/saves/` para a versão base ou `usa-rev1-ptbr-pilot/saves/` para o piloto. Para levar o progresso junto com a pasta, feche o jogo antes de movê-la.
+
+O host identifica a árvore de trabalho pelo diretório `build` e pela presença de `config/roms/usa-rev1.json` na raiz. Fora dessa estrutura, usa a pasta do executável para os dados. A busca usa os caminhos do executável, e o seletor de arquivo é a alternativa quando a ROM compatível não está nos locais automáticos. [Validação da abertura direta](05-VALIDACAO.md#abertura-direta-no-windows-v18)
+
 ## Controle XInput
 
 O host Windows reconhece um controle XInput para o primeiro jogador ao abrir o jogo ou ao conectá-lo com o aplicativo em foco. O teclado continua disponível. A leitura usa a biblioteca XInput 9.1.0 do Windows. [Versões do XInput](https://learn.microsoft.com/en-us/windows/win32/xinput/xinput-versions)

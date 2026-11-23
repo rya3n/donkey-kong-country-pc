@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Abertura direta em pasta portátil
+
+- O executável encontra a ROM local a partir de sua própria pasta. Na abertura portátil, o perfil fica em `data/` junto ao executável. Oito aberturas sem argumentos verificaram as duas versões, a estrutura de projeto e a portátil, com reabertura de save e backup. [Validação V18](docs/05-VALIDACAO.md#abertura-direta-no-windows-v18)
+
 ## 2026-11-23 — Áudio após salvar na Candy medido
 
 - A comparação V17 localizou a primeira diferença digital nos quadros 4.832–4.835. Na volta ao mapa, as janelas medidas mostraram deslocamento de 0,62 a 1,25 ms. Os 65 testes Python passaram. [Medição quadro a quadro](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)

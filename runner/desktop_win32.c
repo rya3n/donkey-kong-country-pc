@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <commdlg.h>
 #include <mmsystem.h>
+#include <pathcch.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <wchar.h>
@@ -33,6 +34,7 @@ static HWAVEOUT s_device;
 static HANDLE s_audio_event;
 static struct { WAVEHDR header; int16_t pcm[2048]; } s_audio[AUDIO_SLOTS];
 static wchar_t s_exe_dir[PATH_CAP], s_project_dir[PATH_CAP];
+static const wchar_t *s_data_root;
 static unsigned long s_bench_frames;
 static int s_start_cave;
 static int s_start_candy;
@@ -80,10 +82,11 @@ static int OpenSaveStorage(void) {
     if (!override) {
         const wchar_t *suffixes[] = {L"data", REV1_USER_DATA};
         for (int i = 0; i < 2; i++) {
-            if (_snwprintf_s(path, PATH_CAP, _TRUNCATE, L"%s\\%s", s_project_dir, suffixes[i]) < 0)
+            if (FAILED(PathCchCombineEx(path, PATH_CAP, s_data_root, suffixes[i],
+                                       PATHCCH_ALLOW_LONG_PATHS)))
                 return 0;
             if (!CreateDirectoryW(path, NULL) && GetLastError() != ERROR_ALREADY_EXISTS) {
-                MessageBoxW(s_window, L"Nao foi possivel criar a pasta de dados do jogo no projeto.", s_title, MB_OK | MB_ICONERROR);
+                MessageBoxW(s_window, L"Nao foi possivel criar a pasta de dados do jogo.", s_title, MB_OK | MB_ICONERROR);
                 return 0;
             }
         }
@@ -228,9 +231,28 @@ static void PumpMessages(void) {
     }
 }
 
-static void ParentDirectory(wchar_t *path) {
-    wchar_t *slash = wcsrchr(path, L'\\');
-    if (slash) *slash = 0;
+static int ResolveApplicationPaths(void) {
+    DWORD path_length = GetModuleFileNameW(NULL, s_exe_dir, PATH_CAP);
+    if (!path_length || path_length >= PATH_CAP ||
+        PathCchRemoveFileSpec(s_exe_dir, PATH_CAP) != S_OK) return 0;
+
+    wcscpy_s(s_project_dir, PATH_CAP, s_exe_dir);
+    if (FAILED(PathCchRemoveFileSpec(s_project_dir, PATH_CAP))) return 0;
+    const wchar_t *slash = wcsrchr(s_project_dir, L'\\');
+    int build_directory = slash && !_wcsicmp(slash + 1, L"build");
+    if (FAILED(PathCchRemoveFileSpec(s_project_dir, PATH_CAP))) return 0;
+
+    s_data_root = s_exe_dir;
+    if (build_directory) {
+        wchar_t marker[PATH_CAP];
+        if (SUCCEEDED(PathCchCombineEx(marker, PATH_CAP, s_project_dir,
+                                      L"config\\roms\\usa-rev1.json", PATHCCH_ALLOW_LONG_PATHS))) {
+            DWORD attributes = GetFileAttributesW(marker);
+            if (attributes != INVALID_FILE_ATTRIBUTES && !(attributes & FILE_ATTRIBUTE_DIRECTORY))
+                s_data_root = s_project_dir;
+        }
+    }
+    return SetCurrentDirectoryW(s_exe_dir) != 0;
 }
 
 static int TryRom(const wchar_t *path) {
@@ -247,9 +269,13 @@ static int LoadRom(void) {
     wchar_t directory[PATH_CAP], path[PATH_CAP];
     wcscpy_s(directory, PATH_CAP, s_exe_dir);
     for (int level = 0; level < 3; level++) {
-        if (_snwprintf_s(path, PATH_CAP, _TRUNCATE, L"%s\\Donkey Kong Country (USA) (Rev 1).sfc", directory) >= 0 && TryRom(path))
+        if (SUCCEEDED(PathCchCombineEx(path, PATH_CAP, directory,
+                                      L"Donkey Kong Country (USA) (Rev 1).sfc",
+                                      PATHCCH_ALLOW_LONG_PATHS)) && TryRom(path)) {
+            fprintf(stderr, "rom_lookup=executable-relative depth=%d\n", level);
             return 1;
-        ParentDirectory(directory);
+        }
+        if (PathCchRemoveFileSpec(directory, PATH_CAP) != S_OK) break;
     }
     path[0] = 0;
     OPENFILENAMEW picker = {0};
@@ -349,15 +375,10 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     s_start_cave = wcscmp(command_line, L"--caverna") == 0;
     s_start_candy = wcscmp(command_line, L"--candy") == 0;
     SetProcessDPIAware();
-    DWORD path_length = GetModuleFileNameW(NULL, s_exe_dir, PATH_CAP);
-    if (!path_length || path_length >= PATH_CAP) return 2;
-    ParentDirectory(s_exe_dir);
-    wcscpy_s(s_project_dir, PATH_CAP, s_exe_dir);
-    ParentDirectory(s_project_dir);
-    ParentDirectory(s_project_dir);
-    SetCurrentDirectoryW(s_exe_dir);
+    if (!ResolveApplicationPaths()) return 2;
     FILE *log_stream = NULL;
     _wfreopen_s(&log_stream, L"DKC-Rev1-teste.log", L"w", stderr);
+    fprintf(stderr, "data_layout=%s\n", s_data_root == s_project_dir ? "source" : "portable");
     const char *bench = getenv("DKC_REV1_BENCH_FRAMES");
     if (bench) {
         char *end;

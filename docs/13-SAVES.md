@@ -10,6 +10,8 @@ Registro de 2026-11-05. O host Windows da USA Rev 1 agora carrega e grava a SRAM
 
 Os saves pessoais ficam em **data/usa-rev1/saves/save.srm**, na pasta do projeto no E:, fora de build/. O arquivo contém os slots do cartucho. Recompilar o executável não remove essa pasta. Na abertura seguinte, um save existente de tamanho correto recebe uma cópia em save.srm.bak antes da execução da ROM. Esse backup representa o início da sessão anterior; não é um histórico ilimitado.
 
+Na abertura portátil, a pasta `data/` fica junto ao executável. Os perfis da versão base e do piloto PT-BR continuam em subpastas próprias, `usa-rev1` e `usa-rev1-ptbr-pilot`. [Como abrir direto pelo executável](11-TESTE-INTERATIVO.md#abrir-direto-pelo-executável)
+
 Os modos --jungle e --caverna continuam como atalhos de teste e não carregam nem gravam os saves pessoais. Testar caverna.cmd permanece isolado do progresso normal. Para jogar e continuar a campanha, usar Jogar DKC.cmd. Nenhum arquivo de teste foi copiado para a pasta pessoal.
 
 ## Proteção dos arquivos

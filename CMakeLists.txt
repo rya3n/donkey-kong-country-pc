@@ -54,7 +54,7 @@ if(WIN32)
         runner/desktop_win32.c runner/gamepad_win32.c runner/gdi_present.c
         runner/window_mode.c upstream/runner/desktop_input.c)
     target_compile_definitions(dkc_rev1_desktop PRIVATE DKC_REV1_DESKTOP=1 UNICODE _UNICODE)
-    target_link_libraries(dkc_rev1_desktop PRIVATE gdi32 winmm comdlg32 xinput9_1_0)
+    target_link_libraries(dkc_rev1_desktop PRIVATE gdi32 winmm comdlg32 pathcch xinput9_1_0)
     set_target_properties(dkc_rev1_desktop PROPERTIES OUTPUT_NAME "DKC-Rev1-Teste")
     add_executable(rev1_saves_io_tests tests/saves_io_fixture.c
         runner/usa_rev1_saves.c upstream/runner/desktop_sram.c)

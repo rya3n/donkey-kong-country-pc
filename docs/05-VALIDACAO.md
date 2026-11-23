@@ -95,7 +95,7 @@ Estes critérios propostos dão forma verificável à meta de PT-BR e abertura d
 | V15 | Cobertura da tradução | Inventário de textos e telas conferido contra a versão PT-BR, com exceções explicitadas |
 | V16 | Qualidade linguística e visual | Revisão em contexto, acentos corretos, texto legível e sem cortes ou estouros de caixas |
 | V17 | Regressão da tradução | Rotas, progressão, áudio e persistência continuam corretos após a localização |
-| V18 | Abertura direta | Após a preparação inicial definida, abrir o executável inicia o jogo sem terminal ou nova seleção de ROM |
+| V18 | Abertura direta | Após a preparação inicial definida, abrir o executável inicia o jogo sem terminal ou nova seleção de ROM. [Ensaio das compilações atuais](#abertura-direta-no-windows-v18) |
 | V19 | Pacote de aplicativo | Testar em ambiente Windows sem ferramentas de desenvolvimento, incluindo caminho com espaços/acentos, saves e preferências entre sessões |
 
 A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto do piloto cobre os 217 intervalos de diálogos. A apresentação do elenco, os créditos e as telas restantes seguem em revisão. [Resultado da auditoria V15](15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
@@ -105,3 +105,16 @@ Na revisão V16 da Candy, o título do menu e o mapa coincidiram entre os builds
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.
+
+## Abertura direta no Windows (V18)
+
+Em 2026-11-23, os executáveis Windows GUI x64 da Rev 1 base e do piloto PT-BR foram iniciados sem argumentos e com diretório de trabalho diferente da pasta do executável. Cada combinação de build e estrutura foi iniciada duas vezes, totalizando oito execuções. A primeira abriu o áudio, processou entre 65 e 66 quadros e encerrou normalmente. A segunda carregou um save de QA e confirmou que o arquivo de 2.048 bytes e seu backup continuaram idênticos. As pastas de teste usaram espaços e acentos.
+
+| Estrutura testada | ROM encontrada | Perfil de save |
+| --- | --- | --- |
+| Cópia da árvore de trabalho com executável em `build/` | Raiz da cópia, dois níveis acima do executável | `data/` na raiz da cópia |
+| Pasta portátil preparada | Mesmo diretório do executável | `data/` ao lado do executável |
+
+Os builds passaram nos três alvos do CTest, com 65 testes Python por configuração. A inspeção dos executáveis listou apenas bibliotecas do sistema Windows como dependências diretas. A resolução de caminhos usa a API PathCch. [Documentação da Microsoft](https://learn.microsoft.com/en-us/windows/win32/api/pathcch/nf-pathcch-pathcchremovefilespec)
+
+Os perfis e logs do ensaio ficam em `evidence/2026-11-23/v18-abertura/`. A V18 foi verificada nestas compilações locais. A abertura e o progresso precisam ser repetidos no pacote final em um Windows sem ferramentas de desenvolvimento na V19.
