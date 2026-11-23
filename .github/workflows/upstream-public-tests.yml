@@ -19,7 +19,7 @@ jobs:
       ASAN_OPTIONS: halt_on_error=1
       UBSAN_OPTIONS: halt_on_error=1
     steps:
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - name: Fetch the pinned public sources
@@ -38,7 +38,8 @@ jobs:
       - name: Prepare Python and compiler
         run: |
           python3 -m venv "$RUNNER_TEMP/upstream-tests"
-          "$RUNNER_TEMP/upstream-tests/bin/python" -m pip install --only-binary=:all: numpy==2.5.1 Pillow==12.3.0
+          "$RUNNER_TEMP/upstream-tests/bin/python" -m pip install --only-binary=:all: \
+            numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0
           "$RUNNER_TEMP/upstream-tests/bin/python" --version
           "$CC" --version
       - name: Run upstream unittest
