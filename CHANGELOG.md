@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-22 — Rota principal repetida do início ao fim
+
+- Os três replays de 254.444 quadros no piloto PT-BR tiveram as mesmas transições, imagem final, memória, áudio gerado e save. Os três perfis reabriram em Jungle Hijinxs com o mesmo save. [Validação V13](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#repetição-determinística-da-rota-principal)
+
 ## 2026-11-22 — Suíte pública do upstream repetida
 
 - Adicionado o workflow do GitHub Actions para a revisão pública fixada. Ubuntu aprovou 307 casos e registrou cinco pulos. No Windows, seis casos antes pulados passaram com LLVM MinGW e os dois erros de ligação dos testes HD foram identificados. [Resultados e logs](docs/05-VALIDACAO.md#suíte-pública-do-upstream)

@@ -893,3 +893,20 @@ O jogo atualizou automaticamente os 2.048 bytes da SRAM durante a sequência de 
 As falas amostradas do Cranky no encerramento apareceram em PT-BR durante a campanha. Os créditos falsos e os rótulos dos créditos reais apareceram em inglês. A revisão posterior identificou sete registros no bloco falso e 25 no real e registrou os critérios para preservar nomes e a brincadeira do chefe. [Revisão dos créditos](15-PT-BR.md#revisão-em-jogo-dos-créditos).
 
 Para reproduzir desde o menu, use um perfil novo e o comando da seção [Retomar em Mine Cart Carnage](#retomar-em-mine-cart-carnage) com o roteiro do final e 254.444 quadros. O SHA-256 do roteiro é `c55c1b2dba6e3f5e2539e3f5390ac56ee46e2570ccf00575e3e2f8eeac10ef26`. Para verificar a reabertura, execute o [roteiro de carregamento](../recipes/usa-rev1/cold-load.inputs) por 4.801 quadros com o mesmo diretório de save. As evidências locais ficam em `gang-plank-replay-menu-state/`, `gang-plank-replay-map-state/`, `gang-plank-postgame-reopen/` e `gang-plank-assembled/` dentro de `evidence/2026-11-10/pt-BR/campaign-start/`.
+
+## Repetição determinística da rota principal
+
+Em 2026-11-22, três processos do piloto PT-BR sem janela executaram os 254.444 quadros do [roteiro completo](../recipes/usa-rev1/campaign-to-ending-title.inputs), desde a inicialização em perfis vazios até o retorno à tela de título. Cada perfil teve sua própria pasta de saves. O teste registrou as entradas de fase e os IDs de cena quadro a quadro e comparou os estados de saída. Ambiente Windows 10 22H2, build 19045.6466, com o executável headless de SHA-256 `a53d58f9b22d00ae6975bbbdd8a3d490920b20d2b5edab32c85a99013540c059`.
+
+| Evidência coincidente nas três rodadas | SHA-256 |
+| --- | --- |
+| Sequência de entradas e cenas | `9d64f4f36fcc60ca8eea933cb09bf166bd4592c88790bafc0eb8566318c92c0e` |
+| Framebuffer final | `d46db4a861f6a6cb5668836eaa1ba7c5ae28f1fc1f1bd234b415bfe77792dd76` |
+| WRAM final | `dcc58929ec569425f49db0afe25413258c3d88921dbe2d19c37e6700c03f287d` |
+| VRAM final | `e77ba7edfc0e49cc47574a8157c3eb2ff7ec877c9d0920e81e94138675f9c263` |
+| Hash acumulado do PCM estéreo | `4eab34a4399fea9a6ebae54b696f4ccc72d5f262fd83789c33184073a080ed45` |
+| Arquivo SRAM de 2.048 bytes | `f51056fe02a631c24d6a3224322e3bb131e74e12401f49779d58e6d7be25934c` |
+
+Depois da campanha, cada perfil foi reaberto em outro processo por 4.801 quadros com [cold-load.inputs](../recipes/usa-rev1/cold-load.inputs). As três rodadas chegaram a Jungle Hijinxs (`entrance=0x0016`) e mantiveram o save e a cópia de segurança idênticos à SRAM da vitória. A SRAM coincide também com a do ensaio anterior, que exibiu 00:54 e 34% no slot 1. As imagens finais confirmaram o título e a entrada em Jungle Hijinxs.
+
+V13 foi aprovada para a rota principal automatizada no piloto sem janela. A escuta do áudio em janela e os caminhos de bônus fora do roteiro continuam na matriz V09/V14. Os 59 testes Python passaram. Logs, capturas e verificações locais em `evidence/2026-11-22/v13-campanha/`.

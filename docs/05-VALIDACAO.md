@@ -24,7 +24,7 @@ Um estado inicial pode ser boot limpo ou um snapshot identificado por hash. Não
 | V10 | Salvamento do jogo | Salvar com Candy, encerrar normalmente e recuperar em novo processo | Validado em Kongo Jungle e Gorilla Glacier. A reabertura em headless e Win32 recuperou o slot e a localização salvos |
 | V11 | Save state, se incluído no marco | Comparar continuação após load com execução contínua | Não implementado; não faz parte da entrega de SRAM |
 | V12 | Controle físico | Ações e reconexão no dispositivo disponível | Não executado |
-| V13 | Repetição determinística | Três replays com mesma entrada e hashes dos estados comparados iguais | Três execuções de 600 quadros idênticas; entrada na fase repetida; cobertura restrita |
+| V13 | Repetição determinística | Três replays com mesma entrada e hashes dos estados comparados iguais | Aprovada na rota principal do piloto sem janela. Três replays de 254.444 quadros e três reaberturas de 4.801 quadros coincidiram. [Relatório](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#repetição-determinística-da-rota-principal) |
 
 Salvar com Candy e usar save state são funcionalidades diferentes e exigem testes distintos. Um quicksave bem-sucedido não comprova persistência do progresso do cartucho.
 
