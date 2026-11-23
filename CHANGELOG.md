@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-23 — Segundo bônus de Jungle Hijinxs validado
+
+- O roteiro parou os três barris no símbolo do Rambi, coletou a ficha e voltou à fase com controle. A versão base e o piloto PT-BR coincidiram em cinco pontos, em execução sem janela. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#segunda-sala-de-bônus-de-jungle-hijinxs-v14)
+
 ## 2026-11-23 — Primeiro bônus de Jungle Hijinxs validado
 
 - Rambi abriu a primeira sala de bônus. O roteiro reproduziu a coleta de 40 bananas, uma vida extra e o retorno com controle na fase. A versão base e o piloto PT-BR coincidiram em quatro pontos de verificação. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#primeira-sala-de-bônus-de-jungle-hijinxs-v14)

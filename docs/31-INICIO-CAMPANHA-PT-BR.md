@@ -84,4 +84,20 @@ Em 2026-11-23, o [roteiro de 8.235 quadros](../recipes/usa-rev1/campaign-jungle-
 
 Quatro pontos de verificação foram repetidos nos executáveis sem janela da versão base e do piloto PT-BR. As capturas coincidiram com as do coletor, e os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os builds. O coletor partiu do menu e suas entradas coincidiram quadro a quadro com o roteiro publicado. Os 65 testes Python passaram. As evidências ficam em `evidence/2026-11-23/v14-bonus-jungle/`.
 
-Para repetir, use o comando da seção [Repetir o percurso](#repetir-o-percurso) com o roteiro de bônus, 8.235 quadros e um perfil novo. O resultado cobre a primeira sala, a recompensa e o retorno à fase. A segunda sala fica para outro ensaio da V14.
+Para repetir, use o comando da seção [Repetir o percurso](#repetir-o-percurso) com o roteiro de bônus, 8.235 quadros e um perfil novo. O resultado cobre a primeira sala, a recompensa e o retorno à fase. O percurso continua no [segundo bônus](#segunda-sala-de-bônus-de-jungle-hijinxs-v14).
+
+## Segunda sala de bônus de Jungle Hijinxs (V14)
+
+Em 2026-11-23, o [roteiro de 9.806 quadros](../recipes/usa-rev1/campaign-jungle-second-bonus.inputs) começou no menu em um perfil de QA vazio. Ele repete os 8.235 quadros do primeiro bônus e segue com Rambi até o segundo acesso.
+
+| Quadro | Resultado |
+| ---: | --- |
+| 8.235–8.531 | Diddy e Rambi recuam pela fase e avançam contra a segunda parede. A sala fica jogável com Diddy a pé, diante dos três barris giratórios (entrada `0x001a`). |
+| 8.590–8.849 | Diddy salta sob cada barril. Os três param no símbolo do Rambi. |
+| 8.969–9.272 | A ficha dourada do Rambi aparece. Diddy se aproxima e comemora a coleta. |
+| 9.435–9.767 | O jogo seleciona a entrada `0x006e`. Diddy retorna montado em Rambi à fase principal, com quatro vidas e 70 bananas. |
+| 9.791–9.806 | A dupla responde ao direcional direito, e a câmera avança de 4.252 para 4.300. |
+
+A versão base e o piloto PT-BR repetiram os mesmos quadros do coletor em cinco pontos, incluindo os três barris combinados, a ficha, a coleta e a fase após o retorno. Os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os builds nesses pontos. As entradas do coletor coincidiram quadro a quadro com o roteiro publicado. Os 65 testes Python passaram. As evidências ficam em `evidence/2026-11-23/v14-bonus-jungle2/`.
+
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 9.806 quadros e um perfil novo para cada execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. O teste cobre os dois bônus de Jungle Hijinxs em um jogador e em execução sem janela. Os bônus das outras fases e a escuta em janela continuam em V14.
