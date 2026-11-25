@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-25 — Roteiro do terceiro bônus de Reptile Rumble publicado
+
+- O roteiro confirmou a parede aberta com um barril, a coleta das 35 bananas com o pneu móvel, a recuperação pelo pneu fixo e o retorno com controle na caverna. A versão base e o piloto PT-BR coincidiram nos cinco pontos comparados em execução sem janela. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#terceiro-bônus-de-reptile-rumble-v14)
+
 ## 2026-11-23 — Sala dos canhões de Reptile Rumble validada
 
 - O roteiro confirmou os nove canhões da sequência automática, a coleta de 38 bananas com uma vida extra e o retorno com controle na caverna. A versão base e o piloto PT-BR coincidiram nos quatro pontos comparados em execução sem janela. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#sala-dos-canhões-de-reptile-rumble-v14)

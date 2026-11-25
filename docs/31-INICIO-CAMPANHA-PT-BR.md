@@ -148,4 +148,21 @@ Em 2026-11-23, o [roteiro de 16.939 quadros](../recipes/usa-rev1/campaign-reptil
 
 Os executáveis sem janela da versão base e do piloto PT-BR coincidiram em quatro quadros. Foram comparados o canhão de entrada, a sequência em andamento, a recompensa e o retorno à fase. Em cada ponto, as capturas coincidiram com as do coletor e os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os dois executáveis. O coletor começou no menu e as entradas gravadas coincidiram com o roteiro quadro a quadro. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-23/v14-bonus-reptile2/`.
 
-Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 16.939 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. O terceiro bônus de Reptile Rumble é o próximo ensaio da V14. A escuta com o jogo em janela segue em V09/V14.
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 16.939 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. A cobertura de Reptile Rumble continua no [terceiro bônus](#terceiro-bônus-de-reptile-rumble-v14).
+
+## Terceiro bônus de Reptile Rumble (V14)
+
+Em 2026-11-23, o [roteiro de 19.117 quadros](../recipes/usa-rev1/campaign-reptile-third-bonus.inputs) partiu do menu com um perfil vazio e repetiu os dois primeiros bônus. No trecho seguinte da caverna, Donkey sofre um golpe de Zinger. Diddy assume e segue com as cinco vidas preservadas.
+
+| Quadro | Resultado |
+| ---: | --- |
+| 17.841–17.945 | Após passar pela letra N, Diddy pega o barril no alto. O barril atinge os dois Slippas e abre a parede à direita. |
+| 17.998–18.223 | A sala `0x0004` carrega com 41 bananas. Diddy salta para o pneu da plataforma móvel. |
+| 18.470–18.540 | Os primeiros saltos recolhem bananas em diferentes alturas. Diddy desce ao piso e alcança o pneu fixo à esquerda com 65 bananas. |
+| 18.575–18.623 | O pneu fixo devolve Diddy à plataforma móvel. A coleta prossegue e o contador chega a 69 bananas. |
+| 18.764 | O contador chega a 76, 35 bananas a mais que na entrada da sala. |
+| 19.093–19.117 | Diddy volta à caverna pela entrada `0x000b`, com cinco vidas e 76 bananas. O comando à esquerda move Diddy de 4.918 para 4.893. |
+
+A versão base e o piloto PT-BR coincidiram em cinco pontos em execução sem janela. Os pontos cobrem a parede, o pneu móvel, a recuperação a partir do pneu fixo, a coleta e o retorno. As capturas coincidiram com as do coletor iniciado no menu. Os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os builds nesses pontos. Os comandos do coletor corresponderam ao roteiro quadro a quadro. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-23/v14-bonus-reptile3/`.
+
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 19.117 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. As três salas de Reptile Rumble estão verificadas. A cobertura de bônus da V14 segue em Barrel Cannon Canyon. A escuta com o jogo em janela continua pendente em V09/V14.
