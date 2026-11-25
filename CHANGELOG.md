@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-25 — Primeiro bônus de Barrel Cannon Canyon testado
+
+- O roteiro confirma o disparo contra a parede, a travessia dos seis canhões, a coleta de 14 bananas e uma vida extra e o retorno jogável à fase. O piloto PT-BR passou desde o menu. As duas compilações de QA coincidiram em 11 capturas a partir do mesmo estado na fase. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#primeiro-bônus-de-barrel-cannon-canyon-v14)
+
 ## 2026-11-25 — Roteiro do terceiro bônus de Reptile Rumble publicado
 
 - O roteiro confirmou a parede aberta com um barril, a coleta das 35 bananas com o pneu móvel, a recuperação pelo pneu fixo e o retorno com controle na caverna. A versão base e o piloto PT-BR coincidiram nos cinco pontos comparados em execução sem janela. [Resultados e roteiro](docs/31-INICIO-CAMPANHA-PT-BR.md#terceiro-bônus-de-reptile-rumble-v14)

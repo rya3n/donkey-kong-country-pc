@@ -165,4 +165,22 @@ Em 2026-11-23, o [roteiro de 19.117 quadros](../recipes/usa-rev1/campaign-reptil
 
 A versão base e o piloto PT-BR coincidiram em cinco pontos em execução sem janela. Os pontos cobrem a parede, o pneu móvel, a recuperação a partir do pneu fixo, a coleta e o retorno. As capturas coincidiram com as do coletor iniciado no menu. Os hashes de imagem, WRAM, SRAM e áudio acumulado coincidiram entre os builds nesses pontos. Os comandos do coletor corresponderam ao roteiro quadro a quadro. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-23/v14-bonus-reptile3/`.
 
-Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 19.117 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. As três salas de Reptile Rumble estão verificadas. A cobertura de bônus da V14 segue em Barrel Cannon Canyon. A escuta com o jogo em janela continua pendente em V09/V14.
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 19.117 quadros e um perfil novo por execução. Use `build/usa-rev1/dkc_rev1_headless.exe` para a versão base. As três salas de Reptile Rumble estão verificadas. A cobertura da V14 continua no [primeiro bônus de Barrel Cannon Canyon](#primeiro-bônus-de-barrel-cannon-canyon-v14).
+
+## Primeiro bônus de Barrel Cannon Canyon (V14)
+
+Em 2026-11-25, o [roteiro de 28.057 quadros](../recipes/usa-rev1/campaign-canyon-first-bonus.inputs) partiu do menu no piloto PT-BR com um perfil vazio. Depois de Coral Capers, o roteiro passa pelo ponto de Funky's Flights no mapa e segue direto até Barrel Cannon Canyon.
+
+| Quadro | Resultado |
+| ---: | --- |
+| 27.204–27.236 | Diddy sai do canhão perto da letra O, passa abaixo do canhão móvel e quebra a parede. |
+| 27.439 | A sala `0x0046` está jogável com quatro vidas e 21 bananas. |
+| 27.493–27.656 | Diddy passa pelos seis canhões. No trajeto para o sexto, recolhe o balão e o total sobe para cinco vidas. |
+| 27.714 | Diddy pousa na plataforma de saída com 35 bananas, 14 a mais que na chegada à sala. |
+| 28.029–28.057 | Diddy volta à fase pela entrada `0x0076`, com cinco vidas e 35 bananas. O direcional direito desloca Diddy de 30.448 para 30.481. |
+
+O piloto PT-BR repetiu o roteiro integral com o executável sem janela e coincidiu com o coletor antes do desvio, no sexto canhão e no retorno. As entradas do coletor corresponderam ao roteiro quadro a quadro. O executável sem janela da versão base ficou em Reptile Rumble (`0x0001`), perto do primeiro pneu. No quadro 27.130, Donkey estava em X 2.111 e Y 143.
+
+Um ensaio isolado restaurou o mesmo estado do coletor nas duas compilações de QA antes do desvio, no quadro 27.130. Os 927 quadros restantes confirmaram a entrada, as recompensas e o retorno. As 11 capturas coincidiram com o roteiro integral do piloto. Os 65 testes Python passaram. Evidências locais em `evidence/2026-11-25/v14-bonus-canyon1/`.
+
+Para repetir, use o [comando de replay](#repetir-o-percurso) com o roteiro acima, 28.057 quadros e um perfil novo por execução. O roteiro integral foi confirmado com `build/ptbr-pilot/dkc_rev1_headless.exe`. Para repetir desde o menu na base, falta ajustar o salto do primeiro pneu em Reptile Rumble. A sala do barril de TNT é a próxima cobertura de bônus da V14. A escuta com o jogo em janela permanece pendente em V09/V14.
