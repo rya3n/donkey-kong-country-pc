@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-25 — Sala do TNT de Barrel Cannon Canyon validada
+
+- A versão base e o piloto PT-BR repetiram os dois bônus da fase desde o menu. O disparo pelo centro da segunda sala rendeu dez bananas e uma vida extra, com retorno ao controle. Ensaios a partir do canhão confirmaram a ficha do Enguarde à esquerda e 20 bananas à direita. [Resultados e roteiros](docs/31-INICIO-CAMPANHA-PT-BR.md#segundo-bônus-de-barrel-cannon-canyon-v14)
+
 ## 2026-11-25 — Primeiro bônus de Barrel Cannon Canyon confirmado desde o menu na base
 
 - O roteiro da versão base passa pelos três bônus de Reptile Rumble, conclui Coral Capers e confirma a parede quebrada, os seis canhões, a coleta de 14 bananas e uma vida e o retorno com controle à fase. [Resultados e roteiros](docs/31-INICIO-CAMPANHA-PT-BR.md#primeiro-bônus-de-barrel-cannon-canyon-v14)

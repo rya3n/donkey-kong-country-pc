@@ -198,4 +198,22 @@ O [roteiro da base](../recipes/usa-rev1/campaign-canyon-first-bonus-base.inputs)
 
 A versão base e o piloto completaram a sala desde o menu em perfis vazios, cada um com seu roteiro. Ambos recolheram 14 bananas e uma vida na sala. Na base, o coletor e o executável sem janela coincidiram no quadro final. Os 65 testes Python e os três alvos do CTest da base passaram. Evidências locais da execução da base em `evidence/2026-11-25/v14-base-canyon1/`.
 
-Para repetir, use o [comando de replay](#repetir-o-percurso) com 30.920 quadros e `build/usa-rev1/dkc_rev1_headless.exe` para o roteiro da base. Para o roteiro do piloto, use 28.057 quadros e `build/ptbr-pilot/dkc_rev1_headless.exe`. Use um perfil novo por execução. A sala do barril de TNT é a próxima cobertura de bônus da V14. A escuta com o jogo em janela permanece pendente em V09/V14.
+Para repetir, use o [comando de replay](#repetir-o-percurso) com 30.920 quadros e `build/usa-rev1/dkc_rev1_headless.exe` para o roteiro da base. Para o roteiro do piloto, use 28.057 quadros e `build/ptbr-pilot/dkc_rev1_headless.exe`. Use um perfil novo por execução. O percurso continua na [sala do barril de TNT](#segundo-bônus-de-barrel-cannon-canyon-v14).
+
+## Segundo bônus de Barrel Cannon Canyon (V14)
+
+Em 2026-11-25, a [versão base](../recipes/usa-rev1/campaign-canyon-tnt-bonus-base.inputs) e o [piloto PT-BR](../recipes/usa-rev1/campaign-canyon-tnt-bonus.inputs) partiram do menu com perfis vazios. Os dois roteiros usam a mesma sequência de 1.008 quadros a partir do retorno do primeiro bônus. Diddy recolhe o TNT, salta com o barril por cima do Kritter e o arremessa contra a parede no fundo da próxima depressão.
+
+| Versão base | Piloto PT-BR | Resultado |
+| ---: | ---: | --- |
+| 31.105 | 28.242 | Diddy carrega o TNT. |
+| 31.264–31.299 | 28.401–28.436 | Diddy chega à parede e arremessa o TNT. |
+| 31.340 | 28.477 | Começa a transição para a sala `0x005D`. |
+| 31.507–31.556 | 28.644–28.693 | Diddy dispara pelo centro com o canhão móvel e recolhe o balão. |
+| 31.888–31.928 | 29.025–29.065 | A queda abaixo do canhão devolve Diddy à fase pela entrada `0x0077`. O direcional direito desloca Diddy de X 31.335 para 31.359. |
+
+A rota pelo centro rendeu dez bananas e uma vida extra em cada versão. A base acabou com nove vidas e 33 bananas, e o piloto com seis vidas e 45 bananas. Em ensaios separados que partiram do canhão, o disparo à esquerda pegou a ficha do Enguarde e dez bananas. O disparo à direita rendeu 20 bananas. Os dois ensaios também voltaram pela entrada `0x0077` nas duas versões.
+
+Para repetir, use o [comando de replay](#repetir-o-percurso) com 31.928 quadros na base ou 29.065 no piloto e um perfil vazio para cada execução. Para testar os outros disparos a partir do quadro do canhão (31.507 na base ou 28.644 no piloto), aguarde 32 quadros para o disparo à esquerda ou 133 para o disparo à direita. Pressione B por um quadro e aguarde 243 quadros até a volta.
+
+A imagem final do coletor coincidiu com a do executável sem janela de cada versão. Os 65 testes Python e os três alvos CTest de cada compilação passaram. Evidências locais em `evidence/2026-11-25/v14-canyon-tnt/`. A escuta com o jogo em janela permanece pendente em V09/V14.
