@@ -96,7 +96,15 @@ Em 2026-11-26, o piloto passou a exibir **Kréditos**, cinco funções em portug
 
 Dois processos com perfis isolados retomaram o mesmo estado de QA antes do sétimo golpe, no quadro 228.020, e executaram até o quadro 254.444 do [roteiro de encerramento](../recipes/usa-rev1/campaign-to-ending-title.inputs). Em 29 pontos comparados, os 15 quadros com diferença visual ficaram na rolagem dos créditos falsos. A inspeção confirmou os sete registros em português e a posição dos nomes nas cinco atribuições.
 
-King K. Rool retomou a luta no quadro 229.811, e o roteiro confirmou os três golpes restantes e o retorno ao título. O buffer de sprites ainda continha 22 bytes diferentes no quadro de retomada. A imagem coincidiu a partir desse ponto, e toda a WRAM voltou a coincidir nos pontos amostrados a partir de 250.844. O save final de 2.048 bytes foi idêntico nos dois perfis. Os 66 testes Python e os três alvos do CTest de cada compilação passaram. As evidências ficam em `evidence/2026-11-26/v16-credits-navio/`. Os 25 registros dos créditos reais e os 47 do elenco seguem na revisão V15–V16.
+King K. Rool retomou a luta no quadro 229.811, e o roteiro confirmou os três golpes restantes e o retorno ao título. O buffer de sprites ainda continha 22 bytes diferentes no quadro de retomada. A imagem coincidiu a partir desse ponto, e toda a WRAM voltou a coincidir nos pontos amostrados a partir de 250.844. O save final de 2.048 bytes foi idêntico nos dois perfis. Os 66 testes Python e os três alvos do CTest de cada compilação passaram. As evidências ficam em `evidence/2026-11-26/v16-credits-navio/`.
+
+### Créditos reais em PT-BR
+
+Em 2026-11-26, o piloto recebeu o título **Créditos** e os rótulos de 24 grupos. O gerador conserva a ordem e todos os bytes das linhas de atribuição de cada grupo. O bloco continua com 886 bytes, incluindo os separadores originais, e os limites do roteiro de rolagem permanecem nos mesmos endereços. A fonte reaproveita o **ç** original e ganhou um **ã** em uma célula vazia.
+
+Dois processos Windows sem janela retomaram o mesmo estado isolado no décimo golpe de King K. Rool, no quadro 231.354, e repetiram o [roteiro de encerramento](../recipes/usa-rev1/campaign-to-ending-title.inputs) até 254.444. Os 25 rótulos apareceram completos no buffer de sprites. As 248 aparições de linhas de atribuição amostradas preservaram os caracteres e as posições. As capturas confirmaram o desenho dos acentos e o encaixe do texto na cena.
+
+Dos 69 pontos comparados, os 57 quadros com diferença visual ficaram na rolagem dos créditos reais. As imagens e os indicadores de jogo coincidiram na volta ao título. Nessa tela, a diferença de WRAM ficou na faixa do buffer de sprites nos quadros 251.294 e 254.444. Os saves finais de 2.048 bytes foram idênticos. Os 67 testes Python, os três alvos do CTest de cada compilação e os três pontos da regressão de boot passaram. As evidências ficam em `evidence/2026-11-26/v16-creditos-reais/`. A próxima revisão da V15–V16 abrange os 47 registros do elenco.
 
 ## Auditoria de cobertura do piloto (V15)
 

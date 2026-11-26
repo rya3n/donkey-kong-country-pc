@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-26 — Créditos reais em PT-BR
+
+- Traduzidos o cabeçalho e as funções dos 25 registros finais. A rolagem exibiu os acentos e preservou as atribuições originais. O ensaio confirmou o retorno ao título e o mesmo save final. [Resultados](docs/15-PT-BR.md#créditos-reais-em-pt-br)
+
 ## 2026-11-26 — Créditos do navio em PT-BR
 
 - Os sete registros da sequência falsa foram localizados com a grafia de brincadeira e os nomes na coluna original. O teste confirmou a volta da luta, o retorno ao título e o mesmo save final. [Resultados](docs/15-PT-BR.md#créditos-do-navio-em-pt-br)
