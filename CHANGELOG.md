@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-26 — Título do menu da Candy em PT-BR
+
+- O piloto exibe **SALVAR COM A CANDY** acima dos slots e mantém **Candy's Save Point** no mapa. A comparação visual, a gravação do save e a reabertura em um novo processo passaram. [Resultados da validação](docs/15-PT-BR.md#título-integrado-no-piloto)
+
 ## 2026-11-26 — Áudio em janela verificado em Reptile Rumble
 
 - A base e o piloto PT-BR tiveram sinal nas 2.076 leituras da sessão do jogo. O usuário ouviu o teste sem cortes durante o movimento. Duas passagens pela transição repetiram as pausas esperadas. A interrupção antiga de 1,49 s segue em investigação. [Resultados e cobertura](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#áudio-em-janela-na-caverna)

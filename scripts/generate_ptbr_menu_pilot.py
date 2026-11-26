@@ -46,6 +46,50 @@ def encode_tile(pixels: list[list[int]]) -> bytes:
     return bytes(out)
 
 
+def write_glyph(graphics: bytearray, tiles: tuple[int, int], pixels: list[list[int]]) -> None:
+    for tile, rows in zip(tiles, (pixels[:8], pixels[8:])):
+        graphics[tile*32:tile*32+32] = encode_tile(rows)
+
+
+def make_candy_title(
+    rom: bytes, spec: dict, font_offset: int, graphics: bytearray, file_tiles: set[int]
+) -> tuple[int, bytes]:
+    if rom[0xf7a9:0xf7b2] != bytes.fromhex("a2 f1 00 a9 87 c8 a0 00 01"):
+        raise ValueError("Rev 1 Candy title DMA pointer guard failed")
+    start, size = int(spec["tilemap"], 16), int(spec["tilemap_size"], 16)
+    cells = struct.unpack_from(f"<{size//2}H", rom, start)
+    icons = int(spec["slot_icons"], 16)
+    # The slot portraits upload low bytes of tile indices into the shared map.
+    protected = file_tiles | set(rom[icons:icons+int(spec["slot_icons_size"], 16)])
+    title_tiles = {cell & 1023 for cell in cells}
+    available = sorted((title_tiles - protected) & set(range(1, min(256, len(graphics)//32))))
+    text = spec["text"]
+    y = spec["y"]
+    if not text.strip() or len(text) > 32 or y < 0 or (y+2)*32 > len(cells):
+        raise ValueError("Candy title exceeds its tilemap")
+    characters = sorted(set(text) - {" "})
+    if len(characters)*2 > len(available):
+        raise ValueError("Not enough exclusive Candy title tiles")
+    if any(graphics[:32]):
+        raise ValueError("Candy title requires a transparent tile zero")
+
+    mappings = {}
+    for index, character in enumerate(characters):
+        top, bottom = available[2*index:2*index+2]
+        mappings[character] = top, bottom
+        write_glyph(graphics, (top, bottom), glyph(rom, font_offset, character))
+
+    title_map = [0] * len(cells)
+    x = (32-len(text))//2
+    palette = spec["palette"] << 10
+    for index, character in enumerate(text):
+        if character != " ":
+            top, bottom = mappings[character]
+            title_map[y*32+x+index] = top | palette
+            title_map[(y+1)*32+x+index] = bottom | palette
+    return start, struct.pack(f"<{len(title_map)}H", *title_map)
+
+
 def make_patch(rom: bytes, config: dict) -> tuple[list[tuple[int, bytes]], dict]:
     changes = []
     summary = {}
@@ -60,7 +104,8 @@ def make_patch(rom: bytes, config: dict) -> tuple[list[tuple[int, bytes]], dict]
         spec = config[screen]
         tm_start, gfx_start = int(spec["tilemap"],16), int(spec["graphics"],16)
         tm_size, gfx_size = int(spec["tilemap_size"],16), int(spec["graphics_size"],16)
-        tilemap = list(struct.unpack_from(f"<{tm_size//2}H", rom, tm_start))
+        original_tilemap = struct.unpack_from(f"<{tm_size//2}H", rom, tm_start)
+        tilemap = list(original_tilemap)
         graphics = bytearray(rom[gfx_start:gfx_start+gfx_size])
         if screen == "player_select":
             # The left side contains the Kongs. Reuse only text tiles not referenced there.
@@ -80,9 +125,7 @@ def make_patch(rom: bytes, config: dict) -> tuple[list[tuple[int, bytes]], dict]
         for character in characters:
             top, bottom = available[:2]; del available[:2]
             mapping[character] = top, bottom
-            pixels = glyph(rom, font_offset, character)
-            for index, rows in ((top, pixels[:8]), (bottom, pixels[8:])):
-                graphics[index*32:index*32+32] = encode_tile(rows)
+            write_glyph(graphics, (top, bottom), glyph(rom, font_offset, character))
         for label in spec["labels"]:
             if "clear_width" in label:
                 for y in range(label["y"], label["y"]+2):
@@ -96,6 +139,14 @@ def make_patch(rom: bytes, config: dict) -> tuple[list[tuple[int, bytes]], dict]
                     top, bottom = mapping[character]
                     tilemap[y*32+x+i] = top | label["palette"] << 10
                     tilemap[(y+1)*32+x+i] = bottom | label["palette"] << 10
+        if screen == "file_select":
+            candy_title = config["candy_save_title"]
+            file_tiles = {word & 1023 for words in (original_tilemap, tilemap) for word in words}
+            start, data = make_candy_title(rom, candy_title, font_offset, graphics, file_tiles)
+            changes.append((start, data))
+            summary["candy_save_title"] = {
+                "labels": 1, "changed_tilemap_bytes": sum(a != b for a, b in zip(rom[start:start+len(data)], data)),
+            }
         changes.extend(((tm_start, struct.pack(f"<{len(tilemap)}H", *tilemap)), (gfx_start, bytes(graphics))))
         summary[screen] = {"glyphs": len(characters), "labels": len(spec["labels"]),
                            "changed_tilemap_bytes": sum(a != b for a,b in zip(rom[tm_start:tm_start+tm_size], changes[-2][1])),
@@ -153,7 +204,7 @@ def main() -> int:
     header_text="\n".join(header)
     if not header_path.exists() or header_path.read_text(encoding="utf-8")!=header_text:
         header_path.write_text(header_text,encoding="utf-8")
-    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics and the English dialogue inventory for Candy, Funky and Cranky, including the stage hints",
+    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics including the Candy save title and the dialogue inventory for Candy, Funky and Cranky",
               "screens":summary,"candy":candy_summary,"funky":funky_summary,"cranky":cranky_summary,
               "cranky_tips":tips_summary,"patchset_sha256":patchset,
               "regions":[{"offset":f"0x{offset:06X}","bytes":len(data),"after_sha256":hashlib.sha256(data).hexdigest()}

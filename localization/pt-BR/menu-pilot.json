@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "rom_profile": "usa-rev1",
-  "scope": "file selection and player-mode selection only; experimental",
+  "scope": "file selection, player-mode selection and the Candy save menu title; experimental",
   "glyph_source": {"offset": "0x3887B2", "format": "4bpp 8x8 tiles, ASCII 0x21..0x5F; pilot scales height to 16 pixels"},
   "file_select": {
     "tilemap": "0x31C2C7", "tilemap_size": "0x5C0", "tilemap_screen_y": 3,
@@ -11,6 +11,15 @@
       {"id": "file_select_title", "text": "SELEÇÃO DE JOGO", "x": 9, "y": 0, "palette": 7, "clear_x": 4, "clear_width": 24},
       {"id": "erase_game", "text": "APAGAR JOGO", "x": 4, "y": 20, "palette": 6, "clear_x": 4, "clear_width": 11}
     ]
+  },
+  "candy_save_title": {
+    "tilemap": "0x31C887",
+    "tilemap_size": "0x100",
+    "slot_icons": "0x31EA67",
+    "slot_icons_size": "0x78",
+    "text": "SALVAR COM A CANDY",
+    "y": 1,
+    "palette": 7
   },
   "player_select": {
     "tilemap": "0x2F86BE", "tilemap_size": "0x700", "tilemap_screen_y": 0,

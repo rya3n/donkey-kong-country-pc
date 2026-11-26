@@ -17,6 +17,9 @@ O piloto usa data/usa-rev1-ptbr-pilot/saves/ para progresso próprio. Não carre
 | Um jogador | 1 JOGADOR |
 | Competição | 2 JOGADORES / COMPETIÇÃO |
 | Equipe | 2 JOGADORES / EQUIPE |
+| Título interno do menu de salvamento | SALVAR COM A CANDY |
+
+Em 2026-11-26, o piloto recebeu o título da Candy com uma sexta região de interface. O título usa um tilemap próprio e reaproveita tiles exclusivos nos gráficos da seleção de arquivo. A validação conferiu os slots, a volta ao mapa e a reabertura do save. [Resultado da integração](15-PT-BR.md#título-integrado-no-piloto)
 
 As opções mantêm suas ações originais. O piloto não acrescenta um seletor de idioma: a arte contém um rótulo de idioma não exposto nessa tela da USA Rev 1, e desenhá-lo como opção nova seria enganoso. Apagar continua sendo uma ação destrutiva do jogo; não é necessário apagar um arquivo para avaliar o texto.
 
@@ -26,11 +29,12 @@ Os textos desses menus são gráficos em tiles de 4 bits por pixel. A fonte reap
 
 A fonte original é de 8×8 pixels; o piloto usa células de 8×16, com ajuste de altura para os acentos. Isso é uma primeira solução legível, não a tipografia final. A camada de brilho que continha as palavras em inglês foi removida da tela de jogadores; a seleção continua indicada pelas cores e pelo comportamento do jogo. Os desenhos dos Kongs são preservados.
 
-O gerador produz um cabeçalho privado com cinco regiões de gráficos/tilemaps. A compilação experimental verifica a ROM original, valida o hash de cada região e aplica os dados somente à cópia em memória antes de inicializar o runtime. Não escreve na ROM do disco, não muda o cabeçalho de identificação e não altera código executável do cartucho ou unidades AOT geradas. Nomes, textos de mapa, elenco, créditos e falas ficam intactos.
+O gerador produz um cabeçalho privado com seis regiões de gráficos e tilemaps de interface no piloto atual. A compilação experimental verifica a ROM original, valida o hash de cada região e aplica os dados de interface à cópia em memória antes de inicializar o runtime.
 
 | Dados em memória | Intervalo de arquivo, fim exclusivo |
 | --- | --- |
 | Seleção de arquivo: mapa | 0x31C2C7–0x31C887 |
+| Menu de salvamento da Candy: título | 0x31C887–0x31C987 |
 | Seleção de arquivo: gráficos | 0x31C987–0x31EA67 |
 | Seleção de jogadores: mapa | 0x2F86BE–0x2F8DBE |
 | Seleção de jogadores: gráficos | 0x2F8DBE–0x2FB29E |

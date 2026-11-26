@@ -138,3 +138,11 @@ Em 2026-11-23, duas rodadas produziram os mesmos resultados por build:
 A cadeia digital de áudio coincidiu até o quadro 4.800 e divergiu até 4.936 após a confirmação do slot. O número de quadros com áudio ativo foi igual. A causa e o efeito audível ficam para a regressão V17. A revisão confirmou o título em inglês no build atual. A troca do rótulo em jogo e a conferência do novo desenho continuam na V16. Os 62 testes Python passaram. Evidências locais em `evidence/2026-11-23/v16-candy-ui/`.
 
 A V17 localizou a primeira diferença entre os quadros 4.832 e 4.835 e mediu o deslocamento na volta ao mapa. [Comparação quadro a quadro](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17).
+
+### Título integrado no piloto
+
+Em 2026-11-26, o piloto passou a exibir **SALVAR COM A CANDY** acima dos slots. O gerador usa a fonte do piloto e os tiles exclusivos do título. O mapa da Candy recebe sua própria faixa de tiles em `0x31C887–0x31C987`. Os glifos ficam nos gráficos compartilhados com a seleção de arquivo, fora dos tiles usados pelos retratos dos slots e pelo menu de seleção. **Candy's Save Point** permanece com o nome original no mapa.
+
+No quadro 4.800, os 1.594 pixels diferentes ficaram na faixa do título. A leitura da captura confirmou o texto inteiro acima dos slots. A WRAM, a SRAM e a cadeia de áudio coincidiram com as do piloto anterior na fala, no menu e na volta ao mapa. As capturas da seleção de arquivo e dos modos de jogo foram idênticas às do piloto anterior. A versão base e o novo piloto gravaram o mesmo save de 2.048 bytes.
+
+O teste de persistência confirmou o save e a reabertura a frio em processos novos no executável Windows e no runner sem janela. Os 65 testes Python e os três alvos do CTest de cada compilação passaram. As evidências ficam em `evidence/2026-11-26/v16-candy-title/`. A revisão de elenco e créditos continua em V15–V16.

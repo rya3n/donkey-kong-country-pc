@@ -100,7 +100,7 @@ Estes critérios propostos dão forma verificável à meta de PT-BR e abertura d
 
 A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto do piloto cobre os 217 intervalos de diálogos. A apresentação do elenco, os créditos e as telas restantes seguem em revisão. [Resultado da auditoria V15](15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
 
-Na revisão V16 da Candy, o título do menu e o mapa coincidiram entre os builds, e a fala mostrou as diferenças esperadas na faixa de diálogo. Os saves também coincidiram. A diferença digital de áudio após confirmar o slot ficou reproduzida para investigação na V17. [Teste e limites](15-PT-BR.md#título-do-menu-de-salvamento-da-candy-v16)
+Na V16, o título **SALVAR COM A CANDY** passou na revisão em tela. O teste confirmou que a alteração visual ficou na faixa do título, que a volta ao mapa e os saves coincidiram e que a reabertura a frio funcionou. A diferença digital de áudio da V17 após confirmar o slot ficou igual à medida no piloto anterior. [Teste e limites](15-PT-BR.md#título-integrado-no-piloto)
 
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 

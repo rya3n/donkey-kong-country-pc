@@ -90,9 +90,9 @@ def main() -> int:
         ):
             raise AssertionError("Expected the localized dialogue to change inside its text band")
         if checkpoint == "save_menu":
-            comparison["changed_pixels_in_title_band"] = sum(
-                pixel // 256 in TITLE_ROWS for pixel in changed_pixels
-            )
+            if not changed_pixels or any(pixel // 256 not in TITLE_ROWS for pixel in changed_pixels):
+                raise AssertionError("Expected the localized title to change inside its title band")
+            comparison["changed_pixels_in_title_band"] = len(changed_pixels)
         if checkpoint == "map":
             if changed_pixels:
                 raise AssertionError("The map changed between builds")
