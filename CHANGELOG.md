@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-26 — Áudio em janela verificado em Reptile Rumble
+
+- A base e o piloto PT-BR tiveram sinal nas 2.076 leituras da sessão do jogo. O usuário ouviu o teste sem cortes durante o movimento. Duas passagens pela transição repetiram as pausas esperadas. A interrupção antiga de 1,49 s segue em investigação. [Resultados e cobertura](docs/32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#áudio-em-janela-na-caverna)
+
 ## 2026-11-25 — Sala do TNT de Barrel Cannon Canyon validada
 
 - A versão base e o piloto PT-BR repetiram os dois bônus da fase desde o menu. O disparo pelo centro da segunda sala rendeu dez bananas e uma vida extra, com retorno ao controle. Ensaios a partir do canhão confirmaram a ficha do Enguarde à esquerda e 20 bananas à direita. [Resultados e roteiros](docs/31-INICIO-CAMPANHA-PT-BR.md#segundo-bônus-de-barrel-cannon-canyon-v14)

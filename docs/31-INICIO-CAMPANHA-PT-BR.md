@@ -216,4 +216,4 @@ A rota pelo centro rendeu dez bananas e uma vida extra em cada versão. A base a
 
 Para repetir, use o [comando de replay](#repetir-o-percurso) com 31.928 quadros na base ou 29.065 no piloto e um perfil vazio para cada execução. Para testar os outros disparos a partir do quadro do canhão (31.507 na base ou 28.644 no piloto), aguarde 32 quadros para o disparo à esquerda ou 133 para o disparo à direita. Pressione B por um quadro e aguarde 243 quadros até a volta.
 
-A imagem final do coletor coincidiu com a do executável sem janela de cada versão. Os 65 testes Python e os três alvos CTest de cada compilação passaram. Evidências locais em `evidence/2026-11-25/v14-canyon-tnt/`. A escuta com o jogo em janela permanece pendente em V09/V14.
+A imagem final do coletor coincidiu com a do executável sem janela de cada versão. Os 65 testes Python e os três alvos CTest de cada compilação passaram. Evidências locais em `evidence/2026-11-25/v14-canyon-tnt/`. A [verificação de áudio em janela](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#áudio-em-janela-na-caverna) cobriu Reptile Rumble na V09/V14.

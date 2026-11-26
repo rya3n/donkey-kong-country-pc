@@ -108,6 +108,23 @@ Os dois replays recuperaram as pausas do PCM nos quadros 14.454–14.493 e 14.98
 
 Os 59 testes Python e os dois alvos do CTest passaram na configuração base e no piloto. As evidências locais do diagnóstico estão em `evidence/2026-11-22/diagnostico-caverna/`. A segunda tentativa instrumentada foi interrompida na preparação. As duas passagens completas estão em `trace-1-transition/` e `trace-3-transition/`.
 
+### Áudio em janela na caverna
+
+Em 2026-11-26, os executáveis do jogador na versão base USA Rev 1 e no piloto PT-BR foram testados no Windows 10 22H2 com a janela visível. O atalho `--caverna` preparou Reptile Rumble com o salvamento desabilitado. Cada execução recebeu 17 segundos de comandos de movimento e salto. O teste mediu o pico estéreo da sessão do jogo e o pico agregado da saída de áudio usada por essa sessão.
+
+| Executável | Leituras com sinal do jogo | Leituras com sinal na saída do Windows | Maior intervalo entre apresentações |
+| --- | ---: | ---: | ---: |
+| Versão base | 1.036 de 1.036 | 1.036 de 1.036 | 33,94 ms |
+| Piloto PT-BR | 1.040 de 1.040 | 1.040 de 1.040 | 41,72 ms |
+
+O usuário ouviu o teste em janela e relatou som sem cortes durante o movimento em Reptile Rumble.
+
+O host de QA do piloto também repetiu duas vezes a passagem da despedida do Cranky até a caverna, nos quadros 14.401–15.850 do roteiro da campanha. Os estados de cena, a imagem final e a WRAM coincidiram com a referência sem janela. O medidor registrou dois períodos de silêncio em cada rodada, correspondentes aos trechos sem amostras PCM ativas nos quadros 14.454–14.493 e 14.988–15.037. O maior intervalo entre apresentações foi de 40,85 ms e 36,11 ms. No quadro 15.740, o intervalo medido foi de 16,93 ms e 16,37 ms.
+
+Na segunda passagem, a saída do Windows apresentou sinal nas 1.520 leituras. A sessão do jogo registrou 87 leituras silenciosas nas duas pausas da transição. Outra sessão também apresentou sinal na mesma saída. A análise da continuidade usou o medidor da sessão do jogo. [Medidores de pico do Windows](https://learn.microsoft.com/en-us/windows/win32/coreaudio/peak-meters)
+
+A V09 passou para os trechos testados em janela. A interrupção de 1,49 s permaneceu restrita ao ensaio original e o DKC-BUG-5 segue em investigação. Os 65 testes Python e os três alvos do CTest de cada compilação passaram. As evidências locais estão em `evidence/2026-11-26/audio-janela/`.
+
 ## Progressão pelo mapa
 
 | Quadro | Cenário | Resultado |
