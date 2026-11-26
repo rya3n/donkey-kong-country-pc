@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import struct
 from generate_ptbr_candy_pilot import make_candy_patch
+from generate_ptbr_cast import make_cast_patches
 from generate_ptbr_funky_pilot import make_funky_patch
 from generate_ptbr_cranky_pilot import make_cranky_patch, make_cranky_tips_patch
 from generate_ptbr_ship_credits import make_ship_credits_patch
@@ -183,6 +184,8 @@ def main() -> int:
     ending_credits = json.loads((ROOT/"localization/pt-BR/ending-credits-pilot.json").read_text(encoding="utf-8"))
     regions = json.loads((ROOT/"localization/pt-BR/regions.json").read_text(encoding="utf-8"))["regions"]
     changes.extend(make_ending_credits_patches(rom, ending_credits, candy_config, regions))
+    cast = json.loads((ROOT/"localization/pt-BR/cast-pilot.json").read_text(encoding="utf-8"))
+    changes.extend(make_cast_patches(rom, cast, candy_config["accent_slots"]))
     occupied=set()
     for offset,data in changes:
         addresses=set(range(offset,offset+len(data)))
@@ -211,10 +214,11 @@ def main() -> int:
     header_text="\n".join(header)
     if not header_path.exists() or header_path.read_text(encoding="utf-8")!=header_text:
         header_path.write_text(header_text,encoding="utf-8")
-    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics, character dialogues and both credits sequences",
+    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics, character dialogues, cast and credits",
               "screens":summary,"candy":candy_summary,"funky":funky_summary,"cranky":cranky_summary,
               "ship_credits":{"records":len(ship_credits["roles"])+2},
               "ending_credits":{"records":len(ending_credits["headings"])},
+              "cast":{"headings":len(cast["headings"]),"remarks":len(cast["dialogue"])},
               "cranky_tips":tips_summary,"patchset_sha256":patchset,
               "regions":[{"offset":f"0x{offset:06X}","bytes":len(data),"after_sha256":hashlib.sha256(data).hexdigest()}
                          for offset,data in changes],"source_rom_written":False}

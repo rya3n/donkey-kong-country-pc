@@ -10,6 +10,7 @@ from pathlib import Path
 import subprocess
 from generate_ptbr_menu_pilot import make_patch
 from generate_ptbr_candy_pilot import make_candy_patch
+from generate_ptbr_cast import make_cast_patches
 from generate_ptbr_funky_pilot import make_funky_patch
 from generate_ptbr_cranky_pilot import make_cranky_patch, make_cranky_tips_patch
 from generate_ptbr_ending_credits import make_ending_credits_patches
@@ -57,10 +58,13 @@ def main() -> int:
     ending_config=json.loads((ROOT/"localization/pt-BR/ending-credits-pilot.json").read_text(encoding="utf-8"))
     ending_patches=make_ending_credits_patches(original_rom,ending_config,candy_config,regions)
     patches.extend(ending_patches)
+    cast_config=json.loads((ROOT/"localization/pt-BR/cast-pilot.json").read_text(encoding="utf-8"))
+    cast_patches=make_cast_patches(original_rom,cast_config,candy_config["accent_slots"])
+    patches.extend(cast_patches)
     translated_bytes={i for msg in candy_config["messages"]+funky_config["messages"]+cranky_config["messages"]+tips_config["messages"]
                       for i in range(int(msg["offset"],16),int(msg["offset"],16)+msg["bytes"])}
     translated_bytes.update(range(ship_start,ship_start+len(ship_data)))
-    for offset,data in ending_patches:
+    for offset,data in ending_patches+cast_patches:
         translated_bytes.update(range(offset,offset+len(data)))
     patched_rom=bytearray(original_rom)
     for offset,data in patches: patched_rom[offset:offset+len(data)]=data

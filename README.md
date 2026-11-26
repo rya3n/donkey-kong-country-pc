@@ -77,7 +77,7 @@ A **rota principal da campanha** foi validada até o retorno à tela de título 
 
 ## 🍌 Tradução PT-BR
 
-O piloto reúne **217 diálogos**. São **8 da Candy**, **13 do Funky** e **196 do Cranky**, incluindo **27 dicas** de fases. As falas amostradas do Cranky no final da campanha apareceram em PT-BR. Os **32 registros dos créditos** tiveram os rótulos traduzidos e as atribuições conferidas no jogo. A revisão do elenco e das demais telas continua. [Resultados dos créditos](docs/15-PT-BR.md#créditos-reais-em-pt-br)
+O piloto reúne **217 diálogos**. São **8 da Candy**, **13 do Funky** e **196 do Cranky**, incluindo **27 dicas** de fases. Os **32 registros dos créditos** tiveram os rótulos traduzidos e as atribuições conferidas no jogo. A apresentação do elenco ganhou sete títulos e quatro falas em PT-BR, com os 36 nomes preservados. A revisão em contexto das demais telas e falas continua. [Documentação do elenco](docs/15-PT-BR.md#apresentação-do-elenco-em-pt-br)
 
 [Preparação e glossário](docs/15-PT-BR.md) · [Piloto dos menus](docs/16-PILOTO-PT-BR.md) · [Inventário dos diálogos](docs/30-DIALOGOS-CRANKY-PT-BR.md)
 

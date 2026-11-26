@@ -104,7 +104,15 @@ Em 2026-11-26, o piloto recebeu o título **Créditos** e os rótulos de 24 grup
 
 Dois processos Windows sem janela retomaram o mesmo estado isolado no décimo golpe de King K. Rool, no quadro 231.354, e repetiram o [roteiro de encerramento](../recipes/usa-rev1/campaign-to-ending-title.inputs) até 254.444. Os 25 rótulos apareceram completos no buffer de sprites. As 248 aparições de linhas de atribuição amostradas preservaram os caracteres e as posições. As capturas confirmaram o desenho dos acentos e o encaixe do texto na cena.
 
-Dos 69 pontos comparados, os 57 quadros com diferença visual ficaram na rolagem dos créditos reais. As imagens e os indicadores de jogo coincidiram na volta ao título. Nessa tela, a diferença de WRAM ficou na faixa do buffer de sprites nos quadros 251.294 e 254.444. Os saves finais de 2.048 bytes foram idênticos. Os 67 testes Python, os três alvos do CTest de cada compilação e os três pontos da regressão de boot passaram. As evidências ficam em `evidence/2026-11-26/v16-creditos-reais/`. A próxima revisão da V15–V16 abrange os 47 registros do elenco.
+Dos 69 pontos comparados, os 57 quadros com diferença visual ficaram na rolagem dos créditos reais. As imagens e os indicadores de jogo coincidiram na volta ao título. Nessa tela, a diferença de WRAM ficou na faixa do buffer de sprites nos quadros 251.294 e 254.444. Os saves finais de 2.048 bytes foram idênticos. Os 67 testes Python, os três alvos do CTest de cada compilação e os três pontos da regressão de boot passaram. As evidências ficam em `evidence/2026-11-26/v16-creditos-reais/`.
+
+### Apresentação do elenco em PT-BR
+
+Em 2026-11-26, o piloto recebeu sete títulos de grupo e quatro falas do Cranky. As traduções preservam a provocação do Cranky, incluindo a única vida e a marca de menos de uma hora. Os 36 nomes próprios continuam com os bytes de texto originais. Cada tradução ocupa o tamanho da linha original, mantém seu ponteiro e seu terminador e usa os glifos acentuados da fonte de diálogos.
+
+Dois processos Windows sem janela retomaram o mesmo estado isolado no décimo golpe de King K. Rool, no quadro 231.354, e repetiram o [roteiro de encerramento](../recipes/usa-rev1/campaign-to-ending-title.inputs) até 254.444. O buffer de sprites confirmou conteúdo e encaixe dos 11 textos traduzidos e grafia, ordem e posição dos 36 nomes.
+
+Dos 239 quadros comparados, os 29 com diferenças visuais mudaram apenas na faixa da legenda do elenco, entre as linhas 200 e 207. As capturas dos créditos reais e da tela de título coincidiram. A WRAM divergiu no início dos créditos, no quadro 245.894, e coincidiu nas medições a partir de 250.844. Os saves finais de 2.048 bytes ficaram idênticos. Os 68 testes Python, os três alvos do CTest de cada build e os três pontos da regressão de boot passaram. As evidências locais estão em `evidence/2026-11-26/v16-elenco/`.
 
 ## Auditoria de cobertura do piloto (V15)
 

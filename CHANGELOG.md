@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-26 — Apresentação do elenco em PT-BR
+
+- Traduzidos sete títulos e quatro falas do Cranky. Os 36 nomes conservaram a grafia, a ordem e a posição. O teste confirmou a passagem para os créditos, o retorno ao título e o mesmo save final. [Resultados](docs/15-PT-BR.md#apresentação-do-elenco-em-pt-br)
+
 ## 2026-11-26 — Créditos reais em PT-BR
 
 - Traduzidos o cabeçalho e as funções dos 25 registros finais. A rolagem exibiu os acentos e preservou as atribuições originais. O ensaio confirmou o retorno ao título e o mesmo save final. [Resultados](docs/15-PT-BR.md#créditos-reais-em-pt-br)

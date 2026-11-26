@@ -98,13 +98,15 @@ Estes critérios propostos dão forma verificável à meta de PT-BR e abertura d
 | V18 | Abertura direta | Após a preparação inicial definida, abrir o executável inicia o jogo sem terminal ou nova seleção de ROM. [Ensaio das compilações atuais](#abertura-direta-no-windows-v18) |
 | V19 | Pacote de aplicativo | Testar em ambiente Windows sem ferramentas de desenvolvimento, incluindo caminho com espaços/acentos, saves e preferências entre sessões. [Preferência de imagem validada nos builds locais](#preferência-de-imagem-no-windows-v19) |
 
-A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto do piloto cobre os 217 intervalos de diálogos. A apresentação do elenco e as telas restantes seguem em revisão. [Resultado da auditoria V15](15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
+A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto do piloto cobre os 217 intervalos de diálogos. As demais telas e falas seguem em revisão em contexto. [Resultado da auditoria V15](15-PT-BR.md#auditoria-de-cobertura-do-piloto-v15)
 
 Na V16, o título **SALVAR COM A CANDY** passou na revisão em tela. O teste confirmou que a alteração visual ficou na faixa do título, que a volta ao mapa e os saves coincidiram e que a reabertura a frio funcionou. A diferença digital de áudio da V17 após confirmar o slot ficou igual à medida no piloto anterior. [Teste e limites](15-PT-BR.md#título-integrado-no-piloto)
 
 Os sete registros dos créditos do navio passaram na revisão em jogo. A rolagem preservou a posição das atribuições, e a luta retomou até o encerramento com o mesmo save final. [Créditos do navio](15-PT-BR.md#créditos-do-navio-em-pt-br)
 
-Os 25 registros dos créditos reais também passaram. O teste encontrou todos os rótulos traduzidos no buffer de sprites, confirmou o desenho do **ã**, a posição das linhas de atribuição, o retorno ao título e o mesmo save final. O teste retomou um estado isolado no fim da luta. Os 47 registros do elenco são a próxima revisão. [Créditos reais](15-PT-BR.md#créditos-reais-em-pt-br)
+Os 25 registros dos créditos reais também passaram. O teste encontrou todos os rótulos traduzidos no buffer de sprites, confirmou o desenho do **ã**, a posição das linhas de atribuição, o retorno ao título e o mesmo save final. O teste retomou um estado isolado no fim da luta. [Créditos reais](15-PT-BR.md#créditos-reais-em-pt-br)
+
+A revisão da apresentação do elenco conferiu os 47 registros em jogo. Os sete títulos e quatro falas apareceram completos e os 36 nomes coincidiram em grafia, ordem e posição. O trecho comparado retomou um estado de QA e confirmou a rolagem dos créditos seguintes, o retorno ao título e o mesmo save final. [Apresentação do elenco](15-PT-BR.md#apresentação-do-elenco-em-pt-br)
 
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
