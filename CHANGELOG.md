@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-26 — Créditos do navio em PT-BR
+
+- Os sete registros da sequência falsa foram localizados com a grafia de brincadeira e os nomes na coluna original. O teste confirmou a volta da luta, o retorno ao título e o mesmo save final. [Resultados](docs/15-PT-BR.md#créditos-do-navio-em-pt-br)
+
 ## 2026-11-26 — Título do menu da Candy em PT-BR
 
 - O piloto exibe **SALVAR COM A CANDY** acima dos slots e mantém **Candy's Save Point** no mapa. A comparação visual, a gravação do save e a reabertura em um novo processo passaram. [Resultados da validação](docs/15-PT-BR.md#título-integrado-no-piloto)

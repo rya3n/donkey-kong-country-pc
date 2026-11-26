@@ -90,6 +90,14 @@ python scripts/preview_credit_text.py --input evidence/texto-proprio.json --colu
 
 Em 2026-11-22, o teste com 11 linhas sintéticas confirmou duas linhas acima da referência de 24 caracteres e uma acima da referência de 28. No Edge, a rolagem, a pausa, o controle de posição e os acentos passaram em larguras de 390 e 1.100 pixels. Os 59 testes Python passaram. Os resultados se referem à fonte do navegador. A fonte do jogo e a integração de um catálogo próprio ficam na etapa V15–V16.
 
+### Créditos do navio em PT-BR
+
+Em 2026-11-26, o piloto passou a exibir **Kréditos**, cinco funções em português com a grafia de brincadeira e a pergunta **O fim?**. O catálogo define os novos rótulos. O gerador lê os nomes na ROM local e ajusta os pontos de cada linha para manter os nomes na coluna original. A sequência reaproveita os glifos acentuados dos diálogos. A legenda mais longa da abertura usa um byte recuperado na pergunta final. O bloco continua com 146 bytes e com os mesmos ponteiros de início e fim.
+
+Dois processos com perfis isolados retomaram o mesmo estado de QA antes do sétimo golpe, no quadro 228.020, e executaram até o quadro 254.444 do [roteiro de encerramento](../recipes/usa-rev1/campaign-to-ending-title.inputs). Em 29 pontos comparados, os 15 quadros com diferença visual ficaram na rolagem dos créditos falsos. A inspeção confirmou os sete registros em português e a posição dos nomes nas cinco atribuições.
+
+King K. Rool retomou a luta no quadro 229.811, e o roteiro confirmou os três golpes restantes e o retorno ao título. O buffer de sprites ainda continha 22 bytes diferentes no quadro de retomada. A imagem coincidiu a partir desse ponto, e toda a WRAM voltou a coincidir nos pontos amostrados a partir de 250.844. O save final de 2.048 bytes foi idêntico nos dois perfis. Os 66 testes Python e os três alvos do CTest de cada compilação passaram. As evidências ficam em `evidence/2026-11-26/v16-credits-navio/`. Os 25 registros dos créditos reais e os 47 do elenco seguem na revisão V15–V16.
+
 ## Auditoria de cobertura do piloto (V15)
 
 Em 2026-11-23, o verificador comparou os 346 registros do catálogo privado com os 226 intervalos do manifesto PT-BR. Para cada registro, o relatório contou coincidências exatas de início e fim, outras sobreposições e ausência de sobreposição. O executável sem janela confirmou a identidade do conjunto de alterações do manifesto ao rodar 600 quadros com a Rev 1.

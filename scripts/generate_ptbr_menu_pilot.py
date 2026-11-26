@@ -13,6 +13,7 @@ import struct
 from generate_ptbr_candy_pilot import make_candy_patch
 from generate_ptbr_funky_pilot import make_funky_patch
 from generate_ptbr_cranky_pilot import make_cranky_patch, make_cranky_tips_patch
+from generate_ptbr_ship_credits import make_ship_credits_patch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -176,6 +177,8 @@ def main() -> int:
     tips_config=json.loads((ROOT/"localization/pt-BR/cranky-tips-pilot.json").read_text(encoding="utf-8"))
     tips_changes,tips_summary=make_cranky_tips_patch(rom,tips_config,candy_config)
     changes.extend(tips_changes)
+    ship_credits = json.loads((ROOT/"localization/pt-BR/ship-credits-pilot.json").read_text(encoding="utf-8"))
+    changes.append(make_ship_credits_patch(rom, ship_credits, candy_config["accent_slots"]))
     occupied=set()
     for offset,data in changes:
         addresses=set(range(offset,offset+len(data)))
@@ -204,8 +207,9 @@ def main() -> int:
     header_text="\n".join(header)
     if not header_path.exists() or header_path.read_text(encoding="utf-8")!=header_text:
         header_path.write_text(header_text,encoding="utf-8")
-    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics including the Candy save title and the dialogue inventory for Candy, Funky and Cranky",
+    manifest={"rom_sha256":profile["sha256"],"scope":"Menu graphics, character dialogues and the ship credits",
               "screens":summary,"candy":candy_summary,"funky":funky_summary,"cranky":cranky_summary,
+              "ship_credits":{"records":len(ship_credits["roles"])+2},
               "cranky_tips":tips_summary,"patchset_sha256":patchset,
               "regions":[{"offset":f"0x{offset:06X}","bytes":len(data),"after_sha256":hashlib.sha256(data).hexdigest()}
                          for offset,data in changes],"source_rom_written":False}

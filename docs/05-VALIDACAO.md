@@ -102,6 +102,8 @@ A V15 avançou na auditoria dos 346 registros do catálogo parcial. O manifesto 
 
 Na V16, o título **SALVAR COM A CANDY** passou na revisão em tela. O teste confirmou que a alteração visual ficou na faixa do título, que a volta ao mapa e os saves coincidiram e que a reabertura a frio funcionou. A diferença digital de áudio da V17 após confirmar o slot ficou igual à medida no piloto anterior. [Teste e limites](15-PT-BR.md#título-integrado-no-piloto)
 
+Os sete registros dos créditos do navio passaram na revisão em jogo. A rolagem preservou a posição das atribuições, e a luta retomou até o encerramento com o mesmo save final. Os créditos reais e o elenco seguem em revisão. [Créditos do navio](15-PT-BR.md#créditos-do-navio-em-pt-br)
+
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.
