@@ -1,22 +1,22 @@
 # Falas de retorno rápido do Cranky em PT-BR
 
-Entrega de 2026-11-07 no piloto separado USA v1.1 (Rev 1). Integrada toda a tabela inglesa de retorno rápido do Cranky (`0x3C0144–0x3C0164`, 16 ponteiros cobrindo 11 mensagens únicas de `0x3C2E3B` a `0x3C301E`), usada quando o jogador volta à cabana em curto intervalo ou após falhar numa fase. O Cranky passa a ter seis saudações, onze falas de retorno rápido e todas as vinte e sete dicas de fases dos seis mundos traduzidas (44 mensagens do Cranky). Com Candy e Funky, são 56 mensagens no piloto; demais tabelas gerais do Cranky continuam em etapas próprias.
+Entrega de 2026-11-07 no piloto separado USA v1.1 (Rev 1). Integrada a tabela inglesa de retorno à cabana do Cranky (`0x3C0144–0x3C0164`, 16 ponteiros cobrindo 11 mensagens de `0x3C2E3B` a `0x3C301E`). A revisão de 2026-11-27 conferiu em jogo a condição que escolhe essa tabela.
 
 ## Textos traduzidos
 
 | Endereço | Tamanho | Redação em PT-BR |
 | --- | --- | --- |
 | `0x3C2E3B` | 70 B | Voltou aqui de novo?! / Eu sabia que um pirralho / como você ia falhar... |
-| `0x3C2E81` | 85 B | Que rápido! Você nem mesmo / me deu tempo suficiente para / pensar em mais piadas bobas! |
+| `0x3C2E81` | 85 B | Que rápido! Nem me deu / tempo de pensar em mais / piadas bobas! |
 | `0x3C2ED6` | 70 B | Nem sei por que / digo tudo isso pra você, / você nem ouviu da outra vez! |
-| `0x3C2F1C` | 32 B | Você tem de / ir melhor que isso! |
-| `0x3C2F3C` | 20 B | Você acabou de ir! |
+| `0x3C2F1C` | 32 B | Vai ter de / fazer melhor! |
+| `0x3C2F3C` | 20 B | Você mal saiu! |
 | `0x3C2F50` | 30 B | Já voltou?! Isso foi rápido! |
 | `0x3C2F6E` | 47 B | Voltou ao grande mestre / atrás de mais dicas, é? |
 | `0x3C2F9D` | 27 B | Ainda apanhando feio, é?! |
 | `0x3C2FB8` | 47 B | Pois é! Nem fazem jogadores / como antigamente! |
-| `0x3C2FE7` | 55 B | Bom, / eu passo a fase para você!... / Nada, só brincando! |
-| `0x3C301E` | 86 B | Como é que você se atreve / a mostrar a cara aqui de novo / após um desempenho lamentável! |
+| `0x3C2FE7` | 55 B | Tá bom, / eu passo a fase pra você... / Tava só brincando! |
+| `0x3C301E` | 86 B | Como é que você se atreve / a voltar aqui depois de / dar tanto vexame?! |
 
 O tom ranzinza e sarcástico original foi preservado em todas as onze mensagens.
 
@@ -28,7 +28,7 @@ Abrir **Testar DKC - PT-BR.cmd** para jogar no perfil próprio do piloto. O apli
 
 ## Integração
 
-O arquivo `localization/pt-BR/cranky-pilot.json` reúne agora dezessete mensagens gerais do Cranky separadas pelo campo `group`: seis saudações iniciais (`greetings`) e onze falas de retorno rápido (`revisits`). A função `make_cranky_patch` valida a guarda completa da tabela `0x3C0144–0x3C0164` (`2e3b 2e81 2ed6 2f1c 2f3c 2f50 2f6e 2f9d 2fb8 2fe7 301e 2ed6 2f1c 2f3c 2f50 2f6e`) além das guardas de idioma e saudações.
+O arquivo `localization/pt-BR/cranky-pilot.json` reúne as onze falas no grupo `revisits`. A função `make_cranky_patch` valida a guarda completa da tabela `0x3C0144–0x3C0164`, além das guardas de idioma e saudações.
 
 As onze mensagens de `0x3C2E3B` a `0x3C301E` mantêm exatamente seus comprimentos originais em bytes (70, 85, 70, 32, 20, 30, 47, 27, 47, 55 e 86 bytes), preservando ponteiros, quantidades originais de linhas (uma linha em `0x3C2F3C`, `0x3C2F50` e `0x3C2F9D`; duas em `0x3C2F1C`, `0x3C2F6E` e `0x3C2FB8`; três nas demais), terminadores e paridades. Na mensagem `0x3C301E`, cujo original em inglês já usa linha de 31 colunas (`after such a pitiful showing?`), o limite individual `max_line: 31` foi declarado e validado sem corte visual. A fonte compartilhada e seus quatro glifos acentuados (`á`, `ê`, `ó`, `é`) foram reutilizados sem novos slots.
 
@@ -36,7 +36,7 @@ As 54 regiões anteriores mantêm exatamente o hash `f0a3f4f77cdd06619eaae1a3a54
 
 O verificador `scripts/verify_ptbr_candy_pilot.py` aceita `--group greetings` ou `--group revisits` junto de `--character cranky --all-messages`. O diagnóstico `DKC_REV1_QA_CRANKY_MESSAGE` continua exclusivo do runner sem janela.
 
-## Verificações
+## Verificações da integração de 2026-11-07
 
 - Build Release e 51 testes Python passaram, cobrindo os dezessete registros de `cranky-pilot.json`, os vinte e sete registros de `cranky-tips-pilot.json`, grupos e guardas de ponteiros.
 - As onze falas de retorno rápido passaram individualmente: áudio completo e 128 KiB de WRAM inteiramente iguais ao original (`interpreted_steps_delta` de 0 nas dez primeiras e +8 em `0x3C301E`); diferenças de imagem apenas na faixa do diálogo (`1.946`, `2.411`, `2.066`, `675`, `568`, `1.006`, `1.158`, `812`, `1.360`, `1.472` e `2.534` pixels). Capturas inspecionadas, legíveis e sem cortes.
@@ -45,8 +45,6 @@ O verificador `scripts/verify_ptbr_candy_pilot.py` aceita `--group greetings` ou
 - Um ciclo Candy/reinício coincidiu entre aplicativo, runner e disco em perfis de QA separados; SRAM igual ao fixture anterior. Nenhum save pessoal foi usado.
 - Catálogo privado `catalog-draft-12.json` passou nas verificações de nomes e integridade: 50 registros preservados, 56 rascunhos históricos e 240 ainda sem tradução.
 - ROM e executável habitual conservaram os hashes. Nenhuma nova instalação.
-
-Revisão humana destas prévias, condições normais das falas e campanha completa continuam pendentes.
 
 ## Reprodução
 
@@ -64,4 +62,18 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em `evidence/2026-11-07/pt-BR/cranky-revisits/`: `verified-all/`, `prior-greetings-regression/`, `menu-gameplay/`, `saves/`, `prior-patches-check.json`, `editorial-review.json`, `unit-tests.log` e logs de build. Os dados extraídos, capturas, dumps, saves e binários permanecem fora do GitHub público.
 
-Próxima etapa: treze falas completas do Funky Kong em [Treze falas do Funky Kong](28-FUNKY-FALAS-COMPLETAS.md).
+## Revisão em contexto no retorno à cabana
+
+Cinco redações foram ajustadas para manter a fala coloquial do Cranky. “Você mal saiu!” deixa claro que o jogador acabou de sair da cabana. A piada de passar a fase pelo jogador e a provocação sobre o desempenho ficaram mais naturais. Cada texto manteve o tamanho, os terminadores e as paridades, com 237 outras regiões idênticas no manifesto do piloto.
+
+O ensaio retomou os três estados de QA da [revisão das saudações](29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana). Primeiro entrou na cabana de Monkey Mines com uma saudação geral e voltou ao mapa com Start. Depois variou a espera antes de entrar de novo. As 11 falas apareceram pela seleção normal em cada composição, somando 33 entradas de revisita. O mapa de tiles confirmou que as falas completas apareceram nas linhas esperadas. B avançou para a dica de Coral Capers e Start voltou ao mapa, com Cranky's Cabin selecionada em cada perfil.
+
+| Composição | Quadro após a primeira saída | Faixa de espera antes de entrar | Quadro de saída após a dica |
+| --- | ---: | ---: | ---: |
+| Diddy sozinho | 60.630 | 0–28 quadros | 61.181 |
+| Donkey sozinho | 62.031 | 0–30 quadros | 62.584 |
+| Dupla | 61.859 | 0–30 quadros | 62.412 |
+
+Na Rev 1, a rotina usa a tabela de retorno quando o sinalizador de saudação geral em `$057D` já foi consumido. Em uma visita adicional com Diddy, o jogo seguiu nessa tabela após 3.600 quadros de espera no mapa, cerca de um minuto, sem visitar uma fase. A espera por si só preservou a condição de retorno nesse ensaio.
+
+O comparador dos 11 textos confirmou áudio digital e WRAM idênticos à versão base, com diferenças visuais apenas na faixa do diálogo. Passaram os 68 testes Python e os três alvos do CTest em cada build. As evidências ficam em `evidence/2026-11-27/v16-cranky-revisits/`.

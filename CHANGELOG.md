@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-27 — Retornos à cabana do Cranky em PT-BR
+
+- Revisadas as 11 falas de revisita e ajustadas cinco redações. A seleção normal, a passagem para as dicas e a volta ao mapa foram conferidas com os Kongs juntos e separados. [Resultados](docs/27-RETORNO-RAPIDO-CRANKY-PT-BR.md#revisão-em-contexto-no-retorno-à-cabana)
+
 ## 2026-11-27 — Saudações do Cranky Kong em contexto
 
 - Ajustadas cinco saudações. Uma delas agora serve tanto a um Kong sozinho quanto à dupla. A revisão conferiu as 31 variantes selecionadas no jogo e a renderização dos 41 textos catalogados. [Resultados](docs/29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana)
