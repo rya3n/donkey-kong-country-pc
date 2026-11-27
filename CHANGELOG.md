@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-27 — Falas finais do Cranky em PT-BR
+
+- Revisadas as 16 falas finais e ajustadas 15 redações. A revisão cobriu o fim da campanha principal, a variante de 101% e as falas de primeiro e segundo lugar de Red Team e Yellow Team. [Resultados](docs/30-DIALOGOS-CRANKY-PT-BR.md#falas-do-encerramento-em-contexto)
+
 ## 2026-11-27 — Reclamações do Cranky em PT-BR
 
 - Revisadas as 37 reclamações e ajustadas 15 redações, incluindo as piadas sobre os tons de cinza, a dificuldade dos jogos antigos e a barba que acompanha a cadeira. [Resultados](docs/30-DIALOGOS-CRANKY-PT-BR.md#reclamações-em-contexto-na-cabana)

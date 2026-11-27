@@ -122,6 +122,8 @@ As 31 despedidas da tabela normal apareceram após a dica geral. Os 32 textos pa
 
 As 37 reclamações apareceram em sete visitas de Diddy à cabana, com avanço automático das falas. Duas amostras passaram com Donkey e duas com a dupla em revisita. O ensaio confirmou a passagem para a dica de fase e o retorno ao mapa. As 37 falas também passaram no comparador. [Reclamações do Cranky](30-DIALOGOS-CRANKY-PT-BR.md#reclamações-em-contexto-na-cabana)
 
+As 16 falas finais apareceram em sete cenários de encerramento. A rota de campanha retomou a vitória de um jogador com 34% e passou pelo depósito, pelo elenco e pelos créditos até o título. As variantes cooperativa, de 101% e de classificação competitiva usaram estados de QA preparados antes da cena. [Falas do encerramento](30-DIALOGOS-CRANKY-PT-BR.md#falas-do-encerramento-em-contexto)
+
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.

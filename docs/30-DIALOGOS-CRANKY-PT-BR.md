@@ -1,6 +1,6 @@
 # Inventário de diálogos do Cranky em PT-BR
 
-Em 2026-11-10, o piloto passou a incluir as 117 falas restantes do Cranky preparadas no lote anterior. A configuração reúne 196 mensagens do personagem e 217 diálogos no total para USA Rev 1. Esse total corresponde ao bloco inglês de diálogos identificado no inventário. A revisão editorial em campanha e a localização dos créditos e das demais telas continuam abertas.
+Em 2026-11-10, o piloto passou a incluir as 117 falas restantes do Cranky preparadas no lote anterior. A configuração reúne 196 mensagens do personagem e 217 diálogos no total para USA Rev 1. Esse total corresponde ao bloco inglês de diálogos identificado no inventário.
 
 | Grupo integrado | Falas |
 | --- | ---: |
@@ -13,7 +13,7 @@ O lote anterior já tinha oito falas da Candy, treze do Funky e 79 do Cranky. As
 
 ## Como abrir e revisar
 
-Abra **Testar DKC - PT-BR.cmd**. O índice privado evidence/2026-11-10/pt-BR/cranky-complete/preview.html abre as galerias de finais, dicas gerais, despedidas, reclamações e da saudação corrigida da entrega de 2026-11-10. A seleção técnica ocorre na cabana do Cranky no quadro 4.350. As revisões em jogo das dicas gerais, das despedidas e das reclamações estão registradas abaixo.
+Abra **Testar DKC - PT-BR.cmd**. O índice privado evidence/2026-11-10/pt-BR/cranky-complete/preview.html abre as galerias de finais, dicas gerais, despedidas, reclamações e da saudação corrigida da entrega de 2026-11-10. A seleção técnica ocorre na cabana do Cranky no quadro 4.350. As revisões em jogo desses quatro grupos estão registradas abaixo.
 
 ## Verificações
 
@@ -71,4 +71,26 @@ O ensaio parte de [estados isolados no mapa de Monkey Mines](29-SAUDACOES-COMPLE
 
 As sete visitas de Diddy exibiram as 37 reclamações distintas em 42 exibições. A última passou automaticamente para a dica de fase no quadro 63.124. Donkey sozinho e a dupla em revisita exibiram duas falas cada, com avanço automático entre as falas e B para abrir a dica de fase. Start levou os três perfis de volta ao mapa com Cranky's Cabin selecionada (`0x00EF`).
 
-O comparador individual conferiu as 37 falas no quadro 4.350, com áudio digital e WRAM idênticos à versão base. As diferenças visuais ficaram na faixa do diálogo. O manifesto confirmou 15 regiões de texto alteradas e outras 227 idênticas. Passaram os 68 testes Python e os três alvos do CTest em cada compilação. As capturas e os resultados em JSON ficam em `evidence/2026-11-27/v16-cranky-rants/`. A revisão editorial das 16 falas finais do Cranky é a próxima etapa desse lote.
+O comparador individual conferiu as 37 falas no quadro 4.350, com áudio digital e WRAM idênticos à versão base. As diferenças visuais ficaram na faixa do diálogo. O manifesto confirmou 15 regiões de texto alteradas e outras 227 idênticas. Passaram os 68 testes Python e os três alvos do CTest em cada compilação. As capturas e os resultados em JSON ficam em `evidence/2026-11-27/v16-cranky-rants/`.
+
+## Falas do encerramento em contexto
+
+Em 2026-11-27, foram ajustadas 15 das 16 falas finais. A fala sobre a surpresa cita o depósito de bananas, e a provocação sobre os segredos distingue o final comum do final de 101%. Os nomes Donkey, Kremlings, Red Team e Yellow Team foram preservados.
+
+A tabela em `0x3C03A8–0x3C03C7` tem 16 ponteiros distintos. O trecho inicial depende do modo de jogo. No competitivo, o Cranky usa a equipe ativa e se a outra equipe já terminou. Em seguida vem a fala sobre o depósito e o comentário sobre o progresso. A 101%, o jogo escolhe as duas falas que reconhecem a descoberta de todos os segredos.
+
+O teste em Windows sem janela partiu de estados isolados do [roteiro de Gang-Plank Galleon](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#gang-plank-galleon-e-final-da-campanha), entre o décimo golpe e a cena da banana gigante. A rota de um jogador preservou o estado de 34% da campanha. Os outros seis cenários partiram de cópias preparadas para QA com o modo, o progresso de 101% ou o resultado da outra equipe ajustados antes da cena. A seleção das falas e o avanço automático de 384 quadros foram executados pelo jogo.
+
+| Cenário | Falas exibidas |
+| --- | ---: |
+| Um jogador, 34% | 5 |
+| Dupla cooperativa, 34% | 5 |
+| Um jogador, 101% | 5 |
+| Red Team em primeiro | 6 |
+| Yellow Team em primeiro | 6 |
+| Red Team em segundo | 5 |
+| Yellow Team em segundo | 5 |
+
+As 37 exibições cobriram as 16 falas distintas. Todos os cenários avançaram ao depósito recuperado (`0x004C`). No trecho de campanha sem ajustes no estado, o roteiro passou pelo depósito no quadro 234.194, pelo elenco no 235.094 e pelos créditos reais no 245.894. O jogo voltou à tela de título no quadro 254.444, com `entrance=0x0000` e `scene=0x0001`.
+
+Os 16 textos distintos passaram na comparação individual com a versão base. O áudio digital e a WRAM coincidiram. As diferenças de imagem ficaram na faixa do diálogo. O manifesto confirmou 15 regiões de texto alteradas e outras 227 idênticas. Passaram os 68 testes Python e os três alvos do CTest em cada compilação. As capturas e os resultados ficam em `evidence/2026-11-27/v16-cranky-endings/`.

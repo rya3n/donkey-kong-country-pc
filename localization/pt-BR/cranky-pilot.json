@@ -11,9 +11,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Muito bem, rapaz Donkey!",
-        "Quem diria que um pirralho",
-        "travesso que nem você"
+        "Muito bem, Donkey, rapaz!",
+        "Quem diria que um",
+        "pirralho como você"
       ]
     },
     {
@@ -25,7 +25,7 @@
       "group": "endings",
       "lines": [
         "ia derrotar aquele bando",
-        "de reles Kremlings?",
+        "de Kremlings ordinários?",
         "Deixou o velhote orgulhoso!"
       ]
     },
@@ -37,9 +37,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Olhe lá no seu depósito,",
-        "acho que você vai",
-        "se surpreender lá!"
+        "Vá ao depósito de bananas.",
+        "Acho que tem uma",
+        "surpresa pra você!"
       ]
     },
     {
@@ -50,7 +50,7 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Parabéns ao Red Team!"
+        "Parabéns, Red Team!"
       ]
     },
     {
@@ -61,9 +61,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Vocês surraram aqueles",
-        "crocodilos e foram",
-        "os primeiros no fim!"
+        "Vocês surraram uns",
+        "crocodilos espertos",
+        "e chegaram em primeiro!"
       ]
     },
     {
@@ -74,9 +74,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Mas o que aconteceu ao",
-        "Yellow Team? Acho que eles",
-        "precisam treinar mais!"
+        "E o que houve com o",
+        "Yellow Team? Acho que",
+        "eles precisam treinar mais!"
       ]
     },
     {
@@ -87,9 +87,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Mas o que aconteceu ao",
-        "Red Team? Acho que eles",
-        "precisam treinar mais!"
+        "E o que houve com o",
+        "Red Team? Acho que",
+        "eles precisam treinar mais!"
       ]
     },
     {
@@ -100,7 +100,7 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Parabéns para o Yellow Team!"
+        "Parabéns, Yellow Team!"
       ]
     },
     {
@@ -123,8 +123,8 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Deve haver salas secretas",
-        "que você nem achou por cá!"
+        "Ainda deve ter salas extras",
+        "que você nem achou!"
       ]
     },
     {
@@ -135,9 +135,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Mas que bom jogador,",
-        "Donkey, rapaz!",
-        "Derrotou todos os Kremlings,"
+        "Mas você joga bem,",
+        "Donkey, meu rapaz!",
+        "Derrotou os Kremlings"
       ]
     },
     {
@@ -148,9 +148,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "e achou cada segredo",
-        "aqui! Você já é quase",
-        "bom como eu era antes!"
+        "e achou tudo, tudinho!",
+        "Você quase joga como",
+        "eu jogava!"
       ]
     },
     {
@@ -161,9 +161,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Ora, ora, ora, vejam só",
-        "quem veio: Red Team",
-        "O que houve com os dois?!"
+        "Ora, ora! Vejam só",
+        "o Red Team! O que houve",
+        "com vocês dois?"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "lines": [
         "O Yellow Team terminou",
         "faz tempo! Bons demais",
-        "pra vocês dois, é?!"
+        "pra vocês, hein?"
       ]
     },
     {
@@ -187,9 +187,9 @@
       "balanced_padding": true,
       "group": "endings",
       "lines": [
-        "Ora, ora, ora, vejam só",
-        "o grupo Yellow Team!",
-        "O que houve com os dois?!"
+        "Ora, ora! Vejam só",
+        "o Yellow Team! O que houve",
+        "com vocês dois?"
       ]
     },
     {
@@ -202,7 +202,7 @@
       "lines": [
         "O Red Team terminou",
         "faz tempo! Bons demais",
-        "pra vocês dois, é?!"
+        "pra vocês, hein?"
       ]
     },
     {
