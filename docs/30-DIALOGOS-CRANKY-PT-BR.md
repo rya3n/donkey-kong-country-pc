@@ -13,7 +13,7 @@ O lote anterior já tinha oito falas da Candy, treze do Funky e 79 do Cranky. As
 
 ## Como abrir e revisar
 
-Abra **Testar DKC - PT-BR.cmd**. O índice privado evidence/2026-11-10/pt-BR/cranky-complete/preview.html abre as galerias de finais, dicas gerais, despedidas, reclamações e da saudação corrigida da entrega de 2026-11-10. A seleção técnica ocorre na cabana do Cranky no quadro 4.350. As revisões em jogo das dicas gerais e das despedidas estão registradas abaixo.
+Abra **Testar DKC - PT-BR.cmd**. O índice privado evidence/2026-11-10/pt-BR/cranky-complete/preview.html abre as galerias de finais, dicas gerais, despedidas, reclamações e da saudação corrigida da entrega de 2026-11-10. A seleção técnica ocorre na cabana do Cranky no quadro 4.350. As revisões em jogo das dicas gerais, das despedidas e das reclamações estão registradas abaixo.
 
 ## Verificações
 
@@ -60,3 +60,15 @@ A tabela de despedidas em `0x3C02C4–0x3C0304` tem 32 ponteiros para 31 textos,
 O teste começou nos [estados isolados no mapa de Monkey Mines](29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana). Depois da saudação ou da fala de retorno, três toques em B passaram pela dica de fase, pela dica geral e pela despedida. O jogo selecionou as 31 variantes com Diddy sozinho. A revisão também conferiu três despedidas com Donkey e quatro com a dupla, num total de 38 entradas. A saída automática ao fim da fala passou com Diddy e com a dupla. A saída com Start passou com Donkey. Nos três perfis, Cranky's Cabin voltou a ficar selecionada no mapa.
 
 O comparador individual conferiu os 32 textos com áudio digital e WRAM idênticos à versão base. As diferenças visuais ficaram na faixa do diálogo. O manifesto mostrou 11 regiões de texto alteradas e outras 231 idênticas. Passaram os 68 testes Python e os três alvos do CTest em cada compilação. As evidências ficam em `evidence/2026-11-27/v16-cranky-farewells/`.
+
+## Reclamações em contexto na cabana
+
+Em 2026-11-27, foram ajustadas 15 redações. As falas recuperam o contraste entre tons de cinza e cores, a brincadeira com os quadros de animação da barba e a queixa sobre a dificuldade dos jogos antigos. O nome Game & Watch foi preservado.
+
+A tabela em `0x3C0030–0x3C007A` tem 37 ponteiros distintos. A entrada na cabana sorteia a primeira de seis reclamações consecutivas. Elas aparecem depois da saudação ou da fala de retorno, com avanço automático a cada 384 quadros. B durante esse trecho passa para a dica de fase.
+
+O ensaio parte de [estados isolados no mapa de Monkey Mines](29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana), com Cranky's Cabin selecionada. Para repetir a seleção com Diddy sozinho, restaure o estado do quadro 60.258 antes de cada visita, espere 71, 40, 61, 22, 0, 36 ou 29 quadros, conforme a visita, e entre com B. Esses tempos correspondem aos índices iniciais 0, 6, 12, 18, 24, 30 e 31. Aguarde as seis reclamações em cada visita.
+
+As sete visitas de Diddy exibiram as 37 reclamações distintas em 42 exibições. A última passou automaticamente para a dica de fase no quadro 63.124. Donkey sozinho e a dupla em revisita exibiram duas falas cada, com avanço automático entre as falas e B para abrir a dica de fase. Start levou os três perfis de volta ao mapa com Cranky's Cabin selecionada (`0x00EF`).
+
+O comparador individual conferiu as 37 falas no quadro 4.350, com áudio digital e WRAM idênticos à versão base. As diferenças visuais ficaram na faixa do diálogo. O manifesto confirmou 15 regiões de texto alteradas e outras 227 idênticas. Passaram os 68 testes Python e os três alvos do CTest em cada compilação. As capturas e os resultados em JSON ficam em `evidence/2026-11-27/v16-cranky-rants/`. A revisão editorial das 16 falas finais do Cranky é a próxima etapa desse lote.

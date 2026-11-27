@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-27 — Reclamações do Cranky em PT-BR
+
+- Revisadas as 37 reclamações e ajustadas 15 redações, incluindo as piadas sobre os tons de cinza, a dificuldade dos jogos antigos e a barba que acompanha a cadeira. [Resultados](docs/30-DIALOGOS-CRANKY-PT-BR.md#reclamações-em-contexto-na-cabana)
+
 ## 2026-11-27 — Despedidas do Cranky em PT-BR
 
 - Revisados os 32 textos de despedida e ajustadas 11 redações. As 31 variantes da tabela normal apareceram na cabana. A saída automática e o atalho Start levaram de volta ao mapa. [Resultados](docs/30-DIALOGOS-CRANKY-PT-BR.md#despedidas-em-contexto-na-cabana)
