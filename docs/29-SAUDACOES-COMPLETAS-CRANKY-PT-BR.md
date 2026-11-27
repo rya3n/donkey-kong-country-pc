@@ -1,10 +1,10 @@
 # Quarenta e uma saudações completas do Cranky em PT-BR
 
-Entrega de 2026-11-07 no piloto separado USA v1.1 (Rev 1). Integradas as trinta e cinco saudações restantes do Cranky Kong (`0x3C07C0–0x3C0950` e `0x3C0A4D–0x3C0F0B`), concluindo todas as quarenta e uma saudações do personagem (`0x3C07A4–0x3C0F0B`: dez falas para quando apenas Donkey ou Diddy visita a cabana e trinta e uma falas gerais na tabela `0x3C00C4–0x3C0104`). Com Candy (8), Funky (13) e Cranky (79: 41 saudações, 11 falas de retorno rápido e 27 dicas de fases), são 100 mensagens traduzidas no piloto.
+Entrega de 2026-11-07 no piloto separado USA v1.1 (Rev 1). Integradas as trinta e cinco saudações restantes do inventário do Cranky Kong (`0x3C07C0–0x3C0950` e `0x3C0A4D–0x3C0F0B`), totalizando 41 textos. São 31 saudações da tabela geral e dez textos que incluem referências individuais. A verificação posterior da seleção em jogo está registrada abaixo.
 
 ## Novas saudações traduzidas (35 registros)
 
-Este quadro registra a redação de 2026-11-07. Em 2026-11-10, a fala de 0x3C0C2C passou a dizer “Terra de rinocerontes!”. [Lote seguinte e correções](30-DIALOGOS-CRANKY-PT-BR.md).
+Este quadro registra a redação de 2026-11-07. Em 2026-11-10, a fala de 0x3C0C2C passou a dizer “Terra de rinocerontes!”. Os ajustes de 2026-11-27 estão na seção de revisão em contexto. [Lote seguinte e correções](30-DIALOGOS-CRANKY-PT-BR.md)
 
 | Endereço | Tamanho | Redação em PT-BR |
 | --- | --- | --- |
@@ -74,3 +74,21 @@ python scripts/verify_ptbr_candy_pilot.py --rom 'Donkey Kong Country (USA) (Rev 
 python scripts/verify_ptbr_menu_pilot.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' --out evidence/cranky-menu-check
 python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc' --out evidence/cranky-save-check --build-dir build/ptbr-pilot --desktop-name DKC-Rev1-PTBR-Piloto.exe --repeats 1
 ```
+
+## Revisão em contexto na cabana
+
+Em 2026-11-27, uma visita de Diddy sozinho reproduziu a saudação “Quem diria topar com vocês por aqui!”. A seleção normal da USA Rev 1 usa a mesma tabela geral para um Kong e para a dupla. A versão revisada diz “Quem diria receber visita por aqui!”. Outros quatro ajustes melhoraram a quebra da fala sobre Funky Kong, a lembrança das fraldas, a piada de falar sozinho e a referência ao barril que Cranky deu ao amigo orangotango. Os cinco registros mantiveram tamanhos, terminações e paridades.
+
+A tabela inglesa de saudação em `0x3C00C4–0x3C0104` contém 32 ponteiros para 31 textos distintos, com `0x3C0D10` repetido. Os dez registros de `0x3C07A4` a `0x3C0950` ficam fora dessa tabela. O ensaio conferiu esses dez no comparador individual. O fluxo normal testado de entrada na cabana de Monkey Mines usou os outros 31, com seleção pelo próprio jogo e perfis de QA isolados.
+
+Cada ensaio em contexto partiu de um estado no mapa com a cabana selecionada. A espera antes de pressionar B variou para percorrer as 31 variantes em cada uma das três composições. A leitura do mapa de tiles conferiu o texto e a distribuição das linhas nas 93 entradas. Depois da última fala amostrada em cada perfil, Start voltou ao mapa com Cranky's Cabin selecionada.
+
+| Composição | Quadro de partida | Saudações distintas | Quadro de retorno ao mapa |
+| --- | ---: | ---: | ---: |
+| Diddy sozinho | 60.258 | 31 | 60.702 |
+| Dupla | 61.487 | 31 | 62.012 |
+| Donkey sozinho | 61.659 | 31 | 62.184 |
+
+O estado com Diddy veio do [roteiro até Necky's Nuts](../recipes/usa-rev1/campaign-to-neckys-nuts-map.inputs), interrompido no quadro 60.258. Os estados da dupla e de Donkey vieram da recuperação natural do parceiro em Millstone Mayhem, conforme o [desvio das revisitas do Funky](28-FUNKY-FALAS-COMPLETAS.md#revisão-em-contexto-em-funkys-flights). Na dupla, a partir do quadro 61.114, o teste saiu da fase e seguiu à direita de Millstone Mayhem para a cabana. Após 172 quadros sem entrada no outro ensaio, Donkey ficou sozinho e seguiu pelo mesmo caminho.
+
+O comparador individual registrou áudio digital e WRAM idênticos à base nos 41 pontos. As diferenças visuais ficaram na faixa do diálogo. A comparação dos manifestos confirmou que somente os cinco registros ajustados mudaram, com 237 regiões idênticas. Passaram os 68 testes Python e os três alvos do CTest de cada build. As evidências ficam em `evidence/2026-11-27/v16-cranky-greetings/`.

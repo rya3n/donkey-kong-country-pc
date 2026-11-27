@@ -372,8 +372,8 @@
       "balanced_padding": true,
       "lines": [
         "Quem disse que estou aqui?",
-        "Foi o",
-        "Funky Kong irritante?"
+        "Foi aquele chato do",
+        "Funky Kong?"
       ]
     },
     {
@@ -456,8 +456,8 @@
       "balanced_padding": true,
       "group": "greetings",
       "lines": [
-        "Quando vi você antes",
-        "você ainda usava fraldas!"
+        "Da outra vez que te vi,",
+        "você usava fraldas!"
       ]
     },
     {
@@ -577,7 +577,7 @@
       "group": "greetings",
       "lines": [
         "Claro, chegue mais!",
-        "Melhor que falar com o ar!"
+        "Melhor que falar sozinho!"
       ]
     },
     {
@@ -638,8 +638,8 @@
       "balanced_padding": true,
       "group": "greetings",
       "lines": [
-        "Quem diria topar",
-        "com vocês por aqui!"
+        "Quem diria receber",
+        "visita por aqui!"
       ]
     },
     {
@@ -662,8 +662,8 @@
       "balanced_padding": true,
       "group": "greetings",
       "lines": [
-        "Dei meu barril final para o",
-        "seu belo amigo orangotango."
+        "Dei o barril que me restava",
+        "pro seu amigo orangotango."
       ]
     },
     {

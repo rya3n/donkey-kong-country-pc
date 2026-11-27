@@ -51,7 +51,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P28 | Integrar dicas de Chimp Caverns | Implementado; revisão humana pendente | Cinco dicas em 0x3C01C4–0x3C01D4, fechando as 27 dicas dos seis mundos; 49 regiões anteriores idênticas; conferir relatório 26 |
 | P29 | Integrar falas de retorno rápido do Cranky | Implementado; revisão humana pendente | Onze mensagens em 0x3C0144–0x3C0164; 54 regiões anteriores idênticas; conferir relatório 27 |
 | P30 | Completar falas identificadas do Funky | Nove revisitas verificadas em contexto | Cinco falas da dupla, duas de Donkey sozinho e duas de Diddy sozinho. Quatro redações ajustadas, treze falas renderizadas no comparador e acesso a Kongo Jungle testado. [Resultados](28-FUNKY-FALAS-COMPLETAS.md#revisão-em-contexto-em-funkys-flights) |
-| P31 | Completar saudações do Cranky | Implementado, com revisão humana pendente | 41 saudações no piloto de 100 diálogos. Conferir relatório 29 |
+| P31 | Completar saudações do Cranky | 31 variantes conferidas em contexto e 41 textos renderizados | Cinco redações ajustadas. Dez textos ficam fora da tabela normal de saudação da Rev 1 e passaram no comparador individual. [Resultados](29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana) |
 | P32 | Integrar as 117 falas restantes do Cranky | Implementado, com revisão humana pendente | Finais, dicas gerais, despedidas e reclamações. Conferir relatório 30 |
 
 Não há responsáveis individuais ou prazos atribuídos além do contexto da conversa. Cada execução deve acrescentar resultados ao diagnóstico e ao log.

@@ -112,6 +112,8 @@ Na seleção de jogadores, o brilho acompanha os três modos em PT-BR. A revisã
 
 As nove revisitas do Funky foram conferidas com seleção normal do jogo. O ensaio cobriu a dupla, Donkey sozinho e Diddy sozinho em Funky's Flights de Monkey Mines, com viagem a Kongo Jungle para cada composição. [Revisitas do Funky](28-FUNKY-FALAS-COMPLETAS.md#revisão-em-contexto-em-funkys-flights)
 
+A revisão das saudações do Cranky separou a seleção normal de 31 variantes na cabana da renderização individual dos 41 textos do catálogo. A saudação comum a Diddy sozinho e à dupla foi ajustada para as duas situações. [Saudações do Cranky](29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana)
+
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.
