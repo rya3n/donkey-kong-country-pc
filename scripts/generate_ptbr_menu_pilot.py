@@ -54,6 +54,45 @@ def write_glyph(graphics: bytearray, tiles: tuple[int, int], pixels: list[list[i
         graphics[tile*32:tile*32+32] = encode_tile(rows)
 
 
+def draw_label(
+    tilemap: list[int], label: dict, mapping: dict[str, tuple[int, int]],
+    palette: int, row_shift: int = 0,
+) -> None:
+    for line, text in enumerate(label["text"].splitlines()):
+        x, y = label["x"], label["y"] + line * 2 - row_shift
+        if x < 0 or y < 0 or x + len(text) > 32 or (y + 2) * 32 > len(tilemap):
+            raise ValueError(f"Label exceeds its tilemap: {label['id']}")
+        for i, character in enumerate(text):
+            top, bottom = mapping[character]
+            tilemap[y * 32 + x + i] = top | palette << 10
+            tilemap[(y + 1) * 32 + x + i] = bottom | palette << 10
+
+
+def make_player_glow(
+    rom: bytes, spec: dict, glyphs: dict[str, list[list[int]]]
+) -> list[tuple[int, bytes]]:
+    glow = spec["glow"]
+    tm_start, tm_size = int(glow["tilemap"], 16), int(glow["tilemap_size"], 16)
+    gfx_start, gfx_size = int(glow["graphics"], 16), int(glow["graphics_size"], 16)
+    original = struct.unpack_from(f"<{tm_size // 2}H", rom, tm_start)
+    graphics = bytearray(rom[gfx_start:gfx_start + gfx_size])
+    tiles = sorted({word & 1023 for word in original} - {0})
+    if len(tiles) < 2 * len(glyphs) or tiles[-1] >= len(graphics) // 32 or any(graphics[:32]):
+        raise ValueError("Invalid player-select highlight tiles")
+
+    mapping = {}
+    for index, (character, pixels) in enumerate(glyphs.items()):
+        pair = tiles[2 * index], tiles[2 * index + 1]
+        mapping[character] = pair
+        write_glyph(graphics, pair, pixels)
+    tilemap = [0] * len(original)
+    for label in spec["labels"]:
+        # The original HDMA exposes only the selected row range. BG2 scrolls
+        # independently, so place each mask at its corresponding source rows.
+        draw_label(tilemap, label, mapping, 0, label["glow_shift_y"])
+    return [(tm_start, struct.pack(f"<{len(tilemap)}H", *tilemap)), (gfx_start, bytes(graphics))]
+
+
 def make_candy_title(
     rom: bytes, spec: dict, font_offset: int, graphics: bytearray, file_tiles: set[int]
 ) -> tuple[int, bytes]:
@@ -98,8 +137,12 @@ def make_patch(rom: bytes, config: dict) -> tuple[list[tuple[int, bytes]], dict]
     summary = {}
     font_offset = int(config["glyph_source"]["offset"], 16)
     # Confirm the exact Rev 1 menu DMA pointers independently from v1.0 labels.
-    for offset, expected in ((0xf746, "a9776a"), (0xf759, "a9776a"), (0xf7f0, "a9be7f")):
-        if rom[offset:offset+3] != bytes.fromhex(expected):
+    for offset, expected in (
+        (0xf746, "a9776a"), (0xf759, "a9776a"), (0xf7f0, "a9be7f"),
+        (0xdfaa, "a2ef00a99eb8a0202c"), (0xdff8, "bf9eb2ef09001c"), (0xe08c, "ffe7ef"),
+    ):
+        signature = bytes.fromhex(expected)
+        if rom[offset:offset + len(signature)] != signature:
             raise ValueError("Rev 1 menu pointer guard failed")
     if rom[0x39aa62:0x39aa69] != bytes.fromhex("b8 b2 87 00 1b e0 07"):
         raise ValueError("Rev 1 font DMA pointer guard failed")
@@ -116,32 +159,25 @@ def make_patch(rom: bytes, config: dict) -> tuple[list[tuple[int, bytes]], dict]
             kept = {v&1023 for i,v in enumerate(tilemap) if i not in text_cells}
             available = sorted({tilemap[i]&1023 for i in text_cells} - kept - {0})
             for i in text_cells: tilemap[i] = 0
-            glow_start, glow_size = int(spec["original_glow_tilemap"],16), int(spec["original_glow_tilemap_size"],16)
-            # BG2 contains baked English lettering and its glow, not the characters.
-            changes.append((glow_start, bytes(glow_size)))
         else:
             available = list(range(spec["reusable_tiles"][0], spec["reusable_tiles"][1]+1))
         characters = sorted(set("".join(label["text"].replace("\n", "") for label in spec["labels"])))
         if len(characters)*2 > len(available):
             raise ValueError("Not enough reserved glyph tiles")
+        glyphs = {character: glyph(rom, font_offset, character) for character in characters}
         mapping = {}
-        for character in characters:
+        for character, pixels in glyphs.items():
             top, bottom = available[:2]; del available[:2]
             mapping[character] = top, bottom
-            write_glyph(graphics, (top, bottom), glyph(rom, font_offset, character))
+            write_glyph(graphics, (top, bottom), pixels)
         for label in spec["labels"]:
             if "clear_width" in label:
                 for y in range(label["y"], label["y"]+2):
                     for x in range(label["clear_x"], label["clear_x"]+label["clear_width"]):
                         tilemap[y*32+x] = 0
-            for line, text in enumerate(label["text"].splitlines()):
-                x, y = label["x"], label["y"] + line*2
-                if x + len(text) > 32 or (y+2)*32 > len(tilemap):
-                    raise ValueError(f"Label exceeds its tilemap: {label['id']}")
-                for i, character in enumerate(text):
-                    top, bottom = mapping[character]
-                    tilemap[y*32+x+i] = top | label["palette"] << 10
-                    tilemap[(y+1)*32+x+i] = bottom | label["palette"] << 10
+            draw_label(tilemap, label, mapping, label["palette"])
+        if screen == "player_select":
+            changes.extend(make_player_glow(rom, spec, glyphs))
         if screen == "file_select":
             candy_title = config["candy_save_title"]
             file_tiles = {word & 1023 for words in (original_tilemap, tilemap) for word in words}

@@ -27,6 +27,18 @@ def ppm_pixels(path: Path) -> bytes:
     return data[len(header):]
 
 
+def player_select_prefix(boot: Path, frames: int) -> str:
+    steps = []
+    for line in boot.read_text(encoding="ascii").splitlines():
+        mask, length = line.split()
+        count = min(int(length), frames)
+        steps.append(f"{mask} {count}\n")
+        frames -= count
+        if frames == 0:
+            return "".join(steps)
+    raise ValueError("Boot recipe ends before player selection")
+
+
 def main() -> int:
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--rom",required=True,type=Path)
@@ -87,8 +99,17 @@ def main() -> int:
     print("Protected names, untranslated text and Kong graphics match the original",flush=True)
     manifest=json.loads((ROOT/"experimental/usa-rev1/pt-BR/menu-pilot/manifest.json").read_text())
     reports=[]
-    for frames,rois in ((1700,[(32,23,224,42),(32,183,120,202)]),
-                        (2300,[(80,0,256,224)]),(4800,[])):
+    boot=ROOT/"recipes/usa-rev1/boot-to-jungle.inputs"
+    mode_rois=[(80,0,256,224)]
+    checkpoints=[(1700,[(32,23,224,42),(32,183,120,202)],boot),(2300,mode_rois,boot)]
+    mode_prefix=player_select_prefix(boot,2300)
+    for presses in (1,2):
+        frames=2300+80*presses
+        recipe=out/f"{frames}-player-select.inputs"
+        recipe.write_text(mode_prefix+"0020 1\n0000 79\n"*presses,encoding="ascii")
+        checkpoints.append((frames,mode_rois,recipe))
+    checkpoints.append((4800,[],boot))
+    for frames,rois,recipe in checkpoints:
         runs={}
         for kind,build in (("baseline","usa-rev1"),("pilot","ptbr-pilot")):
             run_dir=out/f"{frames}-{kind}"
@@ -96,7 +117,7 @@ def main() -> int:
             env={k:v for k,v in os.environ.items() if not k.startswith("DKC_REV1_") and k!="DKC1_PACING_LOG"}
             env.update(SNESRECOMP_TIER2_DIR=str(run_dir),SNESRECOMP_TIER2_MANIFEST=str(run_dir/"tier2.json"))
             run=subprocess.run([str(ROOT/f"build/{build}/dkc_rev1_headless.exe"),str(args.rom.resolve()),
-                                str(frames),str(run_dir/"frame"),str(ROOT/"recipes/usa-rev1/boot-to-jungle.inputs")],
+                                str(frames),str(run_dir/"frame"),str(recipe)],
                                env=env,capture_output=True,timeout=120)
             (run_dir/"stdout.log").write_bytes(run.stdout)
             (run_dir/"stderr.log").write_bytes(run.stderr)
@@ -121,8 +142,23 @@ def main() -> int:
         reports.append({"frames":frames,"guest_state_and_audio_match":True,"changed_pixels":differences,
                         "outside_text_regions_match":True,"frame_sha256":runs["pilot"]["frame_sha256"]})
         print(f"frames={frames}: state/audio match, changed_pixels={differences}, outside text regions match",flush=True)
+
+    focus_counts=[]
+    for selected,frames in enumerate((2300,2380,2460)):
+        pixels=ppm_pixels(out/f"{frames}-pilot/frame.ppm")
+        counts=[]
+        for label in config["player_select"]["labels"]:
+            x0=label["x"]*8
+            y0=label["y"]*8
+            y1=y0+len(label["text"].splitlines())*16
+            counts.append(sum(pixels[(y*256+x)*3+1]>=220 for y in range(y0,y1) for x in range(x0,256)))
+        if [row for row,count in enumerate(counts) if count] != [selected]:
+            raise AssertionError(f"{frames}: player selection highlight is on the wrong row: {counts}")
+        focus_counts.append(counts)
+    print(f"Player selection highlight follows all three rows: {focus_counts}",flush=True)
     (out/"results.json").write_text(json.dumps({"protected_names_untranslated_text_and_kong_graphics_match":True,
-                                               "checkpoints":reports},indent=2)+"\n",encoding="utf-8")
+                                               "checkpoints":reports,"player_focus_pixels":focus_counts},
+                                              indent=2)+"\n",encoding="utf-8")
     return 0
 
 

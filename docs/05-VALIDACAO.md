@@ -108,6 +108,8 @@ Os 25 registros dos créditos reais também passaram. O teste encontrou todos os
 
 A revisão da apresentação do elenco conferiu os 47 registros em jogo. Os sete títulos e quatro falas apareceram completos e os 36 nomes coincidiram em grafia, ordem e posição. O trecho comparado retomou um estado de QA e confirmou a rolagem dos créditos seguintes, o retorno ao título e o mesmo save final. [Apresentação do elenco](15-PT-BR.md#apresentação-do-elenco-em-pt-br)
 
+Na seleção de jogadores, o brilho acompanha os três modos em PT-BR. A revisão também conferiu os três slots, a exclusão em perfil isolado e a entrada em Kongo Jungle em cada modo. [Validação dos menus](16-PILOTO-PT-BR.md#revisão-da-seleção-de-jogo-e-de-jogadores)
+
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.

@@ -27,9 +27,9 @@ As opções mantêm suas ações originais. O piloto não acrescenta um seletor 
 
 Os textos desses menus são gráficos em tiles de 4 bits por pixel. A fonte reaproveitada foi localizada na Rev 1 em 0x3887B2, com ponteiro DMA conferido em 0x39AA62. O endereço da referência v1.0, 0x3887AF, não corresponde ao início correto na nossa ROM. Foram reconstruídos glifos de Ã e Ç dentro da célula; outros acentos ainda não são suportados por este piloto.
 
-A fonte original é de 8×8 pixels; o piloto usa células de 8×16, com ajuste de altura para os acentos. Isso é uma primeira solução legível, não a tipografia final. A camada de brilho que continha as palavras em inglês foi removida da tela de jogadores; a seleção continua indicada pelas cores e pelo comportamento do jogo. Os desenhos dos Kongs são preservados.
+A fonte original é de 8×8 pixels. O piloto usa células de 8×16, com ajuste de altura para os acentos. Os desenhos dos Kongs são preservados. A camada de brilho da seleção de jogadores usa agora os mesmos glifos em português, posicionados conforme o deslocamento vertical do jogo em cada modo.
 
-O gerador produz um cabeçalho privado com seis regiões de gráficos e tilemaps de interface no piloto atual. A compilação experimental verifica a ROM original, valida o hash de cada região e aplica os dados de interface à cópia em memória antes de inicializar o runtime.
+O gerador produz um cabeçalho privado com sete regiões de gráficos e tilemaps de interface. A compilação experimental verifica a ROM original, valida o hash de cada região e aplica os dados de interface à cópia em memória antes de inicializar o runtime.
 
 | Dados em memória | Intervalo de arquivo, fim exclusivo |
 | --- | --- |
@@ -38,7 +38,8 @@ O gerador produz um cabeçalho privado com seis regiões de gráficos e tilemaps
 | Seleção de arquivo: gráficos | 0x31C987–0x31EA67 |
 | Seleção de jogadores: mapa | 0x2F86BE–0x2F8DBE |
 | Seleção de jogadores: gráficos | 0x2F8DBE–0x2FB29E |
-| Seleção de jogadores: camada com inglês/brilho | 0x2FB29E–0x2FB89E |
+| Seleção de jogadores: mapa do brilho | 0x2FB29E–0x2FB89E |
+| Seleção de jogadores: glifos do brilho | 0x2FB89E–0x2FE4BE |
 
 CMake mantém DKC_BUILD_PTBR_PILOT desligado por padrão. O build separado liga a opção e declara a dependência explícita do cabeçalho gerado, para recompilar quando os gráficos mudarem. Dados derivados, capturas e binários permanecem privados.
 
@@ -66,4 +67,12 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Os verificadores recusam reutilizar diretórios de saída. Fechar o piloto antes de recompilar ou iniciar o verificador de saves, pois o log e o executável pertencem à mesma pasta de build. A versão habitual pode continuar instalada.
 
-Próximo trabalho: obter o retorno visual e preparar uma primeira fala da Candy, verificando a fonte e as quebras de linha do diálogo sem alterar seu nome ou a instrução de salvamento. Os 12 rascunhos anteriores continuam fora do runtime.
+## Revisão da seleção de jogo e de jogadores
+
+Em 2026-11-27, as capturas de QA mostraram **1 JOGADOR** iluminado mesmo após escolher outro modo no piloto. O gerador passou a usar a mesma paleta de repouso nas três linhas e reconstruiu o mapa e os glifos de brilho em português. O jogo usa sua rotina original de HDMA para exibir o brilho na linha ativa. Os glifos de destaque mantêm tons distintos no corpo e no contorno para preservar a leitura das letras e dos acentos.
+
+O verificador reproduziu seleção de jogo, seleção de cada um dos três modos e entrada na primeira fase. Cada captura da seleção mostrou brilho em uma única linha. A ordem foi **1 JOGADOR**, **COMPETIÇÃO** e **EQUIPE**. A comparação com a versão base confirmou o mesmo estado e a mesma sequência digital de áudio nesses pontos.
+
+A matriz complementar cobriu 14 pontos no Windows sem janela. Conferiu a navegação pelos três slots, a ativação e o cancelamento de **APAGAR JOGO**, e a exclusão de uma cópia isolada de QA. O cancelamento conservou o arquivo de 2.048 bytes. Os três modos entraram em Kongo Jungle com o índice esperado, e um terceiro toque para baixo voltou ao modo de um jogador. Imagem, estado, áudio e save coincidiram entre as versões após a confirmação de cada modo. O ensaio começa no boot e termina no mapa ou na primeira fase, conforme o roteiro. Os testes de dois jogadores cobrem a seleção e a entrada no mapa.
+
+Passaram os 68 testes Python, os três alvos do CTest de cada build e os cinco pontos do verificador de menus. As evidências ficam em `evidence/2026-11-27/v16-menus/`. O aceite visual ao vivo continua no P18.
