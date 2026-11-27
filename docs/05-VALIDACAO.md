@@ -116,6 +116,8 @@ A revisão das saudações do Cranky separou a seleção normal de 31 variantes 
 
 Nos retornos à cabana, as 11 falas apareceram para Diddy, Donkey e a dupla. A revisão conferiu 33 entradas, a passagem para uma dica e o retorno ao mapa. [Retornos do Cranky](27-RETORNO-RAPIDO-CRANKY-PT-BR.md#revisão-em-contexto-no-retorno-à-cabana)
 
+As 31 dicas gerais da tabela normal apareceram na sequência da cabana. O comparador conferiu os 32 textos catalogados, incluindo a dica de Gnawty, que fica fora da tabela normal. [Dicas gerais do Cranky](30-DIALOGOS-CRANKY-PT-BR.md#dicas-gerais-em-contexto-na-cabana)
+
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.

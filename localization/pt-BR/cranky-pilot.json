@@ -736,9 +736,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Peixe-espada Enguarde!",
-        "Ele o ajudará",
-        "a ir direto até o ponto!"
+        "O peixe-espada Enguarde",
+        "vai ajudar você",
+        "a ir direto ao ponto!"
       ]
     },
     {
@@ -749,9 +749,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "O rinoceronte Rambi o ajuda,",
-        "mas vai querer",
-        "investir com tudo"
+        "O rinoceronte Rambi ajuda,",
+        "mas ele cobra",
+        "com uma investida!"
       ]
     },
     {
@@ -762,9 +762,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Ouvi que se rolar fora",
-        "da borda e apertar o pulo,",
-        "você dará um superpulo no ar."
+        "Role para fora da plataforma",
+        "e aperte o pulo no ar.",
+        "Assim você dá um superpulo!"
       ]
     },
     {
@@ -788,9 +788,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Eu li lá no manual que você",
-        "pula mais longe ao segurar",
-        "a corrida apertada"
+        "Li no manual que você",
+        "pula mais longe se",
+        "segurar a tecla de corrida!"
       ]
     },
     {
@@ -814,9 +814,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Se bater um barril de metal na",
-        "parede e pular quando ele",
-        "ao voltar, dá pra montar lá!"
+        "Bata um tonel de metal na",
+        "parede. Quando voltar,",
+        "pule nele e pegue carona!"
       ]
     },
     {
@@ -1045,9 +1045,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Tonéis de metal nem quebram,",
-        "siga atrás deles para varrer",
-        "todos os inimigos pelo caminho!"
+        "Tonéis de metal nem quebram.",
+        "Siga atrás deles e deixe",
+        "que derrubem os inimigos!"
       ]
     },
     {
@@ -1058,9 +1058,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Segure a tecla de corrida já",
-        "e pule em inimigos pra ganhar",
-        "mais impulso no pulo."
+        "Segure a tecla de corrida",
+        "e pule nos inimigos para",
+        "ganhar mais impulso!"
       ]
     },
     {
@@ -1071,9 +1071,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Quique nos pneus presos",
-        "para saltar muros e",
-        "chegar em segredos"
+        "Use os pneus fixos",
+        "para pular obstáculos",
+        "e achar salas ocultas!"
       ]
     },
     {
@@ -1097,9 +1097,9 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "Rolar por cima da Slippa,",
-        "ou esmagar a cobra",
-        "num pulo resolve já"
+        "Role sobre a Slippa",
+        "ou pule em cima dela",
+        "pra esmagar a cobra!"
       ]
     },
     {
@@ -1110,8 +1110,8 @@
       "balanced_padding": true,
       "group": "general_tips",
       "lines": [
-        "O castor Gnawty cai",
-        "no giro ou num pulo."
+        "Role ou pule em cima",
+        "do castor Gnawty."
       ]
     },
     {
