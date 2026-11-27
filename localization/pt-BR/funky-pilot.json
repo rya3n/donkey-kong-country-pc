@@ -26,7 +26,7 @@
     {
       "id": "dialogue_en.3c3334", "offset": "0x3C3334", "bytes": 74, "max_line": 29,
       "balanced_padding": true, "group": "revisits",
-      "lines": ["Boa, Kongs irados! Se", "vocês querem velocidade,", "pulem dentro e voem!"]
+      "lines": ["Boa, Kongs irados! Se", "vocês querem velocidade,", "entrem no barril e voem!"]
     },
     {
       "id": "dialogue_en.3c337e", "offset": "0x3C337E", "bytes": 76, "max_line": 29,
@@ -46,7 +46,7 @@
     {
       "id": "dialogue_en.3c3440", "offset": "0x3C3440", "bytes": 85, "max_line": 29,
       "balanced_padding": true, "group": "revisits",
-      "lines": ["Se virem a Candy pelo", "caminho, digam que dou aula", "de surfe pra ela quando der!"]
+      "lines": ["Se encontrarem a Candy,", "digam que dou aula de surfe", "quando ela quiser!"]
     },
     {
       "id": "dialogue_en.3c3495", "offset": "0x3C3495", "bytes": 68, "max_line": 29,
@@ -56,12 +56,12 @@
     {
       "id": "dialogue_en.3c34d9", "offset": "0x3C34D9", "bytes": 85, "max_line": 29,
       "balanced_padding": true, "group": "revisits",
-      "lines": ["Opa, cara Donkey! Talvez seu", "amiguinho do surfe esteja em", "outra fase. Vá conferir lá!"]
+      "lines": ["Opa, Donkey, meu chapa!", "Seu parceiro de surfe pode", "estar em outra fase. Vai lá!"]
     },
     {
       "id": "dialogue_en.3c352e", "offset": "0x3C352E", "bytes": 71, "max_line": 29,
       "balanced_padding": true, "group": "revisits",
-      "lines": ["Fala, Diddy! Perdeu o", "parceiro de novo? Decole", "de volta e confira tudo!"]
+      "lines": ["Fala, Diddy! Perdeu o", "Donkey de novo? Voe de", "volta e veja se acha!"]
     },
     {
       "id": "dialogue_en.3c3575", "offset": "0x3C3575", "bytes": 85, "max_line": 29,

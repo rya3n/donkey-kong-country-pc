@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-27 — Revisitas do Funky Kong em contexto
+
+- Revisadas as nove falas de revisita e ajustadas quatro redações. O jogo selecionou as falas para a dupla, para Donkey sozinho e para Diddy sozinho. [Resultados](docs/28-FUNKY-FALAS-COMPLETAS.md#revisão-em-contexto-em-funkys-flights)
+
 ## 2026-11-27 — Destaque da seleção de jogadores em PT-BR
 
 - O brilho voltou a acompanhar a opção ativa nos três modos. O teste também conferiu os três slots, o cancelamento da exclusão, a exclusão em uma cópia de QA e a entrada em Kongo Jungle nos três modos. [Validação dos menus](docs/16-PILOTO-PT-BR.md#revisão-da-seleção-de-jogo-e-de-jogadores)

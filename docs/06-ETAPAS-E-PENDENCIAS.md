@@ -50,7 +50,7 @@ O usuário priorizou M0 e a criação do GitHub público. Depois, pediu começar
 | P27 | Integrar dicas de Kremkroc Industries Inc. | Implementado; revisão humana pendente | Cinco dicas em 0x3C01B4–0x3C01C4, nomes completos, Gnawty e pistas mantidos; 44 regiões anteriores idênticas; conferir relatório 25 |
 | P28 | Integrar dicas de Chimp Caverns | Implementado; revisão humana pendente | Cinco dicas em 0x3C01C4–0x3C01D4, fechando as 27 dicas dos seis mundos; 49 regiões anteriores idênticas; conferir relatório 26 |
 | P29 | Integrar falas de retorno rápido do Cranky | Implementado; revisão humana pendente | Onze mensagens em 0x3C0144–0x3C0164; 54 regiões anteriores idênticas; conferir relatório 27 |
-| P30 | Completar falas identificadas do Funky | Implementado; revisão humana pendente | Nove mensagens de revisita em 0x3C0374–0x3C038C, fechando todas as 13 falas do Funky; 65 regiões anteriores idênticas; conferir relatório 28 |
+| P30 | Completar falas identificadas do Funky | Nove revisitas verificadas em contexto | Cinco falas da dupla, duas de Donkey sozinho e duas de Diddy sozinho. Quatro redações ajustadas, treze falas renderizadas no comparador e acesso a Kongo Jungle testado. [Resultados](28-FUNKY-FALAS-COMPLETAS.md#revisão-em-contexto-em-funkys-flights) |
 | P31 | Completar saudações do Cranky | Implementado, com revisão humana pendente | 41 saudações no piloto de 100 diálogos. Conferir relatório 29 |
 | P32 | Integrar as 117 falas restantes do Cranky | Implementado, com revisão humana pendente | Finais, dicas gerais, despedidas e reclamações. Conferir relatório 30 |
 

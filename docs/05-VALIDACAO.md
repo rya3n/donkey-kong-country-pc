@@ -110,6 +110,8 @@ A revisão da apresentação do elenco conferiu os 47 registros em jogo. Os sete
 
 Na seleção de jogadores, o brilho acompanha os três modos em PT-BR. A revisão também conferiu os três slots, a exclusão em perfil isolado e a entrada em Kongo Jungle em cada modo. [Validação dos menus](16-PILOTO-PT-BR.md#revisão-da-seleção-de-jogo-e-de-jogadores)
 
+As nove revisitas do Funky foram conferidas com seleção normal do jogo. O ensaio cobriu a dupla, Donkey sozinho e Diddy sozinho em Funky's Flights de Monkey Mines, com viagem a Kongo Jungle para cada composição. [Revisitas do Funky](28-FUNKY-FALAS-COMPLETAS.md#revisão-em-contexto-em-funkys-flights)
+
 A V17 comparou 6.500 quadros de PCM no ensaio da Candy. Na volta ao mapa, o deslocamento ficou entre 0,62 e 1,25 ms nas janelas medidas. Nenhum quadro ficou silencioso em apenas um build. A escuta no dispositivo segue pendente. [Medição](32-CAMPANHA-PT-BR-AUDIO-E-PROGRESSO.md#diferença-digital-após-salvar-na-candy-v17)
 
 A preparação inicial, se necessária, deve ser testada separadamente da abertura habitual. A validação do pacote final precisa acontecer na configuração exata que será usada pelo jogador.

@@ -6,14 +6,14 @@ Entrega de 2026-11-07 no piloto separado USA v1.1 (Rev 1). Integradas as nove me
 
 | Endereço | Tamanho | Redação em PT-BR |
 | --- | --- | --- |
-| `0x3C3334` | 74 B | Boa, Kongs irados! Se / vocês querem velocidade, / pulem dentro e voem! |
+| `0x3C3334` | 74 B | Boa, Kongs irados! Se / vocês querem velocidade, / entrem no barril e voem! |
 | `0x3C337E` | 76 B | Precisam de umas vidas, / galera? Jungle Hijinxs é / o lugar certo pra isso! |
 | `0x3C33CA` | 55 B | Opa, gorilas! / Visitem o velho Cranky, / ele pode ajudar! |
 | `0x3C3401` | 63 B | Mandando bem, Kongs! / Apertem o cinto e decolem, / vocês já foram! |
-| `0x3C3440` | 85 B | Se virem a Candy pelo / caminho, digam que dou aula / de surfe pra ela quando der! |
+| `0x3C3440` | 85 B | Se encontrarem a Candy, / digam que dou aula de surfe / quando ela quiser! |
 | `0x3C3495` | 68 B | Topa um voo, amigo DK? / Você sabe como é, / pule logo e mande ver! |
-| `0x3C34D9` | 85 B | Opa, cara Donkey! Talvez seu / amiguinho do surfe esteja em / outra fase. Vá conferir lá! |
-| `0x3C352E` | 71 B | Fala, Diddy! Perdeu o / parceiro de novo? Decole / de volta e confira tudo! |
+| `0x3C34D9` | 85 B | Opa, Donkey, meu chapa! / Seu parceiro de surfe pode / estar em outra fase. Vai lá! |
+| `0x3C352E` | 71 B | Fala, Diddy! Perdeu o / Donkey de novo? Voe de / volta e veja se acha! |
 | `0x3C3575` | 85 B | Ainda falando sozinho, cara? / Dê uma olhada na selva, logo / você acha o seu parceiro! |
 
 Os nomes próprios (`Kongs`, `Jungle Hijinxs`, `Cranky`, `Candy`, `DK`, `Donkey` e `Diddy`) além de `Funky Kong` e `Jumbo Barrel` das falas de abertura foram preservados e protegidos em `localization/pt-BR/policy.json`.
@@ -32,7 +32,7 @@ As nove mensagens de `0x3C3334` a `0x3C3575` mantêm seus tamanhos originais (74
 
 As 65 regiões anteriores mantêm exatamente o hash `b8d0222530870791ff08c470424ce909c3097de8e24cedf38cbdf0c91e3d223e` ao serem recompostas sem as nove regiões novas. O piloto aplica agora 74 regiões de dados à cópia da ROM em memória (`patchset_sha256` `4501931debd72b9e5a4c58215853ab81df48b20bd04b24219ad02faac370d9d9`). O arquivo da ROM, código do cartucho, unidades AOT e relógio de 60,0988 Hz permanecem intactos.
 
-## Verificações
+## Verificações da integração de 2026-11-07
 
 - Build Release e 52 testes Python passaram, cobrindo os treze registros do Funky, grupos, nomes protegidos e guardas de ponteiros.
 - As nove falas de revisita passaram individualmente: áudio completo e 128 KiB de WRAM inteiramente iguais ao original (`interpreted_steps_delta` de `-8, 8, 0, -8, 0, 0, -8, 8, 0`); diferenças de imagem apenas na faixa do diálogo (`2.228`, `2.289`, `1.339`, `1.624`, `2.522`, `2.092`, `2.358`, `2.247` e `2.734` pixels). Capturas inspecionadas, legíveis e sem cortes.
@@ -58,4 +58,18 @@ python scripts/verify_rev1_saves.py --rom 'Donkey Kong Country (USA) (Rev 1).sfc
 
 Evidências privadas em `evidence/2026-11-07/pt-BR/funky-complete/`: `verified-all/`, `prior-opening-regression/`, `menu-gameplay/`, `saves/`, `prior-patches-check.json`, `editorial-review.json`, `unit-tests.log` e logs de build. Os dados extraídos, capturas, dumps, saves e binários permanecem fora do GitHub público.
 
-Próxima etapa: completar as saudações do Cranky (`0x3C07A4–0x3C0F0B`) em `P31`.
+## Revisão em contexto em Funky's Flights
+
+Em 2026-11-27, quatro redações foram ajustadas para explicitar a entrada no barril, deixar a oferta de aula de surfe à disposição da Candy e tornar naturais as referências ao parceiro nas duas falas solo. A comparação dos manifestos confirmou quatro regiões de texto alteradas e outras 238 idênticas, incluindo a fonte e as falas de abertura.
+
+Três perfis isolados retomaram estados de QA antes de abrir Funky's Flights em Monkey Mines. Donkey, Diddy e a dupla vieram de estados produzidos com entradas de controle. O ensaio variou o tempo de espera no mapa e comparou as linhas renderizadas com o catálogo PT-BR. As nove variantes apareceram com o grupo esperado e sem cortes. Um teste com cada composição também chegou ao mapa de Kongo Jungle pelo barril.
+
+| Composição | Quadro no mapa antes da entrada | Espera e sufixo da mensagem | Chegada a Kongo Jungle |
+| --- | ---: | --- | ---: |
+| Donkey sozinho | 55.300 | 0 → `3495`, 2 → `34D9` | 56.546 |
+| Diddy sozinho | 60.560 | 0 → `352E`, 2 → `3575` | 61.806 |
+| Dupla | 61.487 | 0 → `33CA`, 1 → `3334`, 3 → `3401`, 4 → `337E`, 5 → `3440` | 62.736 |
+
+Na dupla, o teste partiu da seleção de Millstone Mayhem em um desvio da rota documentada. Foram repetidas as entradas dos quadros 55.451 a 56.156 do [roteiro até Necky's Nuts](../recipes/usa-rev1/campaign-to-neckys-nuts-map.inputs). Diddy recuperou Donkey, usou Start e Select para sair da fase já concluída e seguiu à esquerda para Funky's Flights. Em cada estado do mapa, espere os quadros da tabela, pressione B por um quadro e espere 360 para a captura. A partir da última variante do grupo, pressione B e espere 250 quadros, mova para a esquerda e espere 330, depois pressione B e espere 300. O mapa termina em Jungle Hijinxs, entrada `0x0016`.
+
+O comparador adicional selecionou cada uma das nove revisitas e as quatro falas de abertura separadamente. WRAM e áudio digital coincidiram com a versão base nos treze pontos. As diferenças visuais ficaram na faixa do diálogo, com acentos legíveis. Passaram os 68 testes Python e os três alvos do CTest em cada compilação. As capturas e os relatórios ficam em `evidence/2026-11-27/v16-funky/`.
