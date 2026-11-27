@@ -13,7 +13,7 @@ O lote anterior já tinha oito falas da Candy, treze do Funky e 79 do Cranky. As
 
 ## Como abrir e revisar
 
-Abra **Testar DKC - PT-BR.cmd**. O índice privado evidence/2026-11-10/pt-BR/cranky-complete/preview.html abre as galerias de finais, dicas gerais, despedidas, reclamações e da saudação corrigida da entrega de 2026-11-10. A seleção técnica ocorre na cabana do Cranky no quadro 4.350. A revisão em jogo das dicas gerais está registrada abaixo.
+Abra **Testar DKC - PT-BR.cmd**. O índice privado evidence/2026-11-10/pt-BR/cranky-complete/preview.html abre as galerias de finais, dicas gerais, despedidas, reclamações e da saudação corrigida da entrega de 2026-11-10. A seleção técnica ocorre na cabana do Cranky no quadro 4.350. As revisões em jogo das dicas gerais e das despedidas estão registradas abaixo.
 
 ## Verificações
 
@@ -50,3 +50,13 @@ A tabela inglesa de dicas gerais em `0x3C0244–0x3C0284` tem 32 ponteiros para 
 A partir dos [estados isolados no mapa de Monkey Mines](29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana), o jogo escolheu as 31 dicas com Diddy sozinho. Três amostras também passaram com Donkey e três com a dupla em uma revisita. Após a saudação ou a fala de retorno, B abriu uma dica de fase. O segundo B mostrou a dica geral. A leitura das linhas renderizadas confirmou o catálogo em todas as 37 entradas. Os três perfis passaram pela despedida e voltaram ao mapa com Cranky's Cabin selecionada.
 
 Os 32 registros passaram individualmente com áudio digital e WRAM idênticos à versão base. As diferenças visuais ficaram na faixa do diálogo. A comparação dos manifestos confirmou dez alterações no texto e outras 232 regiões idênticas. Passaram os 68 testes Python e os três alvos do CTest de cada compilação. A validação conferiu o texto e a sequência da cabana. As evidências ficam em `evidence/2026-11-27/v16-cranky-tips/`.
+
+## Despedidas em contexto na cabana
+
+Em 2026-11-27, foram ajustadas 11 redações. Frases como “Foi bom bater um papo!” servem para a dupla e para um Kong sozinho, pois a Rev 1 sorteia a despedida na mesma tabela. A piada da gravata preserva o nome Donkey. A despedida do jacaré ficou mais curta e manteve a brincadeira.
+
+A tabela de despedidas em `0x3C02C4–0x3C0304` tem 32 ponteiros para 31 textos, com `0x3C255C` repetido. A fala sobre tirar uma soneca na cabana, no endereço `0x3C23A2`, fica fora dessa tabela e foi conferida individualmente.
+
+O teste começou nos [estados isolados no mapa de Monkey Mines](29-SAUDACOES-COMPLETAS-CRANKY-PT-BR.md#revisão-em-contexto-na-cabana). Depois da saudação ou da fala de retorno, três toques em B passaram pela dica de fase, pela dica geral e pela despedida. O jogo selecionou as 31 variantes com Diddy sozinho. A revisão também conferiu três despedidas com Donkey e quatro com a dupla, num total de 38 entradas. A saída automática ao fim da fala passou com Diddy e com a dupla. A saída com Start passou com Donkey. Nos três perfis, Cranky's Cabin voltou a ficar selecionada no mapa.
+
+O comparador individual conferiu os 32 textos com áudio digital e WRAM idênticos à versão base. As diferenças visuais ficaram na faixa do diálogo. O manifesto mostrou 11 regiões de texto alteradas e outras 231 idênticas. Passaram os 68 testes Python e os três alvos do CTest em cada compilação. As evidências ficam em `evidence/2026-11-27/v16-cranky-farewells/`.

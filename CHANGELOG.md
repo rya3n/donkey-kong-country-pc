@@ -2,6 +2,10 @@
 
 As datas deste histórico usam o fuso America/Sao_Paulo. As entradas mais recentes ficam no início. Este log registra o nosso projeto; as versões do DKC1Recomp são identificadas como versões de terceiros.
 
+## 2026-11-27 — Despedidas do Cranky em PT-BR
+
+- Revisados os 32 textos de despedida e ajustadas 11 redações. As 31 variantes da tabela normal apareceram na cabana. A saída automática e o atalho Start levaram de volta ao mapa. [Resultados](docs/30-DIALOGOS-CRANKY-PT-BR.md#despedidas-em-contexto-na-cabana)
+
 ## 2026-11-27 — Dicas gerais do Cranky em PT-BR
 
 - Revisadas as 32 dicas gerais do catálogo e ajustadas dez redações. As 31 variantes da tabela normal foram conferidas na cabana, incluindo as instruções sobre corrida, superpulo, tonel de metal e pneus. [Resultados](docs/30-DIALOGOS-CRANKY-PT-BR.md#dicas-gerais-em-contexto-na-cabana)
